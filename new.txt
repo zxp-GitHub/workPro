@@ -1,1 +1,3 @@
-i love Git。
+git 安装使用步骤
+
+Git add+Git commit+Gitpush
