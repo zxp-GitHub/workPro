@@ -25,7 +25,6 @@ html,body,.container,.box{
 	overflow: scroll;
 }
 .min_main{
-	/*overflow: scroll;*/
 	background-color: aqua;
 }
 .first_banner{
@@ -290,5 +289,124 @@ html,body,.container,.box{
 	margin-top: 0.2rem;
 }
 /*E mine*/
+/*S seller*/
+.seller_top_p{
+	text-align: center;
+}
+.seller_top_p{
+ line-height: 2.8rem;	
+}
+.merchant_list_a{
+	display: inline-block;
+	width: 100%;
+	height:4rem;
+	background-color: #fff;
+}
+.seller_list_pic{
+	float: left;
+	width: 15%;
+}
+.seller_list_right{
+	float: left;
+	width: 85%;
+}
+.seller_star_span{
+	color: orange;
+}
+.seller_p3{
+	height: 2rem;
+	width: 100%;
+}
+.seller_p3 .seller_p3_span3{
+color: #666;
+margin-right: 0.7rem;
+float: right;
 
+}
+
+/*E seller*/
+/*S event*/
+.event_main{
+	overflow: auto;
+	text-align: center;
+}
+.event_pic{
+	width: 80%;
+}
+.event_p{
+	width: 90%;
+	margin-top: 2rem;
+	text-align: left;
+	margin:  1rem auto;
+	font: 0.8rem/1.4rem "微软雅黑";
+}
+.event_top{
+	position: relative;
+}
+.event_top_pic1{
+	float: left;
+	height: 90%;
+}
+.event_top_p{
+	float: left;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 10%;
+	margin:  0 auto;
+	line-height: 2.2rem;
+}
+.event_top_pic2{
+	float: right;
+	height: 90%;
+}
+
+/*E event*/
+/*S order*/
+.order_main{
+	height: 93%;
+	background-color: firebrick;
+}
+.order_min_space{
+	border-bottom: 1px solid #ccc;
+	width: 92%;
+	margin: 0 auto;
+}
+
+.order_min_space>p{
+	margin: 1rem auto;
+}
+.order_a{
+	display: inline-block;
+	padding: 0.3rem 0.8rem;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	color: orangered;
+	margin-right: 0.5rem;
+}
+/*E order*/
+/*S order_details*/
+.order_details_p{
+	padding: 1rem 0rem;
+	border-bottom:1px solid #ccc;
+}
+.order_details_p>span{
+	color: #ccc;
+	display: inline-block;
+	margin-right: 0.3rem;
+	font-size:1rem ;
+}
+.order_details_weixin_div{
+	width: 100%;
+	height: auto;
+	position: relative;
+	text-align: center;
+}
+.order_details_weixin{
+	margin: 2rem auto;
+	position: relative;
+	left: 0;
+	right: 0;
+}
+/*E order_details*/
 
