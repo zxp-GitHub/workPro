@@ -1,0 +1,183 @@
+/*S first*/
+html,body,.container,.box{
+				width: 100%;
+				height: 100%;
+			}
+.top{
+	width: 100%;
+	height: 8%;
+	background-color:rgb(255,75,76);
+	color: #fff;
+}
+.first-top-ul{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.first-top-li{
+	float: left;
+	font-size: 1rem;
+	position: absolute;
+	height: 1rem;
+	top: 50%;
+	transform: translateY(-0.8rem);
+}
+.first-top-li>a>i{
+	font-size: 1.5rem;	
+}
+.first-top-li:nth-child(1){
+	width: 8%;
+	left: 0.3rem;
+	height: 2rem;
+}
+.first-top-li:nth-child(2){
+	width: 70%;
+	height: 2rem;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.first-top-li>a{
+	color: #fff;
+}
+.first-top-li:nth-child(2)>a>i{
+	vertical-align: middle;
+	font-size: 1.4rem;
+}
+.first-top-li:nth-child(3){
+	right: 1rem;
+}
+.first-top-li-span{
+	display: inline-block;
+   font: 1.2rem/1 "微软雅黑";
+   vertical-align: middle;
+   margin-left: 0.5rem;
+   margin-top: -0.2rem;
+}
+.main{
+	height: 83%;
+	width: 100%;
+	background-color: #E5E5E5;
+	overflow: scroll;
+}
+.big-ul{
+	width: 100%;
+	height: auto;
+	
+}
+.big-li{
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+.show{
+	display: block;
+}
+.home-main-ul{
+	width: 100%;
+	height: 8rem;
+	background-color: #fff;
+}
+.home-main-li{
+	float: left;
+	width: 25%;
+	text-align: center;
+	font: 1rem/1 "微软雅黑";
+}
+.home-main-li>a>img{
+	margin-top: 1rem;
+}
+.home-main-li>a>p{
+	margin-top: 1rem;
+}
+.guess-you-like,.guess-you-like>ul,.guess-you-like>ul>li{
+	width: 100%;
+}
+.guess-you-like{
+	margin-top: 2rem;
+}
+.guess-you-like-p{
+	padding: 1rem 0rem;
+	width: 100%;
+	height:1.5rem;
+	background-color: #fff;
+	border-bottom:0.01rem solid #ccc ;	
+
+}
+.guess-you-like-span{
+	display: inline-block;
+	margin-left: 1rem;
+	font: 1rem/1.5 "微软雅黑";
+}
+
+.main-list-ol{
+	width: 96%;
+	padding: 1.5rem 2%;
+	height: 4rem;
+	background-color: #fff;
+	border-bottom:1px solid #ccc ;	
+	position: relative;
+}
+.main-list-ol>li{
+	float: left;
+}
+.main-list-ol>li:nth-child(1){
+	margin-top: 0.7rem;
+}
+.main-list-ol>li:nth-child(2){
+	float: left;
+	width: 65%;
+	margin-left: 1rem;
+}
+.main-list-ol>li:nth-child(3){
+	position: absolute;
+	bottom: 0.5rem;
+	right: 0.5rem;
+}
+.main-list-ol>li>p{
+	font: 1rem/1.2 "微软雅黑";
+}
+.main-list-ol>li>p:nth-child(2){
+	color: red;
+	margin-top: 0.8rem;
+}
+.buy-car-icon{
+	display: inline-block;
+	padding: 0.45rem 0.5rem 0.25rem 0.35rem;
+	background-color: red;
+	border-radius: 50%;
+	color: #fff;
+	float: right;
+}
+.footer{
+	width: 100%;
+	height: 9%;
+	background-color: #fff
+}
+.footer-ul{
+	width: 100%;
+	height: 100%;
+}
+.footer-li{
+	width: 33.33333%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	font: 0.8rem/1.5 "微软雅黑";
+	position: relative;
+}
+.footer-li-div{
+	position: absolute;
+	width: 100%;
+	height: 3rem;
+	margin-top: -1.5rem;
+	top: 50%;
+}
+.footer-li .footer-p-icon{
+	font: 1.5rem/1 "微软雅黑";
+	margin-top: 0.4rem;
+}
+
+
+/*E first*/
