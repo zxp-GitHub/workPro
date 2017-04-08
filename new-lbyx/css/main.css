@@ -180,4 +180,172 @@ html,body,.container,.box{
 }
 
 
+
 /*E first*/
+/*S address-info*/
+/*.box .add-info-top{
+	position: relative;
+}
+.add-info-top-p{
+	position: absolute;
+	height: 2rem;
+	font: 1.2rem/2rem "微软雅黑";
+	width: 50%;
+	text-align: center;
+	margin:0 auto;
+	left: 0;
+	right: 0;
+	top: 50%;
+    transform: translateY(-1rem);
+	
+}*/
+.add-info-main{
+	width: 100%;
+	height:92%;
+	background-color: #E5E5E5;
+}
+.add-main-ul{
+	width: 100;
+	height: 30%;
+	background-color: #fff;
+}
+.add-main-li{
+	width: 96%;
+	margin: 0 auto;
+	border-bottom: 1px solid #ccc;
+	height: 10%;
+	padding: 3% 0;
+	font: 0.9rem/1 "微软雅黑";
+}
+.add-main-li:nth-child(4){
+	border-bottom: 0;
+}
+.select-area-span{
+	display: inline-block;
+	float: right;
+}
+/*E address-info*/
+/*S all-goods-search*/
+.all-goods-main{
+	width: 100%;
+	height: 92%;
+}
+.all-goods-search{
+	width: 100%;
+	height: 8%;
+	background: #EEE;
+	overflow: hidden;
+}
+.all-goods-search-p{
+	width: 80%;
+	height: 70%;
+	background-color: #fff;
+	border-radius: 2rem;
+	margin: 1.5%;
+	border: 1px solid #ccc;
+	float: left;
+}
+.search-magnifier{
+	display: inline-block;
+	margin: 2%;
+	vertical-align: middle;
+	color: #999999;
+	font-size: 1.5rem;
+}
+.all-goods-search-p .icon-fangdajing1{
+	font-size: 1.2rem;
+}
+.search-input{
+  width: 80%;
+  height: 80%;
+  padding-left: 3%;
+  margin-top: -0.2%;
+  font-size: 1rem;
+  
+}
+.search-span{
+	width: 14%;
+	height: 1rem;
+	float: right;
+	font: 1rem/1 "微软雅黑";
+	margin-top: 3.5%;
+}
+.all-goods-floor{
+	height: 92%;
+	width: 100%;
+}
+.all-goods-left{
+	width: 22.8%;
+	height: 100%;
+	/*border-left: 1% solid #ccc;
+	border-right: 1% solid #ccc;*/
+	float: left;
+}
+.all-goods-right{
+	width: 77%;
+	height: 100%;
+	background-color: #EEEEEE;
+	float: left;
+	overflow: scroll;
+}
+.all-goods-left-ul{
+	height: 100%;
+	width: 99%;
+	overflow: scroll;
+	border-right:1px solid #ccc;
+}
+.all-goods-left-ul>li{
+	/*text-align: center;*/
+	height: 7.5%;
+	width: 100%;
+	background-color: #E5E5E5;
+	border-bottom: 0.5px solid #ccc;
+	font: 0.7rem/1 "微软雅黑";
+	position: relative;
+}
+.all-goods-left-ul>li>span{
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	height: 1rem;
+	width: 100%;
+	margin-top:-0.5rem ;
+	text-align: center;
+}
+.all-goods-min-right{
+	width: 100%;
+	height: auto;
+	background-color: khaki;
+}
+.right-min-box{
+	width: 100%;
+	height: 14rem;
+	background-color: #fff;
+}
+.right-min-box-p{
+	height: 2rem;
+	line-height: 2rem;
+	padding-left: 1rem;
+	background:#E5E5E5;
+}
+.all-goods-right-cell{
+	height: 12rem;
+	width: 100%;
+}
+.right-cell-ul{
+	width: 100%;
+	height: 100%;
+}
+.right-cell-li{
+	float: left;
+	height: 50%;
+	width: 33.333%;
+	text-align: center;
+}
+.right-cell-li>a>img{
+	margin-top: 0.2rem;
+}
+.right-cell-li>p{
+	margin-top: 0.5rem;
+}
+/*E all-goods-search*/
