@@ -8,6 +8,16 @@
 	$(".all-goods-left-ul>li").tap(function  () {
 //		alert($(this).index()); /*不会console一下*/
 		$(this).css({"background-color":" #fff","color":"red"}).siblings().css({"background-color":"#E5E5E5","color":"#000"})
-	})
+	});
+	$('.all-goods-left-ul>li').tap(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.all-goods-list-ul>li').hide().eq($(this).index()).show()
+    })
 /*E all-goods*/
+
+
+
+/*S product-details*/
+ 
+/*E product-details*/
  });

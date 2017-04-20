@@ -14,6 +14,7 @@ html,body,.container,.box{
 	height: 100%;
 	position: relative;
 }
+
 .first-top-li{
 	float: left;
 	font-size: 1rem;
@@ -50,7 +51,7 @@ html,body,.container,.box{
 }
 .first-top-li-span{
 	display: inline-block;
-   font: 1.2rem/1 "微软雅黑";
+   font: 1rem/1.2 "微软雅黑";
    vertical-align: middle;
    margin-left: 0.5rem;
    margin-top: -0.2rem;
@@ -348,6 +349,16 @@ html,body,.container,.box{
 .right-cell-li>p{
 	margin-top: 0.5rem;
 }
+.all-goods-list-ul>li{
+	display: none;
+}
+.all-goods-list-ul>.active{
+	display: block;
+}
+.all-goods-left-ul>li:nth-child(1){
+	background-color: #fff;
+	color: red;
+}
 /*E all-goods-search*/
 /*S select-area*/
 .select-area-ul{
@@ -549,3 +560,111 @@ vertical-align: middle;
 	color: #fff;
 }
 /*E confirm-order*/
+/*S confirm-order-one*/
+.confirm-order1-one{
+	height: 14%;
+}
+.confirm-order1-main-four{
+	height: 20%;
+}
+.confirm-order1-one-p{
+	width: 10%;
+	color: red;
+	margin-bottom: 5%;
+}
+.confirm-order1-one-right{
+	height: 80%;
+	width: 85%;
+	font:600 0.7rem/1rem "微软雅黑";
+}
+.confirm-order1-one-right-p2{
+	margin-top: 5%;
+	height: 48%;
+	width:100%;
+
+}
+.confirm-order1-one-right-p2>span{
+	float: left;
+}
+.confirm-order1-one-right-p2>span:nth-child(1){
+	/*width: 20%;*/
+	height: 100%;
+}
+.confirm-order1-one-right-p2>span:nth-child(2){
+	width: 77%;
+	height: 100%;
+}
+.confirm-order-ul>.confirm-order-border-li{
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	
+}
+/*E confirm-order-one*/
+/*S product-details*/
+.pro-detail-one{
+	width: 100%;
+	height: 57%;
+	background-color: honeydew;
+}
+.pro-detail-two{
+	width: 100%;
+	height: 17%;
+	background-color: honeydew;
+}
+.pro-detail-three{
+	width: 100%;
+	height: 10%;
+	background-color: honeydew;
+}
+.pro-detail-four{
+	width: 100%;
+	height: 10%;
+	background-color: honeydew;
+}
+
+/*E product-details*/
+/*S confirm-order-three*/
+.confirm-order3-three{
+	width: 100%;
+	height:57%;
+	position: relative;
+}
+.confirm-order3-three-p{
+	width: 100%;
+	height: 12%;
+	display: flex;
+    justify-content:center;
+    align-items:center;
+    background-color: #ccc;
+}
+.confirm-order3-three-ul{
+	width: 100%;
+	height: 28%;
+}
+.confirm-order3-three-li{
+	margin: 0 auto;
+	width: 94%;
+	height: 40%;
+	color: red;
+	display: flex;
+    justify-content:left;
+    align-items:center;
+    border-bottom: 1px solid #ccc;
+}
+.confirm-order3-three-cancel{
+	position: absolute;
+	bottom: 0;
+}
+.confirm3-box{
+	position: relative;
+	font-weight: 600;
+}
+.confirm3-mask{
+	position: absolute;
+	width: 100%;
+	height: 48%;
+	background-color: #7F7F7F;
+	opacity: 0.7;
+	z-index: 999;
+}
+/*E confirm-order-three*/
