@@ -457,7 +457,7 @@ vertical-align: middle;
     font: 1rem/1 "微软雅黑";
 }
 .confirm-order-main-second{
-	height: 27%;
+	height: 24%;
 	width: 100%;
 	background-color: #fff;
 }
@@ -605,11 +605,52 @@ vertical-align: middle;
 	width: 100%;
 	height: 57%;
 	background-color: honeydew;
+	overflow-x: hidden;
+	position: relative;
+}
+.pro-detail-one-list-ul{
+	width: 300%;
+	height: 88%;
+	background-color: floralwhite;
+	position: absolute;
+	left:-100%;
+}
+.pro-detail-one-list-ul>li{
+	float:left;
+	width: 33.33%;
+	height: 100%;
+}
+.pro-detail-one-point-ul{
+	width: 100%;
+	height: 10%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	bottom: 2%;
+	display: flex;
+    justify-content:center;
+    align-items:Center;
+}
+.pro-detail-one-point-ul>li{
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 50%;
+	background-color: #ccc;
+	margin: 0 0.5rem;
+	float: left;
+}
+.pro-detail-one-point-ul>.red-point{
+	background-color: red;
 }
 .pro-detail-two{
-	width: 100%;
+	width: 96%;
+	padding-left: 4%;
 	height: 17%;
 	background-color: honeydew;
+}
+.pro-detail-two-p1{
+	font-size: 1rem;
 }
 .pro-detail-three{
 	width: 100%;
@@ -620,13 +661,93 @@ vertical-align: middle;
 	width: 100%;
 	height: 10%;
 	background-color: honeydew;
+	 display: flex;
+    text-align: center;
+}
+.pro-detail-two-supermarket{
+	color: #fff;
+	background-color: red;
+	padding: 0.4% 1%;
+	display: inline-block;
+	margin:0.5rem 0.5rem 0 0;
+}
+.pro-detail-two-p2{
+	margin-top: 0.3rem;
+	color: #666;
+}
+.pro--detail-two-price{
+	margin-top: 0.6rem;
+	color: red;
+	font: 1rem/2rem "微软雅黑";
+}
+.pro-detail-three-p{
+	width: 40%;
+	height: 100%;
+	float: right;
+	display: flex;
+    justify-content:center;
+    align-items:Center;
+    font: 1rem/1 "微软雅黑";
+}
+.pro-detail-three-p>i{
+	font: 2rem/1 "微软雅黑";
+	color: red;
+}
+.pro-detail-three-num{
+	display: inline-block;
+	margin: 0 0.5rem;
+}
+.pro-detail-four>.icon-gouwuche3{
+	font: 2rem/1 "微软雅黑";
+	color: red;
+	margin: auto 3rem;
+	margin-left: 1rem;
+	position: relative;
+}
+.pro-detail-four>.icon-gouwuche3>span{
+	position: absolute;
+	top: -0.3rem;
+	right: -0.3rem;
+	font: 0.5rem;
+	width: 60%;
+	height: 60%;
+	background-color: red;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 0.5rem;
+	 display: flex;
+    justify-content:center;
+    align-items:Center;
+}
+.add-to-car{
+	padding: 3% 8%;
+	background-color: orange;
+	border-radius: 2rem;
+	color: #fff;
+	margin: auto;
+	float: right;
+	margin-right: 0;
+}
+.buy-now{
+	padding: 3% 8%;
+	background-color: red;
+	border-radius: 2rem;
+	color: #fff;
+	margin: auto;
+	
 }
 
+
+.swiper-container{
+    width: 100%;
+    height: 100%;
+    background-color: salmon;
+}  
 /*E product-details*/
 /*S confirm-order-three*/
 .confirm-order3-three{
 	width: 100%;
-	height:57%;
+	height:60%;
 	position: relative;
 }
 .confirm-order3-three-p{
@@ -662,9 +783,12 @@ vertical-align: middle;
 .confirm3-mask{
 	position: absolute;
 	width: 100%;
-	height: 48%;
+	height: 45%;
 	background-color: #7F7F7F;
 	opacity: 0.7;
 	z-index: 999;
+}
+.last-border-none-ul>.confirm-order3-three-li:last-child{
+	border-bottom: none;
 }
 /*E confirm-order-three*/

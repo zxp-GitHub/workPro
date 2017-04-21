@@ -2,9 +2,45 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
 		<title></title>
 	</head>
 	<body>
-		
+		<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/all-goods-right-pic.png"/></div>
+        <div class="swiper-slide"><img src="img/f-2.png"/></div>
+        <div class="swiper-slide"><img src="img/f-3.png"/></div>
+</div>
+   <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+</div>
 	</body>
+	<script type="text/javascript">
+		var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+//  longSwipes : false,
+    loop: true,
+//  onlyExternal : false,
+    autoplay : 2000,
+    autoplayDisableOnInteraction : false,
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+     onInit: function(swiper){
+		      //Swiper初始化了
+		      //alert(swiper.activeIndex);提示Swiper的当前索引
+		      console.log("完成了初始化")
+		    }
+  })      
+	</script>
 </html>
