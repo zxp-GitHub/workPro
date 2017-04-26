@@ -41,16 +41,54 @@ $(".pro-detail-three-p").find(".icon-jiahao2").on('click',function () {
 //轮播图
  var mySwiper = new Swiper ('.swiper-container', {
     direction: 'horizontal',
-//  longSwipes : false,
+    longSwipes : false,
     loop: true,
 //  onlyExternal : false,
     autoplay : 2000,
-//  autoplayDisableOnInteraction : false,
+    autoplayDisableOnInteraction : false,//禁止自动播放的作用
     // 如果需要分页器
     pagination: '.swiper-pagination',
-  })        
+  });
+  $(".add-to-car").tap(function(){
+  		$('.ok-add-cart-mask').fadeIn();
+  		
+	setTimeout(function  () {
+		$('.ok-add-cart-mask').fadeOut()
+//		$('.ok-add-cart-mask').hide();
+//		$('.ok-add-cart-mask').animate({ opacity: 0}, 500, 'ease-out')
+	},1300)
+	});
+    $(".right-icon-tap").tap(function(){
+  	$(".ok-add-cart-mask").hide()
+  });
+  
 /*E product-details*/
 /*S confirm-order*/
 
 /*E confirm-order*/
+/*S index*/
+$(".shopping-car-change-price>.icon-jiahao2").tap(function(){
+	var aaa= parseInt($(this).parent().find("span").html());
+	console.log(aaa);
+	$(this).parent().find("span").html(aaa+1);
+	if (aaa==0) {
+		console.log($(this).css("color"));
+		$(this).parent().find(".icon-jianhao1").css("color","#FF0000");
+	}
+});
+$(".shopping-car-change-price>.icon-jianhao1").tap(function(){
+	var aaa= parseInt($(this).parent().find("span").html());
+	console.log(aaa)
+	if (aaa>0) {
+		$(this).parent().find("span").html(aaa-1);
+	} else{
+		return false;
+	};
+	if (aaa==1) {
+			$(this).css("color","#ccc");
+	}
+});
+
+
+/*E index*/
  });

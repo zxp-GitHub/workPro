@@ -179,7 +179,10 @@ html,body,.container,.box{
 	font: 1.5rem/1 "微软雅黑";
 	margin-top: 0.4rem;
 }
-
+.shopping-cart-li-cell>i,.shopping-car-change-price>i{
+	color: red;
+	
+}
 
 
 /*E first*/
@@ -296,15 +299,18 @@ html,body,.container,.box{
 	border-right:1px solid #ccc;
 }
 .all-goods-left-ul>li{
-	/*text-align: center;*/
+	text-align: center;
 	height: 7.5%;
 	width: 100%;
 	background-color: #E5E5E5;
 	border-bottom: 0.5px solid #ccc;
 	font: 0.7rem/1 "微软雅黑";
 	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.all-goods-left-ul>li>span{
+/*.all-goods-left-ul>li>span{
 	display: inline-block;
 	position: absolute;
 	top: 50%;
@@ -312,7 +318,7 @@ html,body,.container,.box{
 	width: 100%;
 	margin-top:-0.5rem ;
 	text-align: center;
-}
+}*/
 .all-goods-min-right{
 	width: 100%;
 	height: auto;
@@ -675,10 +681,25 @@ vertical-align: middle;
 	margin-top: 0.3rem;
 	color: #666;
 }
-.pro--detail-two-price{
+.pro-detail-two-price{
+	display: inline-block;
 	margin-top: 0.6rem;
 	color: red;
 	font: 1rem/2rem "微软雅黑";
+}
+.pro-detail-two-p3{
+	/*display: flex;
+    justify-content:center;
+    align-items:Center;*/
+}
+.sell-out{
+	display: inline-block;
+	padding: 2% 6%;
+	background-color: #E9E9E9;
+	border-radius: 0.9rem;
+	float: right;
+	margin-top: 3%;
+	margin-right: 1rem;
 }
 .pro-detail-three-p{
 	width: 40%;
@@ -734,15 +755,32 @@ vertical-align: middle;
 	border-radius: 2rem;
 	color: #fff;
 	margin: auto;
-	
 }
-
-
 .swiper-container{
     width: 100%;
     height: 100%;
     background-color: salmon;
 }  
+.ok-add-cart-mask{
+	display: none;
+	z-index: 999;
+	position: absolute;
+	border-radius: 1rem;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 65%;
+    height: 40%;
+    background-color:rgba(000,000,000,0.3);
+    text-align: center;
+    color: #fff;
+    font: 1.3rem/2.2rem "微软雅黑";
+    
+}
+.ok-add-cart-mask>i{
+	 font: 3rem/5rem "微软雅黑";
+}
 /*E product-details*/
 /*S confirm-order-three*/
 .confirm-order3-three{
@@ -792,3 +830,69 @@ vertical-align: middle;
 	border-bottom: none;
 }
 /*E confirm-order-three*/
+/*S select-area-three*/
+.select-area3-main-two{
+	width: 100%;
+	height: 8%;
+	background-color: #ccc;
+}
+.select-area3-two-ul{
+	width: 100%;
+	height: 100%;
+	/*display: flex;
+	align-items: center;
+	justify-content: center;*/
+}
+.select-area3-two-li{
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	}
+.select-area3-main-three{
+	width: 100%;
+	height: 84%;
+	background-color: #fff;
+}
+.select-area3-three-ul>.confirm-order-three-li{
+	height: 5rem;
+	width: 100%;
+}
+.select-area3-img{
+	width: 80%;
+}
+.pic-cell-border{
+	position: relative;
+}
+.select-area3-pic-cell-border{
+	border: none;
+}
+.select-area3-sell-out-mask{
+	position: absolute;
+	width: 100%;
+	height: 30%;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(221,221,221,1);
+/*`	border-bottom-left-radius: 0.5rem;*/
+	border-bottom-right-radius: 0.3rem;
+	border-bottom-left-radius: 0.3rem;
+}
+.icon-gouwuche3-bc{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.3rem;
+	/*width: 1.7rem;
+	height: 1.6rem;*/
+	border-radius: 50%;
+	background-color: red;
+	color: #fff;
+}
+/*E select-area-three*/
