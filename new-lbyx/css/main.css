@@ -1,4 +1,4 @@
-/*S first*/
+/*S first index*/
 html,body,.container,.box{
 				width: 100%;
 				height: 100%;
@@ -181,11 +181,70 @@ html,body,.container,.box{
 }
 .shopping-cart-li-cell>i,.shopping-car-change-price>i{
 	color: red;
+}
+/*S my*/
+.my-first{
+	width: 100%;
+	height: 12rem;
+	background-color: orangered;
+	text-align: center;
+}
+.my-second{
+	width: 100%;
+	height: 15rem;
+	background-color: #fff;
+}
+.my-second-ul{
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}
+.my-first-pic{
+	margin: 2rem;
+}
+.my-first-p{
+	color: #fff;
+	font: 1.2rem/1 "微软雅黑";
+}
+.my-second-li{
+	margin: 0 auto;
+	width: 97%;
+	height: 24.3%;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	display: flex;
+	align-items: center;
+	position: relative;
+	/*justify-content: center;*/
 	
 }
+.my-second-li:last-child{ 
+	border: none;
+}
+.my-second-li>span{
+	display: inline-block;
+	margin-left: 1rem;
+}
+.my-right-icon1{
+	background-color: orangered;
+	color: #fff;
+	padding: 0.2rem;
+	border-radius: 50%;
+}
+.my-right-icon{
+	height: 100%;
+	position:absolute;
+	right: 0;
+	align-items: center; 
+	display: flex;	
+	
+}
+/*没有nth*/
+/*E my*/
 
 
-/*E first*/
+
+/*E first  index*/
 /*S address-info*/
 /*.box .add-info-top{
 	position: relative;
@@ -421,6 +480,10 @@ margin-top: 0.4rem;
 }
 .shopping-car-delete{
 	display: none;
+	width: 10%;
+	height: 100%;
+	background-color: #007AFF;
+	float: right;
 }
 .car-cell-right-p{
 	font: 0.7rem/1.2rem "微软雅黑";
@@ -698,7 +761,7 @@ vertical-align: middle;
 	background-color: #E9E9E9;
 	border-radius: 0.9rem;
 	float: right;
-	margin-top: 3%;
+	/*margin-top: 3%;*/
 	margin-right: 1rem;
 	display: none;
 }
@@ -710,6 +773,9 @@ vertical-align: middle;
     justify-content:center;
     align-items:Center;
     font: 1rem/1 "微软雅黑";
+}
+.pro-detail-three-p>i:nth-child(1){
+	color: #ccc;
 }
 .pro-detail-three-p>i{
 	font: 2rem/1 "微软雅黑";
