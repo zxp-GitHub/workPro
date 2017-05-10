@@ -188,6 +188,7 @@ html,body,.container,.box{
 	height: 12rem;
 	background-color: orangered;
 	text-align: center;
+	overflow: hidden;
 }
 .my-second{
 	width: 100%;
@@ -237,9 +238,64 @@ html,body,.container,.box{
 	right: 0;
 	align-items: center; 
 	display: flex;	
-	
 }
 /*没有nth*/
+.my-first-a{
+	display: none;
+}
+.my-first-b{
+	font: 1.1rem/1 "微软雅黑";
+}
+.my-first-b>pre{
+	color: #fff;
+	margin: 3rem 0rem 2rem 0rem;
+}
+.my-first-b>p{
+	color: red;
+	background-color: #fff;
+	padding: 0.7rem 0.3rem;
+	border-radius: 2rem;
+	width: 30%;
+	margin: 0 auto;
+}
+.my-exit-login-mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 999;
+	display: none;
+}
+.my-mask-div{
+	width: 70%;
+	height:8rem;
+	background-color: #fff;
+	margin: 0 auto;
+	margin-top: 60%;
+	text-align: center;
+	font: 1rem/1 "微软雅黑";
+	border-radius: 0.5rem;
+}
+.my-mask-div-p{
+	height: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 0.1rem solid #ccc;
+	
+}
+.my-mask-ul{
+	width: 100%;
+	height: 24.5%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.my-mask-li{
+	float: left;
+	width: 50%;
+	/*text-align: center;*/
+}
 /*E my*/
 
 
@@ -963,3 +1019,51 @@ vertical-align: middle;
 	color: #fff;
 }
 /*E select-area-three*/
+/*S forget-password*/
+.forget-pass-main{
+	overflow: hidden;
+	position: relative;
+}
+.forget-pass-main-ul{
+	margin-top: 1rem;
+}
+.forget-pass-main-input1{
+	font: 0.9rem/1 "微软雅黑";
+	/*display: flex;*/
+	/*align-items: center;
+	justify-content: center;*/
+	display: inline-block;
+	vertical-align:baseline; /*input 垂直对齐文字*/
+	margin:0rem 0.3rem 0rem 1rem;
+	width: 50%;
+}
+.get-dynamic-code{
+	font-size: 0.7rem;
+	width: 5rem;
+	height: 2rem;
+	background-color: red;
+	color: #fff;
+	border-radius: 1rem;
+	padding: 0.2rem 0.5rem 0.3rem 0.5rem;
+}
+.next-step{
+	text-align: center;
+	display: inline-block;
+	width: 80%;
+	padding: 0.6rem;
+	background-color: orangered;
+	color: #fff;
+    display: flex;  /*display:flex+margin 可使元素居中*/
+    justify-content: center;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+}
+/*E forget-password*/
+/*S set-new-pass*/
+.set-new-pass-main-input1{
+	width: 100%;
+}
+
+/*E set-new-pass*/
