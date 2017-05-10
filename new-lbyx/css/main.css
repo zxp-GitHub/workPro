@@ -1039,12 +1039,15 @@ vertical-align: middle;
 }
 .get-dynamic-code{
 	font-size: 0.7rem;
-	width: 5rem;
-	height: 2rem;
+	line-height: 0.7rem;
+	/*width: 5rem;*/
+	/*height: 2rem;*/
+	float: right;
 	background-color: red;
 	color: #fff;
 	border-radius: 1rem;
-	padding: 0.2rem 0.5rem 0.3rem 0.5rem;
+	padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+	margin-top: -0.15rem;
 }
 .next-step{
 	text-align: center;
@@ -1067,3 +1070,15 @@ vertical-align: middle;
 }
 
 /*E set-new-pass*/
+/*S bind-phone-number*/
+.bind-phone-main-p{
+	width: 90%;
+	margin: 2rem auto;
+}
+.bind-phone-main-input{
+	margin-left: 0rem;
+}
+.bind-phone-main-p-one{
+	display: none;
+}
+/*E bind-phone-number*/
