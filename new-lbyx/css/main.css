@@ -179,7 +179,7 @@ html,body,.container,.box{
 	font: 1.5rem/1 "微软雅黑";
 	margin-top: 0.4rem;
 }
-.shopping-cart-li-cell>i,.shopping-car-change-price>i{
+.shopping-cart-li-cell>i/*,.shopping-car-change-price>i*/{
 	color: red;
 }
 /*S my*/
@@ -352,7 +352,7 @@ html,body,.container,.box{
 .all-goods-search{
 	width: 100%;
 	height: 8%;
-	background: #EEE;
+	background: #fff;
 	overflow: hidden;
 }
 .all-goods-search-p{
@@ -363,6 +363,10 @@ html,body,.container,.box{
 	margin: 1.5%;
 	border: 1px solid #ccc;
 	float: left;
+}
+.all-goods-search-p-bc{
+	background-color: #eee;
+	
 }
 .search-magnifier{
 	display: inline-block;
@@ -380,7 +384,7 @@ html,body,.container,.box{
   padding-left: 3%;
   margin-top: -0.2%;
   font-size: 1rem;
-  
+  background-color: #eee;
 }
 .search-span{
 	width: 14%;
@@ -957,7 +961,7 @@ vertical-align: middle;
 .select-area3-main-two{
 	width: 100%;
 	height: 8%;
-	background-color: #ccc;
+	background-color: #eee;
 }
 .select-area3-two-ul{
 	width: 100%;
@@ -1053,7 +1057,7 @@ vertical-align: middle;
 	text-align: center;
 	display: inline-block;
 	width: 80%;
-	padding: 0.6rem;
+	padding:0.4rem 0.5rem;
 	background-color: orangered;
 	color: #fff;
     display: flex;  /*display:flex+margin 可使元素居中*/
@@ -1082,3 +1086,143 @@ vertical-align: middle;
 	display: none;
 }
 /*E bind-phone-number*/
+/*S verify-phone-num*/
+.verify-phone-num-first{
+	width: 100%;
+	height: 30%;
+	background-color: rgb(247,247,247);
+	text-align: center;
+	position: relative;
+}
+.weixin-laibao-pic{
+	margin-top: 12%;
+	width:50% ;
+}
+.verify-first-ul{
+	width: 85%;
+	height: 2rem;
+	margin: 0 auto;
+}
+.verify-first-li{
+	float: left;
+	font: 1rem/1 "微软雅黑";
+}
+.verify-first-li2{
+	width: 70%;
+}
+
+.verify-first-li-input{
+	width: 90%;
+	margin: 0 auto;
+	background-color:rgb(247,247,247);
+}
+.verify-underline-p{
+	margin-top: 0.1rem;
+	width: 100%;
+	height: 0.1rem;
+	border: 0.2px solid red;
+	border-top: none;
+}
+.verify-phone-num-first-cell{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.phone-more-secure-p{
+	float: right;
+	margin: 1rem 1rem 0rem 0rem;
+}
+/*E verify-phone-num*/
+/*S my-ordre*/
+.my-order-ul{
+	background-color: #fff;
+}
+.my-order-first{
+	border-bottom: 1px solid #ccc;
+}
+.my-order-li{
+	font-size: 0.8rem;
+	font-family: "黑体";
+	color: orangered;
+}
+	
+.my-order-li>span{
+	width: 4rem;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid rgb(255,74,74);
+}
+.east-three-store-ul{
+	width: 90%;
+	margin: 0 auto;
+	height: 2rem;
+	line-height: 2rem;
+}
+.east-three-store-li1{
+	float: left;
+}
+.east-three-store-li2{
+	float: right;
+}
+.my-order-li-bc{
+	background:rgb(253,253,253);
+}
+.my-order-main{
+	height: auto;
+}
+.to-pay-a{
+	float: right;
+	padding:0.3rem 1.5rem;
+	background-color: orangered;
+	color: #fff;
+	border-radius: 1rem;
+	margin:0.3rem 5% 0rem 0rem;
+}
+/*E my-order*/
+/*S order-details*/
+.order-details-main{
+	width: 100%;
+	height: 92%;
+	background-color: #eee;
+	position: relative;
+}
+.order-details-main-first{
+	width: 100%;
+	height: 15%;
+	background-color: #fff;
+	margin-bottom: 0.5rem;
+}
+.order-details-main-first-ul{
+	width: 100%;
+	height: 100%;
+}
+.order-details-main-first-ul>li{
+	width: 90%;
+	margin: 0 auto;
+	height: 33.33%;
+	display: flex;
+	align-items: center;
+	/*justify-content: center;*/
+	
+}
+.order-details-east-three-store{
+	background-color: #fff;
+	width: 95%;
+	padding-left: 5%;
+}
+.order-details-total{
+	background-color: #fff;
+}
+.order-details-last{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #fff;
+	height: 2.3rem;
+}
+.order-details-last>a{
+	float: right;
+}
+/*E order-details*/
