@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<input type="button" name="" id="" value="+"  class="input1"/>
+		<input type="text" name="" id="" value="" class="input2"/>
+	</body>
+</html>
+<script type="text/javascript">
+	$.ajax({//获取json数据必写哦！！！
+			type:"get",
+			url:"php/sql.php",
+			dataType:"json",
+			success:function(data){//consol一下是很重要的！！！！！！
+				$(".input1").click(function () {
+					$(".input2").val(data.num)
+				});
+				
+				}
+		});
+</script>
