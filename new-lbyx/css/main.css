@@ -168,6 +168,9 @@ html,body,.container,.box{
 	font: 0.8rem/1.5 "微软雅黑";
 	position: relative;
 }
+.footer-li:nth-child(3){
+	color: red;
+}
 .footer-li-div{
 	position: absolute;
 	width: 100%;
@@ -238,6 +241,13 @@ html,body,.container,.box{
 	right: 0;
 	align-items: center; 
 	display: flex;	
+}
+.my-second-li .my-right-icon1-dingdan, .my-second-li .my-right-icon1-tuihuo{
+	color:  orangered;
+	background-color: #fff;
+	font-size: 1.5rem;
+	margin-left: -0.2rem;
+	
 }
 /*没有nth*/
 .my-first-a{
@@ -384,7 +394,8 @@ html,body,.container,.box{
   padding-left: 3%;
   margin-top: -0.2%;
   font-size: 1rem;
-  background-color: #eee;
+  /*background-color: #eee;*/
+  background-color: #fff;
 }
 .search-span{
 	width: 14%;
@@ -931,11 +942,13 @@ vertical-align: middle;
 	margin: 0 auto;
 	width: 94%;
 	height: 40%;
-	color: red;
 	display: flex;
     justify-content:left;
     align-items:center;
     border-bottom: 1px solid #ccc;
+}
+.confirm-order3-three-li:nth-child(1){
+	color: red;
 }
 .confirm-order3-three-cancel{
 	position: absolute;
@@ -957,6 +970,15 @@ vertical-align: middle;
 	border-bottom: none;
 }
 /*E confirm-order-three*/
+/*S confirm-order-four*/
+.confirm-order3-three-cancel>a{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/*E confirm-order-four*/
 /*S select-area-three*/
 .select-area3-main-two{
 	width: 100%;
@@ -1226,3 +1248,12 @@ vertical-align: middle;
 	float: right;
 }
 /*E order-details*/
+/*S business-circle-choice*/
+.community-span{
+	display: inline-block;
+	margin-left: 0.6rem;
+}
+.add-main-li:nth-child(1){
+	color: red;
+}
+/*E business-circle-choice*/

@@ -1,6 +1,7 @@
 Zepto(function() {
  $('.footer-ul li').on('tap',function(){
         $(this).addClass('active').siblings().removeClass('active');
+         $(this).css("color","red").siblings().css("color","#000");
         $('.big-ul>li').hide().eq($(this).index()).show();
         //$('.big-ul li')会报错，是指所有的li
    });
@@ -50,39 +51,12 @@ $(".add-to-car").tap(function(){
     $(".right-icon-tap").tap(function(){
   	$(".ok-add-cart-mask").hide()
   });
-  
-  //轮播图的改变
-  //一定要注意，必须要从home页跳转到商品详情页，banner才不会报错。
-		$.ajax({//获取json数据必写哦！！！
-			type:"get",
-			url:"json/lbyx.json",
-			dataType:"json",
-			success:function(data){//consol一下是很重要的！！！！！！
-				//假如一页获取m条
-				     var homeNums = window.sessionStorage.getItem("homeNum")||"";
-//				     console.log(data.homeList[homeNums]);
-					 var html= "<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[0]+"\"/></div>";
-						 html+="<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[1]+"\"/></div>";
-						 html+="<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[2]+"\"/></div>";
-						$(".swiper-wrapper").append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
-						$(".pro-detail-two-goods-info").html(data.homeList[homeNums].name);
-						$(".pro-detail-two-price").html(data.homeList[homeNums].price)
-						
-						    //轮播图
-							var mySwiper = new Swiper ('.swiper-container', {
-						    direction: 'horizontal',
-						    longSwipes : false,
-						    loop: true,
-						//  onlyExternal : false,
-						    autoplay : 2000,
-						    autoplayDisableOnInteraction : false,//禁止自动播放的作用
-						    // 如果需要分页器
-						    pagination: '.swiper-pagination',
- 							});
-				}
-		});
+//轮播图的改变
 /*E product-details*/
 /*S confirm-order*/
+$(".confirm-order3-three-ul li").tap(function () {
+	$(this).css("color","red").siblings().css("color","black");
+});
 
 /*E confirm-order*/
 /*S index*/
@@ -144,4 +118,9 @@ ajaxProducts()
 		});
 	}
 /*E index*/
+/*S business-circle-choice*/
+$(".add-main-ul li").tap(function () {
+	$(this).css("color","red").siblings().css("color","#000000")
+});
+/*E business-circle-choice*/
  });
