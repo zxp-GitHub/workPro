@@ -362,7 +362,7 @@ html,body,.container,.box{
 .all-goods-search{
 	width: 100%;
 	height: 8%;
-	background: #fff;
+	background: #eee;
 	overflow: hidden;
 }
 .all-goods-search-p{
@@ -405,7 +405,7 @@ html,body,.container,.box{
 	margin-top: 3.5%;
 }
 .all-goods-floor{
-	height: 92%;
+	height:100%;
 	width: 100%;
 }
 .all-goods-left{
@@ -427,6 +427,8 @@ html,body,.container,.box{
 	width: 99%;
 	overflow: scroll;
 	border-right:1px solid #ccc;
+	background-color: rgb(229, 229, 229);
+	
 }
 .all-goods-left-ul>li{
 	text-align: center;
@@ -452,12 +454,12 @@ html,body,.container,.box{
 .all-goods-min-right{
 	width: 100%;
 	height: auto;
-	background-color: khaki;
+	/*background-color: khaki;*/
 }
 .right-min-box{
 	width: 100%;
-	height: 14rem;
-	background-color: #fff;
+	/*height: 14rem;*/
+	/*background-color: #fff;*/
 }
 .right-min-box-p{
 	height: 2rem;
@@ -495,6 +497,30 @@ html,body,.container,.box{
 	background-color: #fff;
 	color: red;
 }
+/*bysj*/
+.all-goods-min-ul{
+	width: 100%;
+	height: auto;
+	/*background-color: #fff;*/
+}
+.all-goods-min-li{
+	width: 50%;
+	/*height: 7rem;*/
+	text-align: center;
+	float: left;
+	padding: 0.5rem 0;
+	background-color: #fff;
+}
+.all-goods-min-li>img{
+width: 50%
+}
+.all-goods-min-li>p{
+	margin-top: 0.2rem;
+}
+.clear-both-div{
+	clear: both;
+}
+/*bysj*/
 /*E all-goods-search*/
 /*S select-area*/
 .select-area-ul{
@@ -1258,7 +1284,13 @@ vertical-align: middle;
 }
 /*E business-circle-choice*/
 /*S register-login*/
+.register-main,.login-main{
+	overflow: hidden;
+}
+.login-main-li{
+	margin: 1rem;
+}
 .register-ul>li{
-	 margin: 1rem;
+	margin: 1rem;
 }
 /*E register-login*/

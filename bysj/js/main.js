@@ -12,7 +12,7 @@ Zepto(function() {
 	});
 	$('.all-goods-left-ul>li').tap(function(){
         $(this).addClass('active').siblings().removeClass('active');
-        $('.all-goods-list-ul>li').hide().eq($(this).index()).show()
+        $('.all-goods-min-li').hide().eq($(this).index()).show()
    });
 /*E all-goods*/
 
@@ -84,7 +84,7 @@ $(".shopping-car-change-price>.icon-jianhao1").tap(function(){
 
 //商品列表ajax
 var ajaxLi =  $(".guess-you-like-li");
-ajaxProducts()
+//ajaxProducts()
 	
 	function ajaxProducts(){
 		$.ajax({//获取json数据必写哦！！！

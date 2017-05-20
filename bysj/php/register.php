@@ -1,41 +1,21 @@
 ﻿<?php
-//echo 'username:'. $_GET['username']. "<br />";
-//echo 'password:' . $_GET['password'] . "<br />" ;
-
+//连接数据库
 $conn=mysqli_connect("localhost","root","qq359784","lbyx");
-
-//if (mysqli_connect_errno())
-//{
-//	echo "连接失败: " . mysqli_connect_error();
-//}
-//// 检测连接
-//if (!$conn) {
-//  die("Connection failed: " . mysqli_connect_error());
-//}
-// Check connection
+//判定连接是否成功
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 } 
-
-$sql = "INSERT INTO t_user (name, password)
-VALUES ('" . $_GET['username'] . " ','" .$_GET['password'] . "')";
-
-if (mysqli_query($conn, $sql)) {
-     $result = mysqli_query($conn,"SELECT id FROM t_user where name='$_GET[username]' and password='$_GET[password]'");
- if ($result->num_rows > 0) {
-		while($row = $result->fetch_assoc())//将result结果集中查询结果取出一条
-		{
-			echo $row['id'];
-			echo "<br />";
-//			echo "var data = 1";
-		}
-}else{
-	echo "no";
-//	        echo "var data = 0";
-}
+//对数据库进行查询
+$sql = "select name,password FROM t_user where name='$_GET[username]' and password='$_GET[password]'";
+//判定是否查询结果是否存在，存在几条
+$result = $conn->query($sql);
+//存在输出1，不存在输出0
+if ($result->num_rows > 0) {
+        echo "1";
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		 $result = mysqli_query($conn,"INSERT INTO t_user (name, password) VALUES ('" . $_GET['username'] . " ','" . $_GET['password'] . "')");
+    echo "0";
 }
-
+//推出数据库操作
 mysqli_close($conn);
 ?>
