@@ -47,24 +47,36 @@ Zepto(function() {
 			})
 		})
 /*E login*/
-
 /*S all-goods*/
 $(".all-goods-left-ul li").tap(function () {
+	$(".all-goods-min-ul").html("");
 	console.log($(this).index());
 	var goodNum = $(this).index();
 	$.ajax({
 		type:"get",
 		url:"php/all-goods.php",
+		dataType:"json",
 		data:{
 			goodnum:goodNum,
 		},
 		success:function(data){
-			console.log("水果是："+data);	
-//			for (var i = 0; i < data.length; i++) {
-//				console.log(data[i]);
-//				
-//			}
-				}
+			function addProduct(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+			var html = "<li class=\"all-goods-min-li\"><a href=\"product-details.html\"><img src=\" " + obj.goodsrc+"\"/>";
+				html += "<p>" + obj.goodname + "</p><p>¥<span>23</span></p></a></li>";
+			$(".all-goods-min-ul").append(html);
+		    };//addProduct
+		    
+			//所有商品dom显示。
+			for(var i = 0; i < data.length; i++) {
+			addProduct(data[i]);
+			}
+			
+			
+			$(".all-goods-min-li").tap(function () {
+				
+				
+			});
+		}
 	});//ajax
 })//tap
 /*E all-goods*/
