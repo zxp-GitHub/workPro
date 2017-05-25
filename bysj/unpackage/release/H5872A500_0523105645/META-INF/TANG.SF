@@ -1,0 +1,482 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: NP7v3c51f/CiJY29pV+onmY0uFs=
+Created-By: 1.6.0_27 (Sun Microsystems Inc.)
+SHA1-Digest-Manifest: GBq1UtbPZ58XkMd/o+o8HVGXsok=
+
+Name: assets/apps/H5872A500/www/js/zepto.fn.js
+SHA1-Digest: wCMXFXiAth2dPDih6Xw27vypRXk=
+
+Name: assets/apps/H5872A500/www/css/flexslider.css
+SHA1-Digest: bui8EuYsX6j5ndgKtsrbh6azE0E=
+
+Name: assets/apps/H5872A500/www/register.php
+SHA1-Digest: YmLspwEVGitv+m/e+1YZEQ1YaAE=
+
+Name: assets/apps/H5872A500/www/self-selection.html
+SHA1-Digest: 46RaRPePNgGpEoGycSUFaWiWwzA=
+
+Name: assets/apps/H5872A500/www/img/all-good3-1.jpg
+SHA1-Digest: J8bofa6Lgj0lkSSud8ZiahgtsJg=
+
+Name: io/dcloud/all.js
+SHA1-Digest: BAN7o8UWkcgrtYft9pwP3FIJ+44=
+
+Name: assets/apps/H5872A500/www/test.html
+SHA1-Digest: nsTyyUPcky+n0NjCairSkhkuCPg=
+
+Name: assets/apps/H5872A500/www/php/a.html
+SHA1-Digest: 77ODngDMrHdd5xuGnMpcYGR+BrQ=
+
+Name: res/drawable-xhdpi/dcloud_as_cancel_bt_bg.9.png
+SHA1-Digest: CH0i90rKGV1fCsfEY2VCm/2W6yo=
+
+Name: assets/apps/H5872A500/www/forget-password.html
+SHA1-Digest: LCcvWPC6DhjsFbC850iLMmHoaPg=
+
+Name: res/layout/dcloud_dialog.xml
+SHA1-Digest: HIkM26bRfBepxD6xVRx3LdAtt0M=
+
+Name: res/drawable/dcloud_slt_as_ios7_other_bt_bottom.xml
+SHA1-Digest: 0SlUufngb4gqfDEoG8SyD+W4LSg=
+
+Name: assets/apps/H5872A500/www/bind-phone-number.html
+SHA1-Digest: omXyIT1Ps1uOsW98+kbSNL+ewy8=
+
+Name: lib/armeabi-v7a/libmsc.so
+SHA1-Digest: Ms74c9pDuqzrzj3EAJu00OTPO+I=
+
+Name: res/drawable-hdpi/dcloud_snow_black.png
+SHA1-Digest: VOXjVwuvdriNg4EGpsUHajQcxP8=
+
+Name: assets/apps/H5872A500/www/confirm-order-four.html
+SHA1-Digest: ZGTnuAB5S01kOgEEDtnDhyJTT1U=
+
+Name: assets/apps/H5872A500/www/js/zepto-touch.js
+SHA1-Digest: rhYxjByvF+Gyz74vsr2XnudjP3U=
+
+Name: assets/apps/H5872A500/www/js/bootstrap.min.js
+SHA1-Digest: yhRkcM9pJIdAYMH6Y7AEhDFmB8Y=
+
+Name: res/drawable/dcloud_longding_bg.xml
+SHA1-Digest: yGPrSfM5XjG97nLkluSzUFM+mWU=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_top_pressed.9.png
+SHA1-Digest: 8HXmLeEWNIzOdb6M9Na42/9Nn7k=
+
+Name: assets/apps/H5872A500/www/css/bootstrap.min.css
+SHA1-Digest: y0GpNghnMxYDu7LtPRVcKjaqKY0=
+
+Name: res/drawable-xhdpi/dcloud_as_bg_ios6.9.png
+SHA1-Digest: FyT847D6AluHx1kmb8LV8cquqGo=
+
+Name: assets/res/HBuilder.png
+SHA1-Digest: /z8U2jdlb8DEP1luPXLHIq0eRSk=
+
+Name: assets/apps/H5872A500/www/img/all-good2-1.jpg
+SHA1-Digest: KLUwzaVEr3YzbN8uhVCR2cO6DWY=
+
+Name: assets/apps/H5872A500/www/search-page.html
+SHA1-Digest: 1xWGrrQlSYgTQ7elVYnoUeZEHKo=
+
+Name: assets/iflytek/voice_bg.9.png
+SHA1-Digest: /wWKAb746tLPkq/g8RG1PZl+RXM=
+
+Name: assets/apps/H5872A500/www/index.html
+SHA1-Digest: ujGgieL39V2OSfsHW8+Y1+835N4=
+
+Name: assets/apps/H5872A500/www/css/jquery.mobile-1.4.5.min.css
+SHA1-Digest: drlpItfS6mg21jRZMiohWLz3njc=
+
+Name: lib/armeabi/libpl_droidsonroids_gif.so
+SHA1-Digest: Y9eLpwxEl0crnUftcZkadYRL0o0=
+
+Name: assets/apps/H5872A500/www/img/all-good_14.png
+SHA1-Digest: pv2GEbJppWq32aBWjQv91UywCFo=
+
+Name: assets/apps/H5872A500/www/js/template.js
+SHA1-Digest: k8Sn9mGGZv89y54subO6KQss51Q=
+
+Name: assets/apps/H5872A500/www/my-order.html
+SHA1-Digest: f4D2eR0LXaUxx0CXwC65NcI39f0=
+
+Name: assets/iflytek/voice_empty.png
+SHA1-Digest: W/BUaUyjpXhhey7qvSAurn/9jdw=
+
+Name: assets/apps/H5872A500/www/order-details.html
+SHA1-Digest: omg8YSc4kDmgCqJtXLWgNgx3+A4=
+
+Name: assets/apps/H5872A500/www/address-information.html
+SHA1-Digest: ckGn2Q4PCoj6gTQEHsqRRPEH8Ms=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_single_normal.9.png
+SHA1-Digest: qt70DpfycWWCdjuNMUZyuYocvik=
+
+Name: assets/apps/H5872A500/www/select-area-three.html
+SHA1-Digest: 1SdDe8+mvi9SwSh6emNX1YK9Gto=
+
+Name: assets/apps/H5872A500/www/img/weixin.png
+SHA1-Digest: YUVYL6WNfrB75wv0927Oc9hjjpU=
+
+Name: assets/apps/H5872A500/www/css/main.css
+SHA1-Digest: oMCKtBZU92Fg1AxzyNx9VodWWYI=
+
+Name: assets/apps/H5872A500/www/iconfont/iconfont.css
+SHA1-Digest: ipgVcRduDOTueBF7A1cDuo11Do8=
+
+Name: res/drawable/dcloud_slt_as_ios7_other_bt_top.xml
+SHA1-Digest: 0WtUF7xhUl87XDGox2Z0VFEIxR4=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_bottom_normal.9.png
+SHA1-Digest: z4QPKA6hOgjsB01yc8CfWdwMcJA=
+
+Name: assets/data/dcloud_control.xml
+SHA1-Digest: GPqtEcvcsxpT3+oWTklrCwPl+Lk=
+
+Name: assets/apps/H5872A500/www/img/all-good2-2.jpg
+SHA1-Digest: MZPuVTFlQ0ddZ/DXM9uJjjmR4ro=
+
+Name: assets/apps/H5872A500/www/img/all-good2-3.jpg
+SHA1-Digest: JX+ILjMSYYz1oJsuwKXW5E+qrKE=
+
+Name: res/drawable-hdpi/dcloud_shadow_left.png
+SHA1-Digest: HzX43Vi3mNq5pO3N4c9PjSZLdmM=
+
+Name: assets/apps/H5872A500/www/confirm-order.html
+SHA1-Digest: kxHZENtirQqsgYLv8YwG2eKng5E=
+
+Name: assets/apps/H5872A500/www/iconfont/iconfont.eot
+SHA1-Digest: QEMnz1C5MGqBHA24x6/o0Mqou20=
+
+Name: resources.arsc
+SHA1-Digest: xuhI74s4gwoDLas3a9SWRzS2mvY=
+
+Name: res/layout/dcloud_image_pick_gallery_item.xml
+SHA1-Digest: mJGteXmrZQsACIkr3F8frCqwFd8=
+
+Name: assets/apps/H5872A500/www/select-area.html
+SHA1-Digest: d0u+NL/oahNNo1jk3sjLrx2FUOc=
+
+Name: AndroidManifest.xml
+SHA1-Digest: 7mEH9tTsvDxOmNUkmTO/i1KWKkc=
+
+Name: assets/iflytek/warning.png
+SHA1-Digest: HCY7f7mIEaOlV1LbKrAvLxrI4P8=
+
+Name: res/drawable-xxhdpi/icon.png
+SHA1-Digest: ez+inA9Wv8IjT0lywJ0XvjxIa/8=
+
+Name: assets/iflytek/recognize.xml
+SHA1-Digest: sVN7Xht1nCSorLbegeqZyo7GLFA=
+
+Name: assets/fonts/dcloud_iconfont.ttf
+SHA1-Digest: eJfPJ63t4Zj5u+NfqdnCTQwnhxk=
+
+Name: res/drawable/dcloud_slt_as_ios7_cancel_bt.xml
+SHA1-Digest: aCF2sJg5YMOaQ4Bx3YeLALs66Hc=
+
+Name: res/drawable-hdpi/dcloud_snow_white_progress.xml
+SHA1-Digest: LIdMP62f8oYTX4K9HME48+Z0jik=
+
+Name: assets/apps/H5872A500/www/img/all-goods-right-pic.png
+SHA1-Digest: SJ+PdvMIvR7394BJP7EwQ/7RnMk=
+
+Name: assets/apps/H5872A500/www/iconfont/iconfont.ttf
+SHA1-Digest: jykxv39RnmaX/F2wr+T4I7XgJZo=
+
+Name: res/layout/dcloud_activity_main_market.xml
+SHA1-Digest: g0fbCZ7xHfAJTfdgaPVRr1RDoY0=
+
+Name: assets/apps/H5872A500/www/good-list.html
+SHA1-Digest: 6QTepsDxdjJ24CPukJ9hyaLZVZg=
+
+Name: assets/apps/H5872A500/www/json/lbyx.json
+SHA1-Digest: LWZGbs75zcPnu1IfSz/8wxzn84o=
+
+Name: assets/res/point.png
+SHA1-Digest: a9feWR+WGH9aPpRjjHz3r8Frrrs=
+
+Name: assets/apps/H5872A500/www/js/swiper.min.js
+SHA1-Digest: OrZlqaFv4BLdsrYxVS8CgtH7gbU=
+
+Name: assets/apps/H5872A500/www/img/all-good_08.png
+SHA1-Digest: Q67WKCSruCNSimpEUL7t1dlmTHg=
+
+Name: assets/apps/H5872A500/www/img/all-good3-6.jpg
+SHA1-Digest: J4Um/kmfFksnwYxUcp6959iSuvk=
+
+Name: assets/iflytek/voice_full.png
+SHA1-Digest: MxlTZTAeCFaMzOcdh6EW5CbCXcQ=
+
+Name: res/drawable/dcloud_dialog_shape_bg.xml
+SHA1-Digest: t8txjMWHW9I8+rVw08Zb718c1xg=
+
+Name: assets/apps/H5872A500/www/iconfont/iconfont.svg
+SHA1-Digest: 3IhmGVCTwWjjLa6Eqvn5e1ys51Y=
+
+Name: assets/apps/H5872A500/www/img/all-good_03.png
+SHA1-Digest: 7xIVkt/YomUSuceyEwNZuUoAzaE=
+
+Name: assets/apps/H5872A500/www/php/all-goods.php
+SHA1-Digest: 785WSGJ+LnLAAxs3FXQ2ZZsDpK8=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_middle_pressed.9.png
+SHA1-Digest: WvRfGu/79Yl7hedMCRjKgYdw844=
+
+Name: classes.dex
+SHA1-Digest: R6o14NaAiF62Z+Fpy2/5nyZY+tw=
+
+Name: assets/apps/H5872A500/www/php/log.php
+SHA1-Digest: 5mD6rcNqkktkKKL9wo3X6IH8QNI=
+
+Name: lib/x86/libpl_droidsonroids_gif.so
+SHA1-Digest: bN1E66wOpEFDV9fBzjvRw7eu5Eg=
+
+Name: res/drawable-xxhdpi/splash.png
+SHA1-Digest: GZqgrdYBrggV0yxNbSjSDw9Ozxg=
+
+Name: assets/apps/H5872A500/www/img/all-good3-3.jpg
+SHA1-Digest: i1uOEz8b4Xa+5HaEJoUmOh9F5Qg=
+
+Name: assets/apps/H5872A500/www/select-area-two.html
+SHA1-Digest: fWXkZaYi5/02T3tyVBpweIWF0ko=
+
+Name: assets/apps/H5872A500/www/img/all-good3-8.jpg
+SHA1-Digest: Imwiyj90PyYRnMZVzqpZ1yCSz68=
+
+Name: assets/apps/H5872A500/www/set-new-password.html
+SHA1-Digest: +7brETi6PH5wDsLAlRSBBRw26+A=
+
+Name: res/drawable-xhdpi/dcloud_as_other_bt_bg.9.png
+SHA1-Digest: eFlr2CPULp8jFDLXZ0lJdBFff2U=
+
+Name: assets/apps/H5872A500/www/img/all-good3-4.JPG
+SHA1-Digest: ZTfsqiGaWl/BeiR/ZPJBz8OFy+Y=
+
+Name: assets/apps/H5872A500/www/js/zepto.min.js
+SHA1-Digest: Pd3mlI3YYZ571yGrzzRW/Tqr+Hw=
+
+Name: assets/apps/H5872A500/www/confirm-order-five.html
+SHA1-Digest: cXb0OdHjYuVPJqZ8DEQnNkDOGwg=
+
+Name: assets/data/dcloud_error.html
+SHA1-Digest: RMFR1gaq3r6ysQKAK491fdM0A1E=
+
+Name: assets/apps/H5872A500/www/iconfont/iconfont.woff
+SHA1-Digest: 92sPDVuXvrMEeKmzyXeYKKf/8lg=
+
+Name: assets/apps/H5872A500/www/img/all-good3-7.jpg
+SHA1-Digest: 1atUhUdJxrUPgUgqmPyG5xCg0VM=
+
+Name: assets/apps/H5872A500/www/js/touch.js
+SHA1-Digest: 0blLbIwBx+pDTzUapTcgJ6aWx4A=
+
+Name: assets/apps/H5872A500/www/self filling.html
+SHA1-Digest: MfX52CHg8IfliKCD0lH2m9uEc6U=
+
+Name: res/drawable/dcloud_dialog_shape.xml
+SHA1-Digest: wNdIb6eD2W5CV3rSVPqmN5xuOkw=
+
+Name: res/drawable/dcloud_slt_as_ios7_other_bt_single.xml
+SHA1-Digest: T00j4HDDQHBM60hUKUYxy2Qqz9I=
+
+Name: res/drawable/dcloud_slt_as_ios7_other_bt_middle.xml
+SHA1-Digest: p9b5IRWbrrQ2adiwN83XOEnOwz0=
+
+Name: assets/apps/H5872A500/www/confirm-order-three.html
+SHA1-Digest: 9dD7jPzdE3pMcaIGghhWE7j6GkI=
+
+Name: assets/res/dcloud_beep.ogg
+SHA1-Digest: ZA5tWDOlCY2Tz0NQ+EhSnvTO8q8=
+
+Name: assets/apps/H5872A500/www/img/f-1.png
+SHA1-Digest: 7I5Dnw2+3k3UgSuwUy2awCqxhOc=
+
+Name: assets/apps/H5872A500/www/img/all-good_01.png
+SHA1-Digest: 3cpt0RDBhQodNcgW6nVKChgj4u8=
+
+Name: assets/apps/H5872A500/www/js/php-link.js
+SHA1-Digest: bTUYXmHCKHZPA4St+eQ5JCMWwvU=
+
+Name: res/layout/dcloud_snow_black_progress.xml
+SHA1-Digest: ruedO2RKcocS8SbRPmMFw+bQDpw=
+
+Name: assets/apps/H5872A500/www/img/all-good2-4.jpg
+SHA1-Digest: Rf4Jqx411v+eGwFDmBbZDC8rmh0=
+
+Name: assets/apps/H5872A500/www/verify-phone-number.html
+SHA1-Digest: 6n63FMOFwHQEhAPm6rC/3u29Iq0=
+
+Name: assets/apps/H5872A500/www/php/register.php
+SHA1-Digest: V9H8HNbzznmpFh/3PrjvExriXcM=
+
+Name: assets/apps/H5872A500/www/img/f-3.png
+SHA1-Digest: Oj+/ZjpJIpyWT9wSNU/EUur3fpk=
+
+Name: assets/apps/H5872A500/www/img/all-good3-2.jpg
+SHA1-Digest: 9JKe45+4kdU4MEjb9J7rXUJu5E8=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: W1KTEKTvhgVyZPoGbAU6Vjd3brc=
+
+Name: res/layout/dcloud_main_test_activity.xml
+SHA1-Digest: ipSGF9z6UgzTiDcwi4JQUOYjWXs=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: F2haxFmSaDOK9+jwsuyKAr+gp6w=
+
+Name: res/drawable-xxxhdpi/icon.png
+SHA1-Digest: hKzPbtd/hR/tmMOBghUtWVKMh4U=
+
+Name: assets/apps/H5872A500/www/img/all-good_05.png
+SHA1-Digest: zca5ZfUIvj1saxWdz2cllJ5Jlwk=
+
+Name: res/drawable-xhdpi/splash.png
+SHA1-Digest: JwwoC1Ej+mwGbaGooEalU2W5Ol8=
+
+Name: assets/apps/H5872A500/www/js/swiper.animate1.0.2.min.js
+SHA1-Digest: XWIiYxFP0PxJ2lI6clEZrxSLkUI=
+
+Name: assets/apps/H5872A500/www/img/all-good3-5.jpg
+SHA1-Digest: yobkAupZlMh/7o1eINVztJFOd+o=
+
+Name: res/layout/dcloud_loadingview.xml
+SHA1-Digest: Ig21ABGACoSlrI8kckPQUTyPXIA=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_bottom_pressed.9.png
+SHA1-Digest: jP+/FqBojsuMfocBK6Jlek+Gyws=
+
+Name: res/drawable/dcloud_image_pick_title_sel.xml
+SHA1-Digest: 0lnEYQPHKwTa/vajc0hEEagYN/s=
+
+Name: assets/iflytek/waiting.png
+SHA1-Digest: 0eIzk5GkuGXL8B1N/swiaJ+w6To=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_middle_normal.9.png
+SHA1-Digest: EE4eEz3pGXiDY7QSCrj8ifRUcYk=
+
+Name: assets/apps/H5872A500/www/register.html
+SHA1-Digest: WNz5KBX18NPO3MiV6Udq7fo9AYE=
+
+Name: assets/apps/H5872A500/www/business-circle-choice.html
+SHA1-Digest: L0XXXVPSPpTdSO6ywmfgsTBbIPU=
+
+Name: res/anim/dcloud_slide_out_to_top.xml
+SHA1-Digest: KCqYirIKqkfBgRu5Lu1a8/tKQRs=
+
+Name: res/layout/dcloud_market_fragment_base.xml
+SHA1-Digest: pibdVu0nBWWAnEOcmAQh45Upzhk=
+
+Name: assets/apps/H5872A500/www/product-details.html
+SHA1-Digest: LzGPRvlyVgIJg16LJLmGvPWV7Wo=
+
+Name: assets/apps/H5872A500/www/js/zepto.fx.js
+SHA1-Digest: ap5Jm0kxVCnoJFdFzGXUxBxNteg=
+
+Name: res/layout/dcloud_snow_white_progress.xml
+SHA1-Digest: 09LfBFhTaWnXk2C3/yAsTxidVDU=
+
+Name: assets/apps/H5872A500/www/css/swiper.min.css
+SHA1-Digest: MFU9VoDWHH8gkhPXgh58kAuXsYU=
+
+Name: assets/apps/H5872A500/www/img/all-good_22.png
+SHA1-Digest: wp72OcS9qrw4T84NHoCie7hvzWg=
+
+Name: assets/res/dcloud_prograss_snow1.png
+SHA1-Digest: s2XbguboMzeVDBlAuakYS4uqh+M=
+
+Name: assets/apps/H5872A500/www/img/all-good_19.png
+SHA1-Digest: XYRIF4vZ8EdUWarOwm3ge6uL468=
+
+Name: assets/apps/H5872A500/www/css/animate.css
+SHA1-Digest: 4YBI/YascBaAsvPit4Q7hKfneYQ=
+
+Name: res/layout/dcloud_image_pick_gallery.xml
+SHA1-Digest: bD+zh1W+UCpulFlSIyBqyXDY2VU=
+
+Name: assets/apps/H5872A500/www/all-goods.html
+SHA1-Digest: dFTpjhjEr82i0MDOqvjdDdoNqDw=
+
+Name: assets/apps/H5872A500/www/img/all-good_31.png
+SHA1-Digest: jeVOdXv+Ai5llcSJmXesKZZaxyI=
+
+Name: res/drawable/dcloud_slt_as_ios7_other_bt_title.xml
+SHA1-Digest: VQeKx4NrBLYgcTmRfYh98D9r/jk=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_top_normal.9.png
+SHA1-Digest: FEFlbEyHkcwXLRW7OU/hKxcfFlc=
+
+Name: assets/apps/H5872A500/www/js/jquery.flexslider-min.js
+SHA1-Digest: Whf8kYIwUdwifIXVl4lRkLt+8wo=
+
+Name: assets/data/dcloud_properties.xml
+SHA1-Digest: urHorir8m0V6l838bzFvFRtaoR4=
+
+Name: assets/apps/H5872A500/www/login.html
+SHA1-Digest: kixiOxE6eQ4lUQZ4WtD0+F9xoH0=
+
+Name: res/anim/dcloud_slide_in_from_top.xml
+SHA1-Digest: RjPA/U13nzp/25GeZP9dm86jCFM=
+
+Name: res/drawable-hdpi/dcloud_snow_white.png
+SHA1-Digest: eXtnqulSVJtysUTYw9S6JpiqCPM=
+
+Name: assets/apps/H5872A500/www/php/a.php
+SHA1-Digest: B5mwT1r5b/Q3HMoO6PQERMPWE5M=
+
+Name: assets/apps/H5872A500/www/confirm-order-one.html
+SHA1-Digest: fcsBYPvqGKWEuifi3riPe8kWzMI=
+
+Name: lib/armeabi-v7a/libpl_droidsonroids_gif.so
+SHA1-Digest: qPH4EqezrthbGyS/xNmqFwhRpQM=
+
+Name: res/layout/dcloud_custom_notification.xml
+SHA1-Digest: cfkLcR+4EK6c5M5O4X0hyOLkrZc=
+
+Name: assets/apps/H5872A500/www/manifest.json
+SHA1-Digest: 0E0NDzLpRdboRUrlNYIm4pJq+/s=
+
+Name: res/drawable-xhdpi/icon.png
+SHA1-Digest: CFb/4bCPMrgldXYLPyVSB7l9WRI=
+
+Name: assets/apps/H5872A500/www/js/jquery-1.8.2.min.js
+SHA1-Digest: 9jrvSwg4JQnNUn/Kn49FUFr92Q8=
+
+Name: res/drawable-hdpi/dcloud_snow_black_progress.xml
+SHA1-Digest: cW/BefjveibmIRyR/07z4msNPOs=
+
+Name: res/drawable-xhdpi/dcloud_image_pick_mask.9.png
+SHA1-Digest: wPVOZMu/gwA35mSz6pE+Rcaz0W4=
+
+Name: assets/apps/H5872A500/www/css/base.css
+SHA1-Digest: 5xO66VM8o3xUVTS2HMqAJ0NMMNc=
+
+Name: assets/apps/H5872A500/www/js/jquery.mobile-1.4.5.min.js
+SHA1-Digest: vUscLqOa3Sx9lnDnGLXMR9UV3LM=
+
+Name: assets/apps/H5872A500/www/img/pro-details-1.jpg
+SHA1-Digest: OFcreoQGBj/KE1fVpJ5jjWm55f4=
+
+Name: assets/apps/H5872A500/www/img/f-2.png
+SHA1-Digest: 1vZEteAcGaVTtXxNC3ZSX15vLnE=
+
+Name: res/drawable-xhdpi/dcloud_actionsheet_single_pressed.9.png
+SHA1-Digest: feGTi9YaGV3fkzXC0VIFS/VP61w=
+
+Name: assets/apps/H5872A500/www/test2.html
+SHA1-Digest: +MAeafGjBlf/eFjU+pLa/6Vatlo=
+
+Name: lib/armeabi/libmsc.so
+SHA1-Digest: TnXBXOB20kRRWDkKusSlX2VQ034=
+
+Name: assets/apps/H5872A500/www/iconfont/iconfont.js
+SHA1-Digest: Ahqdo4NcnCGbZHpVcP8qHu2tEL4=
+
+Name: assets/apps/H5872A500/www/js/main.js
+SHA1-Digest: 3CpFKIkrl40SvzX+8lf/+gXKtS4=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: cvaMpPzAx248a29rKQw0jcZRt1A=
+
+Name: res/drawable-xhdpi/dcloud_image_pick_no_media.png
+SHA1-Digest: 4mZo5iuwR3NkD1xZV88qD3ueaMc=
+

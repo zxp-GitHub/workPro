@@ -1,4 +1,4 @@
-/*S first index*/
+﻿/*S first index*/
 html,body,.container,.box{
 				width: 100%;
 				height: 100%;
@@ -60,12 +60,12 @@ html,body,.container,.box{
 	height: 83%;
 	width: 100%;
 	background-color: #E5E5E5;
-	overflow: scroll;
+	/*overflow: scroll;*/
 }
 .big-ul{
 	width: 100%;
-	height: auto;
-	
+	height: 100%;
+	position: relative;
 }
 .big-li{
 	display: none;
@@ -168,7 +168,7 @@ html,body,.container,.box{
 	font: 0.8rem/1.5 "微软雅黑";
 	position: relative;
 }
-.footer-li:nth-child(3){
+.footer-li:nth-child(2){
 	color: red;
 }
 .footer-li-div{
@@ -183,6 +183,9 @@ html,body,.container,.box{
 	margin-top: 0.4rem;
 }
 .shopping-cart-li-cell>i/*,.shopping-car-change-price>i*/{
+	color: red;
+}
+.shopping-car-change-price>i{
 	color: red;
 }
 /*S my*/
@@ -307,8 +310,13 @@ html,body,.container,.box{
 	/*text-align: center;*/
 }
 /*E my*/
+/*S cart*/
+.main{
+	position: relative;
+}
 
 
+/*E cart*/
 
 /*E first  index*/
 /*S address-info*/
@@ -511,11 +519,12 @@ html,body,.container,.box{
 	padding: 0.5rem 0;
 	background-color: #fff;
 }
-.all-goods-min-li>a>img{
+.all-goods-min-li>img{
 width: 50%;
+height: ;
 /*height: 2rem;*/
 }
-.all-goods-min-li>a>p{
+.all-goods-min-li>p{
 	margin-top: 0.2rem;
 }
 .clear-both-div{
@@ -541,8 +550,22 @@ width: 50%;
 }
 .shopping-cart-ul{
 	width: 100%;
-	height: auto;
+	height: 92%;
+	background-color: sandybrown;
 	overflow: scroll;
+}
+.all-choice-p{
+}
+.cart-all-choice{
+	z-index: 999;
+	width: 100%;
+	height:4rem;
+	position: absolute;
+	bottom: 0;
+	background-color:#FA8072;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .shopping-cart-li{
 	height: 5rem;
@@ -554,10 +577,16 @@ width: 50%;
 	float: left;
 	/*background-color: saddlebrown*/
 }
+.shopping-cart-li-cell>img{
+	width: 70%;
+}
 .shopping-cart-li-cell:nth-child(1){
 	height: 1rem;
 	width: 5%;
 	margin: 2rem 0.5rem 0;
+}
+.shopping-cart-li-cell:nth-child(1)>.all-choice-right{
+	color: #ccc;
 }
 .shopping-cart-li-cell:nth-child(2){
 	height: 4rem;
@@ -945,6 +974,10 @@ vertical-align: middle;
 }
 .ok-add-cart-mask>i{
 	 font: 3rem/5rem "微软雅黑";
+}
+.swiper-wrapper>img{
+	width: 100%;
+	height: 100%;
 }
 /*E product-details*/
 /*S confirm-order-three*/
