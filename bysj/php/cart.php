@@ -11,12 +11,16 @@ $sql = "select * FROM t_cart where userID='$_GET[userID]' and goodID='$_GET[good
 //判定是否查询结果是否存在，存在几条
 $result = $conn->query($sql);
 //存在输出1，不存在输出0
+
 if ($result->num_rows > 0) {
-	$result = mysqli_query($conn,"UPDATE t_cart SET goodnumber='$_GET[goodnum]'
-WHERE userID='$_GET[userID]' AND goodID='$_GET[goodID]'");
+	if(".$_GET[goodnum]."== 0){
+	$result =mysqli_query($conn,"DELETE FROM t_cart WHERE userID='$_GET[userID]' AND goodID='$_GET[goodID]'");
+	}
+   $result = mysqli_query($conn,"UPDATE t_cart SET goodnumber='$_GET[goodnum]' WHERE userID='$_GET[userID]' AND goodID='$_GET[goodID]'");
 } else {
    $result = mysqli_query($conn,"INSERT INTO t_cart (userID, goodID,goodnumber) VALUES ('" . $_GET['userID'] . " ','" . $_GET['goodID'] . "','" . $_GET['goodnum'] . "')");
 }
+
 //推出数据库操作
 mysqli_close($conn);
 ?>

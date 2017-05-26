@@ -18,7 +18,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	$e = array();
 	  while($row = $result->fetch_assoc()) {
-		 $e[] = array("goodnumber"=>$row["goodnumber"],"goodname"=>$row["goodname"],"goodsrc"=>$row["goodsrc"],"goodprice"=>$row["goodprice"]);
+		 $e[] = array("goodnumber"=>$row["goodnumber"],"goodname"=>$row["goodname"],"goodsrc"=>$row["goodsrc"],"goodprice"=>$row["goodprice"],"goodID"=>$row["goodID"]);
 	  }
 	  echo json_encode($e);
 } else {

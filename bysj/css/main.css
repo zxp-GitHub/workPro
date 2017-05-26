@@ -26,6 +26,9 @@ html,body,.container,.box{
 .first-top-li>a>i{
 	font-size: 1.5rem;	
 }
+.back-to-index-p>.icon-xiaoyuhao{
+	font-size: 1.5rem;	
+}
 .first-top-li:nth-child(1){
 	width: 8%;
 	left: 0.3rem;
@@ -78,7 +81,7 @@ html,body,.container,.box{
 .home-main-ul{
 	width: 100%;
 	height: 8rem;
-	background-color: #fff;
+	background-color: rgb(253,253,253);
 }
 .home-main-li{
 	float: left;
@@ -86,10 +89,10 @@ html,body,.container,.box{
 	text-align: center;
 	font: 1rem/1 "微软雅黑";
 }
-.home-main-li>a>img{
+.home-main-li>a>img,.home-main-li>img{
 	margin-top: 1rem;
 }
-.home-main-li>a>p{
+.home-main-li>a>p,.home-main-li>p{
 	margin-top: 1rem;
 }
 .guess-you-like,.guess-you-like>ul,.guess-you-like>ul>li{
@@ -551,27 +554,54 @@ height: ;
 .shopping-cart-ul{
 	width: 100%;
 	height: 92%;
-	background-color: sandybrown;
+	background-color: #E9E9E9;
 	overflow: scroll;
 }
 .all-choice-p{
+	margin-left: 0.5rem;
+	width: 5rem;
+}
+.all-chioce-ok{
+	color: #ccc;
+	padding-right: 0.8rem;
 }
 .cart-all-choice{
 	z-index: 999;
 	width: 100%;
-	height:4rem;
+	height:8%;
 	position: absolute;
 	bottom: 0;
-	background-color:#FA8072;
+	background-color:#fff;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content:  flex-start;
+	position: relative;
+	border-bottom:1px solid #ccc; 
+}
+.cart-all-choice>p{
+	float: left;
+}
+.all-choice-p2{
+	/*margin-left: 2rem;*/
+	width: 8rem;
+	text-align: center;
+	
+}
+.cart-to-pay{
+	position: absolute;
+	right: 1rem;
+	padding: 0.2rem 1rem 0.3rem 1rem;
+	border-radius: 1rem;
+	background-color: red;
+	color: #fff;
 }
 .shopping-cart-li{
 	height: 5rem;
 	background-color: #fff;
 	border-bottom: 1px solid #ccc;
 	width: 100%;
+	display: flex;
+	align-items: center;
 }
 .shopping-cart-li-cell{
 	float: left;
@@ -579,19 +609,20 @@ height: ;
 }
 .shopping-cart-li-cell>img{
 	width: 70%;
+	height: 80%;
 }
 .shopping-cart-li-cell:nth-child(1){
 	height: 1rem;
 	width: 5%;
-	margin: 2rem 0.5rem 0;
+	margin: 0rem 0.5rem 0;
 }
 .shopping-cart-li-cell:nth-child(1)>.all-choice-right{
 	color: #ccc;
 }
 .shopping-cart-li-cell:nth-child(2){
-	height: 4rem;
+	height:90%;
 	width: 23%;
-	margin-top: 0.5rem;
+	/*margin-top: 0.5rem;*/
 	border: 1px solid #ccc;
 	margin-right: 0.5rem;
 	text-align: center;
@@ -601,7 +632,7 @@ margin-top: 0.4rem;
 }
 .shopping-cart-li-cell:nth-child(3){
 	height: 4rem;
-	margin-top: 0.5rem;
+	/*margin-top: 0.5rem;*/
 	width: 62%;
 	/*background-color: salmon*/
 }
@@ -618,6 +649,14 @@ margin-top: 0.4rem;
 .shopping-car-cell-price{
 	color: red;
 	float: left;
+	}
+.shopping-car-cell-delete{
+	display: inline-block;
+	margin-left: 1rem;
+	margin-right: 0.3rem;
+	float: right;
+	/*color: red;*/
+
 }
 .shopping-car-change-price{
 	float: right;
@@ -630,7 +669,8 @@ vertical-align: middle;
 .confirm-order-main{
 	height: 92%;
 	width: 100%;
-	background-color: #fff;
+	background-color: #eee;
+	overflow: scroll;
 }
 .fill-address-information{
 	width: 100%;
@@ -659,13 +699,42 @@ vertical-align: middle;
 }
 .confirm-order-ul{
 	width: 100%;
-	height: 100%;
+	height: 50%;
+	text-align: center;
+	margin-top: 1rem;
 }
 .confirm-order-li{
 	width: 92%;
-	border-bottom: 1px solid #ccc;
 	margin:  0 auto;
-	padding: 2% 3%;
+	padding: 4% 3%;
+	font: 1rem/1 "微软雅黑";
+}
+.confirm-order-input{
+	border-bottom: 1px solid #ccc;
+	width: 70%;
+	height: 2rem;
+	margin-left: 1rem;
+	padding-left: 0.5rem;
+}
+.confirm-order-all-price-p{
+	width: 100%;
+	height: 2rem;
+	/*background-color: red;*/
+	text-align: center;
+	margin-bottom: 3rem;
+}
+.confirm-order-all-price{
+	padding-left: 0.5rem;
+}
+.confirm-order-to-pay{
+	padding:0.8rem;
+	color: #fff;
+	background-color: red;
+	width: 70%;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 2rem;
+	font: 1rem/1 "微软雅黑";
 }
 .confirm-order-li>a{
 	width: 100%;
@@ -1326,5 +1395,23 @@ vertical-align: middle;
 }
 .register-ul>li{
 	margin: 1rem;
+}
+.ogin-main{
+	position: relative;
+}
+.log-mask{
+	border-radius: 1rem;
+	width: 80%;
+	height: 20%;
+	background-color: #ccc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 30%;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	display: none;
 }
 /*E register-login*/

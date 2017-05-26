@@ -39,6 +39,8 @@ Zepto(function() {
 		success:function(data){
 				if(data!=0){
 				alert("登录成功");
+//				$(".log-mask").show()
+//				$(".log-mask").html("登录成功");
 				window.location.href = "all-goods.html?userID="+data[0].userID;
 //				localStorage.setItem("userID",Name);
 			}
