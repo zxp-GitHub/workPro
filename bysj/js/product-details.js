@@ -1,9 +1,6 @@
 Zepto(function() {
-	var goodsId = window.location.search.split("=")[2];
-	var userID = window.location.search.split("=")[1];
-	var userIDs = userID.split("&")[0];
-	console.log(userIDs)
-//	console.log(usernames);
+	var goodsId =localStorage.getItem("goodID");
+	var userID = localStorage.getItem("userID");
 	$.ajax({
 			type:"get",
 			url:"php/product-detail.php",
@@ -13,14 +10,15 @@ Zepto(function() {
 			},
 			success:function(data){
 				//商品图片的渲染
-				console.log(data);
+//				console.log(data);
 				$(".swiper-wrapper").find("img").attr("src",data[0].goodsrc);
 				$(".pro-detail-two-goods-info").html(data[0].goodname);
 				$(".product-detail-price").html(data[0].goodprice);
 			}//success
 		});//ajax
+		//去购物车列表页
 		$(".let-go-to-cart").tap(function () {
-			window.location.href = "index.html?userID="+userIDs;
+			window.location.href = "index.html";
 		});
 		//加入购物车操作
 		$(".add-to-car").tap(function(){
@@ -31,7 +29,7 @@ Zepto(function() {
 			dataType:"json",
 			data:{
 				goodID:goodsId,
-				userID:userIDs,
+				userID:userID,
 				goodnum:goodsnums
 			},
 			success:function(data){

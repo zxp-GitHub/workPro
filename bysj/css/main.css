@@ -29,6 +29,9 @@ html,body,.container,.box{
 .back-to-index-p>.icon-xiaoyuhao{
 	font-size: 1.5rem;	
 }
+.back-to-detial-p>.icon-xiaoyuhao{
+	font-size: 3rem;	
+}
 .first-top-li:nth-child(1){
 	width: 8%;
 	left: 0.3rem;
