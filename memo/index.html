@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+			}
+			.option{
+				width: 100%;
+				height: 100px;
+				/*background-color: cadetblue;*/
+				overflow-x: overlay;
+				cursor: pointer;	
+			}
+			.option-li{
+				width: 10%;
+				height: 40px;
+				float: left;
+				background-color: red;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow:hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.list-li{
+				display: none;
+			}
+			.list-li:first-child{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="option">
+			<li class="option-li">1、一个码农的职业素养</li>
+			<li class="option-li">2、易忘知识点</li>
+			<li class="option-li">3、ajax</li>
+			<li class="option-li">4、数据库</li>
+			<li class="option-li">5、易错点及解决方案</li>
+		</ul>
+		<ul class="list">
+			<li class="list-li">1）
+				<ul>
+					<li>1、备份，所有要删的都要备份</li>
+					<li>2、张先伟老师说，做什么都要早做准备，我认为，早做准备，认真，努力做到最好，结果就可以很棒！工作要有认真的态度，做项目时，像做毕设时，做好项目计划，好的卷面给人一种很好的体验。</li>
+					<li>1、做事，早、认真、做好清晰的计划列表，最快最好实现。</li>
+				</ul>
+			</li>
+			<li class="list-li">2）
+				<ul>
+					<li>1、多余的用。。。表示：text-overflow: ellipsis;white-space: nowrap;overflow:hidden;</li>
+					<li>2、居中：display: flex;align-items: center;justify-content: center;</li>
+					<li>3、选择最后一个元素：不是nth-last-child而是last-child</li>
+					<li>4、ul里除了li不可包含其他元素，清除浮动也不可。</li>
+				</ul>
+			</li>
+			<li class="list-li">3）
+				<ul>
+					<li>1、对ajax渲染的元素操作，必须在ajax的success里操作，外面不可以。</li>
+					<li>2、ajax与php传递数组的时候，datatype一定要设置成json，否则会报错。</li>
+					<li>3、测试时，输出data，如果是数组的形式，那么必须要加下标，比如console.log（data[0]）</li>
+					<li>4、页面跳转传参：window.location.search = "?"</li>
+					<li>5、跳转至之前一个访问的页面 ： window.history.back();跳转至之后访问的一个页面:window.history.forward(); </li>
+				</ul>
+			</li>
+			<li class="list-li">4）
+				<ul>
+					<li>1、数据库的表会因为数据流日志里的信息的删除而消失，所以千万不要动日志，最好对日志备份，防止电脑突然停电，日志消失。</li>
+					<li>2、数据库表的信息消失，可能是因为数据库过多，相互冲突。</li>
+				</ul>
+			</li>
+			<li class="list-li">5）
+				<ul>
+					<li>1、若是操作写在了跳转页面之后，就无法实现操作，而且跳到不同页面后，操作就无法实现了。</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+	<script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('.option-li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.list-li').hide().eq($(this).index()).show()
+    })
+	</script>
+</html>
