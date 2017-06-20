@@ -57,7 +57,6 @@ $(".add-to-car").tap(function(){
 $(".confirm-order3-three-ul li").tap(function () {
 	$(this).css("color","red").siblings().css("color","black");
 });
-
 /*E confirm-order*/
 /*S index*/
 $(".shopping-car-change-price>.icon-jiahao2").tap(function(){

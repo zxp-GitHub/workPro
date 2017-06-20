@@ -9,21 +9,26 @@
  		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
  		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
 		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
 	</head>
 	<body>
-		<div class="container">
+<div class="container">
 			<div class="box">
-				<div class="top">
+				<div class="top ">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
-						<li class="first-top-li"><span class="first-top-li-span">搜索</span></li>
+						<li class="first-top-li"><a href="index.html"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li"><span class="first-top-li-span">登录</span></li>
 					</ul>			
 				</div><!--top-->
-				<div class="all-goods-main">
-					<input type="text" name="" id="" value="" placeholder="姓名"/>
-					<input type="text" name="" id="" value="" placeholder="密码"/>
-					<input type="button" name="" id="" value="确定登录" />
+				<div class="all-goods-main login-main">
+					<ul class="register-ul">
+						<li><input type="text" name="" id="" value="" placeholder="姓名" class="login-name"/></li>
+						<li><input type="password" name="" id="" value="" placeholder="密码" class="login-pass"/></li>
+						<li class="confirm-login">确定登录</li>
+						<li><a href="register.html" class="go-to-register">去注册</a></li>
+						<li><a href="forget-password.html" class="get-pass">忘记密码</a></li>
+					</ul>
 					</div><!--main-->
 				</div><!--box-->
 		</div><!--containter-->
