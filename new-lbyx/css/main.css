@@ -26,6 +26,9 @@ html,body,.container,.box{
 .first-top-li>a>i{
 	font-size: 1.5rem;	
 }
+.first-top-li>i{
+	font-size: 1.5rem;	
+}
 .first-top-li:nth-child(1){
 	width: 8%;
 	left: 0.3rem;
@@ -363,9 +366,10 @@ html,body,.container,.box{
 }
 .all-goods-search{
 	width: 100%;
-	height: 8%;
+	height: 7.9%;
 	background: #fff;
 	overflow: hidden;
+	-webkit-box-shadow:2px 2px 5px #000;
 }
 .all-goods-search-p{
 	width: 80%;
@@ -377,7 +381,7 @@ html,body,.container,.box{
 	float: left;
 }
 .all-goods-search-p-bc{
-	background-color: #eee;
+	background-color: #fff;
 	
 }
 .search-magnifier{
@@ -422,7 +426,20 @@ html,body,.container,.box{
 	height: 100%;
 	background-color: #EEEEEE;
 	float: left;
-	overflow: scroll;
+	/*overflow:hidden;*/
+}
+.all-goods-list-ul{
+	height: 100%;
+	overflow:scroll;
+}
+.all-goods-min-right{
+	width: 100%;
+	height: auto;
+	background-color: khaki;
+	/*overflow: scroll;*/
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 .all-goods-left-ul{
 	height: 100%;
@@ -434,8 +451,8 @@ html,body,.container,.box{
 	text-align: center;
 	height: 7.5%;
 	width: 100%;
-	background-color: #E5E5E5;
-	border-bottom: 0.5px solid #ccc;
+	background-color: rgb(240,240,240);
+	border-bottom: 0.5px solid #D5D5D5;
 	font: 0.7rem/1 "微软雅黑";
 	position: relative;
 	display: flex;
@@ -451,51 +468,50 @@ html,body,.container,.box{
 	margin-top:-0.5rem ;
 	text-align: center;
 }*/
-.all-goods-min-right{
-	width: 100%;
-	height: auto;
-	background-color: khaki;
-}
 .right-min-box{
 	width: 100%;
-	height: 14rem;
+	/*height: 14rem;*/
 	background-color: #fff;
+	overflow: hidden;
 }
 .right-min-box-p{
 	height: 2rem;
 	line-height: 2rem;
 	padding-left: 1rem;
-	background:#E5E5E5;
+	background:rgb(240,240,240);
 }
 .all-goods-right-cell{
-	height: 12rem;
 	width: 100%;
 }
 .right-cell-ul{
 	width: 100%;
 	height: 100%;
+	padding-top: 0.5rem;
 }
 .right-cell-li{
 	float: left;
-	height: 50%;
 	width: 33.333%;
 	text-align: center;
+	/*align-items: center;*/
 }
-.right-cell-li>a>img{
-	margin-top: 0.2rem;
-}
-.right-cell-li>p{
+.all-good-cell-p{
 	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
-.all-goods-list-ul>li{
+/*.all-goods-list-ul>li{
 	display: none;
-}
-.all-goods-list-ul>.active{
+}*/
+/*.all-goods-list-ul>.active{
 	display: block;
-}
+}*/
 .all-goods-left-ul>li:nth-child(1){
 	background-color: #fff;
 	color: red;
+	/*border-top: 0.1px solid #D5D5D5;*/
+}
+.all-goods-pic{
+	width: 50%;
+	margin-top: 0.2rem;
 }
 /*E all-goods-search*/
 /*S select-area*/
@@ -1034,6 +1050,7 @@ vertical-align: middle;
 /*`	border-bottom-left-radius: 0.5rem;*/
 	border-bottom-right-radius: 0.3rem;
 	border-bottom-left-radius: 0.3rem;
+	display: none;
 }
 .icon-gouwuche3-bc{
 	display: flex;

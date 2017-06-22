@@ -6,6 +6,13 @@
 		<link rel="stylesheet" type="text/css" href="css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fx.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fn.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
 	</head>
 	<body>
@@ -14,21 +21,53 @@
 				<div class="top add-info-top">
 					<!--<p class="add-info-top-p">地址信息</p>-->
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
-						<li class="first-top-li"><span class="first-top-li-span">选择区域</span></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">选择商圈</span></li>
 					</ul>	
 				</div>
 				<div class="add-info-main">
-					<ul class="add-main-ul">
+					<ul class="add-main-ul select-area-two-ul">
+						<!--<li class="add-main-li"><i class="iconfont icon-dizhi add-main-li-i"></i>罗庄金海汇</li>
 						<li class="add-main-li"><i class="iconfont icon-dizhi add-main-li-i"></i>东方一店</li>
 						<li class="add-main-li"><i class="iconfont icon-dizhi add-main-li-i"></i>东方二店</li>
 						<li class="add-main-li"><i class="iconfont icon-dizhi add-main-li-i"></i>东方三店</li>
-						<li class="add-main-li"><i class="iconfont icon-dizhi add-main-li-i"></i>东方四店</li>
-						<li class="add-main-li"><i class="iconfont icon-dizhi add-main-li-i"></i>罗庄金海汇</li>
+						<li class="add-main-li"><i class="iconfont icon-dizhi add-main-li-i"></i>东方四店</li>-->
 					</ul>
-					
 				</div>
 			</div>
 		</div>
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+		//渲染选择区域li
+		var selectAreaOneLi = localStorage.getItem("selectAreaOneLi");
+		$.ajax({
+			url: "http://api.x5u.com.cn:12804/XuQiu/ZiTigoods.aspx?action=SQCity_Getinfo&RegionName="+selectAreaOneLi+"",  //注册地址
+			type:"get",
+			dataType:"json",
+			success:function(data){
+					console.log(data);
+					function selectTwoRender(obj){
+						var html = "<li class=\"add-main-li select-area-two-li\"><i class=\"iconfont icon-dizhi add-main-li-i\"></i>"+obj.UniversityName+"</li>";
+						$(".select-area-two-ul").append(html);
+					}
+					for (var i = 0; i < data.result.data.length; i++) {
+						selectTwoRender(data.result.data[i]);
+					}
+					//点击li跳转页面
+					$(".select-area-two-li").tap(function () {
+						var selectAreaTwoLi = $(this).text();
+						console.log(selectAreaTwoLi);
+						localStorage.setItem("selectAreaTwoLi",selectAreaTwoLi);
+						window.location.href = "index.html";
+					});
+					/*S business-circle-choice*/
+					$(".add-main-ul li").tap(function () {
+						$(this).css("color","red").siblings().css("color","#000000")
+					});
+					/*E business-circle-choice*/
+			}
+		});//ajax
+	});
+</script>

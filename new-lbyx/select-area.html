@@ -6,6 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/zepto.fx.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fn.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
 	</head>
 	<body>
@@ -14,17 +19,14 @@
 				<div class="top add-info-top">
 					<!--<p class="add-info-top-p">地址信息</p>-->
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
 						<li class="first-top-li"><span class="first-top-li-span">选择区域</span></li>
 					</ul>	
 				</div>
 				<div class="add-info-main">
-					<ul class="add-main-ul select-area-ul">
-						<li class="add-main-li">北京  <span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>
-						<li class="add-main-li">临沂<span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>
-						<li class="add-main-li">天津<span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>
-						<li class="add-main-li">广州<span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>
-						<li class="add-main-li">上海<span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>
+					<ul class="add-main-ul select-area-one-ul">
+						<!--<li class="add-main-li">北京市<span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>
+						<li class="add-main-li">临沂市<span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>-->
 					</ul>
 					
 				</div>
@@ -32,3 +34,35 @@
 		</div>
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+		$.ajax({//获取json数据必写哦！！！
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/XuQiu/ZiTigoods.aspx?action=Regioninfo_Getinfo&operation=0&RegionType=3&",
+			dataType:"json",
+			success:function(data){//consol一下是很重要的！！！！！！
+					console.log(data);
+					function selectTwoRender(obj){
+						var html = "<li class=\"add-main-li select-area-one-li\">"+obj.RegionName+"<span class=\"select-area-span\"><i class=\"iconfont icon-dayuhao\"></i></span></li>";
+						$(".select-area-one-ul").append(html);
+					}
+					for (var i = 0; i < data.result.data.length; i++) {
+						selectTwoRender(data.result.data[i]);
+					}
+					//点击li跳转页面
+					$(".select-area-one-li").tap(function () {
+						var selectAreaOneLi = $(this).text();
+//						console.log(selectAreaOneLi);
+						localStorage.setItem("selectAreaOneLi",selectAreaOneLi);
+						window.location.href = "select-area-two.html";
+					});
+					/*S business-circle-choice*/
+					$(".add-main-ul li").tap(function () {
+						$(this).css("color","red").siblings().css("color","#000000")
+					});
+					/*E business-circle-choice*/
+			}//succ
+		});//ajax
+	});
+
+</script>

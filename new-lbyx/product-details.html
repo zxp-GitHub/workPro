@@ -80,30 +80,31 @@
   //一定要注意，必须要从home页跳转到商品详情页，banner才不会报错。
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
-			url:"json/lbyx.json",
+			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=SpecialSale_get1&operation=9&universityid=AB59AAFD-60CE-414E-89B5-1C8A4C722FC ",
 			dataType:"json",
 			success:function(data){//consol一下是很重要的！！！！！！
+				console.log(data)
 				//假如一页获取m条
-				     var homeNums = window.sessionStorage.getItem("homeNum")||"";
-//				     console.log(data.homeList[homeNums]);
-					 var html= "<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[0]+"\"/></div>";
-						 html+="<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[1]+"\"/></div>";
-						 html+="<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[2]+"\"/></div>";
-						$(".swiper-wrapper").append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
-						$(".pro-detail-two-goods-info").html(data.homeList[homeNums].name);
-						$(".pro-detail-two-price").html(data.homeList[homeNums].price)
-						
-						    //轮播图
-							var mySwiper = new Swiper ('.swiper-container', {
-						    direction: 'horizontal',
-						    longSwipes : false,
-						    loop: true,
-						//  onlyExternal : false,
-						    autoplay : 2000,
-						    autoplayDisableOnInteraction : false,//禁止自动播放的作用
-						    // 如果需要分页器
-						    pagination: '.swiper-pagination',
- 							});
+//				     var homeNums = window.sessionStorage.getItem("homeNum")||"";
+////				     console.log(data.homeList[homeNums]);
+//					 var html= "<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[0]+"\"/></div>";
+//						 html+="<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[1]+"\"/></div>";
+//						 html+="<div class=\"swiper-slide\"><img src=\""+data.homeList[homeNums].banner[2]+"\"/></div>";
+//						$(".swiper-wrapper").append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+//						$(".pro-detail-two-goods-info").html(data.homeList[homeNums].name);
+//						$(".pro-detail-two-price").html(data.homeList[homeNums].price)
+//						
+//						    //轮播图
+//							var mySwiper = new Swiper ('.swiper-container', {
+//						    direction: 'horizontal',
+//						    longSwipes : false,
+//						    loop: true,
+//						//  onlyExternal : false,
+//						    autoplay : 2000,
+//						    autoplayDisableOnInteraction : false,//禁止自动播放的作用
+//						    // 如果需要分页器
+//						    pagination: '.swiper-pagination',
+// 							});
 				}
 		});
 		});
