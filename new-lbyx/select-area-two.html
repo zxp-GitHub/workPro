@@ -49,17 +49,20 @@
 			success:function(data){
 					console.log(data);
 					function selectTwoRender(obj){
-						var html = "<li class=\"add-main-li select-area-two-li\"><i class=\"iconfont icon-dizhi add-main-li-i\"></i>"+obj.UniversityName+"</li>";
+						var html = "<li class=\"add-main-li select-area-two-li\" universityId=\""+obj.UniversityId+"\"><i class=\"iconfont icon-dizhi add-main-li-i\"></i>"+obj.UniversityName+"</li>";
 						$(".select-area-two-ul").append(html);
 					}
 					for (var i = 0; i < data.result.data.length; i++) {
 						selectTwoRender(data.result.data[i]);
 					}
-					//点击li跳转页面
+					//点击li跳转页面=
 					$(".select-area-two-li").tap(function () {
 						var selectAreaTwoLi = $(this).text();
+						var universityId = $(this).attr("universityId");//应该加引号
+						console.log(universityId);
 						console.log(selectAreaTwoLi);
 						localStorage.setItem("selectAreaTwoLi",selectAreaTwoLi);
+						localStorage.setItem("universityId",universityId);
 						window.location.href = "index.html";
 					});
 					/*S business-circle-choice*/

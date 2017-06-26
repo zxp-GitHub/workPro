@@ -1,4 +1,5 @@
 Zepto(function() {
+	var universityId = localStorage.getItem("universityId");
 	/*S register*/
 	$(".register-confirm-registration").tap(function () {
 		 var usernam = $(".register-name").val();
@@ -32,13 +33,14 @@ Zepto(function() {
 		dataType:"json",
 		success:function(data){
 			console.log(data);
-					if(data.result.status.msg=="succ"||data.result.status.msg=="flunk"){
+					if(data.result.status.msg=="succ"){
 					alert("登录成功");
 	//				localStorage.setItem("userID",data[0].userID);
+					localStorage.setItem("userId",data.result.data.UserId);
 					localStorage.setItem("indexPage",0);
-//					window.location.href = "index.html";
+					window.location.href = "index.html";
 					}
-					if(data.result.status.msg!="succ"&&data.result.status.msg!="flunk"){
+					if(data.result.status.msg!="succ"){
 					alert("信息填写错误");
 					}
 				}
@@ -93,7 +95,7 @@ $.ajax({
 	function allGoodRight(goodNum){
 		$.ajax({
 			type:"get",
-			url:"http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=GoodsTypeInfo_get&operation=1&parentid="+goodNum+"&kind=0&jsoncallback=&universityid=4CE1F934-21A8-4B35-AFB7-74D426740A9E&",
+			url:"http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=GoodsTypeInfo_get&operation=1&parentid="+goodNum+"&kind=0&jsoncallback=&universityid="+universityId+"&",
 			dataType:"json",
 			success:function(data){
 				console.log(data.result.data);
@@ -130,5 +132,8 @@ $.ajax({
 		};//addProduct
 	allGoodRight(208);
 //});//tap
+$(".all-goods-search-input").focus(function () {
+	window.location.href = "search-page.html";
+});
 /*E all-goods*/
 });//zepto

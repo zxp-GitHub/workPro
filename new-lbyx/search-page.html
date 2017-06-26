@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" type="text/css" href="css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
  		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
  		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
 		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
 	</head>
 	<body>
@@ -16,19 +19,30 @@
 			<div class="box">
 				<div class="top">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
 						<li class="first-top-li"><span class="first-top-li-span">搜索</span></li>
-						
 					</ul>			
 				</div><!--top-->
 				<div class="all-goods-main">
 					<div class="all-goods-search">
-						<p class="all-goods-search-p">
+						<p class="all-goods-search-p all-goods-search-p-bc">
 							<i class="iconfont icon-fangdajing1 search-magnifier"></i>
-							<input type="text" class="search-input" id="" value="" placeholder="请输入商品名称"/>
+							<input type="text" class="search-input search-page-search-input" id="" value="" placeholder="请输入商品名称"/>
 						</p>
 						<span class="search-span">搜索</span>
 					</div><!--all-goods-search-->
+					<div class="select-area3-main-two">
+						<ul class="select-area3-two-ul">
+							<li class="select-area3-two-li">综合</li>
+							<li class="select-area3-two-li">销量</li>
+							<li class="select-area3-two-li">价格</li>
+						</ul>
+					</div><!--select-area3-main-two-->
+					<div class="select-area3-main-three">
+						<ul class="confirm-order-three-ul select-area3-three-ul search-ul">
+						</ul>
+					</div><!--select-area3-main-three-->
+					
 					</div><!--main-->
 				
 				
@@ -37,3 +51,65 @@
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+		$(".search-page-search-input").focus();
+		var selectThreePage = 1;
+		function searchRender(searchValue,pages) {
+			$.ajax({//获取json数据必写哦！！！
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&operation=10&goodsname="+searchValue+"&universityid=28f95547-16f0-49eb-aace-d8a42e1f94fa&dataindex="+pages+"",
+				dataType:"json",
+				success:function(data){//consol一下是很重要的！！！！！！
+						console.log(data);
+						function selectThreeRender(obj){
+							var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsId = \""+obj.GoodsID+"\">";
+								html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
+								html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img select-area3-img\"/>";
+								html += "		<span class=\"select-area3-sell-out-mask\">售罄</span>";
+								html += "	</div>",
+								html += "	<div class=\"goods-right-cell\">";
+								html += "		<p class=\"goods-right-cell-p\">"+obj.GoodsName+"</p>";
+								html += "		<p class=\"goods-right-cell-p\">";
+								html += "			<span class=\"shopping-car-cell-price\">￥"+obj.GuidedPrice+"</span>";
+								html += "			<span class=\"shopping-car-change-price\"><i class=\"iconfont icon-gouwuche3 icon-gouwuche3-bc\"></i></p>";
+								html += "		</p>";
+								html += "	</div>";
+								html += "	</li>";
+							$(".search-ul").append(html);
+						}
+						for (var i = 0; i < data.Result.length; i++) {
+							selectThreeRender(data.Result[i]);
+						}
+						//点击商品，显示该商品的goodID
+						$(".select-area3-three-li").tap(function () {
+							localStorage.setItem("goodsId",$(this).attr("goodsId"));
+							window.location.href = "product-details.html";
+						});
+				}//succ
+			});//ajax
+		}//searchRender]
+		
+		$(".search-span").tap(function () {
+			var searchVal = $(".search-input").val();
+			console.log(searchVal);
+			$(".search-ul").html(" ")
+			searchRender (searchVal,selectThreePage);//是从1开始的
+		});
+		
+			//下拉加载,这个不能放在点击时间里，商品会重复
+			var searchVal = $(".search-input").val();
+			$(document).ready(function() { //这句话是要用的
+				var oWrap = $(".select-area3-main-three")
+				oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
+					if(oWrap.height() + $(this).scrollTop() >= $(".select-area3-three-ul").height()) {
+						console.log(selectThreePage);
+						searchRender (searchVal,selectThreePage);
+						selectThreePage = selectThreePage+1;
+					}
+				}); //E scroll
+			}); //E ready
+		
+	});
+	
+</script>

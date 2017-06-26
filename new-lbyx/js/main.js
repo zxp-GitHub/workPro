@@ -1,4 +1,9 @@
 Zepto(function() {
+	localStorage.setItem("universityId","28f95547-16f0-49eb-aace-d8a42e1f94fa");
+	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
+	if (selectAreaTwoLi == null) {
+		localStorage.setItem("selectAreaTwoLi","罗庄金海汇");
+	} 
 	
  $('.footer-ul li').on('tap',function(){
         $(this).addClass('active').siblings().removeClass('active');

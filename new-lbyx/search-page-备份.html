@@ -25,7 +25,7 @@
 					<div class="all-goods-search">
 						<p class="all-goods-search-p all-goods-search-p-bc">
 							<i class="iconfont icon-fangdajing1 search-magnifier"></i>
-							<input type="text" class="search-input all-goods-search-input" id="" value="" placeholder="请输入商品名称"/>
+							<input type="text" class="search-input" id="" value="" placeholder="请输入商品名称"/>
 						</p>
 						<span class="search-span">搜索</span>
 					</div><!--all-goods-search-->
@@ -37,21 +37,8 @@
 						</ul>
 					</div><!--select-area3-main-two-->
 					<div class="select-area3-main-three">
-						<ul class="confirm-order-three-ul select-area3-three-ul">
-								
-								<!--<li  class="confirm-order-three-li select-area3-three-li">
-									<div class="pic-cell-border select-area3-pic-cell-border">
-									<img src="img/f-2.png" class="pic-cell-border-img select-area3-img"/>
-								</div>
-								<div class="goods-right-cell">
-									<p class="goods-right-cell-p">意大利进口 Balocco 百事可乐 脆皮苏 焦糖味 200g</p>
-									<p class="goods-right-cell-p">
-											<span class="shopping-car-cell-price"  >￥20.90</span>
-											<span class="shopping-car-change-price"><i class="iconfont icon-gouwuche3 icon-gouwuche3-bc"></i></p>
-										</p>
-								</div>
-								</li>-->
-							</ul>
+						<ul class="confirm-order-three-ul select-area3-three-ul search-ul">
+						</ul>
 					</div><!--select-area3-main-three-->
 					
 					</div><!--main-->
@@ -64,18 +51,16 @@
 </html>
 <script type="text/javascript">
 	Zepto(function() {
-		var allGoodsPicID = localStorage.getItem("allGoodsPicID");
-		var selectThreePage = 1;
-		selectThreePageRender(selectThreePage);
-		function selectThreePageRender(pages) {
+		
+	function searchRender(searchValue) {
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
-			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&universityid=28f95547-16f0-49eb-aace-d8a42e1f94fa&type="+allGoodsPicID+"&dataindex="+pages+"",
+			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&operation=10&goodsname="+searchValue+"&universityid=28f95547-16f0-49eb-aace-d8a42e1f94fa&dataindex=1&datasize=3",
 			dataType:"json",
 			success:function(data){//consol一下是很重要的！！！！！！
 					console.log(data);
 					function selectThreeRender(obj){
-						var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsId = \""+obj.GoodsID+"\">";
+						var html = "<li class=\"confirm-order-three-li select-area3-three-li\">";
 							html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
 							html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img select-area3-img\"/>";
 							html += "		<span class=\"select-area3-sell-out-mask\">售罄</span>";
@@ -88,41 +73,20 @@
 							html += "		</p>";
 							html += "	</div>";
 							html += "	</li>";
-						$(".select-area3-three-ul").append(html);
+						$(".search-ul").append(html);
 					}
 					for (var i = 0; i < data.Result.length; i++) {
 					selectThreeRender(data.Result[i]);
 					}
-					//点击商品，显示该商品的goodID
-					$(".select-area3-three-li").tap(function () {
-						localStorage.setItem("goodsId",$(this).attr("goodsId"));
-						window.location.href = "product-details.html";
-					});
 			}//succ
 		});//ajax
-		}
-		//下拉加载
-		$(document).ready(function() { //这句话是要用的
-			var oWrap = $(".select-area3-main-three")
-			oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
-				if(oWrap.height() + $(this).scrollTop() >= $(".select-area3-three-ul").height()) {
-					var selectThreePage = parseInt(selectThreePage)+1;
-					console.log(selectThreePage);
-					selectThreePageRender(selectThreePage);
-				}
-			}); //E scroll
-		}); //E ready
-		//选中搜索框，跳转页面。
-		$(".all-goods-search-input").focus(function () {
-			window.location.href = "search-page.html";
+	}//searchRender
+	$(".search-span").tap(function () {
+			var searchVal = $(".search-input").val();
+			console.log(searchVal);
+			$(".search-ul").html(" ")
+			searchRender (searchVal);
 		});
-	
-	
-	
-	
-	
-	
-	
-	
-		});//end
+	});
+
 </script>
