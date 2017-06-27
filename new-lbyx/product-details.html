@@ -64,7 +64,7 @@
 					</div>
 					<p style="background-color: #EEEEEE;height: 2%;width: 100%;"></p>
 					<div class="pro-detail-four">
-						<i class="iconfont icon-gouwuche3"><span class="pro-detail-four-num">1</span></i><span class="add-to-car">加入购物车</span><a href="#	" class="buy-now">立即购买</a>
+						<i class="iconfont icon-gouwuche3 let-go-to-cart"><span class="pro-detail-four-num">1</span></i><span class="add-to-car">加入购物车</span><a href="#	" class="buy-now">立即购买</a>
 					</div>
 				</div><!--confirm-order-main-->
 				</div><!--box-->
@@ -78,7 +78,7 @@
   		var universityId = localStorage.getItem("universityId");
   		var goodsId = localStorage.getItem("goodsId");
   		var userId = localStorage.getItem("userId");
-		console.log(userId);
+//		console.log(userId);
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
 			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsInfo&goodsid="+goodsId+"&universityid="+universityId+"",
@@ -108,6 +108,13 @@
    							});
 			}
 		});
+		//去购物车列表页
+		$(".let-go-to-cart").tap(function () {
+//			alert("2");
+//			$("big-li").eq(1).addClass("show").siblings().removeClass("show");
+			localStorage.setItem("indexPage",1);
+			window.location.href = "index.html";
+		});		
 		});
 
 </script>

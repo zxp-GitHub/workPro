@@ -67,7 +67,8 @@ html,body,.container,.box{
 }
 .big-ul{
 	width: 100%;
-	height: auto;
+	height: 100%;
+	position: relative;
 	
 }
 .big-li{
@@ -171,9 +172,9 @@ html,body,.container,.box{
 	font: 0.8rem/1.5 "微软雅黑";
 	position: relative;
 }
-.footer-li:nth-child(3){
+/*.footer-li:nth-child(3){
 	color: red;
-}
+}*/
 .footer-li-div{
 	position: absolute;
 	width: 100%;
@@ -188,6 +189,7 @@ html,body,.container,.box{
 .shopping-cart-li-cell>i/*,.shopping-car-change-price>i*/{
 	color: red;
 }
+
 /*S my*/
 .my-first{
 	width: 100%;
@@ -310,7 +312,9 @@ html,body,.container,.box{
 	/*text-align: center;*/
 }
 /*E my*/
-
+.color-red{
+	color:red;
+}
 
 
 /*E first  index*/
@@ -533,7 +537,61 @@ html,body,.container,.box{
 .shopping-cart-ul{
 	width: 100%;
 	height: auto;
+	/*overflow: scroll;*/
+}
+.cart-div{
+	width: 100%;
+	height: 100%;
 	overflow: scroll;
+	position: relative;
+}
+.all-choice-p{
+	margin-left: 0.5rem;
+	width: 5rem;
+}
+.all-chioce-ok{
+	color: #ccc;
+	padding-right: 0.8rem;
+}
+.cart-all-choice{
+	z-index: 999;
+	width: 100%;
+	height:8%;
+	position: absolute;
+	bottom: 0;
+	background-color:#fff;
+	display: flex;
+	align-items: center;
+	justify-content:  flex-start;
+	/*position: relative;*/
+	border-bottom:1px solid #ccc; 
+}
+.cart-all-choice>p{
+	float: left;
+}
+.all-choice-p2{
+	/*margin-left: 2rem;*/
+	width: 8rem;
+	text-align: center;
+	
+}
+.cart-to-pay{
+	position: absolute;
+	right: 1rem;
+	padding: 0.2rem 1rem 0.3rem 1rem;
+	border-radius: 1rem;
+	background-color: red;
+	color: #fff;
+}
+.shopping-cart-li{
+	height: 5rem;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*align-items: center;*/
 }
 .shopping-cart-li{
 	height: 5rem;
@@ -548,22 +606,24 @@ html,body,.container,.box{
 .shopping-cart-li-cell:nth-child(1){
 	height: 1rem;
 	width: 5%;
-	margin: 2rem 0.5rem 0;
+	margin: 0rem 0.5rem 0;
 }
 .shopping-cart-li-cell:nth-child(2){
 	height: 4rem;
 	width: 23%;
-	margin-top: 0.5rem;
+	/*margin-top: 0.5rem;*/
 	border: 1px solid #ccc;
 	margin-right: 0.5rem;
 	text-align: center;
 }
 .shopping-cart-li-cell:nth-child(2)>img{
-margin-top: 0.4rem;	
+/*margin-top: 0.4rem;*/	
+width: 100%;
+height: 100%;
 }
 .shopping-cart-li-cell:nth-child(3){
 	height: 4rem;
-	margin-top: 0.5rem;
+	/*margin-top: 0.5rem;*/
 	width: 62%;
 	/*background-color: salmon*/
 }
@@ -575,17 +635,34 @@ margin-top: 0.4rem;
 	float: right;
 }
 .car-cell-right-p{
+	/*margin-top:0.2rem;*/
 	font: 0.7rem/1.2rem "微软雅黑";
+}
+.car-cell-right-p:nth-child(2){
+	margin-top: 0.2rem;
 }
 .shopping-car-cell-price{
 	color: red;
 	float: left;
+}
+.shopping-car-cell-delete{
+	display: inline-block;
+	margin-left: 1rem;
+	margin-right: 0.3rem;
+	float: right;
+	/*color: red;*/
 }
 .shopping-car-change-price{
 	float: right;
 }
 .shopping-car-change-price>i{
 vertical-align: middle;
+}
+.cart-number-span{
+	display: inline-block;
+	width: 2rem;
+	text-align: center;
+	/*padding: 0rem 0.3rem 0.2rem;*/
 }
 /*E shopping-car*/
 /*S confirm-order*/

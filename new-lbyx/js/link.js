@@ -33,15 +33,16 @@ Zepto(function() {
 		dataType:"json",
 		success:function(data){
 			console.log(data);
+					if(data.result.status.msg!="succ"){
+					alert("信息填写错误");
+					}
 					if(data.result.status.msg=="succ"){
 					alert("登录成功");
 	//				localStorage.setItem("userID",data[0].userID);
 					localStorage.setItem("userId",data.result.data.UserId);
+					localStorage.setItem("lbyxCode",data.result.status.code);
 					localStorage.setItem("indexPage",0);
-					window.location.href = "index.html";
-					}
-					if(data.result.status.msg!="succ"){
-					alert("信息填写错误");
+//					window.location.href = "index.html";
 					}
 				}
 		});//ajax
@@ -136,4 +137,7 @@ $(".all-goods-search-input").focus(function () {
 	window.location.href = "search-page.html";
 });
 /*E all-goods*/
+/*S index-cart*/
+
+/*E index-cart*/
 });//zepto
