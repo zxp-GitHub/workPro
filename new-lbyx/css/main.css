@@ -536,13 +536,14 @@ html,body,.container,.box{
 }
 .shopping-cart-ul{
 	width: 100%;
-	height: auto;
+	height: 92%;
+	overflow: scroll;
 	/*overflow: scroll;*/
 }
 .cart-div{
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+	/*overflow: scroll;*/
 	position: relative;
 }
 .all-choice-p{
@@ -557,7 +558,7 @@ html,body,.container,.box{
 	z-index: 999;
 	width: 100%;
 	height:8%;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	background-color:#fff;
 	display: flex;
@@ -571,7 +572,7 @@ html,body,.container,.box{
 }
 .all-choice-p2{
 	/*margin-left: 2rem;*/
-	width: 8rem;
+	width: 10rem;
 	text-align: center;
 	
 }
@@ -608,6 +609,9 @@ html,body,.container,.box{
 	width: 5%;
 	margin: 0rem 0.5rem 0;
 }
+.shopping-cart-li-cell:nth-child(1)>.all-choice-right{
+	color: #ccc;
+}
 .shopping-cart-li-cell:nth-child(2){
 	height: 4rem;
 	width: 23%;
@@ -615,6 +619,19 @@ html,body,.container,.box{
 	border: 1px solid #ccc;
 	margin-right: 0.5rem;
 	text-align: center;
+	position: relative;
+}
+.cart-no-goods-mask{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 30%;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
 }
 .shopping-cart-li-cell:nth-child(2)>img{
 /*margin-top: 0.4rem;*/	

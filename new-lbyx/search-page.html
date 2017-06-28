@@ -63,7 +63,7 @@
 				success:function(data){//consol一下是很重要的！！！！！！
 						console.log(data);
 						function selectThreeRender(obj){
-							var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsId = \""+obj.GoodsID+"\">";
+							var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsId = \""+obj.GoodsID+"\" repertoryId = \""+obj.RepertoryID+"\">";
 								html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
 								html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img select-area3-img\"/>";
 								html += "		<span class=\"select-area3-sell-out-mask\">售罄</span>";
@@ -84,6 +84,7 @@
 						//点击商品，显示该商品的goodID
 						$(".select-area3-three-li").tap(function () {
 							localStorage.setItem("goodsId",$(this).attr("goodsId"));
+							localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
 							window.location.href = "product-details.html";
 						});
 				}//succ

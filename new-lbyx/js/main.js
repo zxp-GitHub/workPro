@@ -53,7 +53,7 @@ Zepto(function() {
 		var universityId = localStorage.getItem("universityId");
 		var repertoryId = localStorage.getItem("repertoryId");
 		var goodsnums = parseInt($(".pro-detail-three-num").html());
-		console.log(repertoryId);
+		console.log(goodsnums);
 			$.ajax({
 			type:"get",
 			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num="+goodsnums+"&UniversityId="+universityId+"&Checked=false&",
