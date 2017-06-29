@@ -96,7 +96,16 @@ html,body,.container,.box{
 .home-main-li>a>p{
 	margin-top: 1rem;
 }
-.guess-you-like,.guess-you-like>ul,.guess-you-like>ul>li{
+.guess-you-like-scroll{
+	height: 100%;
+	width: 100%;
+	overflow: scroll;
+}
+.guess-you-like-min-scroll{
+	width: 100%;
+	height: auto;
+}
+.guess-you-like,.guess-you-like-scroll-ul,.guess-you-like-li{
 	width: 100%;
 }
 .guess-you-like{
@@ -108,7 +117,12 @@ html,body,.container,.box{
 	height:1.5rem;
 	background-color: #fff;
 	border-bottom:0.01rem solid #ccc ;	
-
+}
+.main-list-ol-li1{
+	height: 4rem;
+}
+.main-list-ol-li1>img{
+	height: 100%;
 }
 .guess-you-like-span{
 	display: inline-block;

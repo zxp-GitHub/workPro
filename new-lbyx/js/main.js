@@ -112,18 +112,36 @@ Zepto(function() {
 //	});
 	//商品列表ajax
 	var ajaxLi =  $(".guess-you-like-li");
-	ajaxProducts()
-		function ajaxProducts(){
+	//下拉加载
+	$(document).ready(function() { //这句话是要用的
+		var oWrap = $(".guess-you-like-scroll")
+		oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
+			if(oWrap.height() + $(this).scrollTop() >= $(".guess-you-like-min-scroll").height()) {
+				var selectThreePage = parseInt(selectThreePage)+1;
+				console.log(selectThreePage);
+				ajaxProducts(selectThreePage);
+			}
+		}); //E scroll
+	}); //E ready
+		ajaxProducts(1)
+		function ajaxProducts(selectThreePage){
+			var universityId = localStorage.getItem("universityId");
+			var userId = localStorage.getItem("userId");
+			var selectAreaOneLi = localStorage.getItem("selectAreaOneLi");
+			console.log(universityId);
+			console.log(userId);
+			console.log(selectAreaOneLi);
 			$.ajax({//获取json数据必写哦！！！
 				type:"get",
-				url:"json/lbyx.json",
+				url:"http://api.x5u.com.cn:12804/School/CommonInterface.aspx?RegionName="+selectAreaOneLi+"&action=Related_get1&dataindex="+selectThreePage+"&datasize=10&operation=6&universityid="+universityId+"",
 				dataType:"json",
 				success:function(data){//consol一下是很重要的！！！！！！
 					//假如一页获取m条
-					for(var i=0;i<data.homeList.length;i++){//加载json里面的图片，json里面数是从零开始的
+					console.log(data.result.tuijian)
+					for(var i=0;i<data.result.tuijian.length;i++){//加载json里面的图片，json里面数是从零开始的
 						 var html= "<ol class=\"main-list-ol\">";
-							 html+="<li class=\"main-list-ol-li1\"><img src=\""+data.homeList[i].img+"\"/></li>";
-							 html+="<li class=\"main-list-ol-li2\"><p>"+data.homeList[i].name+"</p><p>¥"+data.homeList[i].price+"</p></li>";
+							 html+="<li class=\"main-list-ol-li1\"><img src=\"http://api.x5u.com.cn:12804"+data.result.tuijian[i].Img1+"\"/></li>";
+							 html+="<li class=\"main-list-ol-li2\"><p>"+data.result.tuijian[i].GoodsName+"</p><p>¥"+data.result.tuijian[i].SalePrice+"</p></li>";
 							 html+="<li><i class=\"iconfont icon-gouwuche3 buy-car-icon\"></i></li></ol>";
 							ajaxLi.append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
 					}
@@ -140,9 +158,11 @@ Zepto(function() {
 						});
 					});
 					
-				}
+					
+				}//success
 				
 			});
 		}
+	
 	/*E index*/
  });
