@@ -20,7 +20,7 @@
 			<div class="box">
 				<div class="top">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="index.html"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
 						<li class="first-top-li"><span class="first-top-li-span">全部商品</span></li>
 					</ul>			
 				</div><!--top-->
@@ -83,7 +83,7 @@
 			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsInfo&goodsid="+goodsId+"&universityid="+universityId+"",
 			dataType:"json",
 			success:function(data){//consol一下是很重要的！！！！！！
-//					console.log(data.Result.data.Img1);
+					console.log(data);
 					//假如一页获取m条
 //				     var homeNums = window.sessionStorage.getItem("homeNum")||"";
 //				     console.log(data.homeList[homeNums]);.

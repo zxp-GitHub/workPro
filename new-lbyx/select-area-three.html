@@ -65,8 +65,6 @@
 <script type="text/javascript">
 	Zepto(function() {
 		var allGoodsPicID = localStorage.getItem("allGoodsPicID");
-		var selectThreePage = 1;
-		selectThreePageRender(selectThreePage);
 		function selectThreePageRender(pages) {
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
@@ -103,12 +101,14 @@
 			}//succ
 		});//ajax
 		}
+		selectThreePageRender(1);
+		var selectThreePage = 1;
 		//下拉加载
 		$(document).ready(function() { //这句话是要用的
 			var oWrap = $(".select-area3-main-three")
 			oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
 				if(oWrap.height() + $(this).scrollTop() >= $(".select-area3-three-ul").height()) {
-					var selectThreePage = parseInt(selectThreePage)+1;
+					selectThreePage = parseInt(selectThreePage)+1;//因为是先加1，在调用方法所以可以从1开始
 					console.log(selectThreePage);
 					selectThreePageRender(selectThreePage);
 				}

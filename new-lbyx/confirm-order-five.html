@@ -19,7 +19,7 @@
 				</div>
 				<div class="top">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
 						<li class="first-top-li"><span class="first-top-li-span">确认订单</span></li>
 					</ul>			
 				</div><!--top-->
@@ -41,14 +41,13 @@
 				</div>
 		        <div class="confirm-order3-three">
 		        	<p class="confirm-order3-three-p">配送方式</p>
-		        	<ul class="confirm-order3-three-ul last-border-none-ul">
-		        		<li class="confirm-order3-three-li">07:30-08-30</li>
-		        		<li class="confirm-order3-three-li">07:30-08-30</li>
-		        		<li class="confirm-order3-three-li">07:30-08-30</li>
-		        		<li class="confirm-order3-three-li">07:30-08-30</li>
-		        		<li class="confirm-order3-three-li">07:30-08-30</li>
-		        		<li class="confirm-order3-three-li">07:30-08-30</li>
-		        		
+		        	<ul class="confirm-order3-three-ul last-border-none-ul confirm-order-time-ul">
+		        		<li class="confirm-order3-three-li">07:30-08:30</li>
+		        		<li class="confirm-order3-three-li">08:30-09:30</li>
+		        		<li class="confirm-order3-three-li">09:30-10:30</li>
+		        		<li class="confirm-order3-three-li">10:30-11:30</li>
+		        		<li class="confirm-order3-three-li">11:30-12:30</li>
+		        		<li class="confirm-order3-three-li">12:30-13:30</li>
 		        	</ul>
 		        	<p class="confirm-order3-three-p confirm-order3-three-cancel"><a href="confirm-order-one.html">取消</a></p>
 		        </div>
@@ -61,3 +60,11 @@
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+		$(".confirm-order-time-ul>li").tap(function () {
+			localStorage.setItem("lbyxTime",$(this).html());
+			window.location.href = "confirm-order.html";
+		})
+	});
+</script>

@@ -19,7 +19,7 @@
 				</div>
 				<div class="top">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
 						<li class="first-top-li"><span class="first-top-li-span">确认订单</span></li>
 					</ul>			
 				</div><!--top-->
@@ -41,7 +41,7 @@
 				</div>
 		        <div class="confirm-order3-three">
 		        	<p class="confirm-order3-three-p">配送方式</p>
-		        	<ul class="confirm-order3-three-ul">
+		        	<ul class="confirm-order3-three-ul confirm-order-select-data-ul">
 		        		<li class="confirm-order3-three-li">4月1日  星期六</li>
 		        		<li class="confirm-order3-three-li">4月2日  星期日</li>
 		        		<li class="confirm-order3-three-li">4月3日  星期一</li>
@@ -60,3 +60,27 @@
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	var  myData =  new Date();
+	console.log(myData);
+	var myYear = myData.getFullYear();
+	var myMonth = myData.getMonth()+1;
+	var myDay = myData.getDate();
+//	var myWeek = myData.get();
+	var t=myData.toLocaleString();
+	var confirmDataLi = $(".confirm-order-select-data-ul>li");
+	console.log(confirmDataLi)
+	function aaaa (myDay) {
+		myDay = myDay+ i ;
+		confirmDataLi.html(myYear+"-0"+myMonth+"-"+myDay);
+	}
+	for (var i = 0; i < confirmDataLi.length; i++) {
+		var myDay = myData.getDate()+i;
+		aaaa (myDay);
+	}
+	console.log()
+	$(".confirm-order-time-ul>li").tap(function () {
+			localStorage.setItem("lbyxTime",$(this).html());
+			window.location.href = "confirm-order.html";
+		})
+</script>

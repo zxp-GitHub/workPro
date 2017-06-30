@@ -54,7 +54,7 @@
 <script type="text/javascript">
 	Zepto(function() {
 		$(".search-page-search-input").focus();
-		var selectThreePage = 1;
+		var selectThreePage = 1;//这个一开始不需要商品初始化，所以赋初值可以从1开始
 		function searchRender(searchValue,pages) {
 			$.ajax({//获取json数据必写哦！！！
 				type:"get",
@@ -95,7 +95,7 @@
 			var searchVal = $(".search-input").val();
 			console.log(searchVal);
 			$(".search-ul").html(" ")
-			searchRender (searchVal,selectThreePage);//是从1开始的
+			searchRender (searchVal,selectThreePage);//这个一开始不需要商品初始化，所以可以从1开始
 		});
 		
 			//下拉加载,这个不能放在点击时间里，商品会重复

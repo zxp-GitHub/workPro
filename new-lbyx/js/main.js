@@ -111,45 +111,48 @@ Zepto(function() {
 //		}
 //	});
 	//商品列表ajax
-	var ajaxLi =  $(".guess-you-like-li");
+	ajaxProducts(1);
 	//下拉加载
-	$(document).ready(function() { //这句话是要用的
-		var oWrap = $(".guess-you-like-scroll")
+//	$(document).ready(function() { //这句话是要用的
+		var oWrap = $(".guess-you-like-scroll");
+		var firstScrollPage = 2;//因为ajaxProducts(1);初始化是从1开始的，所以赋初值的时候就要从2开始，否则就会重复
 		oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
 			if(oWrap.height() + $(this).scrollTop() >= $(".guess-you-like-min-scroll").height()) {
-				var selectThreePage = parseInt(selectThreePage)+1;
-				console.log(selectThreePage);
-				ajaxProducts(selectThreePage);
+				console.log(firstScrollPage);
+				ajaxProducts(firstScrollPage);//也可以将加1和调用语句调换顺序，初值firstScrollPage就可为1
+				firstScrollPage = parseInt(firstScrollPage)+1;//这个地方不要加var，否则会无法console.log(firstScrollPage);为null
 			}
 		}); //E scroll
-	}); //E ready
-		ajaxProducts(1)
-		function ajaxProducts(selectThreePage){
+//	}); //E ready
+		function ajaxProducts(firstScrollPage){
 			var universityId = localStorage.getItem("universityId");
 			var userId = localStorage.getItem("userId");
 			var selectAreaOneLi = localStorage.getItem("selectAreaOneLi");
-			console.log(universityId);
-			console.log(userId);
-			console.log(selectAreaOneLi);
+//			console.log(universityId);
+//			console.log(userId);
+//			console.log(selectAreaOneLi);
 			$.ajax({//获取json数据必写哦！！！
 				type:"get",
-				url:"http://api.x5u.com.cn:12804/School/CommonInterface.aspx?RegionName="+selectAreaOneLi+"&action=Related_get1&dataindex="+selectThreePage+"&datasize=10&operation=6&universityid="+universityId+"",
+				url:"http://api.x5u.com.cn:12804/School/CommonInterface.aspx?RegionName=0&action=Related_get1&dataindex="+firstScrollPage+"&datasize=10&operation=6&universityid="+universityId+"",
 				dataType:"json",
 				success:function(data){//consol一下是很重要的！！！！！！
 					//假如一页获取m条
 					console.log(data.result.tuijian)
 					for(var i=0;i<data.result.tuijian.length;i++){//加载json里面的图片，json里面数是从零开始的
-						 var html= "<ol class=\"main-list-ol\">";
+						 var html= "<ol class=\"main-list-ol\" goodsId=\""+data.result.tuijian[i].GoodsID+"\" repertoryId = \""+data.result.tuijian[i].RepertoryID+"\">";
 							 html+="<li class=\"main-list-ol-li1\"><img src=\"http://api.x5u.com.cn:12804"+data.result.tuijian[i].Img1+"\"/></li>";
 							 html+="<li class=\"main-list-ol-li2\"><p>"+data.result.tuijian[i].GoodsName+"</p><p>¥"+data.result.tuijian[i].SalePrice+"</p></li>";
 							 html+="<li><i class=\"iconfont icon-gouwuche3 buy-car-icon\"></i></li></ol>";
-							ajaxLi.append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+							$(".guess-you-like-li").append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
 					}
 					//首页点击，跳转页面，首页点击列表传参
-					$(".main-list-ol-li1,.main-list-ol-li2").tap(function  () {
+					$(".main-list-ol").tap(function  () {
+						console.log($(this).attr("goodsId"));
+						 localStorage.setItem("goodsId",$(this).attr("goodsId"));
+						 localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
 						 location.href = "product-details.html";//location.href实现客户端页面的跳转  	
-						 var homeNum= $(this).parent(".main-list-ol").index();
-						 window.sessionStorage.setItem("homeNum",homeNum);
+//						 var homeNum= $(this).parent(".main-list-ol").index();
+//						 window.sessionStorage.setItem("homeNum",homeNum);
 					});
 					//
 					$(".buy-car-icon").each(function () {

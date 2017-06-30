@@ -16,7 +16,7 @@
 			<div class="box">
 				<div class="top">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
 						<li class="first-top-li"><span class="first-top-li-span">全部商品</span></li>
 					</ul>			
 				</div><!--top-->
@@ -27,9 +27,9 @@
 				<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
 				<div class="confirm-order-main-second">
 					<ul class="confirm-order-ul">
-						<li class="confirm-order-li"><a href="confirm-order-four.html">配送方式  <span class="select-area-span">配送<i class="iconfont icon-dayuhao"></i></span></a></li>
-						<li class="confirm-order-li"><a href="confirm-order-three.html">配送日期<span class="select-area-span">2017-03-30<i class="iconfont icon-dayuhao"></i></span></a></li>
-						<li class="confirm-order-li"><a href="confirm-order-five.html">配送时间段<span class="select-area-span">09:00-10:00<i class="iconfont icon-dayuhao"></i></span></a></li>
+						<li class="confirm-order-li"><a href="confirm-order-four.html">配送方式  <span class="select-area-span select-give-way">配送</span><i class="iconfont icon-dayuhao"></i></a></li>
+						<li class="confirm-order-li"><a href="confirm-order-three.html">配送日期<span class="select-area-span select-give-data">2017-03-30</span><i class="iconfont icon-dayuhao"></i></a></li>
+						<li class="confirm-order-li"><a href="confirm-order-five.html">配送时间段<span class="select-area-span select-give-time">09:00-10:00</span><i class="iconfont icon-dayuhao"></i></a></li>
 						<li class="confirm-order-li">备注：</li>
 						
 					</ul>
@@ -81,3 +81,17 @@
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+		$(".select-give-time").html(localStorage.getItem("lbyxTime"))
+			});
+//	var  myData =  new Date();
+//	console.log(myData);
+//	var myYear = myData.getFullYear();
+//	var myMonth = myData.getMonth()+1;
+//	var myDay = myData.getDate();
+////	var myWeek = myData.g();
+//	var t=myData.toLocaleString();
+//	console.log(t);
+//	console.log(myYear+"-0"+myMonth+"-"+myDay);
+</script>
