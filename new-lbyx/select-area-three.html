@@ -31,9 +31,9 @@
 					</div><!--all-goods-search-->
 					<div class="select-area3-main-two">
 						<ul class="select-area3-two-ul">
-							<li class="select-area3-two-li">综合</li>
-							<li class="select-area3-two-li">销量</li>
-							<li class="select-area3-two-li">价格</li>
+							<li class="select-area3-two-li goods-comprehensive-order">综合</li>
+							<li class="select-area3-two-li goods-sales-order">销量</li>
+							<li class="select-area3-two-li goods-price-order">价格<p class="sort-up-down-p"><span class="up-price"></span><span class="down-price"></span></p></li>
 						</ul>
 					</div><!--select-area3-main-two-->
 					<div class="select-area3-main-three">
@@ -65,10 +65,10 @@
 <script type="text/javascript">
 	Zepto(function() {
 		var allGoodsPicID = localStorage.getItem("allGoodsPicID");
-		function selectThreePageRender(pages) {
+		function selectThreePageRender(pages,sort) {
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
-			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&universityid=28f95547-16f0-49eb-aace-d8a42e1f94fa&type="+allGoodsPicID+"&dataindex="+pages+"",
+			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&universityid=28f95547-16f0-49eb-aace-d8a42e1f94fa&type="+allGoodsPicID+"&dataindex="+pages+"&JinKouPaiXu="+sort+"",
 			dataType:"json",
 			success:function(data){//consol一下是很重要的！！！！！！
 					console.log(data);
@@ -89,7 +89,7 @@
 						$(".select-area3-three-ul").append(html);
 					}
 					for (var i = 0; i < data.Result.length; i++) {
-					selectThreeRender(data.Result[i]);
+					selectThreeRender(data.Result[i],2);
 					}
 					//点击商品，显示该商品的goodID
 					$(".select-area3-three-li").tap(function () {
@@ -101,7 +101,7 @@
 			}//succ
 		});//ajax
 		}
-		selectThreePageRender(1);
+		selectThreePageRender(1,2);
 		var selectThreePage = 1;
 		//下拉加载
 		$(document).ready(function() { //这句话是要用的
@@ -118,13 +118,34 @@
 		$(".all-goods-search-input").focus(function () {
 			window.location.href = "search-page.html";
 		});
-	
-	
-	
-	
-	
-	
-	
-	
+	    //排序的操作
+	    $(".goods-comprehensive-order").tap(function () {
+	    	$(".select-area3-three-ul").html("");
+	    	selectThreePageRender(1,2)
+	    });
+	    $(".goods-sales-order").tap(function () {
+	    	$(".select-area3-three-ul").html("");
+	    	selectThreePageRender(1,0);
+	    });
+	    $(".goods-price-order").tap(function () {
+	    	$(".select-area3-three-ul").html("");
+	    	console.log($(".up-price").css("border-bottom"));
+	    	if ($(".down-price").css("border-top")=="0.32rem solid black") {
+	    		$(".up-price").css("border-bottom","0.32rem solid black");
+	    		$(".down-price").css("border-top","0.32rem solid red");
+	    		selectThreePageRender(1,3);
+	    	}else{
+	    		$(".up-price").css("border-bottom","0.32rem solid red");
+	    		$(".down-price").css("border-top","0.32rem solid black");
+	    		selectThreePageRender(1,1);
+	    	}
+	    });
+	    $(".select-area3-two-li").tap(function () {
+	    	$(this).css("color","red").siblings().css("color","#000000");//改变属性要用css而不是attr
+	    	if ($(".goods-price-order").css("color")!="red") {
+	    		$(".up-price").css("border-bottom","0.32rem solid black");
+	    		$(".down-price").css("border-top","0.32rem solid black");
+	    	}
+	    });
 		});//end
 </script>

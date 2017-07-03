@@ -1,28 +1,85 @@
 Zepto(function() {
 	var universityId = localStorage.getItem("universityId");
 	/*S register*/
-	$(".register-confirm-registration").tap(function () {
-		 var usernam = $(".register-name").val();
-    	 var userpas = $(".register-pass").val();
-    	 var userpas2 = $(".register-pass2").val();
-    	if(userpas!=userpas2){
-			alert("密码填写不匹配");
+	$(".register-validation-code").tap(function () {
+		var usernam = $(".register-phone-input").val();
+		if (usernam=="") {//判定为空，中间不可再加空格
+			alert("手机号码不可为空！");
 		}else{
 			$.ajax({
-			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=8&mobile="+usernam+"&password="+userpas+"&qupassword="+userpas2+"&devicenumber=1&universityid=f2bf5332-d85e-432a-bc4a-ac7f34fb7268&universityname=北京航空航天&InvitedYards=1&",  //注册地址
+			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=1&XWYorKP=0&",
 			type:"get",
 			success:function(data){
-				console.log(data.result.status.msg);
-				if(data.result.status.msg=="succ"){
-					alert("注册成功了，亲~！");
-				}else{
-					alert("用户已存在！");
-				}
+//				console.log(data);
 			}
-			});//ajax		
-		}//else
+			});//ajax	
+		}
 	});
-/*E register*/
+//	$(".register-next-step").tap(function () {
+//		var registerPhone = $(".register-phone-input").val();
+//		var registerCode = $(".register-code-input").val();
+//		localStorage.setItem("registerPhone",registerPhone);
+//		$.ajax({
+//			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+registerCode+"&mobile="+registerPhone+"&",
+//			type:"get",
+//			success:function(data){
+//				console.log(data.result.status.msg);
+//				if(data.result.status.msg=="succ"){
+//					alert("注册成功了，亲~！");
+//				}else{
+//					alert("用户已存在！");
+//				}
+//			}
+//			});//ajax	
+//	});
+//	$(".register-pass-next-step").tap(function () {
+//		var registerPhone = localStorage.getItem("registerPhone");
+//		console.log(registerPhone)
+//		var registerpass1 = $(".register-set-pass1").val();
+//  	var registerpass2 = $(".register-set-pass2").val();
+//  	if (registerpass1!=registerpass2) {
+//  		alert("密码不匹配！")
+//  		return true;
+//  	} else{
+//  		$.ajax({
+//			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspxaction=MessageAuthentication_get&operation=8&mobile="+registerPhone+"&password="+registerpass1+"&qupassword="+registerpass2+"&",
+//			type:"get",
+//			success:function(data){
+//				console.log(data);
+////				if(data.result.status.msg=="succ"){
+////					alert("注册成功了，亲~！");
+////				}else{
+////					alert("用户已存在！");
+////				}
+//			}
+//			});//ajax	
+//  	}
+//		
+//	});
+//	$(".register-confirm-registration").tap(function () {
+//		 var usernam = $(".register-name").val();
+//  	 var userpas = $(".register-pass").val();
+//  	 var userpas2 = $(".register-pass2").val();
+//  	if(userpas!=userpas2){
+//			alert("密码填写不匹配");
+//		}else{
+//			$.ajax({
+//			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=8&mobile="+usernam+"&password="+userpas+"&qupassword="+userpas2+"&devicenumber=1&universityid=f2bf5332-d85e-432a-bc4a-ac7f34fb7268&universityname=北京航空航天&InvitedYards=1&",  //注册地址
+//			type:"get",
+//			success:function(data){
+//				console.log(data.result.status.msg);
+//				if(data.result.status.msg=="succ"){
+//					alert("注册成功了，亲~！");
+//				}else{
+//					alert("用户已存在！");
+//				}
+//			}
+//			});//ajax		
+//		}//else
+//	});
+
+	/*E register*/
+
 /*S login*/
     $(".confirm-login").tap(function(){
 		var loginName = $(".login-name").val();

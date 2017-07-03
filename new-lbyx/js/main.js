@@ -37,7 +37,6 @@ Zepto(function() {
 	   	$(".sell-out").show();
 	   }
 	});
-	
 	$(".pro-detail-three-p").find(".icon-jiahao2").on('click',function () {
 		if (parseInt($(".pro-detail-three-num").html())==1){
 			$(".icon-jianhao11").css("color","red");
@@ -46,7 +45,6 @@ Zepto(function() {
 		  $(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())+1);
 		  $(".pro-detail-four-num").html($(".pro-detail-three-num").html());
 	});
-	
 	//点击加入购物车，弹出提示框
 	$(".add-to-car").tap(function(){
 //		console.log(universityId)//商圈的获得
@@ -63,8 +61,6 @@ Zepto(function() {
 				console.log(data);
 			}//success
 		});//ajax
-		
-		
   		$('.ok-add-cart-mask').fadeIn();
 		setTimeout(function  () {
 			$('.ok-add-cart-mask').fadeOut()
@@ -81,7 +77,6 @@ Zepto(function() {
 		$(this).css("color","red").siblings().css("color","black");
 	});
 	/*E confirm-order*/
-
 	/*S index*/
 	//首页点击返回，返回到上一页-css已经改了
 	$(".top-back-li").tap(function () {
@@ -147,7 +142,7 @@ Zepto(function() {
 					}
 					//首页点击，跳转页面，首页点击列表传参
 					$(".main-list-ol").tap(function  () {
-						console.log($(this).attr("goodsId"));
+						 console.log($(this).attr("goodsId"));
 						 localStorage.setItem("goodsId",$(this).attr("goodsId"));
 						 localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
 						 location.href = "product-details.html";//location.href实现客户端页面的跳转  	
@@ -157,15 +152,11 @@ Zepto(function() {
 					//
 					$(".buy-car-icon").each(function () {
 						$(this).tap(function  () {
-							console.log("3")
+							console.log("3");
 						});
 					});
-					
-					
 				}//success
-				
 			});
 		}
-	
 	/*E index*/
  });

@@ -1132,7 +1132,31 @@ vertical-align: middle;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+	color: #000000;
+	}
+	.sort-up-down-p{
+		width: 1rem;
+		height: 52%;
+		position: relative;
+		margin-left: 0.3rem;
+	}
+	.up-price{
+		width: 0;
+		height: 0;
+		font-size: 0;
+		border: 0.32rem solid transparent;
+		border-bottom: 0.32rem solid black;
+		position: absolute;
+		top: 0;
+	}
+	.down-price{
+		width: 0;
+		height: 0;
+		font-size: 0;
+		border: 0.32rem solid transparent;
+		border-top: 0.32rem solid black;
+		position: absolute;
+		bottom: 0;
 	}
 .select-area3-main-three{
 	width: 100%;
@@ -1402,6 +1426,13 @@ vertical-align: middle;
 	margin: 0 auto;
 	width: 100%;
 	padding-top: 0.6rem;
+    background-color: #fff;
+}
+.login-ul>li{
+	width: 90%;
+	display: flex;
+	align-items: center;
+	margin:  0 auto;
 }
 .register-ul>li{
 	width: 90%;
@@ -1409,13 +1440,50 @@ vertical-align: middle;
 	align-items: center;
 	margin:  0 auto;
 }
-.login-name,.login-pass,.register-name,.register-pass,.register-pass2{
+.login-name,.login-pass{
 	width: 100%;
 	height: 2rem;
 	margin: 0.6rem auto;
 	padding-left: 0.5rem;
 }
-.register-ul .confirm-login,.register-ul  .register-confirm-registration{
+.register-li{
+    width: 91%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    padding: 3%;
+    font: 0.9rem/1 微软雅黑;
+}
+.register-input{
+    font: 0.9rem/1 "微软雅黑";
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0rem 0.3rem 0rem 1rem;
+    width: 40%;
+}
+.register-ul{
+	margin-top: 1rem;
+}
+.register-validation-code{
+	text-align: center;
+    font-size: 0.7rem;
+    float: right;
+    background-color: red;
+    color: #fff;
+    border-radius: 1rem;
+    padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+    margin-left: 1rem;
+}
+.register-set-pass{
+	font: 0.9rem/1 "微软雅黑";
+	display: inline-block;
+	vertical-align:baseline; /*input 垂直对齐文字*/
+	margin:0rem 0.3rem 0rem 1rem;
+	width: 100%;
+}
+.confirm-login{
 	width: 90%;
 	height: 2rem;
 	margin-top: 2rem;
