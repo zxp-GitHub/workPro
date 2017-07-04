@@ -19,20 +19,32 @@
 				<div class="top add-info-top">
 					<!--<p class="add-info-top-p">地址信息</p>-->
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li"><a href="confirm-order.html"><i class="iconfont icon-xiaoyuhao"></i></a></li>
 						<li class="first-top-li"><span class="first-top-li-span">地址信息</span></li>
 					</ul>	
 				</div>
 				<div class="add-info-main">
 					<ul class="add-main-ul">
-						<li class="add-main-li">收货人：</li>
-						<li class="add-main-li">联系电话：</li>
-						<li class="add-main-li">选择区域 ：   <span class="select-area-span"><i class="iconfont icon-dayuhao"></i></span></li>
-						<li class="add-main-li">详细地址：</li>
+						<li class="add-main-li address-info-li"><span class="address-info-span">收货人：</span><input type="text" value="" class="address-info-name"/> </li>
+						<li class="add-main-li address-info-li"><span class="address-info-span">联系电话：</span><input type="text" value="" class="address-info-phone"/></li>
+						<li class="add-main-li address-info-li"><span class="address-info-span">选择区域 ： </span><input type="text" value="" class="address-info-place"/>  <span class="select-area-span">
+							<i class="iconfont icon-dayuhao  address-info-xiaoyuhao"></i></span></li>
+						<li class="add-main-li address-info-li"><span class="address-info-span">详细地址：</span><input type="text" value="" class="address-info-detail-place"/></li>
 					</ul>
-					
+					<p class="next-step address-info-ok">确定</p>
 				</div>
 			</div>
 		</div>
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+		$(".address-info-ok").tap(function () {
+			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
+			localStorage.setItem("lbyxAddressPhone",$(".address-info-phone").val());
+//			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
+			localStorage.setItem("lbyxAddressDetailPlace",$(".address-info-detail-place").val());
+			window.location.href = "confirm-order-one.html"
+		})	;
+	});
+</script>

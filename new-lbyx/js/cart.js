@@ -5,10 +5,7 @@ Zepto(function() {
 	var universityId = localStorage.getItem("universityId");
 	var repertoryId = localStorage.getItem("repertoryId");
 	var goodsnums = parseInt($(".pro-detail-three-num").html());
-	//获得跳转到主页的哪一个页面
 	var indexPage = parseInt(localStorage.getItem("indexPage"));
-//	console.log(userid)
-//	cartShow();
 //	function cartShow(){
 	$.ajax({
 			type:"get",
@@ -328,5 +325,5 @@ Zepto(function() {
 		});//ajax
 
 			});
-//		
+
 });

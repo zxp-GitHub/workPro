@@ -376,6 +376,21 @@ html,body,.container,.box{
 	display: inline-block;
 	float: right;
 }
+/*.address-info-span{
+	width: 28%;
+}*/
+.address-info-li{
+	width:90%;
+	display: flex;
+	align-items: center;
+}
+.address-info-li>input{
+	width: 67%;
+}
+.address-info-xiaoyuhao{
+	display: flex;
+	align-items: flex-end;
+}
 /*E address-info*/
 /*S all-goods-search*/
 .all-goods-main{
@@ -701,6 +716,7 @@ vertical-align: middle;
 	height: 92%;
 	width: 100%;
 	background-color: #fff;
+	overflow: scroll;
 }
 .fill-address-information{
 	width: 100%;
@@ -1215,7 +1231,7 @@ vertical-align: middle;
 .forget-pass-main-ul{
 	margin-top: 1rem;
 }
-.forget-pass-main-input1{
+.forget-pass-input{
 	font: 0.9rem/1 "微软雅黑";
 	/*display: flex;*/
 	/*align-items: center;
@@ -1248,6 +1264,9 @@ vertical-align: middle;
     margin-top: 10%;
     border-radius: 2rem;
     font-size: 1.1rem;
+}
+.confirm-one-phone{
+	float: right;
 }
 /*E forget-password*/
 /*S set-new-pass*/

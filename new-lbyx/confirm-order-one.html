@@ -10,6 +10,11 @@
  		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
 		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
+		<style type="text/css">
+			.confirm-two-dayuhao{
+				float: right;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="container">
@@ -21,19 +26,22 @@
 					</ul>			
 				</div><!--top-->
 				<div class="confirm-order-main">
+					<div class="fill-address-information fill-address-info-button">
+						<p class="fill-address-info-p">填写地址信息</p>
+					</div><!--fill-address-information-->
 					<div class="fill-address-information confirm-order1-one">
 						<p class="confirm-order1-one-p"><i class="iconfont icon-dizhi"></i></p>
 						<div class="confirm-order1-one-right">
-							<p class="confirm-order1-one-right-p1"><span>收件人：婉莹</span><span>13722212221</span></p>
-							<p class="confirm-order1-one-right-p2"><span>收货地址：</span><span>北京市海淀区中关村大街27号中关村大厦509室</span></p>
+							<p class="confirm-order1-one-right-p1">收件人：<span class="confirm-one-name">婉莹</span><span class="confirm-one-phone">13722212221</span></p>
+							<p class="confirm-order1-one-right-p2"><span>收货地址：</span><span class="confirm-one-place">北京市海淀区中关村大街27号中关村大厦509室</span></p>
 						</div>
 					</div><!--fill-address-information-->
 					<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
 				<div class="confirm-order-main-second">
 					<ul class="confirm-order-ul">
-						<li class="confirm-order-li"><a href="confirm-order-four.html">配送方式  <span class="select-area-span">配送<i class="iconfont icon-dayuhao"></i></span></a></li>
-						<li class="confirm-order-li"><a href="confirm-order-three.html">配送日期<span class="select-area-span">2017-03-30<i class="iconfont icon-dayuhao"></i></span></a></li>
-						<li class="confirm-order-li"><a href="confirm-order-five.html">配送时间段<span class="select-area-span">09:00-10:00<i class="iconfont icon-dayuhao"></i></span></a></li>
+						<li class="confirm-order-li"><a href="confirm-order-four.html">配送方式  <i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-way">配送</span></a></li>
+						<li class="confirm-order-li"><a href="confirm-order-three.html">配送日期<i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-day">2017-03-30</span></a></li>
+						<li class="confirm-order-li"><a href="confirm-order-five.html">配送时间段<i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-time">09:00-10:00</span></a></li>
 						<li class="confirm-order-li">备注：可能会提前取货</li>
 						
 					</ul>
@@ -85,3 +93,27 @@
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+		var lbyxAddressName = localStorage.getItem("lbyxAddressName");
+		var	lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
+//			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
+		var	lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlace");
+		var lbyxGiveWay = localStorage.getItem("lbyxGiveWay");
+//		if (lbyxAddressName!=""||lbyxAddressPhone!=""||lbyxAddressDetailPlace!="") {
+//			$(".fill-address-info-button").hide();
+//			$(".confirm-order1-one").show();
+			$(".confirm-one-name").html(lbyxAddressName);
+			$(".confirm-one-phone").html(lbyxAddressPhone);
+			$(".confirm-one-place").html(lbyxAddressDetailPlace);
+//		} else{
+//			$(".fill-address-info-button").show();
+//			$(".confirm-order1-one").hide();
+			$(".fill-address-info-p").tap(function () {
+				window.location.href = "address-information.html";
+			});
+//		}
+			$(".confirm-two-way").text(lbyxGiveWay);
+           
+	});
+</script>

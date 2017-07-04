@@ -22,7 +22,7 @@ Zepto(function() {
         $('.big-ul>li').hide().eq($(this).index()).show();
         //$('.big-ul li')会报错，是指所有的li
     });
-	/*S product-details*/
+/*S product-details*/
 	$(".pro-detail-three-num").html(1);
 	$(".pro-detail-flour-num").html(1);
 	$(".pro-detail-three-p").find(".icon-jianhao1").on('click',function () {
@@ -71,13 +71,13 @@ Zepto(function() {
   		$(".ok-add-cart-mask").hide()
   	});
 	//轮播图的改变
-	/*E product-details*/
-	/*S confirm-order*/
+/*E product-details*/
+/*S confirm-order*/
 	$(".confirm-order3-three-ul li").tap(function () {
 		$(this).css("color","red").siblings().css("color","black");
 	});
-	/*E confirm-order*/
-	/*S index*/
+/*E confirm-order*/
+/*S index*/
 	//首页点击返回，返回到上一页-css已经改了
 	$(".top-back-li").tap(function () {
 		window.history.back();
@@ -85,30 +85,10 @@ Zepto(function() {
 	//商圈的选择
 	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
 	$(".first-top-change-span").html(selectAreaTwoLi);
-//	$(".shopping-car-change-price>.icon-jiahao2").tap(function(){
-//		var aaa= parseInt($(this).parent().find("span").html());
-//		$(this).parent().find("span").html(aaa+1);
-//		if (aaa==0) {
-//			console.log($(this).css("color"));
-//			$(this).parent().find(".icon-jianhao1").css("color","#FF0000");
-//		}
-//	});
-//	$(".shopping-car-change-price>.icon-jianhao1").tap(function(){
-//		var aaa= parseInt($(this).parent().find("span").html());
-//	//	console.log(aaa)
-//		if (aaa>0) {
-//			$(this).parent().find("span").html(aaa-1);
-//		} else{
-//			return false;
-//		};
-//		if (aaa==1) {
-//				$(this).css("color","#ccc");
-//		}
-//	});
 	//商品列表ajax
 	ajaxProducts(1);
 	//下拉加载
-//	$(document).ready(function() { //这句话是要用的
+		//	$(document).ready(function() { //这句话是要用的
 		var oWrap = $(".guess-you-like-scroll");
 		var firstScrollPage = 2;//因为ajaxProducts(1);初始化是从1开始的，所以赋初值的时候就要从2开始，否则就会重复
 		oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
@@ -118,7 +98,7 @@ Zepto(function() {
 				firstScrollPage = parseInt(firstScrollPage)+1;//这个地方不要加var，否则会无法console.log(firstScrollPage);为null
 			}
 		}); //E scroll
-//	}); //E ready
+		//	}); //E ready
 		function ajaxProducts(firstScrollPage){
 			var universityId = localStorage.getItem("universityId");
 			var userId = localStorage.getItem("userId");
@@ -158,5 +138,15 @@ Zepto(function() {
 				}//success
 			});
 		}
-	/*E index*/
+     //获取首页的链接图标
+     var universityId = localStorage.getItem("universityId");
+     $.ajax({
+		url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=get_universityid&operation=0&universityid="+universityId+"",  //注册地址
+		type:"get",
+		dataType:"json",
+		success:function(data){
+				console.log(data);
+			}
+		});//ajax
+/*E index*/
  });

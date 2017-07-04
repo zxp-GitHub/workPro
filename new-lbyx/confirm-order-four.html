@@ -42,8 +42,8 @@
 		        <div class="confirm-order3-three">
 		        	<p class="confirm-order3-three-p">配送方式</p>
 		        	<ul class="confirm-order3-three-ul">
-		        		<li class="confirm-order3-three-li">配送员配送</li>
-		        		<li class="confirm-order3-three-li">自提点自提</li>
+		        		<li class="confirm-order3-three-li confirm-order-four-li">配送员配送</li>
+		        		<li class="confirm-order3-three-li confirm-order-four-li">自提点自提</li>
 		        	</ul>
 		        	<p class="confirm-order3-three-p confirm-order3-three-cancel"><a href="confirm-order-one.html">取消</a></p>
 		        </div>
@@ -56,3 +56,12 @@
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+			$(".confirm-order-four-li").tap(function () {
+				localStorage.setItem("lbyxGiveWay",$(this).html());
+				window.location.href = "confirm-order-one.html";
+			});
+			
+	});
+</script>

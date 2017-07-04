@@ -83,8 +83,12 @@
 </html>
 <script type="text/javascript">
 	Zepto(function() {
-		$(".select-give-time").html(localStorage.getItem("lbyxTime"))
-			});
+		$(".select-give-time").html(localStorage.getItem("lbyxTime"));
+		$(".fill-address-info-p").tap(function () {
+//			window.location.href = "address-information.html"
+		})	;
+	});
+		
 //	var  myData =  new Date();
 //	console.log(myData);
 //	var myYear = myData.getFullYear();
