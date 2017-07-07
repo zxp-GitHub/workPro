@@ -59,7 +59,7 @@
 					</div>
 					<p style="background-color: #EEEEEE;height: 2%;width: 100%;"></p>
 					<div class="pro-detail-three">
-						<p class="pro-detail-three-p"><i class="iconfont icon-jianhao1 icon-jianhao11" style="margin-bottom: 0rem;"></i><span class="pro-detail-three-num">1</span><i class="iconfont icon-jiahao2"></i></p>
+						<p class="pro-detail-three-p"><i class="iconfont icon-jianhao1 icon-jianhao11 product-detail-jianhao" style="margin-bottom: 0rem;"></i><span class="pro-detail-three-num">1</span><i class="iconfont icon-jiahao2 product-detail-jiahao"></i></p>
 					</div>
 					<p style="background-color: #EEEEEE;height: 2%;width: 100%;"></p>
 					<div class="pro-detail-four">
@@ -77,6 +77,15 @@
   		var universityId = localStorage.getItem("universityId");
   		var goodsId = localStorage.getItem("goodsId");
   		var userId = localStorage.getItem("userId");
+  		var lbyxCode = localStorage.getItem("lbyxCode");
+  		
+  		/*S product-details*/
+		
+	//轮播图的改变
+/*E product-details*/
+  		
+  		
+  		
 //		console.log(userId);
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
@@ -92,8 +101,7 @@
 						 html+="<div class=\"swiper-slide\"><img src=\"http://api.x5u.com.cn:12804"+data.Result.data.Img3+"\"/></div>";
 						$(".swiper-wrapper").append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
 						$(".pro-detail-two-goods-info").html(data.Result.data.GoodsName);
-						$(".pro-detail-two-price").html(data.Result.data.SalePrice)
-//						
+						$(".pro-detail-two-price").html(data.Result.data.SalePrice);
 //						    //轮播图
 							var mySwiper = new Swiper ('.swiper-container', {
 						    direction: 'horizontal',
@@ -105,15 +113,81 @@
 						    // 如果需要分页器
 						    pagination: '.swiper-pagination',
    							});
-			}
-		});
+   							//点击加入购物车，如果数量大于库存，提示
+   							//点击加入购物车，弹出提示框
+						if (data.Result.data.GoodsNum==0) {
+							$(".sell-out").show();
+							return false;
+						}else{
+							$(".pro-detail-three-num").html(1);
+							$(".pro-detail-flour-num").html(1);
+							$(".pro-detail-three-p").find(".icon-jianhao1").on('tap',function () {
+								if (parseInt($(".pro-detail-three-num").html())>1){
+									$(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())-1);
+							     	$(".pro-detail-four-num").html($(".pro-detail-three-num").html())
+								} else{
+								 return;
+								}
+							    if (parseInt($(".pro-detail-three-num").html())==1){
+							   	$(".icon-jianhao11").css("color","#ccc");
+						//	   	$(".sell-out").show();
+							    }
+							});
+							$(".pro-detail-three-p").find(".icon-jiahao2").on('tap',function () {
+								if (parseInt($(".pro-detail-three-num").html())==1){
+									$(".icon-jianhao11").css("color","red");
+									$(".sell-out").hide();
+								}
+								  $(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())+1);
+								  $(".pro-detail-four-num").html($(".pro-detail-three-num").html());
+							});
+							//点击小对号，弹出框隐藏
+						    $(".right-icon-tap").tap(function(){
+						  		$(".ok-add-cart-mask").hide()
+						  	});
+						}
+				$(".add-to-car").tap(function(){
+			//		console.log(universityId)//商圈的获得
+	//				var universityId = localStorage.getItem("universityId");
+					var repertoryId = localStorage.getItem("repertoryId");
+					var goodsnums = parseInt($(".pro-detail-three-num").html());
+					console.log(universityId);
+					if (data.Result.data.GoodsNum<goodsnums) {
+						alert("库存不足，库存数为"+data.Result.data.GoodsNum);
+						return false;
+					}
+					if (universityId=="") {
+						alert("亲，请先登录，ok？");
+					} else{
+						$.ajax({
+						type:"get",
+						url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num="+goodsnums+"&UniversityId="+universityId+"&Checked=false&",
+						dataType:"json",
+						success:function(data){
+							//商品图片的渲染
+							console.log(data);
+						}//success
+						});//ajax
+				  		$('.ok-add-cart-mask').fadeIn();
+						setTimeout(function  () {
+							$('.ok-add-cart-mask').fadeOut()
+						},1300);
+					}//else
+				});//add-to-car.tap
+			}//success
+		});//ajax
 		//去购物车列表页
 		$(".let-go-to-cart").tap(function () {
+			if(universityId == ""){
+				alert("请先登录~")
+			}else{
+				localStorage.setItem("indexPage",1);
+				window.location.href = "index.html";
+			}
 //			alert("2");
 //			$("big-li").eq(1).addClass("show").siblings().removeClass("show");
-			localStorage.setItem("indexPage",1);
-			window.location.href = "index.html";
 		});		
+			
 		});
 
 </script>

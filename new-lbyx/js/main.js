@@ -22,56 +22,7 @@ Zepto(function() {
         $('.big-ul>li').hide().eq($(this).index()).show();
         //$('.big-ul li')会报错，是指所有的li
     });
-/*S product-details*/
-	$(".pro-detail-three-num").html(1);
-	$(".pro-detail-flour-num").html(1);
-	$(".pro-detail-three-p").find(".icon-jianhao1").on('click',function () {
-		if (parseInt($(".pro-detail-three-num").html())>1){
-			$(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())-1);
-	     	$(".pro-detail-four-num").html($(".pro-detail-three-num").html())
-		} else{
-		 return;
-		}
-	   if (parseInt($(".pro-detail-three-num").html())==1){
-	   	$(".icon-jianhao11").css("color","#ccc");
-	   	$(".sell-out").show();
-	   }
-	});
-	$(".pro-detail-three-p").find(".icon-jiahao2").on('click',function () {
-		if (parseInt($(".pro-detail-three-num").html())==1){
-			$(".icon-jianhao11").css("color","red");
-			$(".sell-out").hide();
-		}
-		  $(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())+1);
-		  $(".pro-detail-four-num").html($(".pro-detail-three-num").html());
-	});
-	//点击加入购物车，弹出提示框
-	$(".add-to-car").tap(function(){
-//		console.log(universityId)//商圈的获得
-		var universityId = localStorage.getItem("universityId");
-		var repertoryId = localStorage.getItem("repertoryId");
-		var goodsnums = parseInt($(".pro-detail-three-num").html());
-		console.log(goodsnums);
-			$.ajax({
-			type:"get",
-			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num="+goodsnums+"&UniversityId="+universityId+"&Checked=false&",
-			dataType:"json",
-			success:function(data){
-				//商品图片的渲染
-				console.log(data);
-			}//success
-		});//ajax
-  		$('.ok-add-cart-mask').fadeIn();
-		setTimeout(function  () {
-			$('.ok-add-cart-mask').fadeOut()
-		},1300);
-	});
-	//点击小对号，弹出框隐藏
-    $(".right-icon-tap").tap(function(){
-  		$(".ok-add-cart-mask").hide()
-  	});
-	//轮播图的改变
-/*E product-details*/
+
 /*S confirm-order*/
 	$(".confirm-order3-three-ul li").tap(function () {
 		$(this).css("color","red").siblings().css("color","black");

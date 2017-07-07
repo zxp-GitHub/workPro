@@ -19,7 +19,7 @@
 				<div class="top add-info-top">
 					<!--<p class="add-info-top-p">地址信息</p>-->
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="confirm-order.html"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li"><a href="confirm-order-one.html"><i class="iconfont icon-xiaoyuhao"></i></a></li>
 						<li class="first-top-li"><span class="first-top-li-span">地址信息</span></li>
 					</ul>	
 				</div>
@@ -40,11 +40,18 @@
 <script type="text/javascript">
 	Zepto(function() {
 		$(".address-info-ok").tap(function () {
-			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
-			localStorage.setItem("lbyxAddressPhone",$(".address-info-phone").val());
-//			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
-			localStorage.setItem("lbyxAddressDetailPlace",$(".address-info-detail-place").val());
-			window.location.href = "confirm-order-one.html"
-		})	;
-	});
+			var  addressInfoName = $(".address-info-name").val();
+			var  addressInfoPhone = $(".address-info-phone").val();
+			var  addressInfoDetailPlace = $(".address-info-detail-place").val();
+			if(addressInfoName==""||addressInfoPhone==""||addressInfoDetailPlace==""){
+				alert("内容不可为空！");
+				return true;
+			}else{
+				localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
+				localStorage.setItem("lbyxAddressPhone",$(".address-info-phone").val());
+				localStorage.setItem("lbyxAddressDetailPlace",$(".address-info-detail-place").val());
+				window.location.href = "confirm-order-one.html";
+			}
+		});//tap
+	});//end
 </script>

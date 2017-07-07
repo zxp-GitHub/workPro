@@ -15,7 +15,6 @@
 		<div class="container">
 			<div class="box confirm3-box">
 				<div class="confirm3-mask">
-					
 				</div>
 				<div class="top">
 					<ul class="first-top-ul">
@@ -52,35 +51,55 @@
 			        <p class="confirm-order3-three-p confirm-order3-three-cancel"><a href="confirm-order-one.html">取消</a></p>
 		        </div>
 				</div><!--confirm-order-main-->
-				
-				
 				</div><!--box-->
-			
 		</div><!--containter-->
 	</body>
 </html>
 <script type="text/javascript">
-	var  myData =  new Date();
-	console.log(myData);
-	var myYear = myData.getFullYear();
-	var myMonth = myData.getMonth()+1;
-	var myDay = myData.getDate();
-//	var myWeek = myData.get();
-	var t=myData.toLocaleString();
-	var confirmDataLi = $(".confirm-order-select-data-ul>li");
-	console.log(confirmDataLi);
-	console.log()
-	function aaaa (myDay) {
-		myDay = myDay+ i ;
-		confirmDataLi.html(myYear+"-0"+myMonth+"-"+myDay);
+	Zepto(function() {
+//		$(".confirm-order-time-ul>li").tap(function () {
+//			localStorage.setItem("lbyxTime",$(this).html());
+//			window.location.href = "confirm-order.html";
+//		})
+//	var universityId = localStorage.getItem("universityId");
+//	$.ajax({
+//			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=UniversityInfo_get&operation=1&universityid="+universityId+"&GoodsType=2&QFtype=1&",
+//			type:"get",
+//			success:function(data){
+//				console.log(data);
+//			}
+//			});//ajax	
+function tab(dayNum){
+		var oDate = new Date();   //获取当前时间
+		var dayArr = [oDate];     //定义一个数组存储所以时间
+		for(var i=0;i<dayNum;i++){
+			dayArr.push(new Date(oDate.getFullYear(),oDate.getMonth(),oDate.getDate() + i));  //把未来几天的时间放到数组里
+		}
+		return dayArr;   //返回一个数组。
 	}
-	for (var i = 0; i < confirmDataLi.length; i++) {
-		var myDay = myData.getDate()+i;
-		aaaa (myDay);
-	}
-	console.log()
-	$(".confirm-order-time-ul>li").tap(function () {
-			localStorage.setItem("lbyxTime",$(this).html());
-			window.location.href = "confirm-order.html";
-		})
+	console.log(tab(5));  //函数调用。
+	});
+//	var  myData =  new Date();
+//	console.log(myData);
+//	var myYear = myData.getFullYear();
+//	var myMonth = myData.getMonth()+1;
+//	var myDay = myData.getDate();
+////	var myWeek = myData.get();
+//	var t=myData.toLocaleString();
+//	var confirmDataLi = $(".confirm-order-select-data-ul>li");
+//	console.log(confirmDataLi);
+//	console.log()
+//	function aaaa (myDay) {
+//		myDay = myDay+ i ;
+//		confirmDataLi.html(myYear+"-0"+myMonth+"-"+myDay);
+//	}
+//	for (var i = 0; i < confirmDataLi.length; i++) {
+//		var myDay = myData.getDate()+i;
+//		aaaa (myDay);
+//	}
+//	console.log()
+//	$(".confirm-order-time-ul>li").tap(function () {
+//			localStorage.setItem("lbyxTime",$(this).html());
+//			window.location.href = "confirm-order.html";
+//		})
 </script>

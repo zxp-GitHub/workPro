@@ -1,61 +1,68 @@
 Zepto(function() {
 	var universityId = localStorage.getItem("universityId");
 	/*S register*/
-	$(".register-validation-code").tap(function () {
-		var usernam = $(".register-phone-input").val();
-		if (usernam=="") {//判定为空，中间不可再加空格
-			alert("手机号码不可为空！");
-		}else{
-			$.ajax({
-			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=1&XWYorKP=0&",
-			type:"get",
-			success:function(data){
-//				console.log(data);
+		//点击获取验证码--1.号码不可为空2.判断用户是否已存在
+		$(".register-validation-code").tap(function () {
+			var usernam = $(".register-phone-input").val();
+			if (usernam=="") {//判定为空，中间不可再加空格
+				alert("手机号码不可为空！");
+			}else{
+				$.ajax({
+				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=0&XWYorKP=1&",
+				type:"get",
+				success:function(data){
+					if(data.result.status.msg=="此用户已存在"){
+						alert(data.result.status.msg)
+					}
+				}
+				});//ajax	
 			}
-			});//ajax	
-		}
-	});
-	//	$(".register-next-step").tap(function () {
-	//		var registerPhone = $(".register-phone-input").val();
-	//		var registerCode = $(".register-code-input").val();
-	//		localStorage.setItem("registerPhone",registerPhone);
-	//		$.ajax({
-	//			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+registerCode+"&mobile="+registerPhone+"&",
-	//			type:"get",
-	//			success:function(data){
-	//				console.log(data.result.status.msg);
-	//				if(data.result.status.msg=="succ"){
-	//					alert("注册成功了，亲~！");
-	//				}else{
-	//					alert("用户已存在！");
-	//				}
-	//			}
-	//			});//ajax	
-	//	});
-	//	$(".register-pass-next-step").tap(function () {
-	//		var registerPhone = localStorage.getItem("registerPhone");
-	//		console.log(registerPhone)
-	//		var registerpass1 = $(".register-set-pass1").val();
-	//  	var registerpass2 = $(".register-set-pass2").val();
-	//  	if (registerpass1!=registerpass2) {
-	//  		alert("密码不匹配！")
-	//  		return true;
-	//  	} else{
-	//  		$.ajax({
-	//			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspxaction=MessageAuthentication_get&operation=8&mobile="+registerPhone+"&password="+registerpass1+"&qupassword="+registerpass2+"&",
-	//			type:"get",
-	//			success:function(data){
-	//				console.log(data);
-	////				if(data.result.status.msg=="succ"){
-	////					alert("注册成功了，亲~！");
-	////				}else{
-	////					alert("用户已存在！");
-	////				}
-	//			}
-	//			});//ajax	
-	//  	}
-	//		
-	//	});
+		});
+		//点击下一步，然后通过电话号码和验证码判断用户是否存在--1.内容不为空2.若验证码正确，提示注册成功
+		$(".register-next-step").tap(function () {
+//			window.location.href = "register-set-password.html";
+			var registerPhone = $(".register-phone-input").val();
+			var registerCode = $(".register-code-input").val();
+			if(registerPhone==""||registerCode==""){
+				alert("亲，内容不可为空！");
+			}
+			localStorage.setItem("registerPhone",registerPhone);
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+registerCode+"&mobile="+registerPhone+"&",
+				type:"get",
+				success:function(data){
+					console.log(data.result.status.msg);
+					if(data.result.status.msg=="succ"){
+						alert("注册成功了，亲~！");
+					}
+				}
+				});//ajax	
+		});
+		//注册设置密码时，点击下一步的效果。
+		$(".register-pass-next-step").tap(function () {
+			var registerPhone = localStorage.getItem("registerPhone");
+			console.log(registerPhone);
+			var registerpass1 = $(".register-set-pass1").val();
+	  		var registerpass2 = $(".register-set-pass2").val();
+		  	if (registerpass1!=registerpass2) {
+		  		alert("密码不匹配！")
+		  		return true;
+		  	} else{
+		  		$.ajax({
+					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspxaction=MessageAuthentication_get&operation=8&mobile="+registerPhone+"&password="+registerpass1+"&qupassword="+registerpass2+"&",
+					type:"get",
+					success:function(data){
+						console.log(data);
+		//				if(data.result.status.msg=="succ"){
+		//					alert("注册成功了，亲~！");
+		//				}else{
+		//					alert("用户已存在！");
+		//				}
+					}
+					});//ajax	
+		  	}
+			
+		});
 	//	$(".register-confirm-registration").tap(function () {
 	//		 var usernam = $(".register-name").val();
 	//  	 var userpas = $(".register-pass").val();
@@ -79,7 +86,25 @@ Zepto(function() {
 	//	});
 
 	/*E register*/
-
+	/*S forget-password*/
+		//点击获取验证码--1.号码不可为空2.判断用户是否已存在
+		$(".get-dynamic-code").tap(function () {
+			var usernam = $(".forget-pass-input").val();
+			if (usernam=="") {//判定为空，中间不可再加空格
+				alert("手机号码不可为空！");
+			}else{
+				$.ajax({
+				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=1&XWYorKP=1&",
+				type:"get",
+				success:function(data){
+					if(data.result.status.msg=="此用户已存在"){
+						alert(data.result.status.msg)
+					}
+				}
+				});//ajax	
+			}
+		});
+	/*E forget-password*/
 /*S login*/
     $(".confirm-login").tap(function(){
 		var loginName = $(".login-name").val();
@@ -101,7 +126,7 @@ Zepto(function() {
 						localStorage.setItem("userId",data.result.data.UserId);
 						localStorage.setItem("lbyxCode",data.result.status.code);
 						localStorage.setItem("indexPage",0);
-	//					window.location.href = "index.html";
+						window.location.href = "index.html";
 					}else{
 						alert("信息填写错误");
 					}
@@ -121,6 +146,27 @@ Zepto(function() {
 				console.log(data);
 			}
 		});//ajax
+		});
+		
+		//点击下一步，然后通过电话号码和验证码判断用户是否存在--1.内容不为空2.若验证码正确，提示注册成功
+		$(".forget-pass-next-step").tap(function () {
+//			window.location.href = "register-set-password.html";
+			var forgetPhone = $(".forget-pass-input").val();
+			var forgetCode = $(".forget-pass-input").val();
+			if(forgetPhone==""||forgetCode==""){
+				alert("亲，内容不可为空！");
+			}
+//			localStorage.setItem("registerPhone",registerPhone);
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+forgetPhone+"&mobile="+forgetCode+"&",
+				type:"get",
+				success:function(data){
+					console.log(data.result.status.msg);
+					if(data.result.status.msg=="succ"){
+						alert("注册成功了，亲~！");
+					}
+				}
+				});//ajax	
 		});
 /*E forget-password*/
 /*S all-goods*/
