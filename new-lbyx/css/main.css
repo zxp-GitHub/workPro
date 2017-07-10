@@ -1158,8 +1158,8 @@ vertical-align: middle;
 		width: 0;
 		height: 0;
 		font-size: 0;
-		border: 0.32rem solid transparent;
-		border-bottom: 0.32rem solid black;
+		border: 5px solid transparent;
+		border-bottom: 5px solid rgb(0,0,0);
 		position: absolute;
 		top: 0;
 	}
@@ -1167,8 +1167,8 @@ vertical-align: middle;
 		width: 0;
 		height: 0;
 		font-size: 0;
-		border: 0.32rem solid transparent;
-		border-top: 0.32rem solid black;
+		border: 5px solid transparent;
+		border-top: 5px solid rgb(0,0,0);
 		position: absolute;
 		bottom: 0;
 	}

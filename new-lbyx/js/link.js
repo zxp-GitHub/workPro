@@ -206,7 +206,7 @@ Zepto(function() {
 			url:"http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=GoodsTypeInfo_get&operation=1&parentid="+goodNum+"&kind=0&jsoncallback=&universityid="+universityId+"&",
 			dataType:"json",
 			success:function(data){
-				console.log(data.result.data);
+//				console.log(data.result.data);
 //				//商品图片的渲染
 				function addProduct(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
 					var html = "<li class=\"all-goods-list-li\">";

@@ -33,9 +33,9 @@
 					</div><!--all-goods-search-->
 					<div class="select-area3-main-two">
 						<ul class="select-area3-two-ul">
-							<li class="select-area3-two-li">综合</li>
-							<li class="select-area3-two-li">销量</li>
-							<li class="select-area3-two-li">价格</li>
+							<li class="select-area3-two-li goods-comprehensive-order">综合</li>
+							<li class="select-area3-two-li goods-sales-order">销量</li>
+							<li class="select-area3-two-li goods-price-order">价格<p class="sort-up-down-p"><span class="up-price"></span><span class="down-price"></span></p></li>
 						</ul>
 					</div><!--select-area3-main-two-->
 					<div class="select-area3-main-three">
@@ -50,24 +50,26 @@
 <script type="text/javascript">
 	Zepto(function() {
 		$(".search-page-search-input").focus();
+		var universityId = localStorage.getItem("universityId");
 		var selectThreePage = 1;//这个一开始不需要商品初始化，所以赋初值可以从1开始
+		var datasort = 0;
 		function searchRender(searchValue,pages) {
 			$.ajax({//获取json数据必写哦！！！
 				type:"get",
-				url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&operation=10&goodsname="+searchValue+"&universityid=28f95547-16f0-49eb-aace-d8a42e1f94fa&dataindex="+pages+"",
+				url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&operation=10&universityid="+universityId+"&JinKouPaiXu="+datasort+"&goodsname="+searchValue+"&dataindex="+pages+"",
 				dataType:"json",
 				success:function(data){//consol一下是很重要的！！！！！！
-						console.log(data);
+//						console.log(data);
 						function selectThreeRender(obj){
 							var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsId = \""+obj.GoodsID+"\" repertoryId = \""+obj.RepertoryID+"\">";
 								html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
 								html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img select-area3-img\"/>";
 								html += "		<span class=\"select-area3-sell-out-mask\">售罄</span>";
-								html += "	</div>",
+								html += "	</div>";
 								html += "	<div class=\"goods-right-cell\">";
 								html += "		<p class=\"goods-right-cell-p\">"+obj.GoodsName+"</p>";
 								html += "		<p class=\"goods-right-cell-p\">";
-								html += "			<span class=\"shopping-car-cell-price\">￥"+obj.GuidedPrice+"</span>";
+								html += "			<span class=\"shopping-car-cell-price\">￥"+obj.SalePrice+"</span>";
 								html += "			<span class=\"shopping-car-change-price\"><i class=\"iconfont icon-gouwuche3 icon-gouwuche3-bc\"></i></p>";
 								html += "		</p>";
 								html += "	</div>";
@@ -92,21 +94,77 @@
 			console.log(searchVal);
 			if (searchVal=="") {
 				$(".search-ul").html(" ");
+				alert("请输入关键字！")
 				return true;
 			}else{
 				$(".search-ul").html(" ");
-				searchRender (searchVal,selectThreePage);//这个一开始不需要商品初始化，所以可以从1开始
+				searchRender(searchVal,selectThreePage);//这个一开始不需要商品初始化，所以可以从1开始
 			}
 		});
-		//下拉加载,这个不能放在点击时间里，商品会重复
-		var searchVal = $(".search-input").val();
+//		//下拉加载,这个不能放在点击时间里，商品会重复
+//		var searchVal = $(".search-input").val();
+//		$(document).ready(function() { //这句话是要用的
+//			var oWrap = $(".select-area3-main-three")
+//			oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
+//				if(oWrap.height() + $(this).scrollTop() >= $(".select-area3-three-ul").height()) {
+//					console.log(selectThreePage);
+//					searchRender (searchVal,selectThreePage);
+//					selectThreePage = selectThreePage+1;
+//				}
+//			}); //E scroll
+//		}); //E ready
+//排序的操作
+	    $(".goods-comprehensive-order").tap(function () {
+	    	datasort = 2;
+	    	var searchVal = $(".search-input").val();
+	    	searchRender(searchVal,selectThreePage);
+	    });
+	    $(".goods-sales-order").tap(function () {
+	    	datasort = 0;
+	    	var searchVal = $(".search-input").val();
+	    	searchRender(searchVal,selectThreePage);
+	    });
+	    $(".select-area3-two-li").tap(function () {
+	    	selectThreePage = 1;
+	    	$(".select-area3-three-ul").html("");
+	    	$(this).css("color","red").siblings().css("color","black");//改变属性要用css而不是attr
+	    	if ($(".goods-price-order").css("color")!="red") {
+	    		$(".up-price").css("border-bottom","5px solid black");
+	    		$(".down-price").css("border-top","5px solid black");
+	    	}
+	    	if ($(".search-page-search-input").val()=="") {
+				$(".search-ul").html(" ");
+				alert("请输入关键字！")
+				return false;
+			}
+	    });
+	    var tapRed = true;
+	    $(".goods-price-order").tap(function () {
+	    	var searchVal = $(".search-input").val();
+			if (tapRed==true) {
+				$(".up-price").css("border-bottom","5px solid red");
+	    		$(".down-price").css("border-top","5px solid black");
+	    		datasort = 1;
+	    		searchRender(searchVal,selectThreePage);
+	    		tapRed = false;
+			} else{
+				$(".up-price").css("border-bottom","5px solid black");
+	    		$(".down-price").css("border-top","5px solid red");
+	    		datasort = 3;
+	    		searchRender(searchVal,selectThreePage);
+	    		tapRed = true;
+			}
+	    });
+//下拉加载
+//		var searchVal = $(".search-input").val();
+//		console.log(searchVal);
 		$(document).ready(function() { //这句话是要用的
-			var oWrap = $(".select-area3-main-three")
+			var oWrap = $(".select-area3-main-three");
 			oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
 				if(oWrap.height() + $(this).scrollTop() >= $(".select-area3-three-ul").height()) {
-					console.log(selectThreePage);
-					searchRender (searchVal,selectThreePage);
-					selectThreePage = selectThreePage+1;
+					var searchVal = $(".search-input").val();
+					selectThreePage = parseInt(selectThreePage)+1;//因为是先加1，在调用方法所以可以从1开始
+					searchRender(searchVal,selectThreePage);
 				}
 			}); //E scroll
 		}); //E ready

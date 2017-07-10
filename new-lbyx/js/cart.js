@@ -325,5 +325,8 @@ Zepto(function() {
 		});//ajax
 
 			});
-
+//点击去结算，跳转到确认订单页面
+	$(".cart-to-pay").tap(function () {
+		window.location.href = "confirm-order-one.html";
+	});
 });

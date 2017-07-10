@@ -63,7 +63,7 @@ Zepto(function() {
 				dataType:"json",
 				success:function(data){//consol一下是很重要的！！！！！！
 					//假如一页获取m条
-					console.log(data.result.tuijian)
+//					console.log(data.result.tuijian)
 					for(var i=0;i<data.result.tuijian.length;i++){//加载json里面的图片，json里面数是从零开始的
 						 var html= "<ol class=\"main-list-ol\" goodsId=\""+data.result.tuijian[i].GoodsID+"\" repertoryId = \""+data.result.tuijian[i].RepertoryID+"\">";
 							 html+="<li class=\"main-list-ol-li1\"><img src=\"http://api.x5u.com.cn:12804"+data.result.tuijian[i].Img1+"\"/></li>";
@@ -96,7 +96,7 @@ Zepto(function() {
 		type:"get",
 		dataType:"json",
 		success:function(data){
-				console.log(data);
+//				console.log(data);
 			}
 		});//ajax
 /*E index*/
