@@ -738,7 +738,7 @@ vertical-align: middle;
     font: 1rem/1 "微软雅黑";
 }
 .confirm-order-main-second{
-	height: 24%;
+	/*height: 24%;*/
 	width: 100%;
 	background-color: #fff;
 }
@@ -761,7 +761,7 @@ vertical-align: middle;
 	border-bottom: none;
 }
 .confirm-order-main-three{
-	height: 31%;
+	/*height: 31%;*/
 	width: 100%;
 	background-color: #fff;
 }
@@ -778,14 +778,14 @@ vertical-align: middle;
     height: 70%;
 }
 .confirm-order-three-ul{
-	height: 83%;
+	/*height: 83%;*/
 	width: 100%;
 }
 .confirm-order-three-ul>.confirm-order-three-li:last-child{/*最后一个元素last-child，而不是nth-last-child*/
 	border-bottom: none;
 }
 .confirm-order-three-li{
-	height:49%;
+	height:5rem;
 	width: 100%;
 	display: flex;
 	border-bottom: 1px solid #ccc;

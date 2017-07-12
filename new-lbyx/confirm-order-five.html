@@ -60,6 +60,14 @@
 		$(".confirm-order-time-ul>li").tap(function () {
 			localStorage.setItem("lbyxTime",$(this).html());
 			window.location.href = "confirm-order.html";
-		})
+		});
+		$.ajax({//获取json数据必写哦！！！
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/XuQiu/ZiTigoods.aspx?action=TimePeriodInfo_get&PickUpCenterID=18&",
+			dataType:"json",
+			success:function(data){//consol一下是很重要的！！！！！！
+				console.log(data)
+			}//succ
+		});//ajax
 	});
 </script>

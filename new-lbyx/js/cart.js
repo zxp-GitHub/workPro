@@ -192,7 +192,6 @@ Zepto(function() {
 					readyToBuy (cartGoodId,goodReady);
 					cartTotalPrice();
 				}
-				
 			}
 		}else{
 			$(this).css("color","#ccc");
@@ -327,6 +326,8 @@ Zepto(function() {
 			});
 //点击去结算，跳转到确认订单页面
 	$(".cart-to-pay").tap(function () {
+		var allPrice = $(".all-choice-price").html();
+		localStorage.setItem("allPrice",allPrice);
 		window.location.href = "confirm-order-one.html";
 	});
 });

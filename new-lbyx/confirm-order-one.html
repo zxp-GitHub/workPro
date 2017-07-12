@@ -42,14 +42,14 @@
 						<li class="confirm-order-li"><a href="confirm-order-four.html">配送方式  <i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-way">配送</span></a></li>
 						<li class="confirm-order-li"><a href="confirm-order-three.html">配送日期<i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-day">2017-03-30</span></a></li>
 						<li class="confirm-order-li"><a href="confirm-order-five.html">配送时间段<i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-time">09:00-10:00</span></a></li>
-						<li class="confirm-order-li">备注：可能会提前取货</li>
+						<li class="confirm-order-li"> <textarea name="" rows="" cols="" style="height: 3rem;width: 100%;">备注：</textarea></li>
 					</ul>
 				</div>
 				<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
 				<div class="confirm-order-main-three">
 					<p class="confirm-order-nav">东方一店</p>
 							<ul class="confirm-order-three-ul">
-								<li class="confirm-order-three-li">
+								<!--<li class="confirm-order-three-li">
 								<div class="pic-cell-border">
 									<img src="img/f-2.png" class="pic-cell-border-img"/>
 								</div>
@@ -60,27 +60,15 @@
 											<span class="shopping-car-change-price">×1</p>
 										</p>
 								</div>
-								</li>
-								<li  class="confirm-order-three-li">
-									<div class="pic-cell-border">
-									<img src="img/f-2.png" class="pic-cell-border-img"/>
-								</div>
-								<div class="goods-right-cell">
-									<p class="goods-right-cell-p">意大利进口 Balocco 百事可乐 脆皮苏 焦糖味 200g</p>
-									<p class="goods-right-cell-p">
-											<span class="shopping-car-cell-price"  >￥20.90</span>
-											<span class="shopping-car-change-price">×1</p>
-										</p>
-								</div>
-								</li>
+								</li>-->
 							</ul>
 				</div>
 				<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
 				<div class="confirm-order-main-four confirm-order1-main-four">
 					<ul class="confirm-order-ul">
-						<li class="confirm-order-li">商品金额  <span class="select-area-span">¥41.8</span></li>
-						<li class="confirm-order-li">运费<span class="select-area-span">+¥0.00</span></li>
-						<li class="confirm-order-li confirm-order-border-li" style="border-bottom: 1px solid #ccc; overflow: hidden;"><span class="select-area-span">实付金额&nbsp;¥41.80</span></li>
+						<li class="confirm-order-li">商品金额  <span class="select-area-span">¥<span class="confirm-all-price">41.8</span></span></li>
+						<li class="confirm-order-li">运费<span class="select-area-span">+¥<span class="confirm-freight">0.00</span></span></li>
+						<li class="confirm-order-li confirm-order-border-li" style="border-bottom: 1px solid #ccc; overflow: hidden;"><span class="select-area-span">实付金额&nbsp;¥<span class="confirm-amount-paid">41.80</span></span></li>
 						<li class="confirm-order-li" style="height: 18%;"><span class="select-area-span go-to-buy"><a href="###" class="go-to-buy-a">去支付</a></span></li>
 					</ul>
 				</div>
@@ -110,5 +98,58 @@
 			});
 //		}
 			$(".confirm-two-way").text(lbyxGiveWay);
-	});
+			
+			var lbyxCode = localStorage.getItem("lbyxCode");
+			var universityId = localStorage.getItem("universityId");
+			console.log(lbyxCode);
+			console.log(universityId);
+			$.ajax({
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+			dataType:"json",
+			success:function(data){
+					console.log(data);
+	                //渲染确认订单页的商品列表
+					function confirmOrderRender(obj){
+							var html ="					<li class=\"confirm-order-three-li\" Checked=\""+obj.Checked+"\">";
+							html += "		<div class=\"pic-cell-border\">";
+							html += "			<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img\"/>";
+							html += "		</div>";
+							html += "		<div class=\"goods-right-cell\">";
+							html += "			<p class=\"goods-right-cell-p\">"+obj.GoodsName+"</p>";
+							html += "			<p class=\"goods-right-cell-p\">";
+							html += "					<span class=\"shopping-car-cell-price\">￥"+obj.ActualUnitPrice+"</span>";
+							html += "					<span class=\"shopping-car-change-price\">×"+obj.Num+"</p>";
+							html += "				</p>";
+							html += "		</div>";
+							html += "		</li>";
+						$(".confirm-order-three-ul").prepend(html);
+					}
+					for (var i = 0; i < data.Result.list_SpecDiscount[0].list_CartGoodsDetails.length; i++) {
+						confirmOrderRender(data.Result.list_SpecDiscount[0].list_CartGoodsDetails[i]);
+					}
+					//购物车中选中的商品显示没有选中的商品不显示
+					$(".confirm-order-three-li").each(function () {
+						if ($(this).attr("Checked")=="true") {
+							$(this).show();
+						} else{
+							$(this).hide();
+						}
+					});
+				}
+			});
+//总价的显示
+	 var allPrice = localStorage.getItem("allPrice");
+	 if (allPrice>=28) {
+			$(".confirm-freight").html(0.00);
+			$(".confirm-amount-paid").html(allPrice);
+		} else{
+			$(".confirm-freight").html(3.00);
+			
+			$(".confirm-amount-paid").html(parseFloat((parseFloat(allPrice)+3)).toFixed(2));
+		}
+	 
+	 console.log(allPrice)
+	 $(".confirm-all-price").html(allPrice);
+	});//end
 </script>
