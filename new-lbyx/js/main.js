@@ -99,5 +99,12 @@ Zepto(function() {
 //				console.log(data);
 			}
 		});//ajax
+	
+	
+//index-my
+    //点击头像切换图片，或者自己照
+    $(".my-first-pic").tap(function () {
+    	alert("2")
+    });
 /*E index*/
  });

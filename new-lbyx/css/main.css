@@ -223,7 +223,10 @@ html,body,.container,.box{
 	background-color: #fff;
 }
 .my-first-pic{
-	margin: 2rem;
+	/*margin: 2rem;*/
+	width: 100%;
+	height: 100%;
+	border-radius: 5rem;
 }
 .my-first-p{
 	color: #fff;
@@ -269,11 +272,47 @@ html,body,.container,.box{
 	
 }
 /*没有nth*/
+.my-first-head-portrait{
+	width: 5rem;
+	height: 5rem;
+	margin: 2rem auto;
+}
+.my-user-info-ul{
+	width: 100%;
+}
+.my-user-info-li{
+	width: 96%;
+	height: 3rem;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	align-items: center;
+	padding: 0 2%;
+	position: relative;
+}
+.my-user-info-dayuhao{
+	position: absolute;
+	right: 0.2rem;
+}
+.user-info-pic-cell{
+	width: 2.5rem;
+	height: 2.5rem;
+	display: inline-block;
+	position: absolute;
+	right: 1.5rem;
+}
+.user-info-pic{
+	width: 100%;
+	height: 100%;
+	border-radius: 2.5rem;
+	
+}
 .my-first-a{
-	display: none;
+	display: block;
 }
 .my-first-b{
 	font: 1.1rem/1 "微软雅黑";
+	display: none;
 }
 .my-first-b>pre{
 	color: #fff;
