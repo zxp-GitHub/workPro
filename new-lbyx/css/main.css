@@ -308,11 +308,11 @@ html,body,.container,.box{
 	
 }
 .my-first-a{
-	display: block;
+	display: none;
 }
 .my-first-b{
 	font: 1.1rem/1 "微软雅黑";
-	display: none;
+	/*display: none;*/
 }
 .my-first-b>pre{
 	color: #fff;
@@ -616,7 +616,7 @@ html,body,.container,.box{
 }
 .all-choice-p{
 	margin-left: 0.5rem;
-	width: 5rem;
+	width: 4rem;
 }
 .all-chioce-ok{
 	color: #ccc;
@@ -640,9 +640,12 @@ html,body,.container,.box{
 }
 .all-choice-p2{
 	/*margin-left: 2rem;*/
-	width: 10rem;
-	text-align: center;
+	width: 12rem;
+	/*text-align: center;*/
 	
+}
+.cart-freight{
+	display: none;	
 }
 .cart-to-pay{
 	position: absolute;
@@ -1216,6 +1219,22 @@ vertical-align: middle;
 	height: 84%;
 	background-color: #fff;
 	overflow: scroll;
+	position: relative;
+}
+.fixd-to-cart-icon{
+	position: fixed;
+	right: 3rem;
+	bottom: 2rem;
+	padding: 0.7rem;
+	background-color: #ccc;
+	color: #fff;
+	border-radius: 0.3rem;
+}
+.searth-fixd-to-cart-icon{
+	display: none;
+}
+.fixd-to-cart-icon>i{
+	font-size: 1.5rem;
 }
 .select-area3-three-ul{
 	height: auto;

@@ -18,7 +18,7 @@
 				<div class="top">
 					<ul class="first-top-ul">
 						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
-						<li class="first-top-li"><span class="first-top-li-span">搜索</span></li>
+						<li class="first-top-li"><span class="first-top-li-span">商品列表</span></li>
 					</ul>			
 				</div><!--top-->
 				<div class="all-goods-main">
@@ -51,6 +51,7 @@
 								</div>
 								</li>-->
 						</ul>
+						<p class="fixd-to-cart-icon"><i class="iconfont icon-gouwuche3"></i></p>
 					</div><!--select-area3-main-three-->
 					</div><!--main-->
 				</div><!--box-->
@@ -147,7 +148,6 @@
 			}
 	    });
 //下拉加载
-		
 		$(document).ready(function() { //这句话是要用的
 //			var datasort = localStorage.getItem("datasort");
 			var oWrap = $(".select-area3-main-three");
@@ -159,5 +159,10 @@
 				}
 			}); //E scroll
 		}); //E ready
+//点击该页面购物车灰色图标，跳转到购物车页面
+		$(".fixd-to-cart-icon").tap(function () {
+			localStorage.setItem("indexPage",1);
+			window.location.href = "index.html";
+		})
 	});//end
 </script>

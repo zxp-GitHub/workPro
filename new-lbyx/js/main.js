@@ -2,6 +2,7 @@ Zepto(function() {
 	//当用户登录成功后，获取status中的code，确定用户的token---在商品详情页加入购物车时
 	var lbyxCode = localStorage.getItem("lbyxCode");
 	var goodsId = localStorage.getItem("goodsId");
+	var	userId = localStorage.getItem("userId");
 	//获得跳转到主页的哪一个页面
 	var indexPage = parseInt(localStorage.getItem("indexPage"));
 	if (indexPage!=0&&indexPage!=1&&indexPage!=2) {
@@ -33,6 +34,15 @@ Zepto(function() {
 	$(".top-back-li").tap(function () {
 		window.history.back();
 	});
+	//index-my-判断是否登录
+	if(lbyxCode!=""&&userId!=""){
+		$(".my-first-b").hide();
+		$(".my-first-a").show();
+	}else{
+		alert("未登录");
+		$(".my-first-a").hide();
+		$(".my-first-b").show();
+	}
 	//商圈的选择
 	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
 	$(".first-top-change-span").html(selectAreaTwoLi);
@@ -104,7 +114,7 @@ Zepto(function() {
 //index-my
     //点击头像切换图片，或者自己照
     $(".my-first-pic").tap(function () {
-    	alert("2")
+    	window.location.href = "index-my-user-info.html";
     });
 /*E index*/
  });

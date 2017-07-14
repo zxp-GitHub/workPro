@@ -41,6 +41,7 @@
 					<div class="select-area3-main-three">
 						<ul class="confirm-order-three-ul select-area3-three-ul search-ul">
 						</ul>
+						<p class="fixd-to-cart-icon searth-fixd-to-cart-icon"><i class="iconfont icon-gouwuche3"></i></p>
 					</div><!--select-area3-main-three-->
 					</div><!--main-->
 				</div><!--box-->
@@ -100,6 +101,8 @@
 				$(".search-ul").html(" ");
 				searchRender(searchVal,selectThreePage);//这个一开始不需要商品初始化，所以可以从1开始
 			}
+			//点击搜索，去购物车图标显示
+			$(".fixd-to-cart-icon").show();
 		});
 //		//下拉加载,这个不能放在点击时间里，商品会重复
 //		var searchVal = $(".search-input").val();
@@ -168,6 +171,11 @@
 				}
 			}); //E scroll
 		}); //E ready
+//点击该页面购物车灰色图标，跳转到购物车页面
+		$(".fixd-to-cart-icon").tap(function () {
+			localStorage.setItem("indexPage",1);
+			window.location.href = "index.html";
+		});
 		
 	});
 	

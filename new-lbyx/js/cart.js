@@ -172,6 +172,11 @@ Zepto(function() {
 			}
 		});
 			//console.log(cartAllPrice);   !!!很重要，可以看该方法在点击时是否都有效
+			//判断运费的思路
+//			if($(".all-choice-price").html()<28){
+//				console.log($(".all-choice-price").html())
+//				$(".cart-freight").show();
+//			}
 			$(".all-choice-price").html(cartAllPrice.toFixed(2));
 	}//cartTotalPrice
 	//cart购物车点击对号，实现颜色的变换
