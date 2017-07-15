@@ -55,10 +55,30 @@
 						<a href="###" class="to-pay-a">去付款</a>
 					</div>
 					</div><!--main-->
-				
-				
 				</div><!--box-->
-			
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+  //一定要注意，必须要从home页跳转到商品详情页，banner才不会报错。
+ 		 //当用户登录成功后，获取status中的code，确定用户的token---在商品详情页加入购物车时
+  		var universityId = localStorage.getItem("universityId");
+  		var goodsId = localStorage.getItem("goodsId");
+  		var userId = localStorage.getItem("userId");
+  		var lbyxCode = localStorage.getItem("lbyxCode");
+  		alert("2")
+		$.ajax({//获取json数据必写哦！！！
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=121&Token="+lbyxCode+"&UserID="+userId+"&OrderStatus=2&dataindex=1&datasize=10&",
+			dataType:"json",
+			success:function(data){//consol一下是很重要的！！！！！！
+				alert("2")
+				console.log(data);
+			}//success
+		});//ajax
+			
+		});
+
+</script>
+
