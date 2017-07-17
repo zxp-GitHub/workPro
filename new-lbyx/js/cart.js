@@ -15,7 +15,6 @@ Zepto(function() {
 				console.log(data);
 //				详情页点击加入购物车，然后购物车页面加入该条商品
 				function addCart(obj){
-//					console.log("1")
 //				var html ="	<p class=\"shopping-car-nav\">东方一店</p>";
 //					var html ="	<ul class=\"shopping-cart-ul\">";
 					var html ="<li class=\"shopping-cart-li\" GoodsNum = \""+obj.GoodsNum+"\" Checked = \""+obj.Checked+"\">";
@@ -74,7 +73,7 @@ Zepto(function() {
 		if($(this).find("i").css("color")=='rgb(204, 204, 204)'){
 			$(".shopping-cart-li").each(function () {
 				var cartGoodId = $(this).find(".all-choice-right").attr("goodID");//加引号
-				console.log($(this).attr("GoodsNum"));
+//				console.log($(this).attr("GoodsNum"));
 			if($(this).attr("GoodsNum")==0){
 				return true;//不知道为什么，这个写false，全选的时候就会有的选不中。
 			}else{
@@ -94,7 +93,7 @@ Zepto(function() {
 		}else{
 			$(".shopping-cart-li").each(function () {
 				var cartGoodId = $(this).find(".all-choice-right").attr("goodID");//加引号
-				console.log($(this).attr("GoodsNum"));
+//				console.log($(this).attr("GoodsNum"));
 				//接下来双重判断，商品库存数既不能为零也不能小于选中的商品数量，因为不需要提示不同的信息，所以可以合并为一个判断
 				if($(this).attr("GoodsNum")==0||$(this).attr("GoodsNum")<parseInt($(this).find(".cart-number-span").html())){
 					return true;

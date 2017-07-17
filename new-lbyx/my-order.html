@@ -16,8 +16,8 @@
 			<div class="box">
 				<div class="top">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
-						<li class="first-top-li"><span class="first-top-li-span">搜索</span></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">订单</span></li>
 						
 					</ul>			
 				</div><!--top-->
@@ -30,30 +30,8 @@
 						</ul>
 					</div><!--select-area3-main-two-->
 					<div class="select-area3-main-three my-order-main">
-						<ul class="east-three-store-ul">
-							<li class="east-three-store-li east-three-store-li1">东方三店</li><li class="east-three-store-li east-three-store-li2">待付款</li>
-						</ul>
-						<ul class="confirm-order-three-ul select-area3-three-ul">
-								<li class="confirm-order-three-li select-area3-three-li my-order-li-bc">
-								<div class="pic-cell-border select-area3-pic-cell-border">
-									<img src="img/f-2.png" class="pic-cell-border-img select-area3-img"/>
-								</div>
-								<div class="goods-right-cell">
-									<p class="goods-right-cell-p">意大利进口 Balocco 百事可乐 脆皮苏 焦糖味 200g</p>
-									<p class="goods-right-cell-p">
-											<span class="shopping-car-cell-price"  >￥20.90</span>
-											<span class="shopping-car-change-price"><i class="">x1</i></p>
-										</p>
-								</div>
-								</li>
-							</ul>
+						
 					</div><!--select-area3-main-three-->
-					<div class="my-order-last">
-						<ul class="east-three-store-ul">
-							<li class="east-three-store-li east-three-store-li1">共计一件</li><li class="east-three-store-li east-three-store-li2">合计：¥20.90（含运费¥4.00）</li>
-						</ul>
-						<a href="###" class="to-pay-a">去付款</a>
-					</div>
 					</div><!--main-->
 				</div><!--box-->
 		</div><!--containter-->
@@ -67,14 +45,52 @@
   		var goodsId = localStorage.getItem("goodsId");
   		var userId = localStorage.getItem("userId");
   		var lbyxCode = localStorage.getItem("lbyxCode");
-  		alert("2")
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
-			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=121&Token="+lbyxCode+"&UserID="+userId+"&OrderStatus=2&dataindex=1&datasize=10&",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=2&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&",
 			dataType:"json",
 			success:function(data){//consol一下是很重要的！！！！！！
-				alert("2")
 				console.log(data);
+					function myAllOrder(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+//						for (var i = 0; i < obj.goodstypes.length; i++) {
+//								allGoodsLi (obj.goodstypes[i]);
+//<img src=\"http://api.x5u.com.cn:12804"+obj.Ordergoods[0].img+"\"  class=\"all-order-cell-p3-pics\" />
+//							}
+						var html = "<div class=\"all-order-cell\"  orderStatus = \""+obj.OrderStatus+"\">";
+							html += "<p class=\"all-order-cell-p1\"><span>仓库编号：</span><span>"+obj.Code+"</span> <span class=\"p1-order-finish\">"+obj.OrderStatus+"</span></p>";
+							html += "<p class=\"all-order-cell-p2\"><span>下单时间:</span> <span>"+obj.CreateDate.split("T")[0]+"&nbsp;"+obj.CreateDate.split("T")[1]+"</span><span class=\"p2-self-pick-up\">自提</span></p>";
+							html += "<p class=\"all-order-cell-p3\">";
+							if (obj.Ordergoods.length>3) {
+								for (var j = 0; j < 3; j++) {
+									myAllOrderLi (obj.Ordergoods[j]);
+								}
+							} else{
+								for (var j = 0; j < obj.Ordergoods.length; j++) {
+									myAllOrderLi (obj.Ordergoods[j]);
+								}
+							}
+							html += "</p>";
+							html += "<p class=\"all-order-cell-p4\"><span>共"+obj.Ordergoods.length+"件商品</span> <span class=\"p4-all-price\">总价：¥"+obj.TotalAmt+"（含配送费0.0元）</span></p>";
+							html += "<p class=\"all-order-cell-p5\">";
+							html += "<span class=\"p5-complaint\">投诉</span> <span class=\"p5-view-logistics\">查看物流</span><span class=\"p5-go-to-the-evaluation\">去评价</span>";
+							html += "</p>";
+							html += "</div>";
+							function myAllOrderLi(objs) {
+								html += "<img src=\"http://api.x5u.com.cn:12804"+objs.img+"\"  class=\"all-order-cell-p3-pics\" />";
+							}
+						$(".my-order-main").append(html);
+			    };//addProduct
+				for (var i = 0; i < data.result.data.length; i++) {
+					myAllOrder(data.result.data[i]);
+				}
+				$(".all-order-cell").each(function () {
+					if ($(this).attr("orderStatus")==5) {
+						$(this).find(".p1-order-finish").html("订单完成");
+					}else{
+						$(this).find(".p1-order-finish").html("取消订单");
+						$(this).find(".all-order-cell-p5").hide();
+					}
+				});
 			}//success
 		});//ajax
 			

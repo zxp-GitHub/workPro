@@ -36,12 +36,12 @@ Zepto(function() {
 	});
 	//index-my-判断是否登录
 	if(lbyxCode!=""&&userId!=""){
-		$(".my-first-b").hide();
-		$(".my-first-a").show();
-	}else{
-		alert("未登录");
 		$(".my-first-a").hide();
 		$(".my-first-b").show();
+	}else{
+		alert("未登录");
+		$(".my-first-b").hide();
+		$(".my-first-a").show();
 	}
 	//商圈的选择
 	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
@@ -115,6 +115,9 @@ Zepto(function() {
     //点击头像切换图片，或者自己照
     $(".my-first-pic").tap(function () {
     	window.location.href = "index-my-user-info.html";
+    });
+    $(".my-second-li1").tap(function () {
+    	window.location.href = "my-order.html";
     });
 /*E index*/
  });
