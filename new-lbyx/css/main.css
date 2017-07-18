@@ -848,7 +848,9 @@ vertical-align: middle;
 .goods-right-cell-p:nth-child(1){
 	width: 70%;
 	white-space: pre-wrap;
-	margin-bottom: 5%;
+	margin-top: 0.8rem;
+	margin-bottom: 0.8rem;
+	
 }
 .goods-right-cell-p{
 	

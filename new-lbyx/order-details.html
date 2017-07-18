@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
  		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
  		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
-		<!--<script src="js/main.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
 	</head>
 	<body>
@@ -16,32 +16,32 @@
 			<div class="box">
 				<div class="top">
 					<ul class="first-top-ul">
-						<li class="first-top-li"><a href="###"><i class="iconfont icon-xiaoyuhao"></i></a></li>
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
 						<li class="first-top-li"><span class="first-top-li-span">订单详情</span></li>
 						
 					</ul>			
 				</div><!--top-->
-				<div class="order-details-main">
+				<div class="order-details-main" style="overflow: scroll;">
 					<div class="order-details-main-first">
 						<ul class="order-details-main-first-ul">
-							<li>订单号：00000000000</li>
-							<li><pre>下单时间：2017-01-11  11:23:43</pre></li>
-							<li>配送方式：自提</li>
+							<li>订单号：<span class="order-number-span"></span></li>
+							<li><pre>下单时间：<span class="order-time-span">2017-01-11  11:23:43</span></pre></li>
+							<li>配送方式：<span class="order-delivery-mode-span"></span></li>
 						</ul>
 					</div>
 					<div class="order-details-main-first">
 						<ul class="order-details-main-first-ul">
-							<li>收货人：爱到疯</li>
-							<li>联系电话：18788888888</li>
-							<li>收货地址：北京市中关村大街中关村大厦5059</li>
+							<li>收货人：<span class="order-name-span"></span></li>
+							<li>联系电话：<span class="order-phone-span"></span></li>
+							<li>收货地址：<span class="order-get-goods-place-span"></span></li>
 						</ul>
 					</div>
 					<div class="order-details-main-third">
-						<ul class="east-three-store-ul order-details-east-three-store">
+						<!--<ul class="east-three-store-ul order-details-east-three-store">
 							<li class="east-three-store-li east-three-store-li1">东方三店</li>
-						</ul>
-						<ul class="confirm-order-three-ul select-area3-three-ul">
-								<li class="confirm-order-three-li select-area3-three-li my-order-li-bc">
+						</ul>-->
+						<ul class="confirm-order-three-ul select-area3-three-ul order-details-ul">
+								<!--<li class="confirm-order-three-li select-area3-three-li my-order-li-bc">
 									<div class="pic-cell-border select-area3-pic-cell-border">
 										<img src="img/f-2.png" class="pic-cell-border-img select-area3-img"/>
 									</div>
@@ -64,27 +64,73 @@
 												<span class="shopping-car-change-price"><i class="">x1</i></p>
 											</p>
 									</div>
-								</li>
+								</li>-->
 							</ul>
 					</div><!--select-area3-main-three-->
 					<div class="my-order-last order-details-total">
 						<ul class="east-three-store-ul">
-							<li class="east-three-store-li east-three-store-li1">共计一件</li><li class="east-three-store-li east-three-store-li2">合计：¥20.90（含运费¥4.00）</li>
+							<li class="east-three-store-li east-three-store-li1">共计<span class="order-all-num-span"></span>件</li><li class="east-three-store-li east-three-store-li2">合计：¥<span class="order-all-price-span"></span>（含运费¥4.00）</li>
 						</ul>
 					</div>
 					<div class="order-details-last">
 						<a href="###" class="to-pay-a">去付款</a>
 					</div>
-					
 				</div>
-				
 				</div><!--order-details-main-->
-				
-				
-				
-				
 				</div><!--box-->
 			
 		</div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function() {
+  //一定要注意，必须要从home页跳转到商品详情页，banner才不会报错。
+ 		 //当用户登录成功后，获取status中的code，确定用户的token---在商品详情页加入购物车时
+  		var universityId = localStorage.getItem("universityId");
+  		var goodsId = localStorage.getItem("goodsId");
+  		var userId = localStorage.getItem("userId");
+  		var lbyxCode = localStorage.getItem("lbyxCode");
+  		var lbyxWarehouseNumber = localStorage.getItem("lbyxWarehouseNumber");
+  		console.log(lbyxWarehouseNumber);
+		$.ajax({//获取json数据必写哦！！！
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=2&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&",
+			dataType:"json",
+			success:function(data){//consol一下是很重要的！！！！！！
+				console.log(data.result.data[lbyxWarehouseNumber]);
+				var datas = data.result.data[lbyxWarehouseNumber];
+				$(".order-number-span").text(datas.OrderCode);
+				console.log(datas.CreateDate)
+				$(".order-time-span").text(datas.CreateDate.split("T")[0]+"  "+datas.CreateDate.split("T")[1])
+				$(".order-delivery-mode-span").text(datas);
+				$(".order-name-span").text(datas.UserName);
+				$(".order-phone-span").text(datas.UserPhone);
+				$(".order-get-goods-place-span").text(datas.UserAddress);
+				$(".order-all-num-span").text(datas.Ordergoods.length);
+				$(".order-all-price-span").text(datas.TotalAmt);
+				
+				function orderDetailsRender(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+							var html = "<li class=\"confirm-order-three-li select-area3-three-li my-order-li-bc\">";
+								html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
+								html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.img+"\" class=\"pic-cell-border-img select-area3-img\"/>";
+								html += "	</div>";
+								html += "	<div class=\"goods-right-cell\">";
+								html += "		<p class=\"goods-right-cell-p\">"+obj.AnotherName+"</p>";
+								html += "		<p class=\"goods-right-cell-p\">";
+								html += "				<span class=\"shopping-car-cell-price\">￥"+obj.ActualSalePrice+"</span>";
+								html += "				<span class=\"shopping-car-change-price\"><i class=\"\">x"+obj.Num+"</i></p>";
+								html += "			</p>";
+								html += "	</div>";
+								html += "</li>";
+						$(".order-details-ul").append(html);
+			    };//addProduct
+				for (var i = 0; i < datas.Ordergoods.length; i++) {
+					orderDetailsRender(datas.Ordergoods[i]);
+				}
+				
+			}//success
+		});//ajax
+			
+		});
+
+</script>

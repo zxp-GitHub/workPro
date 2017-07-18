@@ -57,7 +57,7 @@
 //<img src=\"http://api.x5u.com.cn:12804"+obj.Ordergoods[0].img+"\"  class=\"all-order-cell-p3-pics\" />
 //							}
 						var html = "<div class=\"all-order-cell\"  orderStatus = \""+obj.OrderStatus+"\">";
-							html += "<p class=\"all-order-cell-p1\"><span>仓库编号：</span><span>"+obj.Code+"</span> <span class=\"p1-order-finish\">"+obj.OrderStatus+"</span></p>";
+							html += "<p class=\"all-order-cell-p1\"><span>仓库编号：</span><span class=\"warehouse-number\">"+obj.Code+"</span> <span class=\"p1-order-finish\">"+obj.OrderStatus+"</span></p>";
 							html += "<p class=\"all-order-cell-p2\"><span>下单时间:</span> <span>"+obj.CreateDate.split("T")[0]+"&nbsp;"+obj.CreateDate.split("T")[1]+"</span><span class=\"p2-self-pick-up\">自提</span></p>";
 							html += "<p class=\"all-order-cell-p3\">";
 							if (obj.Ordergoods.length>3) {
@@ -90,6 +90,12 @@
 						$(this).find(".p1-order-finish").html("取消订单");
 						$(this).find(".all-order-cell-p5").hide();
 					}
+				});
+				//点击li传递参数
+				$(".all-order-cell").tap(function () {
+					var lbyxWarehouseNumber = $(this).index();
+					localStorage.setItem("lbyxWarehouseNumber",lbyxWarehouseNumber)
+					window.location.href = "order-details.html";
 				});
 			}//success
 		});//ajax
