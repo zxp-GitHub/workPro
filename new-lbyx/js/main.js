@@ -3,6 +3,7 @@ Zepto(function() {
 	var lbyxCode = localStorage.getItem("lbyxCode");
 	var goodsId = localStorage.getItem("goodsId");
 	var	userId = localStorage.getItem("userId");
+	var repertoryId = localStorage.getItem("repertoryId");
 	//获得跳转到主页的哪一个页面
 	var indexPage = parseInt(localStorage.getItem("indexPage"));
 	if (indexPage!=0&&indexPage!=1&&indexPage!=2) {
@@ -86,14 +87,28 @@ Zepto(function() {
 						 console.log($(this).attr("goodsId"));
 						 localStorage.setItem("goodsId",$(this).attr("goodsId"));
 						 localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
-						 location.href = "product-details.html";//location.href实现客户端页面的跳转  	
+//						 location.href = "product-details.html";//location.href实现客户端页面的跳转  	
 //						 var homeNum= $(this).parent(".main-list-ol").index();
 //						 window.sessionStorage.setItem("homeNum",homeNum);
 					});
-					//
-					$(".buy-car-icon").each(function () {
-						$(this).tap(function  () {
-							console.log("3");
+					//点击跳转页面
+					$(".main-list-ol-li1,.main-list-ol-li2").tap(function () {
+						window.location.href = "product-details.html";//location.href实现客户端页面的跳转  	
+					});
+					//点击首页购物车图标加入购物车
+					$(".main-list-ol").each(function () {
+						$(this).find(".buy-car-icon").tap(function () {
+							var repertoryId = $(this).parents(".main-list-ol").attr("repertoryId");
+//							console.log(repertoryId);
+							$.ajax({
+							type:"get",
+							url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
+							dataType:"json",
+							success:function(data){
+								//商品图片的渲染
+								alert("加入购物车成功！");
+							}//success
+							});//ajax
 						});
 					});
 				}//success
@@ -120,4 +135,13 @@ Zepto(function() {
     	window.location.href = "my-order.html";
     });
 /*E index*/
- });
+
+
+/*S index-cart*/
+//点击购物车，刷新页面
+$(".footer-li").eq(1).tap(function () {
+	window.location.reload();
+});
+
+/*E index-cart*/
+ });//end

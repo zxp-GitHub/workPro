@@ -108,7 +108,6 @@
 				$(".order-get-goods-place-span").text(datas.UserAddress);
 				$(".order-all-num-span").text(datas.Ordergoods.length);
 				$(".order-all-price-span").text(datas.TotalAmt);
-				
 				function orderDetailsRender(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
 							var html = "<li class=\"confirm-order-three-li select-area3-three-li my-order-li-bc\">";
 								html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
@@ -127,7 +126,6 @@
 				for (var i = 0; i < datas.Ordergoods.length; i++) {
 					orderDetailsRender(datas.Ordergoods[i]);
 				}
-				
 			}//success
 		});//ajax
 			
