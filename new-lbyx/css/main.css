@@ -206,7 +206,13 @@ html,body,.container,.box{
 .shopping-cart-li-cell>i/*,.shopping-car-change-price>i*/{
 	color: red;
 }
-
+.select-area3-three-li{
+	display: flex;
+	align-items: center;
+}
+.shopping-car-change-price>i{
+	margin-right: 0.3rem;
+}
 /*S my*/
 .my-first{
 	width: 100%;
@@ -1449,6 +1455,7 @@ vertical-align: middle;
 	margin: 0 auto;
 	padding: 0.6rem 0;
 	border-bottom: 1px solid #ccc;
+	position: relative;
 }
 .all-order-cell>p{
 	width: 92%;
@@ -1463,6 +1470,9 @@ vertical-align: middle;
 }
 .all-order-cell-p5{
 	width: 100%;
+}
+.p5-go-pay,.p5-cancellation-of-order{
+	position: absolute;
 }
 .all-order-cell-p3-pics{
 	border: 1px solid #ccc;

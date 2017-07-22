@@ -1,8 +1,8 @@
 Zepto(function() {
 	//当用户登录成功后，获取status中的code，确定用户的token---在商品详情页加入购物车时
-	var lbyxCode = localStorage.getItem("lbyxCode");
 	var goodsId = localStorage.getItem("goodsId");
 	var	userId = localStorage.getItem("userId");
+	var lbyxCode = localStorage.getItem("lbyxCode");
 	var repertoryId = localStorage.getItem("repertoryId");
 	//获得跳转到主页的哪一个页面
 	var indexPage = parseInt(localStorage.getItem("indexPage"));
@@ -36,11 +36,12 @@ Zepto(function() {
 		window.history.back();
 	});
 	//index-my-判断是否登录
-	if(lbyxCode!=""&&userId!=""){
+	if(lbyxCode==null){
+//		alert("1");
 		$(".my-first-a").hide();
 		$(".my-first-b").show();
 	}else{
-		alert("未登录");
+//		alert("2");
 		$(".my-first-b").hide();
 		$(".my-first-a").show();
 	}

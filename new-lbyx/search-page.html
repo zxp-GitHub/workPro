@@ -52,6 +52,7 @@
 	Zepto(function() {
 		$(".search-page-search-input").focus();
 		var universityId = localStorage.getItem("universityId");
+		var lbyxCode = localStorage.getItem("lbyxCode");
 		var selectThreePage = 1;//这个一开始不需要商品初始化，所以赋初值可以从1开始
 		var datasort = 0;
 		function searchRender(searchValue,pages) {
@@ -71,9 +72,9 @@
 								html += "		<p class=\"goods-right-cell-p\">"+obj.GoodsName+"</p>";
 								html += "		<p class=\"goods-right-cell-p\">";
 								html += "			<span class=\"shopping-car-cell-price\">￥"+obj.SalePrice+"</span>";
-								html += "			<span class=\"shopping-car-change-price\"><i class=\"iconfont icon-gouwuche3 icon-gouwuche3-bc\"></i></p>";
 								html += "		</p>";
 								html += "	</div>";
+								html += "			<span class=\"shopping-car-change-price\"><i class=\"iconfont icon-gouwuche3 icon-gouwuche3-bc\"></i></p>";
 								html += "	</li>";
 							$(".search-ul").append(html);
 						}
@@ -84,8 +85,28 @@
 						$(".select-area3-three-li").tap(function () {
 							localStorage.setItem("goodsId",$(this).attr("goodsId"));
 							localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
-							window.location.href = "product-details.html";
+//							window.location.href = "product-details.html";
 						});
+						//点击商品跳转页面
+					$(".pic-cell-border,.goods-right-cell").tap(function () {
+						window.location.href = "product-details.html";
+					});
+					//点击首页购物车图标加入购物车
+					$(".select-area3-three-li").each(function () {
+						$(this).find(".shopping-car-change-price").tap(function () {
+							var repertoryId = $(this).parents(".select-area3-three-li").attr("repertoryId");
+//							console.log(repertoryId);
+							$.ajax({
+							type:"get",
+							url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
+							dataType:"json",
+							success:function(data){
+								//商品图片的渲染
+								alert("加入购物车成功！");
+							}//success
+							});//ajax
+						});
+					});
 				}//succ
 			});//ajax
 		}//searchRender
