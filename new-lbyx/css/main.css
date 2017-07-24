@@ -1666,3 +1666,46 @@ vertical-align: middle;
 	display: none;
 }
 /*E register-login*/
+/*S index-my-change-nikename*/
+.change-nikename-main{
+	width: 100%;
+}
+.change-nikename-ul{
+	width: 95%;
+	margin: 0 auto;
+}
+.change-nikename-li{
+	
+}
+.change-nikename-li-one,.change-nikename-li-three{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 2.5rem;
+	border-radius: 0.3rem;
+	border: 1px solid #ADADAD;
+	margin: 0.5rem auto;
+	background-color: #fff;
+}
+.change-nikename-li-two{
+	font: 1rem/1 "微软雅黑";
+	margin: 1rem 0rem 1.5rem 0rem;
+}
+.change-nikename-li-three{
+	background-color: rgb(255,75,76);
+	color: #fff;
+	font: 1.2rem/1 "微软雅黑";
+}
+.change-nikename-li-one .change-nikename-chahao{
+	font-size: 1.3rem;
+	color: #ccc;
+	margin-top: 0.15rem;
+	
+}
+.change-nikename-input{
+	width: 90%;
+	height: 99%;
+	border-radius: 0.3rem;
+}
+/*E index-my-change-nikename*/
