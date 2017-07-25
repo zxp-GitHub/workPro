@@ -14,7 +14,16 @@
 	</head>
 	<body>
 <div class="container">
-			<div class="box">
+			<div class="box get-avatar-box">
+					<div class="get-avatar-mask">
+						<div class="get-avatar-position">
+							<div class="get-avatar-mask-p-cell">
+								<p class="get-avatar-mask-p1">去相册选择头像</p>
+								<p class="get-avatar-mask-p2">拍照获取头像</p>
+							</div>
+							<p class="get-avatar-mask-p3">取消</p>
+						</div>
+				</div>
 				<div class="top "> 
 					<ul class="first-top-ul">
 						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
@@ -31,3 +40,23 @@
 </div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function () {
+		$(".user-info-li-first").tap(function () {
+			$(".get-avatar-mask").show();
+		});
+		$(".get-avatar-mask-p-cell").tap(function () {
+			$(".get-avatar-mask").show();
+			event.stopPropagation();//不包括，在子元素上阻止冒泡即可解决。
+		});
+		$(".get-avatar-mask").tap(function () {
+			$(".get-avatar-mask").hide();
+		});
+		$(".get-avatar-mask-p3").tap(function () {
+			$(".get-avatar-mask").hide();
+		});
+		$(".user-info-li-second").tap(function () {
+			window.location.href = "index-my-change-nickname.html"; 
+		});
+	});
+</script>

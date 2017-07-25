@@ -1666,6 +1666,56 @@ vertical-align: middle;
 	display: none;
 }
 /*E register-login*/
+/*S index-my-user-info*/
+.get-avatar-box{
+	position: relative;
+}
+.get-avatar-mask{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	background-color: rgba(0,0,0,.3);
+	text-align: center;
+	display: none;
+}
+.get-avatar-position{
+	width: 95%;
+	height: 8.5rem;
+	position: absolute;
+	bottom: 0.2rem;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	font: 1rem/1 "微软雅黑";
+	color: blue;
+}
+.get-avatar-mask-p-cell{
+	width: 100%;
+	height: 5.1rem;
+	background-color: #fff;
+	border-radius: 0.2rem;
+	
+}
+.get-avatar-mask-p1{
+	border-bottom: 1px solid #ccc;
+}
+.get-avatar-mask-p1,.get-avatar-mask-p2,.get-avatar-mask-p3{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 2.5rem;
+}
+.get-avatar-mask-p3{
+	width: 100%;
+	height: 2.5rem;
+	background-color: #fff;
+	border-radius: 0.2rem;
+	margin-top: 0.6rem;
+	font-weight: 600;
+}
+/*E index-my-user-info*/
 /*S index-my-change-nikename*/
 .change-nikename-main{
 	width: 100%;

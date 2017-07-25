@@ -36,15 +36,15 @@ Zepto(function() {
 		window.history.back();
 	});
 	//index-my-判断是否登录
-	if(lbyxCode==null){
+//	if(lbyxCode==null){
 //		alert("1");
-		$(".my-first-a").hide();
-		$(".my-first-b").show();
-	}else{
-//		alert("2");
+//		$(".my-first-a").hide();
+//		$(".my-first-b").show();
+//	}else{
+////		alert("2");
 		$(".my-first-b").hide();
 		$(".my-first-a").show();
-	}
+//	}
 	//商圈的选择
 	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
 	$(".first-top-change-span").html(selectAreaTwoLi);
