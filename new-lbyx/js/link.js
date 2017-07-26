@@ -126,6 +126,7 @@ Zepto(function() {
 						localStorage.setItem("userId",data.result.data.UserId);
 						localStorage.setItem("lbyxCode",data.result.status.code);
 						localStorage.setItem("indexPage",0);
+						localStorage.setItem("Nickname",data.result.data.Nickname);
 						window.location.href = "index.html";
 					}else{
 						alert("信息填写错误");

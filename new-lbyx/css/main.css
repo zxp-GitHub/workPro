@@ -1663,7 +1663,7 @@ vertical-align: middle;
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	display: none;
+	/*display: none;*/
 }
 /*E register-login*/
 /*S index-my-user-info*/
@@ -1699,6 +1699,7 @@ vertical-align: middle;
 }
 .get-avatar-mask-p1{
 	border-bottom: 1px solid #ccc;
+	position: relative;
 }
 .get-avatar-mask-p1,.get-avatar-mask-p2,.get-avatar-mask-p3{
 	display: flex;
@@ -1714,6 +1715,27 @@ vertical-align: middle;
 	border-radius: 0.2rem;
 	margin-top: 0.6rem;
 	font-weight: 600;
+}
+.user-info-li-second-span1{
+	width: 10%;
+}
+.get-avatar-mask-p1 .get-avatar-mask-p1-pic{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	/*background-color:red;*/
+	opacity: 0;
+	left: 0;
+	top: 0;
+	/*写了position之后，必须要写left，top等，否则会对不齐。*/
+}
+.user-info-li-second-nikename{
+	width: 90%;
+	height: 100%;
+	/*background-color: red;*/
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 }
 /*E index-my-user-info*/
 /*S index-my-change-nikename*/

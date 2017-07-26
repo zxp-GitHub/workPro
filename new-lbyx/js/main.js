@@ -4,6 +4,9 @@ Zepto(function() {
 	var	userId = localStorage.getItem("userId");
 	var lbyxCode = localStorage.getItem("lbyxCode");
 	var repertoryId = localStorage.getItem("repertoryId");
+	var Nickname = localStorage.getItem("Nickname");
+	console.log(Nickname);
+	$(".my-first-p").html(Nickname);
 	//获得跳转到主页的哪一个页面
 	var indexPage = parseInt(localStorage.getItem("indexPage"));
 	if (indexPage!=0&&indexPage!=1&&indexPage!=2) {
@@ -36,15 +39,15 @@ Zepto(function() {
 		window.history.back();
 	});
 	//index-my-判断是否登录
-//	if(lbyxCode==null){
-//		alert("1");
-//		$(".my-first-a").hide();
-//		$(".my-first-b").show();
-//	}else{
-////		alert("2");
+//	console.log(lbyxCode);
+//	alert(lbyxCode);
+	if(lbyxCode==null){
+		$(".my-first-a").hide();
+		$(".my-first-b").show();
+	}else{
 		$(".my-first-b").hide();
 		$(".my-first-a").show();
-//	}
+	}
 	//商圈的选择
 	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
 	$(".first-top-change-span").html(selectAreaTwoLi);

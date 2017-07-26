@@ -32,3 +32,32 @@
 </div><!--containter-->
 	</body>
 </html>
+<script type="text/javascript">
+	Zepto(function () {
+		var Nickname = localStorage.getItem("Nickname"); 
+		$(".change-nikename-input").val(Nickname);
+		$(".change-nikename-chahao").tap(function () {
+			$(".change-nikename-input").val("");
+		});
+		
+		 $(".change-nikename-li-three").tap(function(){
+		 	alert("22")
+		 	var nickName =  $(".change-nikename-input").val();
+		 	var	userId = localStorage.getItem("userId");
+			$.ajax({
+			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=Register_set&operation=1&NickName="+nickName+"&UserId="+userId+"&",  //注册地址
+			type:"get",
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+							alert("修改成功！");
+							localStorage.setItem("Nickname",data.result.data.Nickname);
+					}
+			});//ajax
+		});
+	});//end
+	
+	
+	
+	
+</script>

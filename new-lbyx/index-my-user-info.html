@@ -18,7 +18,7 @@
 					<div class="get-avatar-mask">
 						<div class="get-avatar-position">
 							<div class="get-avatar-mask-p-cell">
-								<p class="get-avatar-mask-p1">去相册选择头像</p>
+								<p class="get-avatar-mask-p1">去相册选择头像<input type="file" onchange="selectImage(this);" class="get-avatar-mask-p1-pic" style="width: 100%;" /></p>
 								<p class="get-avatar-mask-p2">拍照获取头像</p>
 							</div>
 							<p class="get-avatar-mask-p3">取消</p>
@@ -33,8 +33,9 @@
 				<div class="all-goods-main login-main">
 					<ul class="my-user-info-ul">
 						<li class="my-user-info-li user-info-li-first"><span>头像</span><span class="user-info-pic-cell"><img src="img/all-goods-right-pic.png" class="user-info-pic"/></span><i class="iconfont icon-dayuhao my-user-info-dayuhao"></i></li>
-						<li class="my-user-info-li user-info-li-second"><span>昵称</span><i class="my-user-info-dayuhao"></i></li>
+						<li class="my-user-info-li user-info-li-second"><span class="user-info-li-second-span1">昵称</span><span class="user-info-li-second-nikename"></span></li>
 					</ul>
+						
 				</div><!--main-->
 			</div><!--box-->
 </div><!--containter-->
@@ -42,6 +43,7 @@
 </html>
 <script type="text/javascript">
 	Zepto(function () {
+		var Nickname = localStorage.getItem("Nickname"); 
 		$(".user-info-li-first").tap(function () {
 			$(".get-avatar-mask").show();
 		});
@@ -58,5 +60,17 @@
 		$(".user-info-li-second").tap(function () {
 			window.location.href = "index-my-change-nickname.html"; 
 		});
+		$(".user-info-li-second-nikename").html(Nickname);
 	});
+	 function selectImage(file) {
+	        if (!file.files || !file.files[0]) {
+	            return;
+	        }
+        	var reader = new FileReader();
+	        reader.onload = function (evt) {
+	        	$(".user-info-pic").attr("src",evt.target.result);
+	        	$(".get-avatar-mask").hide();
+	        }
+       		 reader.readAsDataURL(file.files[0]);
+    	}
 </script>
