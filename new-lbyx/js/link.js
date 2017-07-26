@@ -244,5 +244,6 @@ Zepto(function() {
 	$(".all-goods-search-input").focus(function () {
 	window.location.href = "search-page.html";
 });
+
 /*E all-goods*/
 });//zepto

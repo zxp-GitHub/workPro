@@ -87,14 +87,29 @@ html,body,.container,.box{
 .home-main-li{
 	float: left;
 	width: 25%;
+	height: 100%;
 	text-align: center;
 	font: 1rem/1 "微软雅黑";
 }
-.home-main-li>a>img{
+.home-main-li>i{
+	display: inline-block;
+	/*height: 60%;*/
+}
+.home-main-li>.icon-fenlei1{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	height: 55%;
+}
+.home-main-li>img{
 	margin-top: 1rem;
 }
-.home-main-li>a>p{
+.home-main-li>p{
 	margin-top: 1rem;
+}
+.home-main-li4-classify{
+	
 }
 .guess-you-like-scroll{
 	height: 100%;
@@ -372,6 +387,46 @@ html,body,.container,.box{
 	float: left;
 	width: 50%;
 	/*text-align: center;*/
+}
+.confirm-logout-login-mask{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.3);
+	z-index: 999;
+	display: none;
+}
+.logout-login-cell{
+	width: 80%;
+	/*height: 5rem;*/
+	background-color: #fff;
+	margin: 0 auto;
+	margin-top: 60%;
+	font: 1.2rem/1 "微软雅黑";
+}
+.logout-login-p{
+	width: 100%;
+}
+.logout-login-p1{
+	height: 5rem;
+	text-align: center;
+	line-height: 5rem;
+	border-bottom: 1px solid #ccc;
+	font-weight: 600;
+}
+.logout-login-p2{
+	height: 3rem;
+}
+.logout-login-p2>span{
+	display: inline-block;
+	line-height: 3rem;
+	text-align: center;
+	text-align: center;
+	width: 49%;
+	height: 100%;
+}
+.logout-login-p2-span1{
+	border-right: 1px solid #ccc;
 }
 /*E my*/
 .color-red{
@@ -932,11 +987,38 @@ vertical-align: middle;
 	border-bottom:1px solid #ccc;
 	
 }
+.confirm-order-box{
+	position: relative;
+}
+.confirm-delivery-mask{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.3);
+	z-index: 999;
+	display: none;
+}
+/*.confirm-delivery-mask1{
+	display: none;
+}
+.confirm-delivery-mask2{
+	display: none;
+}
+.confirm-delivery-mask3{
+	display: none;
+}*/
+.confirm-delivery-mask-cell{
+	position: absolute;
+	bottom: 0;
+	background-color: #fff;
+	height: 60%;
+	width: 100%;
+}
 /*E confirm-order-one*/
 /*S product-details*/
 .pro-detail-one{
 	width: 100%;
-	height: 57%;
+	height: 50%;
 	background-color: honeydew;
 	overflow-x: hidden;
 	position: relative;
@@ -1106,10 +1188,9 @@ vertical-align: middle;
     text-align: center;
     color: #fff;
     font: 1.3rem/2.2rem "微软雅黑";
-    
 }
 .ok-add-cart-mask>i{
-	 font: 3rem/5rem "微软雅黑";
+	 font: 3rem/4rem "微软雅黑";
 }
 .swiper-slide{
 	overflow: hidden;
@@ -1122,7 +1203,7 @@ vertical-align: middle;
 /*S confirm-order-three*/
 .confirm-order3-three{
 	width: 100%;
-	height:60%;
+	height:100%;
 	position: relative;
 }
 .confirm-order3-three-p{
@@ -1140,7 +1221,7 @@ vertical-align: middle;
 .confirm-order3-three-li{
 	margin: 0 auto;
 	width: 94%;
-	height: 40%;
+	height: 35%;
 	display: flex;
     justify-content:left;
     align-items:center;
@@ -1203,7 +1284,7 @@ vertical-align: middle;
 	}
 	.sort-up-down-p{
 		width: 1rem;
-		height: 52%;
+		height: 53%;
 		position: relative;
 		margin-left: 0.3rem;
 	}
@@ -1470,6 +1551,7 @@ vertical-align: middle;
 }
 .all-order-cell-p5{
 	width: 100%;
+	display: none;
 }
 .p5-go-pay,.p5-cancellation-of-order{
 	position: absolute;

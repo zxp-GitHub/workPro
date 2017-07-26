@@ -34,6 +34,7 @@ Zepto(function() {
 	});
 /*E confirm-order*/
 /*S index*/
+/*S index-first*/	
 	//首页点击返回，返回到上一页-css已经改了
 	$(".top-back-li").tap(function () {
 		window.history.back();
@@ -41,7 +42,7 @@ Zepto(function() {
 	//index-my-判断是否登录
 //	console.log(lbyxCode);
 //	alert(lbyxCode);
-	if(lbyxCode==null){
+	if(lbyxCode==""||lbyxCode==null){
 		$(".my-first-a").hide();
 		$(".my-first-b").show();
 	}else{
@@ -128,24 +129,72 @@ Zepto(function() {
 //				console.log(data);
 			}
 		});//ajax
+		//首页推荐列表
+		 $.ajax({
+		url: "http://x5u.com.cn:12804/School/CommonInterface.aspx?action=Related_get&operation=2",  //注册地址
+		type:"get",
+		dataType:"json",
+		success:function(data){
+				console.log(data);
+				$(".home-main-li-p1").html(data.result.data[0].text);
+				$(".home-main-li-p2").html(data.result.data[1].text);
+				$(".home-main-li-p3").html(data.result.data[2].text);
+				$(".home-main-li1").tap(function () {
+					
+					localStorage.setItem("allGoodsPicID",data.result.data[0].value);
+					window.location.href = "select-area-three.html";
+				});
+				$(".home-main-li2").tap(function () {
+//					data.result.data[1].value
+					localStorage.setItem("allGoodsPicID",data.result.data[1].value);
+					window.location.href = "select-area-three.html";
+				});
+				$(".home-main-li3").tap(function () {
+//					data.result.data[2].value
+					localStorage.setItem("allGoodsPicID",data.result.data[2].value);
+					window.location.href = "select-area-three.html";
+				});
+			}
+		});//ajax
+		
+		$(".home-main-li4").tap(function () {
+			window.location.href = "all-goods.html";
+		});
+/*E index-first*/	
 	
-	
-//index-my
+/*S index-my*/
     //点击头像切换图片，或者自己照
-    $(".my-first-pic").tap(function () {
-    	window.location.href = "index-my-user-info.html";
-    });
+//  $(".my-first-pic").tap(function () {
+//  	window.location.href = "index-my-user-info.html";
+//  });
+	//点击全部订单，页面跳转
     $(".my-second-li1").tap(function () {
     	window.location.href = "my-order.html";
     });
-/*E index*/
-
-
+    //点击退货弹出对话框
+    $(".my-second-li-return-goods").tap(function () {
+    	alert("网页端暂不支持退货，您可下载来宝优选app进行退货处理");
+    });
+    //点击头像弹出退出遮罩层
+    $(".logout-login-p2-span1").tap(function () {
+    	$(".confirm-logout-login-mask").hide();
+    });
+    $(".my-first-pic").tap(function () {
+    	$(".confirm-logout-login-mask").show();
+    });
+    
+    $(".logout-login-p2-span2").tap(function () {
+    	localStorage.setItem("lbyxCode","");
+    	$(".confirm-logout-login-mask").hide();
+    	window.location.reload();
+    });
+//  $(".my-first-pic").tap(function () {
+//  });
 /*S index-cart*/
 //点击购物车，刷新页面
 $(".footer-li").eq(1).tap(function () {
 	window.location.reload();
 });
-
 /*E index-cart*/
+/*E index*/
  });//end
