@@ -51,7 +51,10 @@
 								</div>
 								</li>-->
 						</ul>
-						<p class="fixd-to-cart-icon"><i class="iconfont icon-gouwuche3"></i></p>
+						<p class="fixd-to-cart-icon">
+							<i class="iconfont icon-gouwuche3"></i>
+							<span class="fixd-to-cart-num"></span>
+						</p>
 					</div><!--select-area3-main-three-->
 					</div><!--main-->
 				</div><!--box-->
@@ -114,6 +117,7 @@
 							success:function(data){
 								//商品图片的渲染
 								alert("加入购物车成功！");
+								cartAllNum();
 							}//success
 							});//ajax
 						});
@@ -186,5 +190,19 @@
 			localStorage.setItem("indexPage",1);
 			window.location.href = "index.html";
 		})
+		cartAllNum();
+		//显示购物车的商品的总数量
+		function cartAllNum(){
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+				dataType:"json",
+				success:function(data){
+	//				console.log(data.Result.totalnumber);
+					$(".fixd-to-cart-num").html(data.Result.totalnumber);
+				}
+			});
+		}
+		
 	});//end
 </script>

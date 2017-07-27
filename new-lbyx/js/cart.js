@@ -134,7 +134,7 @@ Zepto(function() {
 	//购物无车删除操作
 	function deleteCartGood (cartGoodId) {
 		$.ajax({
-			url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?Token="+lbyxCode+"&action=ShoppingCart_get&cgid="+cartGoodId+"&operation=99", 
+			url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?Token="+lbyxCode+"&action=ShoppingCart_get&cgid="+cartGoodId+"&operation=99&Checked=false&", 
 			type:"get",
 			dataType:"json",
 			success:function(data){
@@ -159,6 +159,7 @@ Zepto(function() {
 	cartTotalPrice();
 	function cartTotalPrice (){
 		var cartAllPrice = 0;
+		console.log($(".shopping-cart-li").length);
 		$(".shopping-cart-li").each(function () {
 			var  oCartPrice = $(this).find(".shopping-car-cell-price").html();
 			var oCartPrices =oCartPrice.split("/")[0];
@@ -252,6 +253,7 @@ Zepto(function() {
 		if (cartNumberSpan>1) {
 			$(this).parent().find("span").html(cartNumberSpan-1);
 			RefreshCartNumberJian (cartGoodId);
+			cartTotalPrice ();
 		} else{
 			return false;
 		};
@@ -275,11 +277,12 @@ Zepto(function() {
 	$(".shopping-car-cell-delete").tap(function () {
 		$(this).parents(".shopping-cart-li").find(".all-choice-right").css("color","#ccc");
 		$(this).parents(".shopping-cart-li").hide();
-		cartTotalPrice();
 		var cartGoodId = $(this).parent(".car-cell-right-p").find(".shopping-car-change-price").attr("goodID");
 		var cartNumberSpan =0;
 		var cartCGID = $(this).attr("cartCGID");//加引号
 		deleteCartGood (cartCGID);
+		window.location.reload();
+		cartTotalPrice();
 	});
 	//cart点击购买传参，跳转页面	
 	$(".cart-to-pay").tap(function () {

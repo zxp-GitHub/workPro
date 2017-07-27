@@ -100,10 +100,14 @@ html,body,.container,.box{
 	align-items: center;
 	justify-content: center;
 	font-size: 2rem;
-	height: 55%;
+	height: 41%;
+	margin-top: 22%;
+	color: deepskyblue;
 }
 .home-main-li>img{
 	margin-top: 1rem;
+	width: 60%;
+	height: 42%;
 }
 .home-main-li>p{
 	margin-top: 1rem;
@@ -1074,7 +1078,7 @@ vertical-align: middle;
 }
 .pro-detail-four{
 	width: 100%;
-	height: 10%;
+	height: 17%;
 	background-color: honeydew;
 	 display: flex;
     text-align: center;
@@ -1138,13 +1142,13 @@ vertical-align: middle;
 	margin-left: 1rem;
 	position: relative;
 }
-.pro-detail-four>.icon-gouwuche3>span{
+.pro-detail-four-num{
 	position: absolute;
 	top: -0.3rem;
 	right: -0.3rem;
 	font: 0.5rem;
-	width: 60%;
-	height: 60%;
+	width: 70%;
+	height: 70%;
 	background-color: red;
 	border-radius: 50%;
 	color: #fff;
@@ -1321,6 +1325,17 @@ vertical-align: middle;
 	background-color: #ccc;
 	color: #fff;
 	border-radius: 0.3rem;
+}
+.fixd-to-cart-num{
+	position: absolute;
+	width: 1.4rem;
+	height: 1.4rem;
+	background-color: red;
+	top: 0;
+	right: 0;
+	text-align: center;
+	line-height: 1.4rem;
+	border-radius: 50%;
 }
 .searth-fixd-to-cart-icon{
 	display: none;

@@ -139,6 +139,9 @@ Zepto(function() {
 				$(".home-main-li-p1").html(data.result.data[0].text);
 				$(".home-main-li-p2").html(data.result.data[1].text);
 				$(".home-main-li-p3").html(data.result.data[2].text);
+				$(".home-main-li1-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[0].GoodsTypeImg);
+				$(".home-main-li2-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[1].GoodsTypeImg);
+				$(".home-main-li3-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[2].GoodsTypeImg);
 				$(".home-main-li1").tap(function () {
 					
 					localStorage.setItem("allGoodsPicID",data.result.data[0].value);

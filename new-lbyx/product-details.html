@@ -78,10 +78,20 @@
   		var goodsId = localStorage.getItem("goodsId");
   		var userId = localStorage.getItem("userId");
   		var lbyxCode = localStorage.getItem("lbyxCode");
-  		/*S product-details*/
+  		var repertoryId = localStorage.getItem("repertoryId");
+  		cartAllNum();
+  		function cartAllNum(){
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+				dataType:"json",
+				success:function(data){
+	//				console.log(data.Result.totalnumber);
+					$(".pro-detail-four-num").html(data.Result.totalnumber);
+				}
+			});
+		}
 	//轮播图的改变
-/*E product-details*/
-//		console.log(userId);
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
 			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsInfo&goodsid="+goodsId+"&universityid="+universityId+"",
@@ -119,7 +129,6 @@
 							$(".pro-detail-three-p").find(".icon-jianhao1").on('tap',function () {
 								if (parseInt($(".pro-detail-three-num").html())>1){
 									$(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())-1);
-							     	$(".pro-detail-four-num").html($(".pro-detail-three-num").html())
 								} else{
 								 return;
 								}
@@ -134,7 +143,6 @@
 									$(".sell-out").hide();
 								}
 								  $(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())+1);
-								  $(".pro-detail-four-num").html($(".pro-detail-three-num").html());
 							});
 							//点击小对号，弹出框隐藏
 						    $(".right-icon-tap").tap(function(){
@@ -143,9 +151,7 @@
 						}
 						//点击加入购物车
 							$(".add-to-car").tap(function(){
-						//		console.log(universityId)//商圈的获得
-				//				var universityId = localStorage.getItem("universityId");
-								var repertoryId = localStorage.getItem("repertoryId");
+//								var repertoryId = localStorage.getItem("repertoryId");
 								var goodsnums = parseInt($(".pro-detail-three-num").html());
 								console.log(universityId);
 								if (data.Result.data.GoodsNum<goodsnums) {
@@ -155,45 +161,48 @@
 								if (universityId=="") {
 									alert("亲，请先登录，ok？");
 								} else{
+									//向购物车中添加商品
 									$.ajax({
-									type:"get",
-									url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num="+goodsnums+"&UniversityId="+universityId+"&Checked=false&",
-									dataType:"json",
-									success:function(data){
-										//商品图片的渲染
-										console.log(data);
-									}//success
+										type:"get",
+										url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num="+goodsnums+"&UniversityId="+universityId+"&Checked=false&",
+										dataType:"json",
+										success:function(data){
+											//商品图片的渲染
+											console.log(data);
+										}//success
 									});//ajax
+							  		//弹出提示框，添加购物车成功
 							  		$('.ok-add-cart-mask').fadeIn();
 									setTimeout(function  () {
 										$('.ok-add-cart-mask').fadeOut()
 									},1300);
 								}//else
+								//购物车图标显示购物车商品总数量
+								cartAllNum();
 							});//add-to-car.tap
-						//点击立即购买	
-							//cart对号操作时checked值改变
-							function readyToBuy (cartGoodId,goodready) {
-								$.ajax({
-									url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+cartGoodId+"&Num=1&UniversityId="+universityId+"&Checked="+goodready+"",  //注册地址
-									type:"get",
-									dataType:"json",
-									success:function(data){
-						//				console.log(data);
-						//				if(data.ResultCode==23){
-											alert("库存不足");
-						//				}
-									}
-								});//ajax
-							}//readyToBuy
-						    $(".buy-now").tap(function () {
-						    	var repertoryId = localStorage.getItem("repertoryId");
-						    	console.log(repertoryId);
-						    	readyToBuy (repertoryId,true);
-						    	window.location.href = "confirm-order-one.html";
-						    });
+						
 			}//success
-		});//ajax
-		//去购物车列表页
+		});//ajax---
+		//点击立即购买	
+		//cart对号操作时checked值改变
+		function readyToBuys (cartGoodId,goodready) {
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+cartGoodId+"&Num=1&UniversityId="+universityId+"&Checked="+goodready+"",  //注册地址
+				type:"get",
+				dataType:"json",
+				success:function(data){
+						alert("库存不足");
+				}
+			});//ajax
+		}//readyToBuy
+	    $(".buy-now").tap(function () {
+	    	var repertoryId = localStorage.getItem("repertoryId");
+	    	console.log(repertoryId);
+//						    	cartAllGoodsCheckedFalse ();
+	    	readyToBuys (repertoryId,true);
+	    	window.location.href = "confirm-order-one.html";
+	    });
+		//去购物车列表页,判断是否登录
 		$(".let-go-to-cart").tap(function () {
 			if(universityId == ""){
 				alert("请先登录~")
@@ -201,8 +210,8 @@
 				localStorage.setItem("indexPage",1);
 				window.location.href = "index.html";
 			}
-//			alert("2");
 //			$("big-li").eq(1).addClass("show").siblings().removeClass("show");
-		});		
 		});
+		
+		});//end
 </script>
