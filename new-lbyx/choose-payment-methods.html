@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="payment-methods-mask">
+					<div class="payment-methods-mask-cell">
+						<p class="payment-methods-mask-p1">温馨提示</p>
+						<p class="payment-methods-mask-p2">正在调起支付，请稍等...</p>
+					</div>
+					
+				</div>
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">选择支付方式</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="all-goods-main ">
+								<ul class="my-second-ul payment-ul">
+									<li class="payment-li payment-li1"><span class="mask-span"></span><i class="iconfont icon-weixin1 payment-li-i1" style="color:limegreen;"></i><span>微信支付</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+									<li class="payment-li  payment-li2"><span class="mask-span"></span><i class="iconfont icon-zhifubao1 payment-li-i1"  style="color:dodgerblue;"></i><span>支付宝</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+									<li class="payment-li"><span class="mask-span" style="display: block;"></span><i class="iconfont icon-jinbi payment-li-i1" style="color:#FFA500;"></i><span>支付约(0.0)</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+								</ul>
+					</div><!--main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+
+<script type="text/javascript">
+	Zepto(function() {
+		$(".payment-li").tap(function () {
+			$(".payment-methods-mask").show();
+			$(this).find(".mask-span").show();
+			setTimeout(function  () {
+					$('.payment-methods-mask').hide();
+					$(".payment-li1,.payment-li2").find(".mask-span").hide();
+				},1500);
+		});
+	});//end
+</script>
