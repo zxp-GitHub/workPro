@@ -139,6 +139,7 @@ html,body,.container,.box{
 }
 .main-list-ol-li1{
 	height: 4rem;
+	position: relative;
 }
 .main-list-ol-li1>img{
 	height: 100%;
@@ -182,6 +183,19 @@ html,body,.container,.box{
 .main-list-ol>li>p:nth-child(2){
 	color: red;
 	margin-top: 0.8rem;
+}
+.home-ol-sell-out{
+	position: absolute;
+	/*display: inline-block;*/
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1.5rem;
+	background-color: rgba(0,0,0,.3);
+	text-align: center;
+	line-height: 1.5rem;
+	border-radius: 0.2rem;
+	display: none;
 }
 .buy-car-icon{
 	display: inline-block;

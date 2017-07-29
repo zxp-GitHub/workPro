@@ -63,7 +63,7 @@
 				success:function(data){//consol一下是很重要的！！！！！！
 //						console.log(data);
 						function selectThreeRender(obj){
-							var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsId = \""+obj.GoodsID+"\" repertoryId = \""+obj.RepertoryID+"\">";
+							var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsNum = \""+obj.GoodsNum+"\"  goodsId = \""+obj.GoodsID+"\" repertoryId = \""+obj.RepertoryID+"\">";
 								html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
 								html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img select-area3-img\"/>";
 								html += "		<span class=\"select-area3-sell-out-mask\">售罄</span>";
@@ -93,19 +93,23 @@
 					});
 					//点击首页购物车图标加入购物车
 					$(".select-area3-three-li").each(function () {
-						$(this).find(".shopping-car-change-price").tap(function () {
-							var repertoryId = $(this).parents(".select-area3-three-li").attr("repertoryId");
-//							console.log(repertoryId);
-							$.ajax({
-							type:"get",
-							url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
-							dataType:"json",
-							success:function(data){
-								//商品图片的渲染
-								alert("加入购物车成功！");
-							}//success
-							});//ajax
-						});
+						if ($(this).attr("goodsNum")=="0") {
+							$(this).find(".select-area3-sell-out-mask").show();
+						}else{
+							$(this).find(".shopping-car-change-price").tap(function () {
+								var repertoryId = $(this).parents(".select-area3-three-li").attr("repertoryId");
+	//							console.log(repertoryId);
+								$.ajax({
+								type:"get",
+								url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
+								dataType:"json",
+								success:function(data){
+									//商品图片的渲染
+									alert("加入购物车成功！");
+								}//success
+								});//ajax
+							});
+						}
 					});
 				}//succ
 			});//ajax

@@ -5,7 +5,7 @@ Zepto(function() {
 	var lbyxCode = localStorage.getItem("lbyxCode");
 	var repertoryId = localStorage.getItem("repertoryId");
 	var Nickname = localStorage.getItem("Nickname");
-	console.log(Nickname);
+//	console.log(Nickname);
 	$(".my-first-p").html(Nickname);
 	//获得跳转到主页的哪一个页面
 	var indexPage = parseInt(localStorage.getItem("indexPage"));
@@ -81,15 +81,15 @@ Zepto(function() {
 					//假如一页获取m条
 //					console.log(data.result.tuijian)
 					for(var i=0;i<data.result.tuijian.length;i++){//加载json里面的图片，json里面数是从零开始的
-						 var html= "<ol class=\"main-list-ol\" goodsId=\""+data.result.tuijian[i].GoodsID+"\" repertoryId = \""+data.result.tuijian[i].RepertoryID+"\">";
-							 html+="<li class=\"main-list-ol-li1\"><img src=\"http://api.x5u.com.cn:12804"+data.result.tuijian[i].Img1+"\"/></li>";
+						 var html= "<ol class=\"main-list-ol\" goodNum = \""+data.result.tuijian[i].GoodsNum+"\" goodsId=\""+data.result.tuijian[i].GoodsID+"\" repertoryId = \""+data.result.tuijian[i].RepertoryID+"\">";
+							 html+="<li class=\"main-list-ol-li1\"><img src=\"http://api.x5u.com.cn:12804"+data.result.tuijian[i].Img1+"\"/><span class=\"home-ol-sell-out\">售罄</span></li>";
 							 html+="<li class=\"main-list-ol-li2\"><p>"+data.result.tuijian[i].GoodsName+"</p><p>¥"+data.result.tuijian[i].SalePrice+"</p></li>";
 							 html+="<li><i class=\"iconfont icon-gouwuche3 buy-car-icon\"></i></li></ol>";
 							$(".guess-you-like-li").append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
 					}
 					//首页点击，跳转页面，首页点击列表传参
 					$(".main-list-ol").tap(function  () {
-						 console.log($(this).attr("goodsId"));
+//						 console.log($(this).attr("goodsId"));
 						 localStorage.setItem("goodsId",$(this).attr("goodsId"));
 						 localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
 //						 location.href = "product-details.html";//location.href实现客户端页面的跳转  	
@@ -102,19 +102,26 @@ Zepto(function() {
 					});
 					//点击首页购物车图标加入购物车
 					$(".main-list-ol").each(function () {
-						$(this).find(".buy-car-icon").tap(function () {
-							var repertoryId = $(this).parents(".main-list-ol").attr("repertoryId");
-//							console.log(repertoryId);
-							$.ajax({
-							type:"get",
-							url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
-							dataType:"json",
-							success:function(data){
-								//商品图片的渲染
-								alert("加入购物车成功！");
-							}//success
-							});//ajax
-						});
+//						console.log($(this).attr("goodNum"));
+						if ($(this).attr("goodNum")=="0") {
+							$(this).find(".home-ol-sell-out").show();
+						}else{
+							$(this).find(".buy-car-icon").tap(function () {
+								var repertoryId = $(this).parents(".main-list-ol").attr("repertoryId");
+	//							console.log(repertoryId);
+								$.ajax({
+								type:"get",
+								url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
+								dataType:"json",
+								success:function(data){
+									//商品图片的渲染
+									alert("加入购物车成功！");
+								}//success
+								});//ajax
+							});
+						}
+						
+						
 					});
 				}//success
 			});
@@ -135,7 +142,7 @@ Zepto(function() {
 		type:"get",
 		dataType:"json",
 		success:function(data){
-				console.log(data);
+//				console.log(data);
 				$(".home-main-li-p1").html(data.result.data[0].text);
 				$(".home-main-li-p2").html(data.result.data[1].text);
 				$(".home-main-li-p3").html(data.result.data[2].text);
