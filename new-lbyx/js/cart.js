@@ -6,8 +6,16 @@ Zepto(function() {
 	var repertoryId = localStorage.getItem("repertoryId");
 	var goodsnums = parseInt($(".pro-detail-three-num").html());
 	var indexPage = parseInt(localStorage.getItem("indexPage"));
-//	function cartShow(){
-	$.ajax({
+	$(".footer-li").eq(1).tap(function () {
+		console.log(lbyxCode);
+		if(lbyxCode==""||lbyxCode==null){
+			window.location.href = "login.html";
+		}else{
+			cartShows();
+		}
+	});
+//	function cartShows(){
+		$.ajax({
 			type:"get",
 			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
 			dataType:"json",
@@ -40,21 +48,22 @@ Zepto(function() {
 					$(".shopping-cart-ul").prepend(html);
 				}
 //				console.log(data.Result.list_SpecDiscount[0].list_CartGoodsDetails[0])
-				for (var i = 0; i < data.Result.list_SpecDiscount[0].list_CartGoodsDetails.length; i++) {
-					addCart(data.Result.list_SpecDiscount[0].list_CartGoodsDetails[i]);
-				}
+					for (var i = 0; i < data.Result.list_SpecDiscount[0].list_CartGoodsDetails.length; i++) {
+						addCart(data.Result.list_SpecDiscount[0].list_CartGoodsDetails[i]);
+					}
+				
 	//刷新时，选中状态和售罄状态的显示
 	$(".shopping-cart-li").each(function () {
-					console.log($(this).attr("GoodsNum"));
-					//如果库存数量为零，提示商品已售罄的遮罩层显示
-					if ($(this).attr("GoodsNum")==0) {
-					$(this).find(".cart-no-goods-mask").show();
-					}
-					//刷新页面时，点击选中后，刷新状态不变
-					if($(this).attr("Checked")=="true"){
-						$(this).find(".all-choice-right").css("color","red");
-					}
-				})
+		console.log($(this).attr("GoodsNum"));
+		//如果库存数量为零，提示商品已售罄的遮罩层显示
+		if ($(this).attr("GoodsNum")==0) {
+		$(this).find(".cart-no-goods-mask").show();
+		}
+		//刷新页面时，点击选中后，刷新状态不变
+		if($(this).attr("Checked")=="true"){
+			$(this).find(".all-choice-right").css("color","red");
+		}
+	})
 	//cart加号点击页面特效，数字操作				
 	$(".shopping-car-change-price>.icon-jiahao2").tap(function(){
 		var aaa= parseInt($(this).parent().find("span").html());
@@ -65,9 +74,9 @@ Zepto(function() {
 		}
 	});
 	//cart减号点击页面特效，数字操作
-	$(".shopping-car-change-price>.icon-jianhao1").tap(function(){
-		
-	});
+//	$(".shopping-car-change-price>.icon-jianhao1").tap(function(){
+//		
+//	});
 	//购物车全选操作
 	$(".all-choice-p").tap(function () {
 		if($(this).find("i").css("color")=='rgb(204, 204, 204)'){
@@ -311,26 +320,27 @@ Zepto(function() {
 	})
 			}//success
 		});//ajax
+//	}//cartShow
 	//点击index的商品分类。跳转页面并分类
 	$(".classification-of-goods").tap(function () {
 		window.location.href = "all-goods.html";
 	});
 	//purchase页面，点击确定购买，数据库goodbuy设为一
-    $(".confirm-to-pay").tap(function () {
-    	var goodBuy = 1;
-    	$.ajax({
-			url: "php/purchase.php",  //注册地址
-			type:"get",
-			data:{
-				userID:userid,
-				goodBuy:goodBuy
-			},
-			success:function(data){
-				alert("购买成功!");
-		}
-		});//ajax
-
-			});
+//  $(".confirm-to-pay").tap(function () {
+//  	var goodBuy = 1;
+//  	$.ajax({
+//			url: "php/purchase.php",  //注册地址
+//			type:"get",
+//			data:{
+//				userID:userid,
+//				goodBuy:goodBuy
+//			},
+//			success:function(data){
+//				alert("购买成功!");
+//		}
+//		});//ajax
+//
+//			});
 //点击去结算，跳转到确认订单页面
 	$(".cart-to-pay").tap(function () {
 		var allPrice = $(".all-choice-price").html();

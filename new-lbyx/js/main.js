@@ -20,6 +20,11 @@ Zepto(function() {
 	if (selectAreaTwoLi == null) {
 		localStorage.setItem("selectAreaTwoLi","罗庄金海汇");
 	} 
+	
+	//点击购物车，若是登录了显示，否则，蹦到登录页面
+	console.log($(".footer-li").eq(1))
+	console.log(lbyxCode);
+	
 	//点击主页选项卡页面切换，按钮颜色改变
 	$('.footer-ul li').on('tap',function(){
  		localStorage.setItem("indexPage",$(this).index());
@@ -49,6 +54,9 @@ Zepto(function() {
 		$(".my-first-b").hide();
 		$(".my-first-a").show();
 	}
+	
+	
+	
 	//商圈的选择
 	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
 	$(".first-top-change-span").html(selectAreaTwoLi);
@@ -107,17 +115,22 @@ Zepto(function() {
 							$(this).find(".home-ol-sell-out").show();
 						}else{
 							$(this).find(".buy-car-icon").tap(function () {
-								var repertoryId = $(this).parents(".main-list-ol").attr("repertoryId");
-	//							console.log(repertoryId);
-								$.ajax({
-								type:"get",
-								url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
-								dataType:"json",
-								success:function(data){
-									//商品图片的渲染
-									alert("加入购物车成功！");
-								}//success
-								});//ajax
+								if(lbyxCode==""||lbyxCode==null){
+									window.location.href = "login.html"
+								}else{
+									var repertoryId = $(this).parents(".main-list-ol").attr("repertoryId");
+		//							console.log(repertoryId);
+									$.ajax({
+										type:"get",
+										url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
+										dataType:"json",
+										success:function(data){
+											//商品图片的渲染
+											alert("加入购物车成功！");
+										}//success
+									});//ajax
+								}
+								
 							});
 						}
 						
@@ -179,7 +192,12 @@ Zepto(function() {
 //  });
 	//点击全部订单，页面跳转
     $(".my-second-li1").tap(function () {
-    	window.location.href = "my-order.html";
+    	if(lbyxCode==""||lbyxCode==null){
+			window.location.href = "login.html";
+		}else{
+			window.location.href = "my-order.html";
+		}
+    	
     });
     //点击退货弹出对话框
     $(".my-second-li-return-goods").tap(function () {

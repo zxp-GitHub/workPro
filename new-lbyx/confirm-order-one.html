@@ -127,7 +127,6 @@
 		var	lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
 //			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
 		var	lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlace");
-		
 		var lbyxGiveWay = localStorage.getItem("lbyxGiveWay");
 		var lbyxGiveDay = localStorage.getItem("lbyxGiveDay");
 		var lbyxGiveTime = localStorage.getItem("lbyxGiveTime");
@@ -204,11 +203,9 @@
 	 $(".go-to-buy-a").tap(function () {
 	 	window.location.href = "choose-payment-methods.html"
 	 });
-	 
 	 $(".confirm-order3-three-cancel").tap(function () {
 	 	$(this).parents(".confirm-delivery-mask").hide();
 	 });
-	 
 	 $(".confirm-order-li1").tap(function () {
 	 	$(".confirm-delivery-mask1").show();
 	 });
@@ -218,7 +215,6 @@
 	 $(".confirm-order-li3").tap(function () {
 	 	$(".confirm-delivery-mask3").show();
 	 });
-	 
 	 
 	 $(".confirm-order3-three-li").tap(function () {
 	 	console.log($(this).html());
@@ -246,8 +242,6 @@
 //	 $(".confirm-order-li3 .confirm-order3-three-li").tap(function () {
 //	 	localStorage.setItem("lbyxGiveWay",$(this).html());
 //	 });
-	 
-	 
 //	 $(".confirm-order3-three-li").tap(function () {
 //	 	$(this).parents(".confirm-delivery-mask").hide();
 //	 });
