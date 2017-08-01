@@ -36,7 +36,7 @@
 						<div class="confirm-order3-three">
 			        		<p class="confirm-order3-three-p">配送方式</p>
 				        	<ul class="confirm-order3-three-ul confirm-order-select-data-ul">
-				        		<li class="confirm-order3-three-li">4月1日  星期六</li>
+				        		<li class="confirm-order3-three-li">2017-08-01</li>
 				        		<li class="confirm-order3-three-li">4月2日  星期日</li>
 				        		<li class="confirm-order3-three-li">4月3日  星期一</li>
 				        		<li class="confirm-order3-three-li">4月4日  星期二</li>
@@ -113,7 +113,7 @@
 						<li class="confirm-order-li">商品金额  <span class="select-area-span">¥<span class="confirm-all-price">41.8</span></span></li>
 						<li class="confirm-order-li">运费<span class="select-area-span">+¥<span class="confirm-freight">0.00</span></span></li>
 						<li class="confirm-order-li confirm-order-border-li" style="border-bottom: 1px solid #ccc; overflow: hidden;"><span class="select-area-span">实付金额&nbsp;¥<span class="confirm-amount-paid">41.80</span></span></li>
-						<li class="confirm-order-li" style="height: 23%;"><span class="select-area-span go-to-buy"><a href="###" class="go-to-buy-a" style="padding-top: 0.2rem;">去支付</a></span></li>
+						<li class="confirm-order-li" style="height: 23%;"><span class="select-area-span go-to-buy"><p class="go-to-buy-a" style="padding-top: 0.2rem;">去支付</p></span></li>
 					</ul>
 				</div>
 				</div><!--confirm-order-main-->
@@ -150,6 +150,7 @@
 			
 			var lbyxCode = localStorage.getItem("lbyxCode");
 			var universityId = localStorage.getItem("universityId");
+			var lbyxCartID = localStorage.getItem("lbyxCartID");
 			console.log(lbyxCode);
 			console.log(universityId);
 			$.ajax({
@@ -187,6 +188,7 @@
 					});
 				}
 			});
+			
 //总价的显示
 	 var allPrice = localStorage.getItem("allPrice");
 	 if (allPrice>=28) {
@@ -200,8 +202,17 @@
 	 
 	 console.log(allPrice)
 	 $(".confirm-all-price").html(allPrice);
+	 //点击去支付提交信息
 	 $(".go-to-buy-a").tap(function () {
-	 	window.location.href = "choose-payment-methods.html"
+	 	$.ajax({
+				url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=CreateOrder&token="+lbyxCode+"&CartID="+lbyxCartID+"ID&RSID=地址信息ID&PSorZT=1&DeliverTime=尽快&DeliverDateTime=2017-08-01&Remark=备注&", 
+				type:"get",
+				dataType:"json",
+				success:function(data){
+					console.log(data);
+				}
+			});//ajax
+//	 	window.location.href = "choose-payment-methods.html"
 	 });
 	 $(".confirm-order3-three-cancel").tap(function () {
 	 	$(this).parents(".confirm-delivery-mask").hide();

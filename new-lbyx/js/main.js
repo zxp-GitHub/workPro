@@ -22,8 +22,8 @@ Zepto(function() {
 	} 
 	
 	//点击购物车，若是登录了显示，否则，蹦到登录页面
-	console.log($(".footer-li").eq(1))
-	console.log(lbyxCode);
+//	console.log($(".footer-li").eq(1))
+//	console.log(lbyxCode);
 	
 	//点击主页选项卡页面切换，按钮颜色改变
 	$('.footer-ul li').on('tap',function(){

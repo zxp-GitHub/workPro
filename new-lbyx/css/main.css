@@ -69,7 +69,6 @@ html,body,.container,.box{
 	width: 100%;
 	height: 100%;
 	position: relative;
-	
 }
 .big-li{
 	display: none;
@@ -100,8 +99,8 @@ html,body,.container,.box{
 	align-items: center;
 	justify-content: center;
 	font-size: 2rem;
-	height: 41%;
-	margin-top: 22%;
+	height: 42%;
+	margin-top: 1rem;
 	color: deepskyblue;
 }
 .home-main-li>img{
@@ -112,9 +111,8 @@ html,body,.container,.box{
 .home-main-li>p{
 	margin-top: 1rem;
 }
-.home-main-li4-classify{
-	
-}
+/*.home-main-li4-classify{
+}*/
 .guess-you-like-scroll{
 	height: 100%;
 	width: 100%;
@@ -311,7 +309,6 @@ html,body,.container,.box{
 	background-color: #fff;
 	font-size: 1.5rem;
 	margin-left: -0.2rem;
-	
 }
 /*没有nth*/
 .my-first-head-portrait{
@@ -449,8 +446,6 @@ html,body,.container,.box{
 .color-red{
 	color:red;
 }
-
-
 /*E first  index*/
 /*S address-info*/
 /*.box .add-info-top{
@@ -467,7 +462,6 @@ html,body,.container,.box{
 	right: 0;
 	top: 50%;
     transform: translateY(-1rem);
-	
 }*/
 .add-info-main{
 	width: 100%;
@@ -675,7 +669,6 @@ html,body,.container,.box{
 	display: inline-block;
 	margin-right: 1rem;
 }
-
 /*E select-area*/
 /*S shopping-car*/
 .shopping-car-nav{
@@ -723,7 +716,6 @@ html,body,.container,.box{
 	/*margin-left: 2rem;*/
 	width: 12rem;
 	/*text-align: center;*/
-	
 }
 .cart-freight{
 	display: none;	
@@ -931,11 +923,9 @@ vertical-align: middle;
 	white-space: pre-wrap;
 	margin-top: 0.8rem;
 	margin-bottom: 0.8rem;
-	
 }
-.goods-right-cell-p{
-	
-}
+/*.goods-right-cell-p{
+}*/
 .confirm-order-main-four{
 	height: 27%;
 	width: 100%;
@@ -986,7 +976,6 @@ vertical-align: middle;
 	margin-top: 5%;
 	height: 48%;
 	width:100%;
-
 }
 .confirm-order1-one-right-p2>span{
 	float: left;
@@ -1002,7 +991,6 @@ vertical-align: middle;
 .confirm-order-ul>.confirm-order-border-li{
 	border-top:1px solid #ccc;
 	border-bottom:1px solid #ccc;
-	
 }
 .confirm-order-box{
 	position: relative;
@@ -1298,31 +1286,31 @@ vertical-align: middle;
 	align-items: center;
 	justify-content: center;
 	color: #000000;
-	}
-	.sort-up-down-p{
-		width: 1rem;
-		height: 53%;
-		position: relative;
-		margin-left: 0.3rem;
-	}
-	.up-price{
-		width: 0;
-		height: 0;
-		font-size: 0;
-		border: 5px solid transparent;
-		border-bottom: 5px solid rgb(0,0,0);
-		position: absolute;
-		top: 0;
-	}
-	.down-price{
-		width: 0;
-		height: 0;
-		font-size: 0;
-		border: 5px solid transparent;
-		border-top: 5px solid rgb(0,0,0);
-		position: absolute;
-		bottom: 0;
-	}
+}
+.sort-up-down-p{
+	width: 1rem;
+	height: 53%;
+	position: relative;
+	margin-left: 0.3rem;
+}
+.up-price{
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border: 5px solid transparent;
+	border-bottom: 5px solid rgb(0,0,0);
+	position: absolute;
+	top: 0;
+}
+.down-price{
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border: 5px solid transparent;
+	border-top: 5px solid rgb(0,0,0);
+	position: absolute;
+	bottom: 0;
+}
 .select-area3-main-three{
 	width: 100%;
 	height: 84%;
@@ -1487,7 +1475,6 @@ vertical-align: middle;
 .verify-first-li2{
 	width: 70%;
 }
-
 .verify-first-li-input{
 	width: 90%;
 	margin: 0 auto;
@@ -1642,7 +1629,6 @@ vertical-align: middle;
 	display: flex;
 	align-items: center;
 	/*justify-content: center;*/
-	
 }
 .order-details-east-three-store{
 	background-color: #fff;
@@ -1756,7 +1742,6 @@ vertical-align: middle;
 .login-main-li{
 	margin: 1rem;
 }
-
 .ogin-main{
 	position: relative;
 }
@@ -1805,7 +1790,6 @@ vertical-align: middle;
 	height: 5.1rem;
 	background-color: #fff;
 	border-radius: 0.2rem;
-	
 }
 .get-avatar-mask-p1{
 	border-bottom: 1px solid #ccc;
@@ -1856,9 +1840,8 @@ vertical-align: middle;
 	width: 95%;
 	margin: 0 auto;
 }
-.change-nikename-li{
-	
-}
+/*.change-nikename-li{
+}*/
 .change-nikename-li-one,.change-nikename-li-three{
 	display: flex;
 	align-items: center;
@@ -1883,7 +1866,6 @@ vertical-align: middle;
 	font-size: 1.3rem;
 	color: #ccc;
 	margin-top: 0.15rem;
-	
 }
 .change-nikename-input{
 	width: 90%;
@@ -1903,14 +1885,14 @@ vertical-align: middle;
 	font: 1rem/3rem "微软雅黑";
 }
 .payment-li .mask-span{
-position: absolute;
-width: 100%;
-height: 100%;
-background-color: rgba(0,0,0,.1);
-left: 0;
-top: 0;
-margin-left: 0;
-display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.1);
+	left: 0;
+	top: 0;
+	margin-left: 0;
+	display: none;
 }
 .payment-li>span{
 	margin-left: 0.5rem;
@@ -1958,6 +1940,5 @@ display: none;
 	margin-bottom: 17%;
 	font:1rem/5rem "微软雅黑";
 	border-bottom: 1px solid #ccc;
-	
 }
 /*E choose-payment-methods*/

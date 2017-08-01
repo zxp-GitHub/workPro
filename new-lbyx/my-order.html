@@ -45,7 +45,7 @@
   		var lbyxCode = localStorage.getItem("lbyxCode");
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
-			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=2&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=2&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10",
 			dataType:"json",
 			success:function(data){//consol一下是很重要的！！！！！！
 				console.log(data);
@@ -97,67 +97,122 @@
 				});
 			}//success
 		});//ajax
-		
-		
-		
-		
-		
-		
-		
 		//待收货
 //		$.ajax({//获取json数据必写哦！！！
 //			type:"get",
-//			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=121&Token="+lbyxCode+"&OrderStatus=0&userid="+userId+"&dataindex=1&datasize=10&",
+//			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=2&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&OrderStatus=2",
 //			dataType:"json",
 //			success:function(data){//consol一下是很重要的！！！！！！
 //				console.log(data);
-//					function myReadyOrder(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+//					function myAllOrder(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
 ////						for (var i = 0; i < obj.goodstypes.length; i++) {
 ////								allGoodsLi (obj.goodstypes[i]);
 ////<img src=\"http://api.x5u.com.cn:12804"+obj.Ordergoods[0].img+"\"  class=\"all-order-cell-p3-pics\" />
 ////							}
-//							var objs = obj.list1[0];
 //						var html = "<div class=\"all-order-cell\"  orderStatus = \""+obj.OrderStatus+"\">";
-//							html += "<p class=\"all-order-cell-p1\"><span>订单编号：</span><span class=\"warehouse-number\">"+obj.OrderCode+"</span> <span class=\"p1-order-finish\">待付款</span></p>";
+//							html += "<p class=\"all-order-cell-p1\"><span>仓库编号：</span><span class=\"warehouse-number\">"+obj.Code+"</span> <span class=\"p1-order-finish\">"+obj.OrderStatus+"</span></p>";
 //							html += "<p class=\"all-order-cell-p2\"><span>下单时间:</span> <span>"+obj.CreateDate.split("T")[0]+"&nbsp;"+obj.CreateDate.split("T")[1]+"</span><span class=\"p2-self-pick-up\">自提</span></p>";
 //							html += "<p class=\"all-order-cell-p3\">";
-//							if (objs.Ordergoods.length>3) {
+//							if (obj.Ordergoods.length>3) {
 //								for (var j = 0; j < 3; j++) {
-//									myAllOrderLi (objs.Ordergoods[j]);
+//									myAllOrderLi (obj.Ordergoods[j]);
 //								}
 //							} else{
-//								for (var j = 0; j < objs.Ordergoods.length; j++) {
-//									myAllOrderLi (objs.Ordergoods[j]);
+//								for (var j = 0; j < obj.Ordergoods.length; j++) {
+//									myAllOrderLi (obj.Ordergoods[j]);
 //								}
 //							}
 //							html += "</p>";
-//							html += "<p class=\"all-order-cell-p4\"><span>共"+objs.Ordergoods.length+"件商品</span> <span class=\"p4-all-price\">总价：¥"+objs.TotalAmt+"（含配送费0.0元）</span></p>";
+//							html += "<p class=\"all-order-cell-p4\"><span>共"+obj.Ordergoods.length+"件商品</span> <span class=\"p4-all-price\">总价：¥"+obj.TotalAmt+"（含配送费0.0元）</span></p>";
 //							html += "<p class=\"all-order-cell-p5\">";
-//							html += "<span class=\"p5-cancellation-of-order\">取消订单</span> <span class=\"p5-go-pay\">去支付</span>";
+//							html += "<span class=\"p5-complaint\">投诉</span> <span class=\"p5-view-logistics\">查看物流</span><span class=\"p5-go-to-the-evaluation\">去评价</span>";
 //							html += "</p>";
 //							html += "</div>";
 //							function myAllOrderLi(objs) {
 //								html += "<img src=\"http://api.x5u.com.cn:12804"+objs.img+"\"  class=\"all-order-cell-p3-pics\" />";
 //							}
-//						$(".my-order-main").append(html);	
+//						$(".my-order-main").append(html);
 //			    };//addProduct
 //				for (var i = 0; i < data.result.data.length; i++) {
-//					myReadyOrder(data.result.data[i]);
+//					myAllOrder(data.result.data[i]);
 //				}
-////				$(".all-order-cell").each(function () {
-////					if ($(this).attr("orderStatus")==5) {
-////						$(this).find(".p1-order-finish").html("订单完成");
-////					}else{
-////						$(this).find(".p1-order-finish").html("取消订单");
-////						$(this).find(".all-order-cell-p5").hide();
-////					}
-////				});
+//				$(".all-order-cell").each(function () {
+//					if ($(this).attr("orderStatus")==5) {
+//						$(this).find(".p1-order-finish").html("订单完成");
+//					}else{
+//						$(this).find(".p1-order-finish").html("取消订单");
+//						$(this).find(".all-order-cell-p5").hide();
+//					}
+//				});
 //				//点击li传递参数
-////				$(".all-order-cell").tap(function () {
-////					var lbyxWarehouseNumber = $(this).index();
-////					localStorage.setItem("lbyxWarehouseNumber",lbyxWarehouseNumber)
-////					window.location.href = "order-details.html";
-////				});
+//				$(".all-order-cell").tap(function () {
+//					var lbyxWarehouseNumber = $(this).index();
+//					localStorage.setItem("lbyxWarehouseNumber",lbyxWarehouseNumber)
+//					window.location.href = "order-details.html";
+//				});
+//			}//success
+//		});//ajax
+//		待付款
+//		$.ajax({//获取json数据必写哦！！！
+//			type:"get",
+//			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=121&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&OrderStatus=0",
+//			dataType:"json",
+//			success:function(data){//consol一下是很重要的！！！！！！
+//				console.log(data);
+//				console.log(data.result.data[0]);
+////				console.log(data.result.data[0].list1[0]);
+//					function myAllOrder(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+////						for (var i = 0; i < obj.goodstypes.length; i++) {
+////								allGoodsLi (obj.goodstypes[i]);
+////<img src=\"http://api.x5u.com.cn:12804"+obj.Ordergoods[0].img+"\"  class=\"all-order-cell-p3-pics\" />
+////							}
+//						var html = "<div class=\"all-order-cell\"  orderStatus = \""+obj.OrderStatus+"\">";
+//							html += "<p class=\"all-order-cell-p1\"><span>订单编号：</span><span class=\"warehouse-number\">"+obj.OrderCode+"</span> <span class=\"p1-order-finish\">"+obj.OrderStatus+"</span></p>";
+//							html += "<p class=\"all-order-cell-p2\"><span>下单时间:</span> <span>"+obj.CreateDate.split("T")[0]+"&nbsp;"+obj.CreateDate.split("T")[1]+"</span><span class=\"p2-self-pick-up\">自提</span></p>";
+//							html += "<p class=\"all-order-cell-p3\">";
+//							if (obj.list1[0].Ordergoods.length>3) {
+//								for (var j = 0; j < 3; j++) {
+//									myAllOrderLi (obj.list1[0].Ordergoods[j]);
+//								}
+//							} else{
+//								for (var j = 0; j < obj.list1[0].Ordergoods.length; j++) {
+//									myAllOrderLi (obj.list1[0].Ordergoods[j]);
+//								}
+//							}
+//							html += "</p>";
+//							html += "<p class=\"all-order-cell-p4\"><span>共"+obj.list1[0].Ordergoods.length+"件商品</span> <span class=\"p4-all-price\">总价：¥"+obj.list1[0].TotalAmt+"（已优惠0.0,含配送费0.0元）</span></p>";
+//							html += "<p class=\"all-order-cell-p5\">";
+//							html += "<span class=\"p5-complaint\">投诉</span> <span class=\"p5-view-logistics\">查看物流</span><span class=\"p5-go-to-the-evaluation\">去评价</span>";
+//							html += "</p>";
+//							html += "</div>";
+//							function myAllOrderLi(objs) {
+//								html += "<img src=\"http://api.x5u.com.cn:12804"+objs.img+"\"  class=\"all-order-cell-p3-pics\" />";
+//							}
+//						$(".my-order-main").append(html);
+//			    };//addProduct
+//				for (var i = 0; i < data.result.data.length; i++) {
+//					myAllOrder(data.result.data[i]);
+//				}
+//				$(".all-order-cell").each(function () {
+//					if ($(this).attr("orderStatus")==0) {
+//						$(this).find(".p1-order-finish").html("待付款");
+//					}else if($(this).attr("orderStatus")==12){
+//						$(this).find(".p1-order-finish").html("待拣货");
+//						$(this).find(".all-order-cell-p5").hide();
+//					}else if($(this).attr("orderStatus")==5){
+//						$(this).find(".p1-order-finish").html("订单完成");
+//						$(this).find(".all-order-cell-p5").hide();
+//					}else{
+//						$(this).find(".p1-order-finish").html("取消订单");
+//						$(this).find(".all-order-cell-p5").hide();
+//					}
+//				});
+//				//点击li传递参数
+//				$(".all-order-cell").tap(function () {
+//					var lbyxWarehouseNumber = $(this).index();
+//					localStorage.setItem("lbyxWarehouseNumber",lbyxWarehouseNumber);
+//					window.location.href = "order-details.html";
+//				});
 //			}//success
 //		});//ajax
 		});

@@ -25,9 +25,9 @@ Zepto(function() {
 				function addCart(obj){
 //				var html ="	<p class=\"shopping-car-nav\">东方一店</p>";
 //					var html ="	<ul class=\"shopping-cart-ul\">";
-					var html ="<li class=\"shopping-cart-li\" GoodsNum = \""+obj.GoodsNum+"\" Checked = \""+obj.Checked+"\">";
+					var html ="<li class=\"shopping-cart-li\" GoodsNum = \""+obj.GoodsNum+"\" GoodsID = \""+obj.GoodsID+"\" Checked = \""+obj.Checked+"\">";
 					html += "				<div class=\"shopping-cart-li-cell\"><i class=\"iconfont icon-duihao1 all-choice-right\" goodID=\""+obj.RepertoryID+"\"></i></div>";
-					html += "				<div class=\"shopping-cart-li-cell\">";
+					html += "				<div class=\"shopping-cart-li-cell shopping-cart-li-cell-pic\">";
 					html += "					<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\"/><p class=\"cart-no-goods-mask\">商品已售罄</p>";
 					html += "				</div>";
 					html += "				<div class=\"shopping-cart-li-cell\">";
@@ -51,7 +51,11 @@ Zepto(function() {
 					for (var i = 0; i < data.Result.list_SpecDiscount[0].list_CartGoodsDetails.length; i++) {
 						addCart(data.Result.list_SpecDiscount[0].list_CartGoodsDetails[i]);
 					}
-				
+	//点击图片跳转到详情页面
+	$(".shopping-cart-li-cell-pic").tap(function () {
+		localStorage.setItem("goodsId",$(this).parent(".shopping-cart-li").attr("GoodsID"));
+		window.location.href = "product-details.html";
+	});
 	//刷新时，选中状态和售罄状态的显示
 	$(".shopping-cart-li").each(function () {
 		console.log($(this).attr("GoodsNum"));
@@ -295,32 +299,38 @@ Zepto(function() {
 	});
 	//cart点击购买传参，跳转页面	
 	$(".cart-to-pay").tap(function () {
-		$(".shopping-cart-li").each(function () {
+//		$(".shopping-cart-li").each(function () {
 //				console.log($(this))
-				var cartGoodId = $(this).find(".shopping-car-change-price").attr("goodID");
-				if ($(this).find(".all-choice-right").css("color")=="red") {
-//					console.log(userid);
-//					console.log(cartGoodId);
-					var goodready = 1;
-					readyToBuy(userid,cartGoodId,goodready);
-				}else{
-					var goodready =0;
-					readyToBuy(userid,cartGoodId,goodready);
-				}
-				
-			})
+//				var cartGoodId = $(this).find(".shopping-car-change-price").attr("goodID");
+//				if ($(this).find(".all-choice-right").css("color")=="red") {
+////					console.log(userid);
+////					console.log(cartGoodId);
+//					var goodready = 1;
+//					readyToBuy(userid,cartGoodId,goodready);
+//				}else{
+//					var goodready =0;
+//					readyToBuy(userid,cartGoodId,goodready);
+//				}
+//			})
+		//存储总价
 		var allPrice = $(".all-choice-price").html();
 		localStorage.setItem("allPrice",allPrice);
+		//存储购物车ID
+		localStorage.setItem("lbyxCartID",data.Result.usercart.CartID);
+//		console.log(data.Result.usercart.CartID);
+		//点击去结算，判断是否选中商品
 		if (allPrice==0) {
 			alert("请选择商品");
 		} else{
-			window.location.href = "confirm-order.html";
+			window.location.href = "confirm-order-one.html";
 		}
-		
+//		var allPrice = $(".all-choice-price").html();
+//		localStorage.setItem("allPrice",allPrice);
+//		window.location.href = "confirm-order-one.html";
 	})
 			}//success
 		});//ajax
-//	}//cartShow
+//	}//cartShows
 	//点击index的商品分类。跳转页面并分类
 	$(".classification-of-goods").tap(function () {
 		window.location.href = "all-goods.html";
@@ -342,9 +352,7 @@ Zepto(function() {
 //
 //			});
 //点击去结算，跳转到确认订单页面
-	$(".cart-to-pay").tap(function () {
-		var allPrice = $(".all-choice-price").html();
-		localStorage.setItem("allPrice",allPrice);
-		window.location.href = "confirm-order-one.html";
-	});
+//	$(".cart-to-pay").tap(function () {
+//		
+//	});
 });

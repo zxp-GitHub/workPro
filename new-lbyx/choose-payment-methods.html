@@ -42,6 +42,10 @@
 
 <script type="text/javascript">
 	Zepto(function() {
+//		var goodsId = localStorage.getItem("goodsId");
+//		var	userId = localStorage.getItem("userId");
+//		var lbyxCode = localStorage.getItem("lbyxCode");
+//		var repertoryId = localStorage.getItem("repertoryId");
 		$(".payment-li").tap(function () {
 			$(".payment-methods-mask").show();
 			$(this).find(".mask-span").show();
@@ -50,5 +54,28 @@
 					$(".payment-li1,.payment-li2").find(".mask-span").hide();
 				},1500);
 		});
+		$(".payment-li1").tap(function () {
+			alert("1");
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=set_PayTypeorder&operation=0&PayType=1&OrderCode=XWU2016041800020&", 
+				type:"get",
+				dataType:"json",
+				success:function(data){
+					console.log(data);
+				}
+			});//ajax
+		});
+		$(".payment-li2").tap(function () {
+			alert("2");
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=set_PayTypeorder&operation=0&PayType=0&OrderCode=XWU2016041800020&", 
+				type:"get",
+				dataType:"json",
+				success:function(data){
+					console.log(data);
+				}
+			});//ajax
+		});
+		
 	});//end
 </script>
