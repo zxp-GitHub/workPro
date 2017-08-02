@@ -1508,6 +1508,7 @@ vertical-align: middle;
 	font-size: 0.8rem;
 	font-family: "黑体";
 	color: orangered;
+	/*border-bottom: 1px solid red;*/
 }
 	
 .my-order-li>span{
@@ -1516,7 +1517,7 @@ vertical-align: middle;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-bottom: 1px solid rgb(255,74,74);
+	/*border-bottom: 1px solid rgb(255,74,74);*/
 }
 .east-three-store-ul{
 	width: 90%;
@@ -1611,10 +1612,11 @@ vertical-align: middle;
 	height: 92%;
 	background-color: #eee;
 	position: relative;
+	overflow: scroll;
 }
 .order-details-main-first{
 	width: 100%;
-	height: 15%;
+	height: 7rem;
 	background-color: #fff;
 	margin-bottom: 0.5rem;
 }
@@ -1639,14 +1641,27 @@ vertical-align: middle;
 	background-color: #fff;
 }
 .order-details-last{
-	position: fixed;
-	bottom: 0;
+	/*position: fixed;*/
+	/*bottom: 0;*/
 	width: 100%;
 	background-color: #fff;
 	height: 2.3rem;
+	border-top:1px solid #ccc ;
+	padding: 0.3rem 0;
 }
 .order-details-last>a{
 	float: right;
+	padding:0.3rem 1.5rem;
+	background-color: orangered;
+	color: #fff;
+	border-radius: 1rem;
+	margin:0.3rem 5% 0rem 0rem;
+}
+.order-to-pay-a{
+	display: none;
+}
+.confirm-get-goods{
+	display: none;
 }
 /*E order-details*/
 /*S business-circle-choice*/

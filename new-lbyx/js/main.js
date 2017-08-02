@@ -191,13 +191,26 @@ Zepto(function() {
 //  	window.location.href = "index-my-user-info.html";
 //  });
 	//点击全部订单，页面跳转
-    $(".my-second-li1").tap(function () {
+    $(".my-second-li").tap(function () {
     	if(lbyxCode==""||lbyxCode==null){
 			window.location.href = "login.html";
-		}else{
-			window.location.href = "my-order.html";
 		}
-    	
+//  	else{
+//			window.location.href = "my-order.html";
+//		}
+    });
+    //点击跳转到我的订单页面
+     $(".my-second-li1").tap(function () {
+     	localStorage.setItem("lbyxMyOrder","lbyxMyOrder1");
+    	window.location.href = "my-order.html";
+    });
+     $(".my-second-li2").tap(function () {
+     	localStorage.setItem("lbyxMyOrder","lbyxMyOrder2");
+    	window.location.href = "my-order.html";
+    });
+    $(".my-second-li3").tap(function () {
+     	localStorage.setItem("lbyxMyOrder","lbyxMyOrder3");
+    	window.location.href = "my-order.html";
     });
     //点击退货弹出对话框
     $(".my-second-li-return-goods").tap(function () {
@@ -218,6 +231,7 @@ Zepto(function() {
     });
 //  $(".my-first-pic").tap(function () {
 //  });
+/*E index-my*/
 /*S index-cart*/
 //点击购物车，刷新页面
 $(".footer-li").eq(1).tap(function () {

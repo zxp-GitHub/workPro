@@ -124,6 +124,7 @@
 <script type="text/javascript">
 	Zepto(function() {
 		var lbyxAddressName = localStorage.getItem("lbyxAddressName");
+		
 		var	lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
 //			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
 		var	lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlace");
@@ -133,19 +134,20 @@
 		$(".confirm-two-way").html(lbyxGiveWay);
 		$(".confirm-two-day").html(lbyxGiveDay);
 		$(".confirm-two-time").html(lbyxGiveTime);
-//		if (lbyxAddressName!=""||lbyxAddressPhone!=""||lbyxAddressDetailPlace!="") {
-//			$(".fill-address-info-button").hide();
-//			$(".confirm-order1-one").show();
+		console.log(lbyxAddressName);
+		if (lbyxAddressName==""||lbyxAddressPhone==""||lbyxAddressDetailPlace=="") {
+			$(".fill-address-info-button").show();
+			$(".confirm-order1-one").hide();
+		} else{
+			$(".fill-address-info-button").show();
+			$(".confirm-order1-one").show();
 			$(".confirm-one-name").html(lbyxAddressName);
 			$(".confirm-one-phone").html(lbyxAddressPhone);
 			$(".confirm-one-place").html(lbyxAddressDetailPlace);
-//		} else{
-//			$(".fill-address-info-button").show();
-//			$(".confirm-order1-one").hide();
 			$(".fill-address-info-p").tap(function () {
 				window.location.href = "address-information.html";
 			});
-//		}
+		}
 			$(".confirm-two-way").text(lbyxGiveWay);
 			
 			var lbyxCode = localStorage.getItem("lbyxCode");
