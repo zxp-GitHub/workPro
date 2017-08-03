@@ -15,7 +15,7 @@ Zepto(function() {
 					alert("请输入正确手机号！");
 				}else{
 					$.ajax({
-					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=0&XWYorKP=1&",
+					url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=0&XWYorKP=1&",
 					type:"get",
 					success:function(data){
 						console.log(data);
@@ -25,7 +25,6 @@ Zepto(function() {
 					}
 					});//ajax	
 				}
-				
 			}
 		});
 		//点击下一步，然后通过电话号码和验证码判断用户是否存在--1.内容不为空2.若验证码正确，提示注册成功
@@ -38,12 +37,13 @@ Zepto(function() {
 			}
 			localStorage.setItem("registerPhone",registerPhone);
 			$.ajax({
-				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+registerCode+"&mobile="+registerPhone+"&",
+				url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=7&vcode="+registerCode+"&mobile="+registerPhone+"&",
 				type:"get",
 				success:function(data){
 					console.log(data.result.status.msg);
 					if(data.result.status.msg=="succ"){
 						alert("注册成功了，亲~！");
+						window.location.href = "register-set-password.html";
 					}
 				}
 				});//ajax	
@@ -54,12 +54,13 @@ Zepto(function() {
 			console.log(registerPhone);
 			var registerpass1 = $(".register-set-pass1").val();
 	  		var registerpass2 = $(".register-set-pass2").val();
+	  		console.log(registerpass1,registerpass2)
 		  	if (registerpass1!=registerpass2) {
 		  		alert("密码不匹配！")
 		  		return true;
 		  	} else{
 		  		$.ajax({
-					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspxaction=MessageAuthentication_get&operation=8&mobile="+registerPhone+"&password="+registerpass1+"&qupassword="+registerpass2+"&",
+					url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=8&mobile="+registerPhone+"&password="+registerpass1+"&qupassword="+registerpass2+"&",
 					type:"get",
 					success:function(data){
 						console.log(data);
@@ -71,7 +72,6 @@ Zepto(function() {
 					}
 					});//ajax	
 		  	}
-			
 		});
 	//	$(".register-confirm-registration").tap(function () {
 	//		 var usernam = $(".register-name").val();
@@ -94,7 +94,6 @@ Zepto(function() {
 	//			});//ajax		
 	//		}//else
 	//	});
-
 	/*E register*/
 /*S login*/
     $(".confirm-login").tap(function(){
@@ -103,7 +102,7 @@ Zepto(function() {
 	 	console.log(loginName);
 	 	console.log(loginPass);
 		$.ajax({
-		url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=Login_set&operation=0&UserName="+loginName+"&Password="+loginPass+"&",  //注册地址
+		url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=Login_set&operation=0&UserName="+loginName+"&Password="+loginPass+"&",  //注册地址
 		type:"get",
 		dataType:"json",
 		success:function(data){
@@ -141,13 +140,16 @@ Zepto(function() {
 					alert("请输入正确手机号！");
 				}else{
 					$.ajax({
-					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=1&XWYorKP=1&",
+					url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=9&mobile="+mobileStr+"&password=12345&",
 					type:"get",
 					success:function(data){
 						console.log(data);
-						if(data.result.status.msg=="此用户已存在"){
-							alert(data.result.status.msg);
-						}
+//						if(data.result.status.msg=="此用户已存在"){
+//							alert(data.result.status.msg);
+//						}
+					},
+					error:function(){
+						alert('fail');
 					}
 					});//ajax
 				}
@@ -167,27 +169,29 @@ Zepto(function() {
 //			}
 //		});//ajax
 //		});
-//		
 //		//点击下一步，然后通过电话号码和验证码判断用户是否存在--1.内容不为空2.若验证码正确，提示注册成功
-//		$(".forget-pass-next-step").tap(function () {
-////			window.location.href = "register-set-password.html";
-//			var forgetPhone = $(".forget-pass-input").val();
-//			var forgetCode = $(".forget-pass-input").val();
-//			if(forgetPhone==""||forgetCode==""){
-//				alert("亲，内容不可为空！");
-//			}
-////			localStorage.setItem("registerPhone",registerPhone);
-//			$.ajax({
-//				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+forgetPhone+"&mobile="+forgetCode+"&",
-//				type:"get",
-//				success:function(data){
-//					console.log(data.result.status.msg);
+		$(".forget-pass-next-step").tap(function () {
+//			window.location.href = "register-set-password.html";
+			var forgetPhone = $(".forget-pass-input").val();
+			var forgetCode = $(".forget-pass-input2").val();
+				 	console.log(forgetPhone,forgetCode)
+
+			if(forgetPhone==""||forgetCode==""){
+				alert("亲，内容不可为空！");
+			}
+//			localStorage.setItem("registerPhone",registerPhone);
+			$.ajax({
+				url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+forgetPhone+"&mobile="+forgetCode+"&",
+				type:"get",
+				success:function(data){
+					console.log(data);
+					
 //					if(data.result.status.msg=="succ"){
 //						alert("注册成功了，亲~！");
 //					}
-//				}
-//				});//ajax	
-//		});
+				}
+				});//ajax	
+		});
 /*E forget-password*/
 /*S all-goods*/
 	$.ajax({
@@ -216,9 +220,8 @@ Zepto(function() {
 			        allGoodRight(goodNums);
 //			        $('.all-goods-list-ul>li').hide().eq($(this).index()).show();
 			   });
-			   
 			}//success
-		});//ajax
+		});//ajax	
 	//点击左侧列表可以切换右侧图片，给初值也可以，！！！放在ajax里面，在ajax外面是无法调用的。
 	function allGoodRight(goodNum){
 		$.ajax({
@@ -263,6 +266,5 @@ Zepto(function() {
 	$(".all-goods-search-input").focus(function () {
 	window.location.href = "search-page.html";
 });
-
 /*E all-goods*/
 });//zepto

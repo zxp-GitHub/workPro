@@ -194,23 +194,22 @@ Zepto(function() {
     $(".my-second-li").tap(function () {
     	if(lbyxCode==""||lbyxCode==null){
 			window.location.href = "login.html";
+		}else{
+			window.location.href = "my-order.html";
 		}
-//  	else{
-//			window.location.href = "my-order.html";
-//		}
     });
     //点击跳转到我的订单页面
      $(".my-second-li1").tap(function () {
      	localStorage.setItem("lbyxMyOrder","lbyxMyOrder1");
-    	window.location.href = "my-order.html";
+//  	window.location.href = "my-order.html";
     });
      $(".my-second-li2").tap(function () {
      	localStorage.setItem("lbyxMyOrder","lbyxMyOrder2");
-    	window.location.href = "my-order.html";
+//  	window.location.href = "my-order.html";
     });
     $(".my-second-li3").tap(function () {
      	localStorage.setItem("lbyxMyOrder","lbyxMyOrder3");
-    	window.location.href = "my-order.html";
+//  	window.location.href = "my-order.html";
     });
     //点击退货弹出对话框
     $(".my-second-li-return-goods").tap(function () {

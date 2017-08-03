@@ -57,7 +57,7 @@
 					</div>
 					<p style="background-color: #EEEEEE;height: 2%;width: 100%;"></p>
 					<div class="pro-detail-four">
-						<i class="iconfont icon-gouwuche3 let-go-to-cart"><span class="pro-detail-four-num">1</span></i><span class="add-to-car">加入购物车</span><a href="#	" class="buy-now">立即购买</a>
+						<i class="iconfont icon-gouwuche3 let-go-to-cart"><span class="pro-detail-four-num">1</span></i><span class="add-to-car">加入购物车</span><p class="buy-now">立即购买</p>
 					</div>
 				</div><!--confirm-order-main-->
 				</div><!--box-->
@@ -158,8 +158,8 @@
 									alert("库存不足，库存数为"+data.Result.data.GoodsNum);
 									return false;
 								}
-								if (universityId=="") {
-									alert("亲，请先登录，ok？");
+								if (lbyxCode=="") {
+									window.location.href = "login.html";
 								} else{
 									//向购物车中添加商品
 									$.ajax({
@@ -196,16 +196,20 @@
 			});//ajax
 		}//readyToBuy
 	    $(".buy-now").tap(function () {
+	    	if (lbyxCode=="") {
+			window.location.href = "login.html";
+			} else{
 	    	var repertoryId = localStorage.getItem("repertoryId");
 	    	console.log(repertoryId);
 //						    	cartAllGoodsCheckedFalse ();
 	    	readyToBuys (repertoryId,true);
 	    	window.location.href = "confirm-order-one.html";
+	   		}
 	    });
 		//去购物车列表页,判断是否登录
 		$(".let-go-to-cart").tap(function () {
-			if(universityId == ""){
-				alert("请先登录~")
+			if(lbyxCode == ""){
+			window.location.href = "login.html";
 			}else{
 				localStorage.setItem("indexPage",1);
 				window.location.href = "index.html";

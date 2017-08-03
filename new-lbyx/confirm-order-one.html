@@ -201,13 +201,12 @@
 			
 			$(".confirm-amount-paid").html(parseFloat((parseFloat(allPrice)+3)).toFixed(2));
 		}
-	 
-	 console.log(allPrice)
+//	 console.log(allPrice)
 	 $(".confirm-all-price").html(allPrice);
 	 //点击去支付提交信息
 	 $(".go-to-buy-a").tap(function () {
 	 	$.ajax({
-				url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=CreateOrder&token="+lbyxCode+"&CartID="+lbyxCartID+"ID&RSID=地址信息ID&PSorZT=1&DeliverTime=尽快&DeliverDateTime=2017-08-01&Remark=备注&", 
+				url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=OrderCreate&token="+lbyxCode+"&CartID="+lbyxCartID+"&RSID=8888ID&PSorZT=0&DeliverTime=17:00-17:30&DeliverDateTime=2017-08-01&Remark=备注&", 
 				type:"get",
 				dataType:"json",
 				success:function(data){
