@@ -174,11 +174,11 @@
 							  		//弹出提示框，添加购物车成功
 							  		$('.ok-add-cart-mask').fadeIn();
 									setTimeout(function  () {
-										$('.ok-add-cart-mask').fadeOut()
+										$('.ok-add-cart-mask').fadeOut();
+										//购物车图标显示购物车商品总数量
+										cartAllNum();
 									},1300);
 								}//else
-								//购物车图标显示购物车商品总数量
-								cartAllNum();
 							});//add-to-car.tap
 						
 			}//success

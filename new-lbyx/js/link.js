@@ -15,7 +15,7 @@ Zepto(function() {
 					alert("请输入正确手机号！");
 				}else{
 					$.ajax({
-					url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=0&XWYorKP=1&",
+					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+usernam+"&type=0&XWYorKP=1&",
 					type:"get",
 					success:function(data){
 						console.log(data);
@@ -37,7 +37,7 @@ Zepto(function() {
 			}
 			localStorage.setItem("registerPhone",registerPhone);
 			$.ajax({
-				url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=7&vcode="+registerCode+"&mobile="+registerPhone+"&",
+				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=7&vcode="+registerCode+"&mobile="+registerPhone+"&",
 				type:"get",
 				success:function(data){
 					console.log(data.result.status.msg);
@@ -60,7 +60,7 @@ Zepto(function() {
 		  		return true;
 		  	} else{
 		  		$.ajax({
-					url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=8&mobile="+registerPhone+"&password="+registerpass1+"&qupassword="+registerpass2+"&",
+					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=8&mobile="+registerPhone+"&password="+registerpass1+"&qupassword="+registerpass2+"&",
 					type:"get",
 					success:function(data){
 						console.log(data);
@@ -102,7 +102,7 @@ Zepto(function() {
 	 	console.log(loginName);
 	 	console.log(loginPass);
 		$.ajax({
-		url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=Login_set&operation=0&UserName="+loginName+"&Password="+loginPass+"&",  //注册地址
+		url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=Login_set&operation=0&UserName="+loginName+"&Password="+loginPass+"&",  //注册地址
 		type:"get",
 		dataType:"json",
 		success:function(data){
@@ -140,7 +140,7 @@ Zepto(function() {
 					alert("请输入正确手机号！");
 				}else{
 					$.ajax({
-					url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=9&mobile="+mobileStr+"&password=12345&",
+					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=9&mobile="+mobileStr+"&password=12345&",
 					type:"get",
 					success:function(data){
 						console.log(data);
@@ -181,7 +181,7 @@ Zepto(function() {
 			}
 //			localStorage.setItem("registerPhone",registerPhone);
 			$.ajax({
-				url: "http://222.128.110.221:18001/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+forgetPhone+"&mobile="+forgetCode+"&",
+				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+forgetPhone+"&mobile="+forgetCode+"&",
 				type:"get",
 				success:function(data){
 					console.log(data);
