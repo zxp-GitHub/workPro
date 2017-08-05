@@ -501,6 +501,9 @@ html,body,.container,.box{
 .address-info-li>input{
 	width: 67%;
 }
+.address-info-li-self-get{
+	display: none;
+}
 .address-info-xiaoyuhao{
 	display: flex;
 	align-items: flex-end;

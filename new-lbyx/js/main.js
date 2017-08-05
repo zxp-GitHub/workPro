@@ -32,7 +32,6 @@ Zepto(function() {
         $('.big-ul>li').hide().eq($(this).index()).show();
         //$('.big-ul li')会报错，是指所有的li
     });
-
 /*S confirm-order*/
 	$(".confirm-order3-three-ul li").tap(function () {
 		$(this).css("color","red").siblings().css("color","black");
@@ -54,9 +53,6 @@ Zepto(function() {
 		$(".my-first-b").hide();
 		$(".my-first-a").show();
 	}
-	
-	
-	
 	//商圈的选择
 	var selectAreaTwoLi = localStorage.getItem("selectAreaTwoLi");
 	$(".first-top-change-span").html(selectAreaTwoLi);
@@ -134,7 +130,6 @@ Zepto(function() {
 							});
 						}
 						
-						
 					});
 				}//success
 			});
@@ -150,35 +145,34 @@ Zepto(function() {
 			}
 		});//ajax
 		//首页推荐列表
-		 $.ajax({
-		url: "http://x5u.com.cn:12804/School/CommonInterface.aspx?action=Related_get&operation=2",  //注册地址
-		type:"get",
-		dataType:"json",
-		success:function(data){
+//		 $.ajax({
+//		url: "http://x5u.com.cn:12804/School/CommonInterface.aspx?action=Related_get&operation=2",  //注册地址
+//		type:"get",
+//		dataType:"json",
+//		success:function(data){
 //				console.log(data);
-				$(".home-main-li-p1").html(data.result.data[0].text);
-				$(".home-main-li-p2").html(data.result.data[1].text);
-				$(".home-main-li-p3").html(data.result.data[2].text);
-				$(".home-main-li1-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[0].GoodsTypeImg);
-				$(".home-main-li2-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[1].GoodsTypeImg);
-				$(".home-main-li3-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[2].GoodsTypeImg);
-				$(".home-main-li1").tap(function () {
-					
-					localStorage.setItem("allGoodsPicID",data.result.data[0].value);
-					window.location.href = "select-area-three.html";
-				});
-				$(".home-main-li2").tap(function () {
-//					data.result.data[1].value
-					localStorage.setItem("allGoodsPicID",data.result.data[1].value);
-					window.location.href = "select-area-three.html";
-				});
-				$(".home-main-li3").tap(function () {
-//					data.result.data[2].value
-					localStorage.setItem("allGoodsPicID",data.result.data[2].value);
-					window.location.href = "select-area-three.html";
-				});
-			}
-		});//ajax
+//				$(".home-main-li-p1").html(data.result.data[0].text);
+//				$(".home-main-li-p2").html(data.result.data[1].text);
+//				$(".home-main-li-p3").html(data.result.data[2].text);
+//				$(".home-main-li1-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[0].GoodsTypeImg);
+//				$(".home-main-li2-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[1].GoodsTypeImg);
+//				$(".home-main-li3-pic").attr("src","http://x5u.com.cn:12804"+data.result.data[2].GoodsTypeImg);
+//				$(".home-main-li1").tap(function () {
+//					localStorage.setItem("allGoodsPicID",data.result.data[0].value);
+//					window.location.href = "select-area-three.html";
+//				});
+//				$(".home-main-li2").tap(function () {
+////					data.result.data[1].value
+//					localStorage.setItem("allGoodsPicID",data.result.data[1].value);
+//					window.location.href = "select-area-three.html";
+//				});
+//				$(".home-main-li3").tap(function () {
+////					data.result.data[2].value
+//					localStorage.setItem("allGoodsPicID",data.result.data[2].value);
+//					window.location.href = "select-area-three.html";
+//				});
+//			}
+//		});//ajax
 		
 		$(".home-main-li4").tap(function () {
 			window.location.href = "all-goods.html";

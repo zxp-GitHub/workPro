@@ -27,9 +27,11 @@
 					<ul class="add-main-ul">
 						<li class="add-main-li address-info-li"><span class="address-info-span">收货人：</span><input type="text" value="" class="address-info-name"/> </li>
 						<li class="add-main-li address-info-li"><span class="address-info-span">联系电话：</span><input type="text" value="" class="address-info-phone"/></li>
-						<li class="add-main-li address-info-li"><span class="address-info-span">选择区域 ： </span><input type="text" value="" class="address-info-place"/>  <span class="select-area-span">
+						<li class="add-main-li address-info-li address-info-li-distribution"><span class="address-info-span">选择区域 ： </span><input type="text" value="" class="address-info-place"/>  <span class="select-area-span">
 							<i class="iconfont icon-dayuhao  address-info-xiaoyuhao"></i></span></li>
-						<li class="add-main-li address-info-li"><span class="address-info-span">详细地址：</span><input type="text" value="" class="address-info-detail-place"/></li>
+						<li class="add-main-li address-info-li address-info-li-distribution"><span class="address-info-span">详细地址：</span><input type="text" value="" class="address-info-detail-place"/></li>
+						<li class="add-main-li address-info-li address-info-li-self-get"><span class="address-info-span">自提点 ： </span><input type="text" value="" class="address-info-place"/>  <span class="select-area-span">
+							<i class="iconfont icon-dayuhao  address-info-xiaoyuhao"></i></span></li>
 					</ul>
 					<p class="next-step address-info-ok">确定</p>
 				</div>
@@ -39,6 +41,14 @@
 </html>
 <script type="text/javascript">
 	Zepto(function() {
+		var lbyxGiveWay = localStorage.getItem("lbyxGiveWay");
+				if (lbyxGiveWay=="配送员配送") {
+					$(".address-info-li-self-get").hide();
+					$(".address-info-li-distribution").show();
+				} else{
+					$(".address-info-li-self-get").show();
+					$(".address-info-li-distribution").hide();
+				}
 		$(".address-info-ok").tap(function () {
 			var  addressInfoName = $(".address-info-name").val();
 			var  addressInfoPhone = $(".address-info-phone").val();

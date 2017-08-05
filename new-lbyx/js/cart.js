@@ -317,11 +317,13 @@ Zepto(function() {
 		localStorage.setItem("allPrice",allPrice);
 		//存储购物车ID
 		localStorage.setItem("lbyxCartID",data.Result.usercart.CartID);
+		
 //		console.log(data.Result.usercart.CartID);
 		//点击去结算，判断是否选中商品
 		if (allPrice==0) {
 			alert("请选择商品");
 		} else{
+			localStorage.setItem("lbyxGiveWay","配送员配送");
 			window.location.href = "confirm-order-one.html";
 		}
 //		var allPrice = $(".all-choice-price").html();
