@@ -489,6 +489,16 @@ html,body,.container,.box{
 .select-area-span{
 	display: inline-block;
 	float: right;
+	/*position: absolute;*/
+	right: 1rem;
+}
+.select-area-info-span{
+	display: inline-block;
+	position: absolute;
+	right: 1rem;
+}
+.address-info-select-area,.address-info-self-get-point{
+	display: none;
 }
 /*.address-info-span{
 	width: 28%;
@@ -977,8 +987,9 @@ vertical-align: middle;
 }
 .confirm-order1-one-right-p2{
 	margin-top: 5%;
-	height: 48%;
+	/*height: 48%;*/
 	width:100%;
+	position: relative;
 }
 .confirm-order1-one-right-p2>span{
 	float: left;
@@ -987,9 +998,25 @@ vertical-align: middle;
 	/*width: 20%;*/
 	height: 100%;
 }
-.confirm-order1-one-right-p2>span:nth-child(2){
-	width: 77%;
-	height: 100%;
+.confirm-one-place1{
+	/*width: 40%;*/
+	/*height: 100%;*/
+	display: inline-block;
+	margin-right: 1rem;
+	/*text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow:hidden;*/
+}
+.confirm-one-place2{
+	/*width: 50%;*/
+	/*height: 100%;*/
+	/*position: absolute;*/
+	display: block;
+	/*right: 0;*/
+	text-overflow:  ;
+	white-space: nowrap;
+	overflow:hidden;
+	
 }
 .confirm-order-ul>.confirm-order-border-li{
 	border-top:1px solid #ccc;

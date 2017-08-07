@@ -24,8 +24,8 @@
 						<div class="confirm-order3-three">
 				        	<p class="confirm-order3-three-p">配送方式</p>
 				        	<ul class="confirm-order3-three-ul">
-				        		<li class="confirm-order3-three-li confirm-order-four-li">配送员配送</li>
-				        		<li class="confirm-order3-three-li confirm-order-four-li ">自提点自提</li>
+				        		<li class="confirm-order3-three-li confirm-order-four-li confirm-order-send-way">配送员配送</li>
+				        		<li class="confirm-order3-three-li confirm-order-four-li confirm-order-send-way">自提点自提</li>
 				        	</ul>
 				        	<p class="confirm-order3-three-p confirm-order3-three-cancel">取消</p>
 		        		</div>
@@ -77,7 +77,7 @@
 						<p class="confirm-order1-one-p"><i class="iconfont icon-dizhi"></i></p>
 						<div class="confirm-order1-one-right">
 							<p class="confirm-order1-one-right-p1">收件人：<span class="confirm-one-name">婉莹</span><span class="confirm-one-phone">13722212221</span></p>
-							<p class="confirm-order1-one-right-p2"><span>收货地址：</span><span class="confirm-one-place">北京市海淀区中关村大街27号中关村大厦509室</span></p>
+							<p class="confirm-order1-one-right-p2"><span class="get-goods-place-span">收货地址：</span><span class="confirm-one-place1"></span><span class="confirm-one-place2">北京市海淀区中关村大街27号中关村大厦509室</span></p>
 						</div>
 					</div><!--fill-address-information-->
 					<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
@@ -128,14 +128,27 @@
 		var	lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
 //			localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
 		var	lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlace");
+		var lbyxDistributionSelectArea = localStorage.getItem("lbyxDistributionSelectArea");
+		var lbyxSelfGetPoint = localStorage.getItem("lbyxSelfGetPoint");
+		console.log(lbyxAddressName,lbyxAddressPhone,lbyxAddressDetailPlace);
 		var lbyxGiveWay = localStorage.getItem("lbyxGiveWay");
 		var lbyxGiveDay = localStorage.getItem("lbyxGiveDay");
 		var lbyxGiveTime = localStorage.getItem("lbyxGiveTime");
+		//配送方式变，页面布局变
+		if (lbyxGiveWay=="配送员配送") {
+					$(".get-goods-place-span").html("收货地址：");
+					$(".confirm-one-place2").show();
+					$(".confirm-one-place1").html(lbyxDistributionSelectArea);
+				} else{
+					$(".get-goods-place-span").html("自提地址：");
+					$(".confirm-one-place2").hide();
+					$(".confirm-one-place1").html(lbyxSelfGetPoint);
+				}
 		$(".confirm-two-way").html(lbyxGiveWay);
 		$(".confirm-two-day").html(lbyxGiveDay);
 		$(".confirm-two-time").html(lbyxGiveTime);
 		console.log(lbyxAddressName);
-		if (lbyxAddressName==""||lbyxAddressPhone==""||lbyxAddressDetailPlace=="") {
+		if (lbyxAddressName==""||lbyxAddressPhone==""||lbyxAddressDetailPlace=="") {//表示空，中间不要加空格
 			$(".fill-address-info-button").show();
 			$(".confirm-order1-one").hide();
 		} else{
@@ -143,11 +156,11 @@
 			$(".confirm-order1-one").show();
 			$(".confirm-one-name").html(lbyxAddressName);
 			$(".confirm-one-phone").html(lbyxAddressPhone);
-			$(".confirm-one-place").html(lbyxAddressDetailPlace);
-			$(".fill-address-info-p").tap(function () {
+			$(".confirm-one-place2").html(lbyxAddressDetailPlace);
+		}
+		$(".fill-address-info-p").tap(function () {
 				window.location.href = "address-information.html";
 			});
-		}
 			$(".confirm-two-way").text(lbyxGiveWay);
 			
 			var lbyxCode = localStorage.getItem("lbyxCode");
@@ -187,6 +200,9 @@
 						} else{
 							$(this).hide();
 						}
+					});
+					$(".confirm-order-send-way").tap(function () {
+						window.location.reload();
 					});
 				}
 			});

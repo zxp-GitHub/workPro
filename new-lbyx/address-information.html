@@ -27,10 +27,10 @@
 					<ul class="add-main-ul">
 						<li class="add-main-li address-info-li"><span class="address-info-span">收货人：</span><input type="text" value="" class="address-info-name"/> </li>
 						<li class="add-main-li address-info-li"><span class="address-info-span">联系电话：</span><input type="text" value="" class="address-info-phone"/></li>
-						<li class="add-main-li address-info-li address-info-li-distribution"><span class="address-info-span">选择区域 ： </span><input type="text" value="" class="address-info-place"/>  <span class="select-area-span">
+						<li class="add-main-li address-info-li address-info-li3 address-info-li-distribution"><span class="address-info-span">选择区域 ： </span><input type="text" value="" class="address-info-select-area"/><span class="select-area-info-span">
 							<i class="iconfont icon-dayuhao  address-info-xiaoyuhao"></i></span></li>
 						<li class="add-main-li address-info-li address-info-li-distribution"><span class="address-info-span">详细地址：</span><input type="text" value="" class="address-info-detail-place"/></li>
-						<li class="add-main-li address-info-li address-info-li-self-get"><span class="address-info-span">自提点 ： </span><input type="text" value="" class="address-info-place"/>  <span class="select-area-span">
+						<li class="add-main-li address-info-li address-info-li-self-get"><span class="address-info-span">自提点 ： </span> <input type="text" value="" class="address-info-self-get-point"/> <span class="select-area-span">
 							<i class="iconfont icon-dayuhao  address-info-xiaoyuhao"></i></span></li>
 					</ul>
 					<p class="next-step address-info-ok">确定</p>
@@ -41,6 +41,45 @@
 </html>
 <script type="text/javascript">
 	Zepto(function() {
+//		var lbyxAddressName = localStorage.getItem("lbyxAddressName");
+//		var lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
+//		var lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlace");
+		var lbyxAddressName = localStorage.getItem("lbyxAddressNames");
+		var lbyxAddressPhone= localStorage.getItem("lbyxAddressPhones");
+		var lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlaces");
+		var lbyxDistributionSelectArea = localStorage.getItem("lbyxDistributionSelectArea");
+		var lbyxSelfGetPoint = localStorage.getItem("lbyxSelfGetPoint");
+		if (lbyxDistributionSelectArea!=" ") {
+			$(".address-info-select-area").show();
+			$(".address-info-select-area").val(lbyxDistributionSelectArea);
+		}
+		if (lbyxSelfGetPoint!=" ") {
+			$(".address-info-self-get-point").show();
+			$(".address-info-self-get-point").val(lbyxSelfGetPoint);
+		}
+		if (lbyxAddressName==" ") {
+			var lbyxAddressName = localStorage.getItem("lbyxAddressName");
+		}
+		if (lbyxAddressPhone==" ") {
+			var lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
+		}
+		if (lbyxAddressDetailPlace==" ") {
+			var lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlace");
+		}
+		$(".address-info-name").val(lbyxAddressName);
+		$(".address-info-phone").val(lbyxAddressPhone);
+		$(".address-info-detail-place").val(lbyxAddressDetailPlace);
+		$(".address-info-li3").tap(function () {
+			localStorage.setItem("lbyxAddressNames",$(".address-info-name").val());
+			localStorage.setItem("lbyxAddressPhones",$(".address-info-phone").val());
+			localStorage.setItem("lbyxAddressDetailPlaces",$(".address-info-detail-place").val());
+			window.location.href = "confirm-order-select-area.html";
+		});
+		$(".address-info-li-self-get").tap(function () {
+			localStorage.setItem("lbyxAddressNames",$(".address-info-name").val());
+			localStorage.setItem("lbyxAddressPhones",$(".address-info-phone").val());
+			window.location.href = "confirm-order-self-get.html";
+		});
 		var lbyxGiveWay = localStorage.getItem("lbyxGiveWay");
 				if (lbyxGiveWay=="配送员配送") {
 					$(".address-info-li-self-get").hide();
@@ -64,6 +103,10 @@
 				if(result == false) {
 					alert("请输入正确手机号！");
 				}else{
+					localStorage.setItem("lbyxAddressNames",$(".address-info-name").val());
+					localStorage.setItem("lbyxAddressPhones",$(".address-info-phone").val());
+					localStorage.setItem("lbyxAddressDetailPlaces",$(".address-info-detail-place").val());
+					localStorage.setItem("lbyxDistributionSelectArea",lbyxDistributionSelectArea);
 					localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
 					localStorage.setItem("lbyxAddressPhone",$(".address-info-phone").val());
 					localStorage.setItem("lbyxAddressDetailPlace",$(".address-info-detail-place").val());
