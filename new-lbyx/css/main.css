@@ -1438,7 +1438,9 @@ vertical-align: middle;
 .get-dynamic-code{
 	text-align: center;
 	font-size: 0.7rem;
-	float: right;
+	/*float: right;*/
+	position: absolute;
+	right: 1rem;
 	background-color: red;
 	color: #fff;
 	border-radius: 1rem;
@@ -1446,6 +1448,20 @@ vertical-align: middle;
 	margin-left: 1rem;
 }
 .next-step{
+	text-align: center;
+	display: inline-block;
+	width: 80%;
+	padding:0.4rem 0.5rem;
+	background-color: orangered;
+	color: #fff;
+    display: flex;  /*display:flex+margin 可使元素居中*/
+    justify-content: center;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+}
+.set-new-pass-next-step,.bind-phone-next-step,.verify-phone-next-step{
 	text-align: center;
 	display: inline-block;
 	width: 80%;
@@ -1479,6 +1495,18 @@ vertical-align: middle;
 }
 .bind-phone-main-p-one{
 	display: none;
+}
+.bind-phone-get-dynamic-code{
+	text-align: center;
+	font-size: 0.7rem;
+	/*float: right;*/
+	position: absolute;
+	right: 1rem;
+	background-color: red;
+	color: #fff;
+	border-radius: 1rem;
+	padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+	margin-left: 1rem;
 }
 /*E bind-phone-number*/
 /*S verify-phone-num*/

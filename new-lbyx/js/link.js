@@ -135,15 +135,16 @@ Zepto(function() {
 				var mobileReg = /^[1]{1}[3|5|7|8]{1}\d{9}$/;
 				var mobileStr = $('.forget-pass-input').val();
 				var result = mobileReg.test(mobileStr);
-				//console.log(result)
+				console.log(mobileStr)
 				if(result == false) {
 					alert("请输入正确手机号！");
 				}else{
 					$.ajax({
-					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=9&mobile="+mobileStr+"&password=12345&",
+					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile="+mobileStr+"&type=1&XWYorKP=0&",
 					type:"get",
 					success:function(data){
 						console.log(data);
+						alert("短信已发送注意查收");
 //						if(data.result.status.msg=="此用户已存在"){
 //							alert(data.result.status.msg);
 //						}
@@ -175,17 +176,17 @@ Zepto(function() {
 			var forgetPhone = $(".forget-pass-input").val();
 			var forgetCode = $(".forget-pass-input2").val();
 				 	console.log(forgetPhone,forgetCode)
-
 			if(forgetPhone==""||forgetCode==""){
 				alert("亲，内容不可为空！");
 			}
 //			localStorage.setItem("registerPhone",registerPhone);
 			$.ajax({
-				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=4&vcode="+forgetPhone+"&mobile="+forgetCode+"&",
+				url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=7&vcode="+forgetCode+"&mobile="+forgetPhone+"&password=12345&",
 				type:"get",
 				success:function(data){
 					console.log(data);
-					
+					localStorage.setItem("lbyxForgetPhone",forgetPhone)
+					window.location.href = "set-new-password.html";
 //					if(data.result.status.msg=="succ"){
 //						alert("注册成功了，亲~！");
 //					}

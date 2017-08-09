@@ -40,7 +40,7 @@
 		var universityId = localStorage.getItem("universityId");
 		$.ajax({//获取json数据必写哦！！！
 			type:"get",
-			url:"http://api.x5u.com.cn:12804/CRM/SS_AddressManager.aspx?action=RegionListSuperMarket_get&UniversityId="+universityId+"&token="+lbyxCode+"",
+			url:"http://api.x5u.com.cn:12804/CRM/SS_AddressManager.aspx??action=MessageAuthentication_get&operation=9&mobile=15210183625&password=12345&",
 			dataType:"json",
 			success:function(data){//consol一下是很重要的！！！！！！
 					console.log(data);
