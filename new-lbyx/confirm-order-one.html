@@ -36,7 +36,7 @@
 						<div class="confirm-order3-three">
 			        		<p class="confirm-order3-three-p">配送方式</p>
 				        	<ul class="confirm-order3-three-ul confirm-order-select-data-ul">
-				        		<li class="confirm-order3-three-li">2017-08-09</li>
+				        		<li class="confirm-order3-three-li">2017-08-10</li>
 				        		<li class="confirm-order3-three-li">4月2日  星期日</li>
 				        		<li class="confirm-order3-three-li">4月3日  星期一</li>
 				        		<li class="confirm-order3-three-li">4月4日  星期二</li>
@@ -221,7 +221,7 @@
 	 //点击去支付提交信息
 	 $(".go-to-buy-a").tap(function () {
 	 	$.ajax({
-				url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=OrderCreate&token="+lbyxCode+"&CartID="+lbyxCartID+"&RSID=21&PSorZT=0&DeliverTime=17:00-17:30&DeliverDateTime=2017-08-09&Remark=备注&", 
+				url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=OrderCreate&token="+lbyxCode+"&CartID="+lbyxCartID+"&RSID=21&PSorZT=0&DeliveryTime=17:00-17:30&DeliveryDateTime=2017-08-10&Remark=可能会晚拿&", 
 				type:"get",
 				dataType:"json",
 				success:function(data){
