@@ -1,3 +1,44 @@
 ﻿git 安装使用步骤
 
-Git add+Git commit+Gitpush。
+Git add+Git commit+Gitpush
+
+2017-3-30
+1.前端中
+
+import Vue from 'vue'
+和 var Vue = require('vue');
+
+写法有什么区别吗？
+
+都没有好处，第一个需要 ES2015 支持，第二个可能需要第三方库并且增加请求数量
+		  
+commonjs 的 require 是加载时执行 
+而 es6 的 import 是调用时执行，加载时只产生引用 
+比如引入模块里的值异步的产生了变化， require 他的文件的值是不变的 
+而 import 的，则会根据模块值的变化而变化
+
+一个是 ES6 一个是 CommonJS 
+前者是将来的趋势 但是现在需要编译转换一下 
+后者是目前最普遍的用法 但是前段的话需要引入 Browserify 或者 RequireJS 来支持
+
+还有 require 支持动态加载，如 require('./' + module) 
+import 由于要做静态分析，不支持动态加载
+
+import 只能在代码开头用， require 可以在任何地方用
+		
+ 好像不一定……我之前写 vue 的时候在非 js 开头处用 import 也没问题。只是不能在代码块中用而已。
+
+
+Vue基本安装命令行
+nom install vue
+// 安装 vue-cli
+npm install -g vue-cli
+
+// 初始化一个项目
+vue init webpack my-project
+
+// 然后一路回车，记得勾选上vue-router
+// 输入以下命令，等待浏览器打开
+cd my-project
+npm install
+npm run dev
