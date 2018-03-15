@@ -1,0 +1,396 @@
+*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			html,body,.container{
+				width: 100%;
+				height: 100%;
+			}
+			.container{
+				position: relative;
+            	overflow: hidden;
+			}
+			.mainUl{
+				position: absolute;
+	            width: 100%;
+	            height: 1100%;
+	            top: -100%;;
+	            left: 0;
+				}
+			.music-cell{
+				position: absolute;
+				right: 5%;
+				top: 3%;
+				z-index: 2;
+				width: 10%;
+			}
+			.music{
+	            width: 50px;
+	            height: 50px;
+	            /*background: red;*/
+	            position: absolute;
+	            top: 8px;
+	            right: 15px;
+	            z-index: 999;
+	            background: url("../img/music_on.png") no-repeat;
+	            background-size: 100% 100%;
+	        }
+	        .music-rotate{
+	        	animation: rota 0.5s infinite;
+	        }
+			/*.music_on{
+				width:100%;
+			}*/
+			.mus{
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				background-color:red;
+				z-index: 999;
+			}
+			   /*音乐符的转动动画*/
+		        @keyframes rota {
+		            0%{
+		                transform: rotateZ(0deg);
+		            }
+		            20%{
+		                transform: rotateZ(72deg);
+		            }
+		            40%{
+		                transform: rotateZ(144deg);
+		            }
+		            60%{
+		                transform: rotateZ(216deg);
+		            }
+		            80%{
+		                transform: rotateZ(288deg);
+		            }
+		            100%{
+		                transform: rotateZ(360deg);
+		            }
+		        }
+			/*.page{
+				position: absolute;
+				left: 0;
+				height: 0;
+				width: 100%;
+				height: 100%;
+				background-size: 100% 100%;
+			}*/
+			.mid{
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+			/*.hide{
+				display: none;
+			}
+			.show{
+				display: block;
+			}*/
+			.page img{
+				position: absolute;
+			}
+			.page .up{
+				bottom: 5%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;/*可以用，但是要加上上面两句话*/
+				animation: ani-up 1.5s infinite;
+				width: 7%;
+			}
+			@keyframes ani-up{
+				from{
+					bottom: 5%;
+				}
+				to{
+					bottom: 3%;
+				}
+			}
+/*S page总+各个页面的背景图片 */
+			.page{
+	            width: 100%;
+	            height: 9.09%;
+	            font-size:100px;
+	            text-align: center;
+	            color: #fff;
+	            position: relative;
+       		}
+			.page1{
+				background: url(../img/t1-bg.png);
+				background-size: 100% 100%;
+			}
+			.page2{
+				background: url(../img/t2-bg.png);
+				background-size: 100% 100%;
+			}
+			.page3{
+				background: url(../img/t3-bg.png);
+				background-size: 100% 100%;
+			}
+			.page4{
+				background-color: deeppink;
+				background-size: 100% 100%;
+			}
+			.page5{
+				background-color:orangered ;
+				background-size: 100% 100%;
+			}
+			
+			.page6{
+				background-color:mediumpurple ;
+				background-size: 100% 100%;
+			}
+			.page7{
+				background-color:darkcyan;
+				background-size: 100% 100%;
+			}
+			.page8{
+				background-color:palegreen;
+				background-size: 100% 100%;
+			}
+			.page9{
+				background-color:skyblue;
+				background-size: 100% 100%;
+			}
+/*E page总+各个页面的背景图片 */
+/*S 各个页面的动态效果，倒着的顺序*/
+			
+			.page10,.page11{
+				background:url(../img/t10-bg.png);
+				background-size: 100% 100%;
+			}
+			.page10 img:nth-child(1),.page11 img:nth-child(1){
+				top: 10%;
+				width: 69%;
+				animation: ani32 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			.page10 img:nth-child(2),.page11 img:nth-child(2){
+				top: 93%;
+				width: 25%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page10 img:nth-child(3),.page11 img:nth-child(3){
+				top: 81%;
+				width: 45%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page10 img:nth-child(4),.page11 img:nth-child(4){
+				top: 85%;
+				width: 28%;
+				animation: ani32 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			.page9 img:nth-child(1){
+				width: 69%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page9 img:nth-child(2){
+				bottom: 0;
+				width: 85%;
+				animation: ani32 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			.page8 img:nth-child(1){
+				top: 7%;
+				width: 78%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page8 img:nth-child(2){
+				top: 10%;
+				width: 63%;
+				margin-left: 19%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page8 img:nth-child(3){
+				top: 78%;
+				width: 45%;
+				animation: ani32 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			
+			
+			.page7 img:nth-child(1){
+				/*top: 5%;*/
+				width: 75%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page7 img:nth-child(2){
+				top: 8%;
+				width: 66%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page7 img:nth-child(3){
+				top: 72%;
+				width: 45%;
+				animation: ani32 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			
+			
+			
+			
+			.page6 img:nth-child(1){
+				top: 7%;
+				width: 63%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page6 img:nth-child(2){
+				top: 12%;
+				width: 63%;
+				margin-left: 22%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page6 img:nth-child(3){
+				top: 72%;
+				width: 45%;
+				animation: ani32 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			
+			.page5 img:nth-child(1){
+				/*top: 5%;*/
+				width: 60%;
+				animation: ani22 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			.page5 img:nth-child(2){
+				top: 10%;
+				width: 60%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page5 img:nth-child(3){
+				top: 72%;
+				width: 55%;
+				/*animation: ani-mid 1s;*/
+			}
+			/*.page4 img{
+				width: 80%;
+			}*/
+			.page4 img:nth-child(1){
+				top: 14%;
+				width: 70%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page4 img:nth-child(2){
+				top: 40%;
+				width: 70%;
+				animation: ani32 2s 0.5s;
+				/*animation: ani-mid 1s;*/
+			}
+			.page4 img:nth-child(3){
+				top: 70%;
+				width: 80%;
+				/*animation: ani-mid 1s;*/
+			}
+			.page3 img:nth-child(1){
+				top: 10%;
+				width: 35%;
+				animation: ani31 1s;
+			}
+			.page3 img:nth-child(2){
+				top: 57%;
+				width: 60%;
+				animation: ani32 2s 0.5s;
+				/*animation-delay: 0.5s;*/
+			}
+			@keyframes ani31{
+				from{right: -100%;}
+				to{
+			    left: 0;
+				}
+			}
+			@keyframes ani32{
+				0%{
+					top: 30%;
+					opacity: 0;
+				}
+				25%{
+					top: 70%;
+					opacity: 1;
+				}
+				50%{
+					top: 40%;
+				}
+				75%{
+					top: 57%;
+				}
+			}
+			.page2 img:first-child{
+				top: 6%;
+				width: 20%;
+				animation: ani21 0.7s;
+			}
+			
+			.page2 img:nth-child(2){
+			    left: 0;
+				right: 0;
+				margin: 0 auto;
+				top: 67%;
+				width: 38%;
+				animation: ani22 1.5s;
+				
+			}
+			@keyframes ani21{
+				0%{
+					top: -50%;
+				}
+				100%{
+					top: 6%;
+				}
+				
+			}
+			@keyframes ani22{
+				0%{
+					left: -90%;
+				}
+				100%{
+					left: 0;
+					right: 0;
+					margin: 0 auto;
+				}
+				
+			}
+			
+			
+			.page1 img:first-child{
+				top: 24%;
+				width: 77%;
+				left: 11%;
+				animation: ani11 2s;
+			}
+			
+			.page1 img:nth-child(2){
+				top: 30%;
+				width: 85%;
+				animation: ani12 0.7s;
+				
+			}
+			@keyframes ani11{
+				0%{
+					top: -50%;
+				}
+				25%{
+					top: 35%;
+				}
+				50%{
+					top: 15%;
+				}
+				75%{
+					top: 24%;
+				}
+				
+			}
+			@keyframes ani12{
+				0%{
+					top: -50%;
+				}
+				100%{
+					top: 30%;
+				}
+				
+			}

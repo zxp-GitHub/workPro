@@ -1,0 +1,635 @@
+        *{
+			margin: 0px;
+			padding: 0px;
+		}
+		body{
+			font-family: "Microsoft YaHei",Tahoma,Helvetica,Arial,sans-serif;
+			background-color: transparent;
+		}
+		html,body,.container{
+			height: 100%;
+		}
+		.container{
+			position: relative;
+			overflow: hidden;
+		}
+		.swiper-container{
+			width: 100%;
+			height: 600%;
+			position: absolute;
+			top: -100%;
+			left: 0;
+		}
+		.swiper-slide{
+			position: relative;
+			width: 100%;
+			height: 16.67%;
+			overflow: hidden;
+		}
+		.musicA{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			z-index: 100;
+			background: url("../images/music_on.png") no-repeat center center;
+			background-size: 30px 30px;
+		}
+		.music-rotate{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			z-index: 100;
+			background: url("../images/music.gif") no-repeat center center;
+			background-size: 60px 60px;
+		}
+		.rotate{
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			background: url("../images/music_on.png") no-repeat;
+			background-size: 100% 100%;
+			top: 10px;
+			left: 10px;
+			-webkit-animation: rotating 1.2s linear infinite;
+			-moz-animation: rotating 1.2s linear infinite;
+			-o-animation: rotating 1.2s linear infinite;
+			animation: rotating 1.2s linear infinite;
+		}
+		
+
+		.up-arrow-box{
+			width:24px;
+			height: 14px;
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			margin-left: -7px;
+		}
+		.up-arrow{
+			width: 24px;
+			height: 14px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 100;
+			-webkit-animation: start 1.5s ease-in-out infinite;
+			-moz-animation: start 1.5s ease-in-out infinite;
+			-o-animation: start 1.5s ease-in-out infinite;
+			animation: start 1.5s ease-in-out infinite;
+		}
+
+		
+
+		.img1 img,.img2 img,.img3 img,.img4 img{
+			width: 100%;
+			height: 100%;
+		}
+
+		.img1{
+			width: 196px;
+			height: 103px;
+			position: absolute;
+			left: 59px;
+			top: 14px;
+		}
+
+		.my-ZoomIn1{
+			-webkit-animation: myZoomIn 1s ease 1s both;
+			-moz-animation: myZoomIn 1s ease 1s both;
+			-o-animation: myZoomIn 1s ease 1s both;
+			animation: myZoomIn 1s ease 1s both;		}
+
+		.img2{
+			width: 142px;
+			height: 39px;
+			position: absolute;
+			left: 93px;
+			top:105px;
+			z-index: 3;
+		}
+		.my-bounceInLeft1{
+			-webkit-animation: bounceInLeft 2s ease both;
+			-moz-animation: bounceInLeft 2s ease both;
+			-o-animation: bounceInLeft 2s ease both;
+			animation: bounceInLeft 2s ease both;
+		}
+		.img3{
+			width: 105px;
+			height: 161px;
+			position: absolute;
+			left: 94px;
+			top: 146px;
+			z-index: 2;
+		}
+		.my-bounceInUp1{
+			-webkit-animation: bounceInUp 2s ease both;
+			-moz-animation: bounceInUp 2s ease both;
+			-o-animation: bounceInUp 2s ease both;
+			animation: bounceInUp 2s ease both;
+		}
+		.img4{
+			width: 33px;
+			height: 161px;
+			position: absolute;
+			left: 200px;
+			top: 146px;
+			z-index: 4;
+		}
+		.my-bounceInDown1{
+			-webkit-animation: bounceInDown 2s ease both;
+			-moz-animation: bounceInDown 2s ease both;
+			-o-animation: bounceInDown 2s ease both;
+			animation: bounceInDown 2s ease both;
+		}
+		.img-bg{
+			width: 100%;
+			height: 152px;
+			position: absolute;
+			left: 0px;
+			top: 100px;
+			z-index: 6;
+		}
+		.my-fadeInUp1{
+			-webkit-animation: fadeInUp 3s ease 1s both;
+			-moz-animation: fadeInUp 3s ease 1s both;
+			-o-animation: fadeInUp 3s ease 1s both;
+			animation: fadeInUp 3s ease 1s both;
+		}
+		.my-fadeInUp2{
+			-webkit-animation: fadeInUp 2s ease 1s both;
+			-moz-animation: fadeInUp 2s ease 1s both;
+			-o-animation: fadeInUp 2s ease 1s both;
+			animation: fadeInUp 2s ease 1s both;		
+		}
+		.img-bg img{
+			width: 110%;
+			height: 152px;
+			transform: rotateY(180deg);
+			-ms-transform: rotateY(180deg);
+			-webkit-transform: rotateY(180deg);
+			-moz-transform: rotateY(180deg);
+			-o-transform: rotateY(180deg);
+			margin-left: -10%;
+			-webkit-animation: myFlash 4s ease infinite;
+			-moz-animation: myFlash 4s ease infinite;
+			-o-animation: myFlash 4s ease infinite;
+			animation: myFlash 4s ease infinite;
+		}
+
+		
+
+		.img-bg2{
+			width: 100%;
+			height: 161px;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			z-index: 5;
+		}
+		.my-bounceIn1{
+			-webkit-animation: bounceIn 2s ease 2.5s both;
+			-moz-animation: bounceIn 2s ease 2.5s both;
+			-o-animation: bounceIn 2s ease 2.5s both;
+			animation: bounceIn 2s ease 2.5s both;
+		}
+		.img-bg2 img{
+			width: 110%;
+			height: 161px;			
+			margin-left: -10%;		
+		}
+		.big-text{
+			width: 100%;
+			height: 44px;
+			position: absolute;
+			z-index: 8;
+			bottom: 80px;
+			left: 0;
+			text-align: center;
+			line-height: 44px;
+			font-size: 36px;
+			text-indent: 44px;
+			color: #fff;
+		}
+		.sml-text{
+			width: 100%;
+			height: 38px;
+			position: absolute;
+			z-index: 8;
+			bottom: 40px;
+			left: 0;
+			text-align: center;
+			line-height: 38px;
+			font-size: 16px;
+			color: #fff;
+		}
+		.my-fadeIn1{
+			-webkit-animation: fadeIn 2s ease 3s both;
+			-moz-animation: fadeIn 2s ease 3s both;
+			-o-animation: fadeIn 2s ease 3s both;
+			animation: fadeIn 2s ease 3s both;			
+		}
+
+		.p2-img1{
+			width: 68px;
+			height: 151px;
+			position: absolute;
+			left: -6px;
+			top: -5px;
+		}
+		.my-fadeInDown1{
+ 			-webkit-animation: fadeInDown 1s ease 0.1s both;
+			-moz-animation: fadeInDown 1s ease 0.1s both;
+			-o-animation: fadeInDown 1s ease 0.1s both;
+			animation: fadeInDown 1s ease 0.1s both;
+		}
+		.p2-img1 img{
+			width: 69px;
+			height: 153px;
+			margin-top: -1px;
+		}
+
+		.p2-img2{
+			width: 79px;
+			height: 240px;
+			position: absolute;
+			left: 55px;
+			top: -23px;
+			z-index: 2;
+		}
+		.my-fadeInDown2{
+ 			-webkit-animation: fadeInDown 0.8s ease 0.4s both;
+			-moz-animation: fadeInDown 0.8s ease 0.4s both;
+			-o-animation: fadeInDown 0.8s ease 0.4s both;
+			animation: fadeInDown 0.8s ease 0.4s both;
+		}
+		.p2-img2 img{
+			width: 79px;
+			height: 242px;
+			margin-top: -1px;
+		}
+
+		.p2-img3{
+			width: 56px;
+			height: 120px;
+			position: absolute;
+			left: 183px;
+			top: -9px;
+			z-index: 3;
+		}
+		.my-fadeInDown3{
+ 			-webkit-animation: fadeInDown 0.5s ease 0.3s both;
+			-moz-animation: fadeInDown 0.5s ease 0.3s both;
+			-o-animation: fadeInDown 0.5s ease 0.3s both;
+			animation: fadeInDown 0.5s ease 0.3s both;
+		}
+		.p2-img3 img{
+			width: 56px;
+			height: 120px;			
+		}
+
+		.p2-img4{
+			width: 92px;
+			height: 240px;
+			position: absolute;
+			left: 227px;
+			top: -36px;
+			z-index: 4;
+		}
+		.my-fadeInDown4{
+ 			-webkit-animation: fadeInDown 1s ease 0.6s both;
+			-moz-animation: fadeInDown 1s ease 0.6s both;
+			-o-animation: fadeInDown 1s ease 0.6s both;
+			animation: fadeInDown 1s ease 0.6s both;
+		}
+		.p2-img4 img{
+			width: 92px;
+			height: 240px;
+			margin-top: -0.5px;			
+		}
+
+		.p2-img5{
+			width: 170px;
+			height: 486px;
+			position: absolute;
+			left: 95px;
+			top: -65px;
+			z-index: 5;
+		}
+		.my-fadeInDown5{
+ 			-webkit-animation: fadeInDown 2s ease 1s both;
+			-moz-animation: fadeInDown 2s ease 1s both;
+			-o-animation: fadeInDown 2s ease 1s both;
+			animation: fadeInDown 2s ease 1s both;
+		}
+		.p2-img5 img{
+			width: 170px;
+			height: 486px;	
+			position: absolute;				
+		}	
+		.my-rubberBand1{
+ 			-webkit-animation: rubberBand 2s ease 3s both;
+			-moz-animation: rubberBand 2s ease 3s both;
+			-o-animation: rubberBand 2s ease 3s both;
+			animation: rubberBand 2s ease 3s both;
+		}
+
+		.page3-img1{
+			width: 100%;
+			height: 345px;
+			position: absolute;
+			left: 0;
+			top: 11px;		
+		}
+		.my-fadeInDown6{
+ 			-webkit-animation: fadeInDown 1s ease both;
+			-moz-animation: fadeInDown 1s ease both;
+			-o-animation: fadeInDown 1s ease both;
+			animation: fadeInDown 1s ease both;
+		}
+		.page3-img1 img,.page3-img2 img,.page3-img3 img,.page3-img4 img,.page3-img5 img,.page3-img6 img,.page3-img7 img{
+			width: 100%;
+			height: 100%;
+		}
+
+		.page3-img2{
+			width: 152px;
+			height: 45px;
+			position: absolute;
+			left:33px;
+			top: 54px;		
+		}
+		.my-fadeIn2{
+ 			-webkit-animation: fadeIn 2s ease 1s both;
+			-moz-animation: fadeIn 2s ease 1s both;
+			-o-animation: fadeIn 2s ease 1s both;
+			animation: fadeIn 2s ease 1s both;
+		}
+
+		.page3-img3{
+			width: 201px;
+			height:60px;
+			position: absolute;
+			right: 22px;
+			top: 108px;		
+		}
+		.my-fadeIn3{
+ 			-webkit-animation: fadeIn 2s ease 2s both;
+			-moz-animation: fadeIn 2s ease 2s both;
+			-o-animation: fadeIn 2s ease 2s both;
+			animation: fadeIn 2s ease 2s both;
+		}
+
+		.page3-img4{
+			width: 217px;
+			height:82px;
+			position: absolute;
+			left:33px;
+			top: 171px;		
+		}
+		.my-fadeIn4{
+ 			-webkit-animation: fadeIn 2s ease 3s both;
+			-moz-animation: fadeIn 2s ease 3s both;
+			-o-animation: fadeIn 2s ease 3s both;
+			animation: fadeIn 2s ease 3s both;
+		}
+
+		.page3-img5,.page4-img4{
+			width: 100%;
+			height:101px;
+			position: absolute;
+			left:0;
+			bottom: 0;	
+		}
+		.my-fadeInLeft1{
+ 			-webkit-animation: fadeInLeft 2s ease both;
+			-moz-animation: fadeInLeft 2s ease both;
+			-o-animation: fadeInLeft 2s ease both;
+			animation: fadeInLeft 2s ease both;
+		}
+
+		.page3-img6{
+			width: 56px;
+			height:93px;
+			position: absolute;
+			left:103px;
+			bottom: 15px;	
+		}
+		.my-bounceInUp2{
+			-webkit-animation: bounceInUp 1s ease 0.5s both;
+			-moz-animation: bounceInUp 1s ease 0.5s ease both;
+			-o-animation: bounceInUp 1s ease 0.5s ease both;
+			animation: bounceInUp 1s ease 0.5s ease both;
+		}
+
+		.page3-img7{
+			width: 36px;
+			height:45px;
+			position: absolute;
+			left:4px;
+			bottom: 27px;	
+		}
+		.my-bounceInUp3{
+			-webkit-animation: bounceInUp 1s ease 0.8s both;
+			-moz-animation: bounceInUp 1s ease 0.8s ease both;
+			-o-animation: bounceInUp 1s ease 0.8s ease both;
+			animation: bounceInUp 1s ease 0.8s ease both;
+		}
+
+		.page3-img2 p{
+			font-size: 16px;
+			width: 117px;
+			height:25px;
+			line-height: 25px;
+			padding: 10px 15px 10px 20px;
+			position: absolute;
+			left: 0;
+			top: 0;			
+			text-indent: 5px;
+			color: #fff;
+		}
+
+		.page3-img3 p{
+			font-size: 16px;
+			width: 166px;
+			height:30px;
+			padding: 15px 15px 15px 20px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			line-height: 30px;
+			text-indent: 5px;
+			color: #fff;
+		}
+		
+		.page3-img4 p{
+			font-size: 16px;
+			width: 182px;
+			height:52px;
+			padding: 15px 15px 15px 20px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			line-height: 26px;
+			color: #fff;
+		}
+
+		.page4-img1{
+			width: 100%;
+			height: 345px;
+			position: absolute;
+			left: 0;
+			top: 11px;		
+		}
+		.page4-img1 img,.page4-img2 img,.page4-img3 img,.page4-img4 img,.page4-img5 img,.page4-img6 img,.page3-img7 img{
+			width: 100%;
+			height: 100%;
+		}
+		.page4-img2{
+			width: 235px;
+			height: 108px;
+			position: absolute;
+			left: 39px;
+			top: 64px;		
+		}
+		.my-fadeIn5{
+ 			-webkit-animation: fadeIn 2s ease 1.5s both;
+			-moz-animation: fadeIn 2s ease 1.5s both;
+			-o-animation: fadeIn 2s ease 1.5s both;
+			animation: fadeIn 2s ease 1.5s both;
+		}
+		.p1{
+			position: absolute;
+			font-size: 20px;
+			color: rgb(211, 65, 65);
+			width: 141px;
+			height: 45px;
+			left: 75px;
+			top: 17px;
+		}
+		.p2{
+			position: absolute;
+			font-size: 12px;
+			color: #fff;			
+			left: 15px;
+			bottom: 13px;
+		}
+		.page4-img3{
+			width: 152px;
+			height: 45px;
+			position: absolute;
+			left: 32px;
+			top: 188px;		
+		}
+		.my-fadeIn6{
+ 			-webkit-animation: fadeIn 2s ease 2.5s both;
+			-moz-animation: fadeIn 2s ease 2.5s both;
+			-o-animation: fadeIn 2s ease 2.5s both;
+			animation: fadeIn 2s ease 2.5s both;
+		}
+		.page4-img3 p{
+			position: absolute;
+			font-size: 20px;
+			color: #fff;
+			top: 9px;
+			left: 30px;	
+		}
+
+		.my-fadeInRight1{
+ 			-webkit-animation: fadeInRight 2s ease both;
+			-moz-animation: fadeInRight 2s ease both;
+			-o-animation: fadeInRight 2s ease both;
+			animation: fadeInRight 2s ease both;
+		}
+		.page4-img5{
+			width: 58px;
+			height: 74px;
+			position: absolute;
+			left: 101px;
+			bottom: 18px;
+		}
+
+		.page4-img6{
+			width: 34px;
+			height: 56px;
+			position: absolute;
+			right: 50px;
+			bottom: 20px;
+		}
+
+		.page5-img1{
+			width: 100%;
+			height: 222px;
+			position: absolute;
+			left: 0;
+			top: 11px;	
+			z-index: 2;	
+		}
+		.my-fadeInUp3{
+			-webkit-animation: fadeInUp 2s ease both;
+			-moz-animation: fadeInUp 2s ease both;
+			-o-animation: fadeInUp 2s ease both;
+			animation: fadeInUp 2s ease both;		
+		}
+		.page5-img1 img,.page5-img2 img,.page5-img4 img,.page5-img5 img{
+			width: 100%;
+			height: 100%;
+		}
+		.page5-img2{
+			width: 100%;
+			height: 111px;
+			position: absolute;
+			left: 0;
+			top: 88px;
+			z-index: 3;			
+		}
+		.my-fadeInLeft2{
+ 			-webkit-animation: fadeInLeft 2s ease 1.9s both;
+			-moz-animation: fadeInLeft 2s ease 1.9s both;
+			-o-animation: fadeInLeft 2s ease 1.9s both;
+			animation: fadeInLeft 2s ease 1.9s both;
+		}
+
+		.page5-img3{
+			width: 100%;
+			height: 38px;
+			position: absolute;
+			left: 0;
+			top: 175px;	
+			line-height: 38px;
+			text-align: center;
+			font-size: 20px;
+			color:#fff;
+			z-index: 3;	
+		}
+		.page5-img4{
+			width: 83px;
+			height: 371px;
+			position: absolute;
+			left: 80px;
+			top: 76px;	
+			z-index: 1;	
+		}
+		.my-fadeInLeft3{
+ 			-webkit-animation: fadeInLeft 2s ease 2s both;
+			-moz-animation: fadeInLeft 2s ease 2s both;
+			-o-animation: fadeInLeft 2s ease 2s both;
+			animation: fadeInLeft 2s ease 2s both;
+		}
+		.page5-img5{
+			width: 116px;
+			height: 351px;
+			position: absolute;
+			left: 145px;
+			top: 97px;	
+			z-index: 1;	
+		}
+		.my-fadeInRight2{
+ 			-webkit-animation: fadeInRight 2s ease 2s both;
+			-moz-animation: fadeInRight 2s ease 2s both;
+			-o-animation: fadeInRight 2s ease 2s both;
+			animation: fadeInRight 2s ease 2s both;
+		}

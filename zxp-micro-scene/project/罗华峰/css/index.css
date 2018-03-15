@@ -1,0 +1,304 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body,html,.box{
+    height: 100%;
+    width: 100%;
+}
+.box{
+    overflow: hidden;
+    position: relative;
+}
+.ul{
+    height: 700%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    overflow: hidden;
+}
+.ul li{
+   height:14.28% ;
+    width: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+.page1{
+    background: url("../images/page1.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.page2{
+    background: url("../images/page2.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.page3{
+    background: url("../images/page3.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.page4{
+    background: url("../images/page4.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.page5{
+    background: url("../images/page5.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.page6{
+    background: url("../images/page6.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+.music2{
+    position: absolute;
+    top:20px ;
+    right: 20px;
+    height: 32px;
+    width: 32px;
+    background: url("../images/page1-1.png") no-repeat ;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    z-index: 10000;
+}
+.musicRotate{ animation: music 2s linear infinite normal;}
+@keyframes music {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.jiantou{
+    height: 20px ;
+    width: 26px;
+    position: absolute;
+    left: 50%;
+    margin-left: -13px;
+    bottom: -20px;
+    z-index: 10000;
+    background: url("../images/page1-5.png") no-repeat;
+    background-size: 100% 100%;
+    animation: jiantou 2s ease infinite normal;
+}
+@keyframes jiantou {
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(-22px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-44px);
+        opacity: 0;
+    }
+}
+
+.page1-2{
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    top: 24%;
+    z-index: 10;
+    animation:page1-2 4s ease;
+}
+@keyframes page1-2 {
+    0%{
+        opacity:0
+    }
+    50%{
+        opacity:0.5
+    }
+    100%{
+        opacity:1
+    }
+}
+
+@keyframes page1-3 {
+    0%{
+        opacity:0
+    }
+    25%{
+        opacity:0
+    }
+    50%{
+        opacity:0
+    }
+    75%{
+        opacity:0.5
+    }
+    100%{
+        opacity:1
+    }
+}
+.page1-3{
+    width: 64%;
+    position: absolute;
+    left: 18%;
+    top: 45%;
+    z-index: 10;
+    animation: page1-3 3s ease;
+}
+
+.page2-1{
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    top: 19%;
+    z-index: 10;
+    animation: page1-2 4s ease;
+}
+.page2-2{
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    top: 38%;
+    z-index: 10;
+    animation: page1-3 3s ease;
+}
+
+.page3-1{
+    width: 86%;
+    position: absolute;
+    left: 7%;
+    top: 20%;
+    z-index: 10;
+    animation: page1-2 4s ease;
+}
+.page3-2{
+    width: 76%;
+    position: absolute;
+    left: 12%;
+    top: 45%;
+    z-index: 10;
+    animation: page1-3 3s ease;
+}
+.page4-1{
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    z-index: 10;
+    animation: page1-2 4s ease;
+}
+.page4-2{
+    width: 78%;
+    position: absolute;
+    left: 11%;
+    top: 45%;
+    z-index: 10;
+    animation: page1-3 3s ease;
+}
+.page5-1{
+    width: 86%;
+    position: absolute;
+    left: 7%;
+    top: 18%;
+    z-index: 10;
+    animation: page1-2 4s ease;
+}
+.page5-2{
+    width: 60%;
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    z-index: 10;
+    animation: page1-3 3s ease ;
+}
+.page6-1{
+    width: 80%;
+    position: absolute;
+    left: 12%;
+    top: 20%;
+    z-index: 10;
+    animation: page1-2 3s linear;
+}
+.page6-2{
+    width: 18%;
+    position: absolute;
+    left: 41%;
+    top: 42%;
+    z-index: 10;
+    animation: page6-2 5s linear;
+}
+@keyframes page6-2 {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        transform: scale(2);
+        opacity: 0;
+    }
+    75%{
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+.page6-3{
+    width: 22%;
+    position: absolute;
+    left: 39%;
+    bottom: 12%;
+    z-index: 10;
+    animation: page6-3 8s ease;
+}
+@keyframes page6-3 {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    75%{
+        opacity: 0.5;
+        transform: translateY(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.page6-4{
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    bottom: 3%;
+    z-index: 10;
+    animation: page6-4 5s linear;
+}
+@keyframes page6-4 {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}

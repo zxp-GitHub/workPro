@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手写微信场景--使用zepto手势操作</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        html,body,.container{
+            height: 100%;
+            width: 100%;
+        }
+        .container{
+            position: relative;
+             overflow: hidden;
+        }
+        .slider-box{
+            position: absolute;
+            width: 100%;
+            height: 900%;
+            top: 0;
+            left: 0;
+        }
+        /* .arrow{
+            width: 300px;
+            height: 300px;
+            display: block;
+            position: absolute;
+            background: url(img/icon.png) no-repeat;
+            background-position:0 0;
+            background-size: 100% 100%;
+        } */
+        .icon-arrow{
+            width: 10%;
+            height: 5%;
+            /* background: red; */
+            position: absolute;
+            left: 47%;
+            bottom: 3%;
+        }
+        .arrow-up{
+            height: 100%;
+            width: 100%;
+            animation: arrowUp 1.5s ease-out infinite;
+        }
+        .page1,.page2,.page3,.page4,.page5,.page6,.page7,.page8,.page9{
+            width: 100%;
+            height: 11.11111111%;
+            font-size:100px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        .page1{
+             /* background: orange; */
+            background: url("img/pic24.jpg") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page2{
+           /*  background: green; */
+            background: url("img/pic5.jpg") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page3{
+            /* background: blue; */
+            background: url("img/pic37.jpg") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page4{
+            /* background: purple; */
+            background: url("img/pic25.jpg") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page5{
+           /* background: greenyellow;*/
+            background: url("img/pic26.jpg") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page6{
+           /* background: yellow;*/
+            background: url("img/pic31.jpg") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page7{
+            /*background: red;*/
+            background: url("img/pic13.jpg") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page8{
+            /*background: pink;*/
+            background: url("img/pic28.png") no-repeat;
+            background-size: 100% 100%; 
+        }
+        .page9{
+            /* background: orange; */
+            background: url("img/pic24.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .music{
+            width: 100px;
+            height: 100px;
+            /*background: red;*/
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 999;
+            background: url("img/music_on.png") no-repeat;
+            background-size: 100% 100%;
+            animation: rota 0.5s infinite;
+        }
+        /*箭头的动画*/
+        @keyframes arrowUp {
+            0%{
+                transform: translateY(0px);
+            }
+            100%{
+                transform: translateY(-60px);
+                opacity: 0;
+            }
+        }
+        /*音乐符的转动动画*/
+        @keyframes rota {
+            0%{
+                transform: rotateZ(0deg);
+            }
+            20%{
+                transform: rotateZ(72deg);
+            }
+            40%{
+                transform: rotateZ(144deg);
+            }
+            60%{
+                transform: rotateZ(216deg);
+            }
+            80%{
+                transform: rotateZ(288deg);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+        /*第一页动画以及样式*/
+        .wozhao{
+            position: absolute;
+            top: 10%;
+            left: 34%;
+            animation: wozhao 1.5s ease;
+            background: url("img/pic35.png") no-repeat;
+            width: 35%;
+            height: 60%;
+            background-size: 100% 100%;
+        }
+        @keyframes wozhao {
+            from{
+                height: 0;
+            }
+            to{
+                height: 60%;
+            }
+        }
+        .shengtang{
+            position: absolute;
+            top: 25%;
+            left: 0;
+            background: url("img/pic2.png") no-repeat;
+            width: 30%;
+            height: 20%;
+            background-size: 100% 100%;
+            animation: shengtang 1s linear;
+        }
+        @keyframes shengtang {
+            from{
+                width: 0;
+            }
+            to{
+                width: 30%;
+            }
+        }
+        /*第二页动画*/
+        .yusuan{
+            width: 27%;
+            height: 15%;
+            background:url("img/pic33.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 7%;
+            top: 16%;
+            animation: yusuan 1s;
+        }
+        @keyframes yusuan{
+            from{
+                transform: scale(0);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        .weiwu{
+            width: 40%;
+            height: 18%;
+            background:url("img/pic11.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 37%;
+            top: 49%;
+            animation: weiwu 1s infinite alternate;
+        }
+        @keyframes weiwu {
+            from{
+                transform: scale(1);
+            }
+            to{
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        .yuanwang{
+            width: 30%;
+            height: 11%;
+            background:url("img/pic38.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 37%;
+            top: 65%;
+            animation: yuanwang 1s;
+        }
+        @keyframes yuanwang {
+            from{
+                transform: scale(0);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        .left{
+             width: 10%;
+             height: 22%;
+             background:url("img/pic22.png") no-repeat;
+             background-size: 100% 100%;
+             position: absolute;
+             left: 1%;
+             top: 51%;
+             animation: left 1.25s infinite ease;
+         }
+        @keyframes left {
+            0%{
+                transform: translateY(-80px);
+            }
+            25%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-40px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+        .right{
+            width: 10%;
+            height: 22%;
+            background:url("img/pic22.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 1%;
+            top: 51%;
+            animation: right 1.25s infinite ease;
+        }
+        @keyframes right {
+            0%{
+                transform: translateY(-80px);
+            }
+            25%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-40px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+        .zhuangzi{
+            width: 40%;
+            height: 22%;
+            background:url("img/pic3.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 11%;
+            top: 25%;
+            animation: zhuangzi 1s;
+        }
+        @keyframes zhuangzi {
+            from{
+                transform: scale(0);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        .kuaizhao{
+            width: 30%;
+            height: 20%;
+            background:url("img/pic27.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 11%;
+            top: 15%;
+            animation: kuaizhao 1s infinite;
+        }
+        @keyframes kuaizhao{
+            from{
+                transform: translateY(0px);
+            }
+            to{
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+        .daren{
+            width: 30%;
+            height: 22%;
+            background:url("img/pic7.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 20%;
+            top: 52%;
+            animation: daren 1s 1s;
+        }
+        @keyframes daren {
+            from{
+                transform: scale(0);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        .paper{
+            width: 20%;
+            height: 15%;
+            background:url("img/pic14.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 40%;
+            top: 62%;
+        }
+        /*第四页动画*/
+        .yanjingnan{
+            width: 27%;
+            height: 18%;
+            background:url("img/pic23.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 20%;
+            top: 27%;
+            animation: yanjingnan 1.5s;
+        }
+        @keyframes yanjingnan {
+            0%{
+                transform: translateX(1000px);
+            }
+            80%{
+                transform: translateX(0px) skew(-20deg);
+            }
+            100%{
+                transform: skew(0deg);
+            }
+        }
+        .jishubu {
+            width: 53%;
+            height: 11%;
+            background:url("img/pic9.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 14%;
+            top: 8%;
+            transform-origin: center center;
+            animation: jishu 1s;
+        }
+        @keyframes jishu {
+            from{
+                transform: rotateZ(-60deg);
+            }
+            to{
+                transform: rotateZ(0deg);
+            }
+        }
+        .fenglu{
+            width: 11%;
+            height: 34%;
+            background:url("img/pic18.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 3%;
+            top: 20%;
+            animation:fenglu 1s infinite;
+        }
+        @keyframes fenglu {
+            from{
+                transform: translateY(4000px);
+            }
+            to{
+                transform: translate(0px);
+            }
+        }
+        /*第五页动画*/
+        .yanjingshu{
+            width: 27%;
+            height: 18%;
+            background:url("img/pic30.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 20%;
+            top: 27%;
+            animation: yanjingshu 1.5s;
+        }
+        @keyframes yanjingshu {
+            0%{
+                transform: translateX(-1000px);
+            }
+            80%{
+                transform: translateX(0px) skew(20deg);
+            }
+            100%{
+                transform: skew(0deg);
+            }
+        }
+        .shichangbu {
+            width: 53%;
+            height: 11%;
+            background:url("img/pic20.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 14%;
+            top: 8%;
+            transform-origin: center center;
+            animation: shichangbu 1s;
+        }
+        @keyframes shichangbu {
+            from{
+                transform: rotateZ(-60deg);
+            }
+            to{
+                transform: rotateZ(0deg);
+            }
+        }
+        .yingxiong{
+            width: 11%;
+            height: 34%;
+            background:url("img/pic4.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 3%;
+            top: 20%;
+            animation:yingxiong 1s infinite;
+        }
+        @keyframes yingxiong {
+            from{
+                transform: translateY(4000px);
+            }
+            to{
+                transform: translate(0px);
+            }
+        }
+        /*第六页动画*/
+        .meinv{
+            width: 27%;
+            height: 18%;
+            background:url("img/pic29.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 20%;
+            top: 27%;
+            animation: meinv 1.5s;
+        }
+        @keyframes meinv {
+            0%{
+                transform: scale(3);
+                opacity: 0;
+            }
+            100%{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .yewubu {
+            width: 53%;
+            height: 11%;
+            background:url("img/pic12.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 14%;
+            top: 8%;
+            transform-origin: center center;
+            animation: yewubu 1s;
+        }
+        @keyframes yewubu {
+            from{
+                transform: rotateZ(-60deg);
+            }
+            to{
+                transform: rotateZ(0deg);
+            }
+        }
+        .jiaru{
+            width: 11%;
+            height: 34%;
+            background:url("img/pic15.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 3%;
+            top: 20%;
+            animation:jiaru 1s infinite;
+        }
+        @keyframes jiaru {
+            from{
+                transform: translateY(4000px);
+            }
+            to{
+                transform: translate(0px);
+            }
+        }
+        /*第七页动画*/
+        .xian{
+            width: 25%;
+            height: 10%;
+            background:url("img/pic16.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 13%;
+            top: 8%;
+            animation: xian 1s ;
+        }
+        @keyframes xian {
+            from{
+                transform: scale(2);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        .wu{
+            width: 25%;
+            height: 10%;
+            background:url("img/pic10.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 22%;
+            top: 8%;
+            animation: wu 1s ;
+            transform-origin: center center;
+        }
+        @keyframes wu {
+            from{transform: rotateY(0deg);
+            }
+            to{
+                transform: rotateY(360deg);
+            }
+        }
+        .xin{
+            width: 25%;
+            height: 11%;
+            background:url("img/pic17.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 13%;
+            top: 22%;
+            /*animation: xian 1s infinite;*/
+        }
+        .yi{
+            width: 25%;
+            height: 11%;
+            background:url("img/pic32.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 22%;
+            top: 22%;
+            animation: yi 1s ;
+        }
+        @keyframes yi {
+            from{
+                transform: scale(2);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        .baoxian{
+            width: 58%;
+            height: 10%;
+            background:url("img/pic36.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 14%;
+            top: 46%;
+            animation: fly 1s ;
+        }
+        .lvka{
+            width: 58%;
+            height: 11%;
+            background:url("img/pic8.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 14%;
+            top: 56%;
+            animation: fly 1s 0.5s ;
+        }
+        .wucan{
+            width: 58%;
+            height: 10%;
+            background:url("img/pic19.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 14%;
+            top: 66%;
+            animation: fly 1s 1s ;
+        }
+        .fangjia{
+            width: 58%;
+            height: 9%;
+            background:url("img/pic21.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 14%;
+            top: 76%;
+            animation: fly 1s 1.5s ;
+        }
+        @keyframes fly {
+            from{
+                transform: translateX(1000px);
+            }
+            to{
+                transform: translateX(0px);
+            }
+        }
+        /*第八页动画*/
+        .zhaoren{
+            width: 66%;
+            height: 16%;
+            background:url("img/pic1.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 14%;
+            top: 69%;
+            animation: rote 0.75s infinite;
+        }
+        @keyframes rote {
+            0%{
+               transform: rotate(-30deg);
+            }
+            25%{
+                transform: rotate(-30deg);
+            }
+            50%{
+                transform: rotate(-10deg);
+            }
+            100%{
+                transform: rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="music">
+            <audio src="music/Flo%20Rida%20-%20Whistle.mp3" id="mus" autoplay></audio>
+        </div>
+        <div class="slider-box">
+            <div class="page1 page">1<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="wozhao"></div><div class="shengtang"></div></div>
+            <div class="page2 page">2<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="yusuan"></div><div class="weiwu"></div><div class="yuanwang"></div><div class="left"></div><div class="right"></div></div>
+            <div class="page3 page">3<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="zhuangzi"></div><div class="kuaizhao"></div><div class="daren"></div><div class="paper"></div></div>
+            <div class="page4 page">4<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="yanjingnan"></div><div class="jishubu"></div><div class="fenglu"></div></div>
+            <div class="page5 page">5<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="yanjingshu"></div><div class="shichangbu"></div><div class="yingxiong"></div></div>
+            <div class="page6 page">6<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="meinv"></div><div class="yewubu"></div><div class="jiaru"></div></div>
+            <div class="page7 page">7<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="xian"></div><div class="wu"></div><div class="xin"></div><div class="yi"></div><div class="baoxian"></div><div class="lvka"></div><div class="wucan"></div><div class="fangjia"></div></div>
+            <div class="page8 page">8<div class="zhaoren"></div></div>
+            <div class="page9 page">1<div class="icon-arrow"><img src="img/arrow_01.png" alt="" class="arrow-up"></div><div class="wozhao"></div><div class="shengtang"></div></div>
+        </div>
+    </div>
+</body>
+<script src="zepto/zepto.js"></script>
+<script src="zepto/touch.js"></script>
+<script>
+Zepto(function(){
+    var index=0;
+    //上翻页功能
+    $('.container').swipeUp(function(){
+        index++;
+        if (index==9) {
+            $('.slider-box').css({top:"0"});
+            index=1;
+        }
+        $('.slider-box').animate({top:-index*100+"%"},{duration:300,complete:show});
+    })
+    //下翻页功能
+    $('.container').swipeDown(function(){
+        index--;
+        if (index==-1) {
+            $('.slider-box').css({top:"-800%"});
+            index=7;
+        }
+        $('.slider-box').animate({top:-index*100+"%"},{duration:300,complete:show});
+    })
+
+    //音乐播放与暂停功能
+    var mOver=true;
+    var oMus=document.getElementById('mus');
+    var oMusic=document.getElementsByClassName('music')[0];
+    $('.music').tap(function () {
+        if (mOver){
+            oMusic.style.animationPlayState="running"
+            oMus.play();
+            mOver=false;
+        }else {
+            oMusic.style.animationPlayState="paused"
+            oMus.pause();
+            mOver=true;
+        }
+    })
+
+    //每次换页播放动画
+    var page1=$('.page1');
+    var page2=$('.page2');
+    var page3=$('.page3');
+    var page4=$('.page4');
+    var page5=$('.page5');
+    var page6=$('.page6');
+    var page7=$('.page7');
+    var page8=$('.page8');
+    var page9=$('.page9')
+
+    //获取每页div的内容
+    var str1=page1.html();
+    var str2=page2.html();
+    var str3=page3.html();
+    var str4=page4.html();
+    var str5=page5.html();
+    var str6=page6.html();
+    var str7=page7.html();
+    var str8=page8.html();
+
+    //初始化一下
+    page2.html("");
+    page3.html("");
+    page4.html("");
+    page5.html("");
+    page6.html("");
+    page7.html("");
+    page8.html("");
+
+    function show() {
+        var iT=$('.slider-box').css("top");
+        if (iT=="0%"){
+            page1.html(str1)
+        }else {
+            page1.html("")
+        }
+
+        if (iT=="-100%"){
+            page2.html(str2)
+        }else {
+            page2.html("")
+        }
+
+        if (iT=="-200%"){
+            page3.html(str3)
+        }else {
+            page3.html("")
+        }
+
+        if (iT=="-300%"){
+            page4.html(str4)
+        }else {
+            page4.html("")
+        }
+
+        if (iT=="-400%"){
+            page5.html(str5)
+        }else {
+            page5.html("")
+        }
+
+        if (iT=="-500%"){
+            page6.html(str6)
+        }else {
+            page6.html("")
+        }
+
+        if (iT=="-600%"){
+            page7.html(str7)
+        }else {
+            page7.html("")
+        }
+
+        if (iT=="-700%"){
+            page8.html(str8)
+        }else {
+            page8.html("")
+        }
+
+        if (iT=="-800%"){
+            page9.html(str1)
+        }else {
+            page9.html("")
+        }
+    }
+
+
+
+})
+</script>
+</html>
