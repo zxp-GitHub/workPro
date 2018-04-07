@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">退货</span></li>
+					</ul>			
+				</div><!--top-->
+					<div class="return-goods-main">
+						<ol class="apply-return1-ol">
+							<li class="apply-return1-li apply-return1-li1">
+								<div class="apply-return1-li1-left">
+									<img src="img/f-2.png" class="apply-return1-pic"/>
+								</div>
+								<div class="apply-return1-li1-right">
+									<p class="apply-return1-li1-p1">jsfjkdgdfjgjdfklhjfkhj</p>
+									<p class="apply-return1-li1-p2"><span class="apply-return1-num-color">×<span class="apply-return1-num">3</span></span></p>
+								</div>
+							</li>
+							<li class="apply-return1-li apply-return1-li2">
+									<h3 class="apply-return-h3">申请数量</h3>
+										<p class="apply-return1-li2-p">
+											<i class="iconfont icon-jianhao1" style="margin-bottom: 0rem;"></i>
+											<span class="pro-detail-three-num">1</span>
+											<i class="iconfont icon-jiahao2"></i>
+										</p>
+										<p class="color-red">退款会自动发送到您的钱包余额</p>
+							</li>
+							<li class="apply-return1-li apply-return1-li3">
+								<h3 class="apply-return-h3">问题描述</h3>
+								<textarea class="apply-return1-li3-textarea" rows="" cols=""></textarea>
+							</li>
+							<li class="apply-return1-li apply-return1-li4">
+								<h3 class="apply-return-h3">上传图片</h3>
+									<div class="apply-return-append-div">
+										<!--<img class="apply-return-sub-img" src=""/>-->
+									</div>
+									<div class="apply-return-input-cell">
+										<input type="file" class="onchangeInput" class="" />
+										<img class="apply-return1-li4-pic" src="img/add-pic.png"/> 
+									</div>
+							</li>
+						</ol>
+						<p class="apply-return-next-step">下一步</p>
+					</div><!--main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function () {
+		var lbyxReturnImg1 = localStorage.getItem("lbyxReturnImg1");
+		var lbyxReturnNums = localStorage.getItem("lbyxReturnNums");
+		var lbyxReturnGoodsName = localStorage.getItem("lbyxReturnGoodsName");
+		$(".top-back-li").tap(function () {
+			window.history.back();
+		});
+		//商品赋值
+		$(".apply-return1-pic").attr("src",lbyxReturnImg1);
+		$(".apply-return1-num").html(lbyxReturnNums);
+		$(".apply-return1-li1-p1").html(lbyxReturnGoodsName);
+		
+		$(".onchangeInput").change(function () {
+			selectImage(this);
+		});
+		
+		var image = '';
+		function selectImage(file) {
+	        if (!file.files || !file.files[0]) {
+	            return;
+	        }
+        	var reader = new FileReader();
+	        reader.onload = function (evt) {
+	        	
+	        	$(".apply-return-append-div").append("<img class=\"apply-return-sub-img\" src=\""+evt.target.result+"\"/>");
+				 var lastReturnSrc = $(".onchangeInput").val();
+				var Src16 = $(".apply-return-sub-img").last().attr("src");
+				var src2 = Src16.split(",")[1];
+				decodeURI(src2);
+				console.log(src2);
+				console.log(encodeURI(encodeURI(src2)));
+//				$.ajax({
+//					type:"GET",
+//					url:"php/returnTwo.php",
+//					dataType:"json",
+//					contentType: 'application/json; charset=utf-8',
+//					data:{
+//						returnPic:Src16
+//					},
+//					success:function (data) {
+//						console.log(data);
+//						alert("2");
+//					}
+//					,error: function(data) {
+//                      alert('服务器出错');
+//                  },
+//				});
+				
+				//图片地址 
+//				console.log(Src16)
+				//window.atob(Src16);
+       		 	ReturnSrc (lastReturnSrc,src2);
+				function ReturnSrc (obj,obj2) {
+							$.ajax({
+									url: "http://api.x5u.com.cn:12804/School/uploadimages.aspx?action=UploadImg&Filedata="+obj2+"&ImgName="+obj+"",
+									type:"get",
+									dataType:"json",
+//									headers: {
+//								    'version':"html1.0",
+//								    'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//								    'HTTP_LBYX_TIME':getNowFormatDate(),
+//							   },
+									success:function(data){
+										console.log(data);
+									}
+								});//ajax	
+				}
+	        	image = evt.target.result;
+	        }
+       		 reader.readAsDataURL(file.files[0]);
+		} 
+		
+		//点击下一步，本地存储
+		$(".apply-return-next-step").tap(function () {
+			//判断下一页是显示送货至自提点还是上门取件，若是没有这个参数就赋初值，有就不进行处理
+			var lbyxReturnModeSection = localStorage.getItem("lbyxReturnModeSection");
+//			console.log(lbyxReturnModesection);
+			if (lbyxReturnModeSection==null) {
+				localStorage.setItem("lbyxReturnModeSection",0);
+			}
+			localStorage.setItem("lbyxReturnCount",$(".pro-detail-three-num").html());
+			localStorage.setItem("lbyxReturnReason",$(".apply-return1-li3-textarea").val());
+//			console.log($(".pro-detail-three-num").html());
+//			console.log($(".apply-return1-li3-textarea").val());
+			window.location.href = "return-mode.html";
+		});
+		//上传图片
+//		$(".apply-return1-li4-pic").tap(function () {
+//		});
+		$(".pro-detail-three-num").html(1);
+							$(".pro-detail-flour-num").html(1);
+							$(".apply-return1-li2-p").find(".icon-jianhao1").on('tap',function () {
+								if (parseInt($(".pro-detail-three-num").html())>1){
+									$(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())-1);
+								} else{
+								    return false;
+								}
+							    if (parseInt($(".pro-detail-three-num").html())==1){
+							   	$(".icon-jianhao1").css("color","#ccc");
+							//	   	$(".sell-out").show();
+							    }
+							});
+							$(".apply-return1-li2-p").find(".icon-jiahao2").on('tap',function () {
+								//当申请的数量为一，点击后就大于一了，并且传的数字要大于一，减号的icon才可以变成红色
+								if (parseInt($(".pro-detail-three-num").html())==1&&lbyxReturnNums>1){
+									$(".icon-jianhao1").css("color","red");
+								}
+								//加的数量不可以比传的数量还大
+								if(parseInt($(".pro-detail-three-num").html()) >= lbyxReturnNums){
+									return;
+								}else{
+									$(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())+1);
+								}
+								//判断，要是超过限购的个数，给出提示;若是没有限制个数，随便加，不给出提示
+							});
+							
+	});
+</script>
+<!--
+	1.上传图片
+	<input type="file"onchange="selectImage(this);"/>
+	用上面的方式，提示selectImage不存在，使用下面的办法：
+	$(".onchgeInput").change(function () {
+			selectImage(this)
+	});
+-->

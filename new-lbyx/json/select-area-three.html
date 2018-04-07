@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="top">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">商品列表</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="all-goods-main">
+					<div class="all-goods-search">
+						<p class="all-goods-search-p all-goods-search-p-bc">
+							<i class="iconfont icon-fangdajing1 search-magnifier"></i>
+							<input type="text" class="search-input all-goods-search-input" id="" value="" placeholder="请输入商品名称"/>
+						</p>
+						<span class="search-span">搜索</span>
+					</div><!--all-goods-search-->
+					<div class="select-area3-main-two">
+						<ul class="select-area3-two-ul">
+							<li class="select-area3-two-li goods-comprehensive-order">综合</li>
+							<li class="select-area3-two-li goods-sales-order">销量</li>
+							<li class="select-area3-two-li goods-price-order">价格<p class="sort-up-down-p"><span class="up-price"></span><span class="down-price"></span></p></li>
+						</ul>
+					</div><!--select-area3-main-two-->
+					<div class="select-area3-main-three">
+						<ul class="confirm-order-three-ul select-area3-three-ul">
+								<!--<li  class="confirm-order-three-li select-area3-three-li">
+									<div class="pic-cell-border select-area3-pic-cell-border">
+									<img src="img/f-2.png" class="pic-cell-border-img select-area3-img"/>
+								</div>
+								<div class="goods-right-cell">
+									<p class="goods-right-cell-p">意大利进口 Balocco 百事可乐 脆皮苏 焦糖味 200g</p>
+									<p class="goods-right-cell-p">
+											<span class="shopping-car-cell-price"  >￥20.90</span>
+											<span class="shopping-car-change-price"><i class="iconfont icon-gouwuche3 icon-gouwuche3-bc"></i></p>
+										</p>
+								</div>
+								</li>-->
+						</ul>
+						<p class="fixd-to-cart-icon">
+							<i class="iconfont icon-gouwuche3"></i>
+							<span class="fixd-to-cart-num"></span>
+						</p>
+					</div><!--select-area3-main-three-->
+					</div><!--main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+		var allGoodsPicID = localStorage.getItem("allGoodsPicID");
+		var universityId = localStorage.getItem("universityId");
+		var lbyxCode = localStorage.getItem("lbyxCode");
+		var datasort = 0;
+		function selectThreePageRender(allGoodsPicID,dataindex) {
+		console.log(datasort);
+		$.ajax({//获取json数据必写哦！！！
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/CRM/GoodsInfo.aspx?action=GetGoodsList&IsImported=0&universityid="+universityId+"&JinKouPaiXu="+datasort+"&type="+allGoodsPicID+"&dataindex="+dataindex+"&datasize=10",
+			dataType:"json",
+			success:function(data){//consol一下是很重要的！！！！！！
+					console.log(data);
+					function selectThreeRender(obj){
+						var html = "<li class=\"confirm-order-three-li select-area3-three-li\" goodsNum = \""+obj.GoodsNum+"\" goodsId = \""+obj.GoodsID+"\" repertoryId = \""+obj.RepertoryID+"\">";
+							html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
+							html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img select-area3-img\"/>";
+							html += "		<span class=\"select-area3-sell-out-mask\">售罄</span>";
+							html += "	</div>";
+							html += "	<div class=\"goods-right-cell\">";
+							html += "		<p class=\"goods-right-cell-p\">"+obj.GoodsName+"</p>";
+							html += "		<p class=\"goods-right-cell-p\">";
+							html += "			<span class=\"shopping-car-cell-price\">￥"+obj.SalePrice+"</span>";
+							html += "		</p>";
+							html += "	</div>";
+							html += "			<span class=\"shopping-car-change-price\"><i class=\"iconfont icon-gouwuche3 icon-gouwuche3-bc\"></i></p>";
+							html += "	</li>";
+						$(".select-area3-three-ul").append(html);
+					}
+					for (var i = 0; i < data.Result.length; i++) {
+						selectThreeRender(data.Result[i]);
+					}
+					//点击商品，显示该商品的goodID
+					$(".select-area3-three-li").tap(function () {
+						localStorage.setItem("goodsId",$(this).attr("goodsId"));
+//						console.log($(this).attr("repertoryId"));
+						localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
+//						window.location.href = "product-details.html";
+					});
+					//点击商品跳转页面
+					$(".pic-cell-border,.goods-right-cell").tap(function () {
+						window.location.href = "product-details.html";
+					});
+					//点击首页购物车图标加入购物车
+					$(".select-area3-three-li").each(function () {
+						if ($(this).attr("goodsNum")=="0") {
+							$(this).find(".select-area3-sell-out-mask").show();
+						}else{
+							$(this).find(".shopping-car-change-price").tap(function () {
+								if(lbyxCode==""||lbyxCode==null){
+									window.location.href = "login.html";
+								}else{
+									var repertoryId = $(this).parents(".select-area3-three-li").attr("repertoryId");
+		//							console.log(repertoryId);
+									$.ajax({
+									type:"get",
+									url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=false&",
+									dataType:"json",
+									success:function(data){
+										//商品图片的渲染
+										alert("加入购物车成功！");
+										cartAllNum();
+									}//success
+									});//ajax
+								}
+							});
+						}
+					});
+					
+			}//succ
+		});//ajax
+		}
+//初始化渲染
+		var selectThreePage = 1;
+//		localStorage.setItem("datasort",0);
+		console.log(selectThreePage);
+		selectThreePageRender(allGoodsPicID,selectThreePage);
+//选中搜索框，跳转页面。
+		$(".all-goods-search-input").focus(function () {
+			window.location.href = "search-page.html";
+		});
+//排序的操作
+	    $(".goods-comprehensive-order").tap(function () {
+	    	datasort = 2;
+	    	selectThreePageRender(allGoodsPicID,selectThreePage);
+//	    	localStorage.setItem("datasort",2);
+	    });
+	    $(".goods-sales-order").tap(function () {
+	    	datasort = 0;
+	    	selectThreePageRender(allGoodsPicID,selectThreePage);
+//	    	localStorage.setItem("datasort",0);
+	    });
+	    $(".select-area3-two-li").tap(function () {
+	    	selectThreePage = 1;
+	    	$(".select-area3-three-ul").html("");
+	    	$(this).css("color","red").siblings().css("color","black");//改变属性要用css而不是attr
+	    	if ($(".goods-price-order").css("color")!="red") {
+	    		$(".up-price").css("border-bottom","5px solid black");
+	    		$(".down-price").css("border-top","5px solid black");
+	    	}
+	    });
+	    var tapRed = true;
+	    $(".goods-price-order").tap(function () {
+			if (tapRed==true) {
+				$(".up-price").css("border-bottom","5px solid red");
+	    		$(".down-price").css("border-top","5px solid black");
+	    		datasort = 1;
+	    		selectThreePageRender(allGoodsPicID,selectThreePage);
+//	    		localStorage.setItem("datasort",1);
+	    		tapRed = false;
+			} else{
+				$(".up-price").css("border-bottom","5px solid black");
+	    		$(".down-price").css("border-top","5px solid red");
+	    		datasort = 3;
+	    		selectThreePageRender(allGoodsPicID,selectThreePage);
+//	    		localStorage.setItem("datasort",3);
+	    		tapRed = true;
+			}
+	    });
+//下拉加载
+		$(document).ready(function() { //这句话是要用的
+//			var datasort = localStorage.getItem("datasort");
+			var oWrap = $(".select-area3-main-three");
+			oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
+				if(oWrap.height() + $(this).scrollTop() >= $(".select-area3-three-ul").height()) {
+					selectThreePage = parseInt(selectThreePage)+1;//因为是先加1，在调用方法所以可以从1开始
+					console.log(selectThreePage);
+					selectThreePageRender(allGoodsPicID,selectThreePage,datasort);
+				}
+			}); //E scroll
+		}); //E ready
+//点击该页面购物车灰色图标，跳转到购物车页面
+		$(".fixd-to-cart-icon").tap(function () {
+			if(lbyxCode==""||lbyxCode==null){
+				window.location.href = "login.html";
+			}else{
+				localStorage.setItem("indexPage",1);
+				window.location.href = "index.html";
+			}
+		})
+		cartAllNum();
+		//显示购物车的商品的总数量
+		function cartAllNum(){
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+				dataType:"json",
+				success:function(data){
+	//				console.log(data.Result.totalnumber);
+					$(".fixd-to-cart-num").html(data.Result.totalnumber);
+				}
+			});
+		}
+		
+	});//end
+</script>

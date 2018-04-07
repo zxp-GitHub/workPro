@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="top add-info-top">
+					<ul class="first-top-ul forget-pass-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">确认交易</span></li>
+					</ul>	
+				</div>
+				<div class="add-info-main now-to-buy-main">
+					<p class="now-to-buy-p1">来宝优选</p>
+					<p class="now-to-buy-p2"><span>¥</span><span class="now-to-buy-all-price"></span></p>
+					<p class="now-to-buy-p3"><span class="now-to-buy-p3-span1">收款方</span><span class="now-to-buy-p3-span2">来宝优选</span></p>
+					<a   href="https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb" class="next-step now-to-buy-next-step">立即支付</a>
+				</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+		var allPrice = localStorage.getItem("allPrice");
+		var orderCode = localStorage.getItem("OrderCode");
+		var lbyxCode = localStorage.getItem("lbyxCode");
+		console.log(orderCode);
+		$(".now-to-buy-all-price").html(allPrice);
+		$(".now-to-buy-next-step").tap(function () {
+			window.location.href = "http://wxpay.wxutil.com/mch/pay/h5.v2.php#";
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=set_PayTypeorder&operation=0&PayType=1&token="+lbyxCode+"&OrderCode="+orderCode+"&", 
+				type:"get",
+				dataType:"json",
+				success:function(data){
+					console.log(data);
+					var appid = data.Result.appid; 
+					var noncestr = data.Result.noncestr;
+					var package = data.Result.package; 
+					var partnerid = data.Result.partnerid;
+					var prepayid = data.Result.prepayid; 
+					var sign = data.Result.sign; 
+					var timestamp = data.Result.timestamp;
+					var ResultCode = data.ResultCode;
+					console.log(appid);
+					console.log(package);
+					console.log(noncestr);
+					console.log(prepayid);
+					console.log(timestamp);
+					console.log(sign);
+//					window.location.href = "http://wxpay.wxutil.com/mch/pay/h5.v2.php#";
+					window.location.href = "https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id= "+prepayid+"&package="+package+""
+				}
+			});//ajax
+		});
+	});
+</script>

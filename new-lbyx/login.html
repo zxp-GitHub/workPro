@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">登录</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="all-goods-main login-main">
+					<ul class="login-ul">
+						<li><input type="text" name="" id="" value="" placeholder="手机号" class="login-name"/></li>
+						<li><input type="password" name="" id="" value="" placeholder="密码" class="login-pass"/></li>
+						<li class="confirm-login">确定登录</li>
+						<li><a href="register.html" class="go-to-register">去注册</a></li>
+						<li><a href="forget-password.html" class="get-pass">忘记密码</a></li>
+					</ul>
+					</div><!--main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function () {
+		var indexPage = parseInt(localStorage.getItem("indexPage"));
+		console.log(indexPage)
+		if(indexPage==1){
+		 localStorage.setItem("indexPage",0);
+		}
+	});
+</script>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="js/main.js" type="text/javascript" charset="utf-8"></script>-->
+		<!--<script src="js/link.js" type="text/javascript" charset="utf-8"></script>-->
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="payment-methods-mask">
+					<div class="payment-methods-mask-cell">
+						<p class="payment-methods-mask-p1">温馨提示</p>
+						<p class="payment-methods-mask-p2">正在调起支付，请稍等...</p>
+					</div>
+					
+				</div>
+				
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">选择支付方式</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="all-goods-main ">
+								<ul class="my-second-ul payment-ul">
+									<li class="payment-li payment-li1"><span class="mask-span"></span><i class="iconfont icon-weixin1 payment-li-i1" style="color:limegreen;"></i><span>微信支付</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+									<!-- <li class="payment-li  payment-li2"><span class="mask-span"></span><i class="iconfont icon-zhifubao1 payment-li-i1"  style="color:dodgerblue;"></i><span>支付宝</span><i class="iconfont icon-dayuhao my-right-icon"></i></li> -->
+									<li class="payment-li payment-li3"><span class="mask-span"></span><i class="iconfont icon-jinbi payment-li-i1" style="color:#FFA500;"></i><span>支付余额( <span class="payment-li3-num">0.0</span> )</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+								</ul>
+					</div><!--main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script src="js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+<script  type="text/javascript">
+
+
+
+</script>
+<script type="text/javascript">
+	Zepto(function() {		
+		//var goodsId = localStorage.getItem("goodsId");
+		//var	userId = localStorage.getItem("userId");
+		//alert(universityId);
+		//var repertoryId = localStorage.getItem("repertoryId");
+		//alert(userId);
+		// console.log(orderCode);
+		// console.log(lbyxCode);
+		// console.log(universityId);
+		// console.log(userId);
+		var lbyxCode = localStorage.getItem("lbyxCode");
+		var universityId = localStorage.getItem("universityId");
+		var allPrice = localStorage.getItem("allPrice");
+		var orderCode = localStorage.getItem("OrderCode");
+		var	userId = localStorage.getItem("userId");
+
+		$(".top-back-li").tap(function () {
+			window.history.back();
+		});
+		$(".payment-li1").tap(function () {
+			callpay();
+			// console.log(data);
+			//alert("here");
+		});
+
+		//获取导航栏问号后的code
+		function getQueryString(name) {  
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");  
+			var r = window.location.search.substr(1).match(reg);  
+			if (r != null) return decodeURI(r[2]);  
+			return null;  
+		} 
+		//var openid=localStorage.getItem("openid")?localStorage.getItem("openid"):null;
+		//如果有openid，传给后台；如果没有，先获取再传给后台。
+		var openid=localStorage.getItem("openid");
+		if(openid!=null && openid !="" &&openid!=undefined)
+		{
+			//调用微信JS api 支付
+	       	function jsApiCall(){
+				// alert(openid);
+				$.ajax({
+			        url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=set_PayTypeorder&PayType=1&OrderCode="+orderCode+"&token="+lbyxCode+"&trade_type=JSAPI&openid="+openid,
+			        type: 'get',
+			        async: false,    //或false,是否异步
+			        dataType: 'json',
+			        success: function (data, textStatus, jqXHR) {
+			        	//alert("xxxxxxddddddd");
+						// alert(data);
+						console.log(data.Result);
+					    // var dd=JSON.stringify(data);
+					    // alert(dd);
+					    WeixinJSBridge.invoke('getBrandWCPayRequest',JSON.parse(data.Result),function (res) {
+							WeixinJSBridge.log(res.err_msg);
+							// alert(res.err_code + res.err_desc + res.err_msg);
+							// localStorage.setItem("lbyxMyOrder","lbyxMyOrder3");
+							localStorage.setItem("indexPage",0);
+							window.location.href="index.html";
+						});
+					},
+			        error: function (xhr, textStatus) {
+			            alert('error');
+			        }
+				});
+	       	}
+		}else{
+		//step1获取code
+			var thisurl="http%3a%2f%2fgo.x5u.com.cn";   //go.x5u.com.cn
+			//alert("ddd");
+			var thisurl2="http%3a%2f%2fapi.x5u.com.cn";   //api.x5u.com.cn
+			var url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7d2bacafc26a9d16&redirect_uri="+thisurl2+"&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+		
+			if(getQueryString("code")==null || getQueryString("code")=="" || getQueryString("code")==undefined){
+				window.location.href=url;
+			}else{
+				localStorage.setItem("wxcode",getQueryString("code"));	
+			}
+			//alert("dnthththth");
+			//url:"http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=get_Openid&token="+lbyxCode,
+			//data:JSON.stringify({'action':'get_Openid','code':'"+wxcode+"'}),
+			var wxcode=localStorage.getItem("wxcode");
+			var lbyxCode = localStorage.getItem("lbyxCode");
+			alert(wxcode);
+			//step.获取openid
+			$.ajax({
+				type:"post",
+				url:"http://api.x5u.com.cn:12804/Order/OrderGetOpenid.aspx",
+				dataType:"json",
+				data:{"action":"get_Openid","code":wxcode},
+				success:function(response){
+					// alert("dddd666666dddd");
+					// console.log(data);
+				  var re=JSON.parse(response);
+				  // alert(re.openid);
+				  localStorage.setItem("openid",re.openid);	
+				},
+				error: function (data) {
+				// console.log(data);
+					//alert("error");
+					alert(data);
+					// 状态码
+                    //alert(XMLHttpRequest.status);
+                    // 状态
+                   // alert(XMLHttpRequest.readyState);
+                    // 错误信息  				
+                   // alert(textStatus);
+				}
+			});
+		}
+
+               function callpay()
+               {
+                   if (typeof WeixinJSBridge == "undefined")
+                   {
+                       if (document.addEventListener)
+                       {
+                           document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                       }
+                       else if (document.attachEvent)
+                       {
+                           document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                           document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                       }
+                   }
+                   else
+                   {
+                       jsApiCall();
+                   }
+               }
+
+		//end by marisa song	
+		
+		
+
+
+
+
+
+		$(".payment-li2").tap(function () {
+//			alert("zf");
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?OrderCode="+orderCode+"&PayType=0&Token="+lbyxCode+"&action=set_PayTypeorder&operation=0&trade_type=MWEB", 
+				type:"get",
+//				headers: {
+////				  'User-Agent': "LBYX 1.0",
+//				  'version':"html1.0",
+//				  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//				  'HTTP_LBYX_TIME':getNowFormatDate(),
+//			   },
+				success:function(data){
+//					alert("111");
+					// console.log(data);
+					localStorage.setItem("lbyxZFBpay",data);
+					window.location.href = "zxb.html";  //是这句话
+//					window.location.href = "https://openapi.alipay.com/gateway.do?timestamp=2017-08-30 17:00:00&method=alipay.trade.wap.pay&app_id=2017083008457598&sign_type=RSA&"+data.Result+"&version=1.0&product_code=QUICK_WAP_WAY";
+				},error:function(){
+//					alert("222");
+				}
+			});//ajax
+		});
+		//第三种支付方式,余额显示
+		$.ajax({
+					url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=BalanceInfo_get&userid="+userId+"&Token="+lbyxCode+"&operation=0&",
+					type:"get",
+//					headers: {
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+					success:function(data){
+//						console.log(data);
+						$(".payment-li3-num").text(data.Result.Balance);
+					},error:function(){
+						console.log("no");
+					}
+			});//ajax
+		$(".payment-li3").tap(function (){
+			//第三种支付方式
+			$.ajax({
+					url: "http://api.shengyesoft.com:18001/ShoppingCart/ShoppingCart.aspx?PayType=5&operation=0&OrderCode="+orderCode+"&action=set_PayTypeorder&Token="+lbyxCode+"&",
+					type:"get",
+					headers: {
+					  'version':"html1.0",
+					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+					  'HTTP_LBYX_TIME':getNowFormatDate(),
+				   },
+					success:function(data){
+						console.log(data);
+	//					$(".payment-li3-num").text(data.Result);
+					},error:function(){
+						console.log("no");
+					}
+			});//ajax
+		});
+	});//end
+</script>
+
+
+
+
+ <!-- /*var temp = JSON.parse(data.Result);    //转换为json对象
+		            console.log(data);
+		            console.log(temp.mweb_url);
+		            var appid = temp.appid; 
+		            var timestamp = temp.timestamp;
+		            var noncestr = temp.noncestr;
+					var package = temp.package; 
+					var signType = "MD5";
+					var sign = temp.sign; 
+					
+					console.log(appid);
+					console.log(timestamp);
+					console.log(noncestr);
+					console.log(package);
+					console.log(signType);
+					console.log(sign);
+		            location.href = "https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?appId="+appid+"&timeStamp="+timestamp+"&nonceStr="+noncestr+"&package="+package+"&signType="+signType+"&paySign="+sign+"";
+		        */ -->

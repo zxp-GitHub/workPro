@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="top">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao xiaoyuhao-xiangou"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">全部商品</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="confirm-order-main">
+					<div class="pro-detail-one">
+						<div class="ok-add-cart-mask">
+					<i class="iconfont icon-duihao right-icon-tap"></i>
+					<p>加入购物车成功</p>
+				</div>
+						<!--<ul class="pro-detail-one-list-ul">
+							<li><img src="img/f-2.png"/></li>
+							<li><img src="img/all-goods-right-pic.png"/></li>
+							<li><img src="img/f-1.png"/></li>
+						</ul>
+						<ul class="pro-detail-one-point-ul">
+							<li class="red-point"></li>
+							<li></li>
+							<li></li>
+						</ul>-->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/deng.png" class="swiper-slide-pics1"/></div>
+        <div class="swiper-slide"><img src="img/deng.png" class="swiper-slide-pics2"/></div>
+        <div class="swiper-slide"><img src="img/deng.png" class="swiper-slide-pics3"/></div>
+</div>
+   <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+</div>
+	<!--<a href="confirm-order.html" data-transition="slide">ddd</a>-->
+					</div><!--one-->
+					<p style="background-color: #EEEEEE;height: 2%;width: 100%;"></p>
+					<div class="pro-detail-two">
+						<p class="pro-detail-two-p1"><span class="pro-detail-two-supermarket">超市</span><span class="pro-detail-two-goods-info"></span></p>
+						<p class="pro-detail-two-p2">图片仅供参考，以实物为准。</p>
+						<p class="pro-detail-two-p3">¥<span  class="pro-detail-two-price"></span>
+							<span  class="pro-detail-original-price">¥<span class="original-price-num"></span></span>
+							<span class="property-purchasing">限购<span class="property-purchasing-num"></span>件</span>
+							<span class="sell-out">售罄</span>
+						</p>
+					</div>
+					<p style="background-color: #EEEEEE;height: 2%;width: 100%;"></p>
+					<div class="pro-detail-three">
+						<p class="pro-detail-three-p"><i class="iconfont icon-jianhao1 icon-jianhao11 product-detail-jianhao" style="margin-bottom: 0rem;"></i><span class="pro-detail-three-num">1</span><i class="iconfont icon-jiahao2 product-detail-jiahao"></i></p>
+					</div>
+					<p style="background-color: #EEEEEE;height: 5%;width: 100%;position: relative;" class="drop-down-for-more-p">
+						<span class="drop-down-for-more-details">───── 下拉获取详情─────</span> 
+					</p>
+					<div class="pro-detail-four">
+						<i class="iconfont icon-gouwuche3 let-go-to-cart"><span class="pro-detail-four-num">1</span></i><span class="add-to-car">加入购物车</span><p class="buy-now">立即购买</p>
+					</div>
+					
+					<div class="product-detail-more-div">
+						<img src="img/deng.png" class="product-detail-more-pic"/>
+					</div>
+				</div><!--confirm-order-main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/zepto.fx.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/zepto.fn.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	Zepto(function() {
+//轮播图的改变
+  //一定要注意，必须要从home页跳转到商品详情页，banner才不会报错。
+  		var universityId = localStorage.getItem("universityId");
+  		var goodsId = localStorage.getItem("goodsId");
+  		var userId = localStorage.getItem("userId");
+  		var lbyxCode = localStorage.getItem("lbyxCode");
+  		var repertoryId = localStorage.getItem("repertoryId");
+//		var flashSaleLimitNum = localStorage.getItem("flashSaleLimitNum");
+  		var flashSaleSpecID = localStorage.getItem("flashSaleSpecID");
+  		//限购限制
+//		console.log(flashSaleLimitNum);
+  		$(".property-purchasing").show();
+//		$(".xiaoyuhao-xiangou").tap(function () {
+//			localStorage.setItem("flashSaleLimitNum","null");
+//		})
+
+//console.log(flashSaleSpecID);
+//console.log(universityId);
+//console.log(userId);
+//console.log(goodsId);
+
+//			$.ajax({
+//				type:"get",
+//				url:"http://api.x5u.com.cn:12804/CRM/SpecialSaleGoods.aspx?SpecID="+flashSaleSpecID+"&UniversityId="+universityId+"&action=SpecialSale_get&goodsid="+goodsId+"&operation=3&userid="+userId+"",
+//				dataType:"json",
+//				success:function(data){
+//					console.log(data);
+//				}
+//			});
+  		cartAllNum();
+  		//显示购物车的商品的总数量
+		function cartAllNum(){
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=Totalnumber_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+				dataType:"json",
+//				headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+				success:function(data){
+					console.log(data.Result);
+					$(".pro-detail-four-num").html(data.Result);
+				}
+			});
+		}
+	//轮播图的改变
+		$.ajax({//获取json数据必写哦！！！
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/CRM/SpecialSaleGoods.aspx?SpecID="+flashSaleSpecID+"&UniversityId="+universityId+"&action=SpecialSale_get&goodsid="+goodsId+"&operation=3&userid="+userId+"",
+			dataType:"json",
+//			headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+			success:function(data){//consol一下是很重要的！！！！！！
+					console.log(data);
+					var flashSaleLimitNum = data.result.data.LimitNum;
+					$(".property-purchasing-num").html(flashSaleLimitNum);//这个要放到show()的后面
+					var repertoryId = data.result.data.RepertoryID;
+					//判断售卖价格若是少于或等于原价才可以显示原价，否则不显示
+					if (data.result.data.GuidedPrice>=data.result.data.DZprice) {
+						$(".original-price-num").html(data.result.data.GuidedPrice)
+					}else{
+						$(".pro-detail-original-price").hide();
+					}
+					//下面的更多详情图片
+					$(".product-detail-more-pic").attr("src","http://api.x5u.com.cn:12804"+data.result.data.DescImg);
+					//假如一页获取m条
+//				    var homeNums = window.sessionStorage.getItem("homeNum")||"";
+//				    console.log(data.homeList[homeNums]);
+					$(".swiper-slide-pics1").attr("src","http://api.x5u.com.cn:12804"+data.result.data.Img1);
+					$(".swiper-slide-pics2").attr("src","http://api.x5u.com.cn:12804"+data.result.data.Img2);
+					$(".swiper-slide-pics3").attr("src","http://api.x5u.com.cn:12804"+data.result.data.Img3);
+//					 var html= "<div class=\"swiper-slide\"><img src=\"http://api.x5u.com.cn:12804"+data.Result.data.Img1+"\"/></div>";
+//						 html+="<div class=\"swiper-slide\"><img src=\"http://api.x5u.com.cn:12804"+data.Result.data.Img2+"\"/></div>";
+//						 html+="<div class=\"swiper-slide\"><img src=\"http://api.x5u.com.cn:12804"+data.Result.data.Img3+"\"/></div>";
+//						$(".swiper-wrapper").append(html);//通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+					$(".pro-detail-two-goods-info").html(data.result.data.GoodsName);
+					$(".pro-detail-two-price").html(data.result.data.DZprice);
+//					轮播图
+					var mySwiper = new Swiper ('.swiper-container', {
+				    direction: 'horizontal',
+				    longSwipes : false,
+				    loop: true,
+					//onlyExternal : false,
+				    autoplay : 2000,
+				    autoplayDisableOnInteraction : false,//禁止自动播放的作用
+				    // 如果需要分页器
+				    pagination: '.swiper-pagination',
+					});
+					//点击加入购物车，如果数量大于库存，提示
+					//点击加入购物车，弹出提示框
+						if (data.result.data.GoodsNum==0) {
+							$(".sell-out").show();
+							return false;
+						}else{
+							$(".pro-detail-three-num").html(1);
+							$(".pro-detail-flour-num").html(1);
+							$(".pro-detail-three-p").find(".icon-jianhao1").on('tap',function () {
+								if (parseInt($(".pro-detail-three-num").html())>1){
+									$(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())-1);
+								} else{
+								 return false;
+								}
+							    if (parseInt($(".pro-detail-three-num").html())==1){
+							   	$(".icon-jianhao11").css("color","#ccc");
+						//	   	$(".sell-out").show();
+							    }
+							});
+							$(".pro-detail-three-p").find(".icon-jiahao2").on('tap',function () {
+								if (parseInt($(".pro-detail-three-num").html())==1){
+									$(".icon-jianhao11").css("color","red");
+//									$(".sell-out").hide();
+								}
+								//判断，要是超过限购的个数，给出提示;若是没有限制个数，随便加，不给出提示
+								if (flashSaleLimitNum!=null&&parseInt($(".pro-detail-three-num").html())>=parseInt($(".property-purchasing-num").html())) {
+									alert("限购"+$(".property-purchasing-num").html()+"件商品");
+								}else{
+									$(".pro-detail-three-num").html(parseInt($(".pro-detail-three-num").html())+1);
+								}
+								  
+							});
+							//点击小对号，弹出框隐藏
+						    $(".right-icon-tap").tap(function(){
+						  		$(".ok-add-cart-mask").hide()
+						  	});
+						}
+						//点击加入购物车
+						$(".add-to-car").tap(function () {
+								if(lbyxCode==""||lbyxCode==null){
+									window.location.href = "login.html"
+								}else{
+									var repertoryId = data.result.data.RepertoryID;
+									var flashSaleSGID = data.result.data.SGID;
+//									console.log(flashSaleSGID);
+//									console.log(lbyxCode);
+//									console.log(data.result.data.RepertoryID);
+//									console.log(universityId);
+//									console.log(data.result.data.SGID);
+									$.ajax({
+										type:"get",
+										url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=true&SGID="+flashSaleSGID+"",
+										dataType:"json",
+//										headers: {
+////											  'User-Agent': "LBYX 1.0",
+//											  'version':"html1.0",
+//											  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//											  'HTTP_LBYX_TIME':getNowFormatDate(),
+//										   },
+										success:function(data){
+											console.log(data);
+											if(data.ResultCode=="23"){
+												alert(data.ErrMsg);
+											}else{
+												cartAllNum();
+												alert("加入购物车成功！");
+											}
+											//商品图片的渲染
+										}//success
+									});//ajax
+								}
+								
+							});
+			}//success
+		});//ajax---
+		//点击立即购买	
+		//cart对号操作时checked值改变
+		function readyToBuys (cartGoodId,goodready) {
+			$.ajax({
+				url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+cartGoodId+"&Num=1&UniversityId="+universityId+"&Checked="+goodready+"",  //注册地址
+				type:"get",
+				dataType:"json",
+//				headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+				success:function(data){
+						alert("库存不足");
+				}
+			});//ajax
+		}//readyToBuy
+	    $(".buy-now").tap(function () {
+	    	if (lbyxCode=="") {
+			window.location.href = "login.html";
+			} else{
+	    	var repertoryId = localStorage.getItem("repertoryId");
+	    	console.log(repertoryId);
+//						    	cartAllGoodsCheckedFalse ();
+	    	readyToBuys (repertoryId,true);
+	    	window.location.href = "confirm-order-one.html";
+	   		}
+	    });
+		//去购物车列表页,判断是否登录
+		$(".let-go-to-cart").tap(function () {
+			if(lbyxCode == ""){
+			window.location.href = "login.html";
+			}else{
+				localStorage.setItem("indexPage",1);
+				window.location.href = "index.html";
+			}
+//			$("big-li").eq(1).addClass("show").siblings().removeClass("show");
+		});
+		});//end
+</script>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">申请退货</span></li>
+					</ul>			
+				</div><!--top-->
+					<div class="return-mode-main">
+								<div class="return-mode-section return-mode-section1">
+									<h3 class="return-mode-h3">商品退回方式</h3>
+									<ul class="return-mode-section1-ul">
+										<li class="return-mode-section1-li return-mode-section1-li1">送货至自提点</li>
+										<li class="return-mode-section1-li return-mode-section1-li2">上门取件</li>
+									</ul>
+								</div>
+								<div class="return-mode-section return-mode-section2">
+									<ol class="return-mode-list-ol">
+										<li class="return-mode-list-li">
+											<ul class="choice-ul return-mode-section2-ul">
+												<li class="choice-li return-mode-section2-li return-mode-section2-li1">自提点：<input type="text" value="" class="address-info-self-get-point"/><i class="iconfont icon-dayuhao float-right-dayuhao"></i></li>
+												<li class="choice-li return-mode-section2-li return-mode-section2-li2">
+													<div class="choice-li-left">
+													
+													<p>配送时间：<span class="return-mode-one-time confirm-one-time" style="font-size: 0.5rem;">16:30-17:30</span></p><p>您需在3天内送至自提点，超时会自动取消退货订单</p>
+													</div>
+													<i class="iconfont icon-dayuhao float-right-dayuhao"></i>
+												</li>
+												<li class="choice-li return-mode-section2-li">联系人：<i class="iconfont float-right-dayuhao" style="width: 70%;"><input type="text" class="return-mode-name" name="" id="" value="" /></i></li>
+												<li class="choice-li return-mode-section2-li">联系手机：<i class="iconfont float-right-dayuhao" style="width: 70%;"><input type="text" class="return-mode-phone" name="" id="" value="" /></i></li>
+											</ul>
+										</li>
+										<li class="return-mode-list-li">
+											<ul class="choice-ul return-mode-section2-ul">
+												<li class="choice-li return-mode-section2-li return-mode-two-data">取件日期：<span class="select-area-span confirm-two-day" style="font-size: 0.5rem;">2017-07-26</span><i class="iconfont icon-dayuhao float-right-dayuhao"></i></li>
+												<li class="choice-li return-mode-section2-li return-mode-two-time">取件时间：<span class="select-area-span confirm-two-time" style="font-size: 0.5rem;">16:30-17:30</span><i class="iconfont icon-dayuhao float-right-dayuhao"></i>
+												</li>
+												<li class="choice-li return-mode-section2-li return-mode-sections3-li3" style="height: 4rem;">
+													<div class="choice-li-left">
+													<p>取件地址：</p><p style="margin-top: 0.4rem;"><input type="text" value="" class="address-info-select-area"/></p>
+													</div>
+													<i class="iconfont icon-dayuhao float-right-dayuhao"></i></li>
+											</ul>
+											
+											
+											
+											<ul class="choice-ul return-mode-section2-ul" style="margin-top: 1rem;">
+												<li class="choice-li return-mode-section2-li">联系人：<i class="iconfont float-right-dayuhao" style="width: 70%;"><input type="text" name="" id="" value="" class="return-mode-name"/></i></li>
+												<li class="choice-li return-mode-section2-li">联系手机：<i class="iconfont float-right-dayuhao" style="width: 70%;"><input type="text" name="" id="" value="" class="return-mode-phone"/></i></li>
+											</ul>
+										</li>
+									</ol>
+									
+								</div>
+								<div class="confirm-order-main-second">
+								</div>
+						<p class="public-next-step">提交</p>
+					</div><!--main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function () {
+		var lbyxReturnOneArea = localStorage.getItem("lbyxReturnOneArea");
+		var lbyxReturnTwoArea = localStorage.getItem("lbyxReturnTwoArea");
+		var lbyxGiveWay = localStorage.getItem("lbyxGiveWay");
+		var lbyxReturnTwoDay = localStorage.getItem("lbyxReturnTwoDay");
+		var lbyxReturnOneTime = localStorage.getItem("lbyxReturnOneTime");
+		var lbyxAddressName = localStorage.getItem("lbyxAddressName");
+		var	lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
+		var lbyxReturnModeSection = localStorage.getItem("lbyxReturnModeSection");
+		
+		var lbyxReturnReason = localStorage.getItem("lbyxReturnReason");
+		var	lbyxReturnOGID = localStorage.getItem("lbyxReturnOGID");
+		var lbyxReturnCount = localStorage.getItem("lbyxReturnCount");
+		var lbyxCode = localStorage.getItem("lbyxCode");
+		var lbyxReturnTwoTime = localStorage.getItem("lbyxReturnTwoTime");
+		
+		$(".confirm-two-time").text(lbyxReturnTwoTime);
+		$(".confirm-one-time").text(lbyxReturnOneTime);
+	    $(".confirm-two-day").text(lbyxReturnTwoDay);
+	    $(".return-mode-name").val(lbyxAddressName);
+	    $(".return-mode-phone").val(lbyxAddressPhone);
+		$(".top-back-li").tap(function () {
+			window.history.back();
+		});
+		$('.return-mode-section1-li').tap(function(){
+	        $(this).addClass('return-mode-active').siblings().removeClass('return-mode-active');
+	        $('.return-mode-list-li').hide().eq($(this).index()).show()
+	    });
+		console.log(lbyxReturnModeSection);
+		if (lbyxReturnModeSection==0) {
+			$('.return-mode-section1-li1').addClass('return-mode-active').siblings().removeClass('return-mode-active');
+	        $('.return-mode-list-li').hide().eq(0).show();
+		} else{
+			$('.return-mode-section1-li2').addClass('return-mode-active').siblings().removeClass('return-mode-active');
+	        $('.return-mode-list-li').hide().eq(1).show();
+		}
+	    $(".return-mode-section1-li1").tap(function () {
+	        localStorage.setItem("lbyxReturnModeSection",0);
+	    });
+	     $(".return-mode-section1-li2").tap(function () {
+	        localStorage.setItem("lbyxReturnModeSection",1);
+	    });
+	   $(".return-mode-section2-li1").tap(function () {
+			window.location.href = "return-goods-self-get.html";
+		});
+		$(".return-mode-section2-li2").tap(function () {
+			window.location.href = "return-good-one-time.html";
+		});
+		if (lbyxReturnOneArea!=" ") {
+			$(".address-info-self-get-point").show();
+			$(".address-info-self-get-point").val(lbyxReturnOneArea);
+		}
+		$(".return-mode-sections3-li3").tap(function () {
+			window.location.href = "return-goods-select-aera.html";
+		});
+	   if (lbyxReturnTwoArea!=" ") {
+			$(".address-info-select-area").show();
+			$(".address-info-select-area").val(lbyxReturnTwoArea);
+		}
+	    $(".return-mode-two-time").tap(function () {
+			window.location.href = "return-goods-two-time.html";
+		});
+	    $(".return-mode-two-data").tap(function () {
+			window.location.href = "return-goods-two-data.html";
+		});
+		$(".public-next-step").tap(function () {
+			var lbyxReturnModeSection = localStorage.getItem("lbyxReturnModeSection");
+			if (lbyxReturnModeSection==0) {
+				$.ajax({
+					type:"get",
+					url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingReturn.aspx?Address="+lbyxReturnOneArea+"&Count="+lbyxReturnCount+"&Images=/Content/Image/fe58f1339a8dcd9a45a3827b1aa319cb.png&OGID="+lbyxReturnOGID+"&Reason="+lbyxReturnReason+"&RefundType=1&ReturnType="+lbyxReturnModeSection+2+"&Tel="+lbyxAddressPhone+"&Time="+lbyxReturnOneTime+"&Token="+lbyxCode+"&UserName="+lbyxAddressName+"&action=SetGoodsReturn&operation=1",
+					dataType:"json",
+//					headers: {
+//							  'version':"html1.0",
+//							  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//							  'HTTP_LBYX_TIME':getNowFormatDate(),
+//						   },
+					success:function(data){
+						console.log(data);
+					}//success
+					,erro:function(data){
+						console.log("errop");
+					}
+				})
+			} else{
+				$.ajax({
+					type:"get",
+					url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingReturn.aspx?Address="+lbyxReturnTwoArea+"&Count="+lbyxReturnCount+"&Images=/Content/Image/fe58f1339a8dcd9a45a3827b1aa319cb.png&OGID="+lbyxReturnOGID+"&Reason="+lbyxReturnReason+"&RefundType=1&ReturnType="+lbyxReturnModeSection+"&Tel="+lbyxAddressPhone+"&Time="+lbyxReturnTwoDay+lbyxReturnTwoTime+"&Token="+lbyxCode+"&UserName="+lbyxAddressName+"&action=SetGoodsReturn&operation=1",
+					dataType:"json",
+//					headers: {
+//							  'version':"html1.0",
+//							  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//							  'HTTP_LBYX_TIME':getNowFormatDate(),
+//						   },
+					success:function(data){
+						console.log(data);
+					}//success
+					,erro:function(data){
+						console.log("errop");
+					}
+				})
+			}
+			console.log($(".return-mode-name").val())
+		});
+	   
+	});
+</script>

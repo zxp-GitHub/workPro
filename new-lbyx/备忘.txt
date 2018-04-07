@@ -1,0 +1,171 @@
+》LBYX项目问题总结《
+1.
+	event.stopPropagation();//不包括，在子元素上阻止冒泡即可解决。  //子元素点击，父元素点击事件不会触发
+	event.stopPropagation();
+	event.preventDefault();//阻止默认事件，比如说点击右键想要自己定义的框显示，阻止默认的框显示
+2.购物车加入商品，个数显示放在延时里面，在外面加入购物车的时间 有时会慢于 显示数量的时间。
+3.地址信息，选择区域，选完后，原先填的内容人仍然还在。
+4.首页content是可以直接显示成页面的，会出错，title点击无效
+5.touchMoveStopPropagation : false,  Swiper中,true时阻止touchmove冒泡事件。-实验证明，false时不会出错。
+smile 2017/8/23 17:28:51
+https://pay.weixin.qq.com/index.php/core/home/login 
+1385285302@1385285302，125796
+
+账号，密钥，APPID
+张志勇 2017/8/30 17:06:50
+zhangzy@shengyesoft.com
+Samuelsheng1995
+张志勇 2017/8/30 17:07:13
+你用这个登录，查看密钥，AppID
+17:07:27
+smile 2017/8/30 17:07:27
+登录哪里？
+张志勇 2017/8/30 17:07:52
+b.alipay.com 
+
+钱包余额？
+smile 2017/8/23 17:01:06
+是哪里的钱
+smile 2017/8/23 17:01:27
+我的都显示零，就没用过
+用我的账号13581762788，123456
+
+张志勇 2017/8/23 18:07:30
+1381514402@1381514402
+641835
+smile 2017/8/23 18:07:39
+这是？
+张志勇 2017/8/23 18:07:43
+这个是超市的微信支付商户号
+
+张志勇 2017/8/23 18:08:33
+这个的H5支付功能还没开通，你把它开通，也熟悉一下操作流程。
+
+微信支付商户号:1385285302
+
+http://x5u.com.cn/about.html
+
+张志勇 16:26:42
+ftp://go.x5u.com.cn/
+用户名密码zxp/zhangxiuping7218
+
+https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2016121516420242444321ca0631331346&package=1405458241
+window.location.href="https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id= "+prepayid+"&package=Sign=WXPay ";
+ 
+测试连接http://222.128.110.221:18001
+
+
+http://api.shengyesoft.com:18001//第三种支付方式,余额显示
+http://58.58.197.17:18001
+http://api.x5u.com.cn:12804
+
+iOS下页面启动加载时显示的画面图片，避免加载时的白屏。
+
+可以通过madia来指定不同的大小：
+	<!--iPhone-->
+	<link href="apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image" />
+	<!-- iPhone Retina -->
+
+链接: https://pan.baidu.com/s/1kV42PpX 
+ 密码: yxcn
+一笑泯恩仇 2017/8/26 15:10:08
+这是vue
+
+一笑泯恩仇 2017/8/26 15:10:33
+链接: https://pan.baidu.com/s/1qXVgKc0 
+ 密码: y66e
+ 
+清除浮动的最优方式： 
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+
+http://api.x5u.com.cn:12804/School/CommonInterface.aspx?RegionName=0&action=Related_get1&dataindex=1&datasize=10&operation=6&universityid=28f95547-16f0-49eb-aace-d8a42e1f94fa
+http://api.x5u.com.cn:12804/School/CommonInterface.aspx?RegionName=0&action=Related_get1&dataindex=1&datasize=10&operation=6&universityid=null
+
+2017-10-16 星期一
+	1.苹果，Safari，火狐都是一个问题  ->没有选择商圈
+	2.抓接口怎么操作  ->把链接单独拿出来看
+	   	看data返回值有三种方式
+	 	1）console
+	 	2）网络（network）->xhr 里的链接  （这样就不用自己拼链接了）
+	 	3）单独抓链接看（可以判断后台是否返回数据）
+ 2017-10-17 星期二
+ 1.首页的图片高太大了，把下面图片的排版都挤乱了->把父族元素的overflow:hidden;
+ 	(不可改变图片的大小哦，图片太小，视觉效果差);
+
+	beforeSend: function(request) {
+         request.setRequestHeader('User-Agent', "LBYX 1.0");
+         request.setRequestHeader("version","html1.0");
+         request.setRequestHeader("HTTP_LBYX_SID","ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()));
+         request.setRequestHeader("HTTP_LBYX_TIME",getNowFormatDate());
+ 	},
+2017-10-21-星期六	
+1.
+    http://api.x5u.com.cn:12804
+    http://58.58.197.17:18001
+ 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+	headers: {
+  		'User-Agent': "LBYX 1.0",
+	  	'version':"html1.0",
+	  	'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+	  	'HTTP_LBYX_TIME':getNowFormatDate(),
+    },
+2.不出数据怎么办？究竟是自己的问题：还是没有数据
+	1）console一下，看有没有数据，成功-next
+	2）看是不是dataType:"json",的问题或者从网络响应里看-可能会报错（json的）
+	3）若响应里显示data为0，没报错，那就是没传数据
+	4）看网络-XHR里的链接，拼接的参数是不是为零
+	5）看-消息头-原始头里-header里的参数是不是没有传进去。
+	
+bug:
+1.商品列表页-ok
+2.轮播图-ok
+3.购物车缺货处理
+4.全部订单页
+5.退货处理
+
+白芷粉、白术粉和绿豆粉
+珍珠粉最好
+
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+
+2017-11-13 一
+1. return-goods
+$(".return-goods-list-li1").html("");//为什么加这句话，经source测试，小cellRender里循环过的代码已经append在大循环里了
+
+2017-11-17 五
+1.打包成APP:图标要是A，-右键-发行
+2017-11-18 六
+1.下拉加载，方法重了之后，点击事件加入购物车会多次加入。
+
+2017-12-13-三
+1.下拉多次加入购物车bug
+if(oWrap.height() + $(this).scrollTop() >= $(".guess-you-like-min-scroll").height()-1) {
+$(".guess-you-like-min-scroll").height()-10 改为  $(".guess-you-like-min-scroll").height()-1
+
+
+
+
+http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=set_PayTypeorder&operation=0&PayType=1&OrderCode=LBUX171215158115&token=651e7132-80f8-44ba-9b37-e65c3f2534a3&UniversityId=28f95547-16f0-49eb-aace-d8a42e1f94fa&spbill_create_ip=144.52.128.175&trade_type=MWEB
+
+
+2017-12-16-六
+报文：
+http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=MessageAuthentication_get&operation=3&mobile=18753377218&type=0&XWYorKP=1& 
+
+https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180307101947cc5387fd170732996619&package=3944979350
+https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx201803071021063a5034efb30622055894&package=1416330397

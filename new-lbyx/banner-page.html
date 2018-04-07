@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span banner-page-pic-span"></span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="all-goods-main banner-page-main">
+					<div class="banner-page-min-main">
+						<div class="banner-page-min-main-scroll">
+							<img src="img/deng2.png" class="banner-page-pic-one"/>
+							<ul class="banner-page-ul">
+								<!--<li class="banner-page-li">
+									<img src="img/all-goods-right-pic.png" class="banner-page-li-pic"/>
+									<p class="banner-page-p1"></p>
+									<p class="banner-page-p2">
+										<span class="banner-page-span1"><span class="banner-page-money">¥</span><span class="banner-page-price1"></span></span>
+										<span class="banner-page-span2"><span class="banner-page--money">¥</span><span class="banner-page-price2"></span></span>
+									</p>
+								</li>-->
+							</ul>
+						</div>
+					</div>
+					<p class="banner-page-link">更多好货，尽在来宝优选超市，点击前往>></p>
+				</div><!--main-->
+			</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function () {
+		var bannerImg2Url = localStorage.getItem("bannerImg2Url");
+		var bannerTitle = localStorage.getItem("bannerTitle");
+		var userId = localStorage.getItem("userID");
+		var universityId = localStorage.getItem("universityId");
+		var bannerSpecID = localStorage.getItem("bannerSpecID");
+		$(".banner-page-pic-span").html(bannerTitle);
+		$(".banner-page-pic-one").attr("src","http://api.x5u.com.cn:12804"+bannerImg2Url);
+		
+		$(".banner-page-link").tap(function () {
+			window.location.href = "all-goods.html";
+		});
+		//商品列表ajax
+		ajaxBannerPage(1);
+		//下拉加载
+//		$(document).ready(function() { //这句话是要用的
+		var oWrap = $(".banner-page-min-main");
+		oWrap.height()
+		var firstScrollPage = 2;//因为ajaxProducts(1);初始化是从1开始的，所以赋初值的时候就要从2开始，否则就会重复
+		oWrap.scroll(function() { //只要不是钟表都不用计时器，滚动条监听有这个专门的方法，要配合ready来用。
+//			console.log(oWrap.height());
+//			console.log($(this).scrollTop());
+//			console.log($(".banner-page-min-main-scroll").height());
+			if(oWrap.height() + $(this).scrollTop() >= $(".banner-page-min-main-scroll").height()-10) {
+				//console.log(firstScrollPage);
+				ajaxBannerPage(firstScrollPage);//也可以将加1和调用语句调换顺序，初值firstScrollPage就可为1
+				firstScrollPage = parseInt(firstScrollPage)+1;//这个地方不要加var，否则会无法console.log(firstScrollPage);为null
+			}
+		}); //E scroll
+//		});
+		function ajaxBannerPage(dataindex){
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/CRM/SpecialSaleGoods.aspx?action=SpecialSale_get&operation=7&SpecID="+bannerSpecID+"&universityid="+universityId+"&userid="+userId+"&dataindex="+dataindex+"&datasize=10&",
+				dataType:"json",
+//				headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+				success:function(data){
+					console.log(data);
+					function indexBannerPageRender (obj) {
+						var html ="<li class=\"banner-page-li\" GoodsID=\""+obj.GoodsID+"\">";
+							html += "	<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"banner-page-li-pic\"/>";
+							html += "	<p class=\"banner-page-p1\">"+obj.AnotherName+"</p>";
+							html += "	<p class=\"banner-page-p2\">";
+							html += "		<span class=\"banner-page-span1\"><span class=\"banner-page-money\">¥</span><span class=\"banner-page-price1\">"+obj.ActualSaleUnitPrice+"</span></span>";
+							html += "		<span class=\"banner-page-span2\"><span class=\"banner-page--money\">¥</span><span class=\"banner-page-price2\">"+obj.GuidedPrice+"</span></span>";
+							html += "	</p>";
+							html += "</li>";
+						$(".banner-page-ul").append(html);
+					}
+					//
+					for (var i = 0; i < data.result.data.length; i++) {
+						indexBannerPageRender(data.result.data[i]);
+					}
+//					if (data.result.data.length==0) {
+//						var txt1="<li class=\"already-bottom\"> 已经到底了</li>";  
+//						if () {
+//						}
+//						$(".banner-page-ul").append(txt1);
+//					}
+				//点击图片跳转到详情页面
+				$(".banner-page-li").tap(function () {
+					localStorage.setItem("goodsId",$(this).attr("GoodsID"));
+//					localStorage.setItem("repertoryId",$(this).attr("repertoryId"));
+					window.location.href = "product-details.html";
+				});
+				}
+			});//ajax
+		}//ajaxBannerPage
+		
+		
+		
+		
+	});
+</script>

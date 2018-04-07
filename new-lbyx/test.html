@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fx.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fn.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="js/main.js" type="text/javascript" charset="utf-8"></script>-->
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+Zepto(function(){
+   $.ajax({
+    url:"php/returnTwo.php",
+    type:"get",
+    dataType:"String",
+    success:function(data){
+    	console.log(data);
+    },
+    error:function (data) {
+    	console.log("no");
+    }
+  });  
+ });
+</script>
+</html>

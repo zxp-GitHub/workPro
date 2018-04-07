@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box confirm3-box">
+				<div class="confirm3-mask">
+				</div>
+				<div class="top">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">确认订单</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="confirm-order-main">
+					<div class="fill-address-information confirm-order1-one">
+						<p class="confirm-order1-one-p"><i class="iconfont icon-dizhi"></i></p>
+						<div class="confirm-order1-one-right">
+							<p class="confirm-order1-one-right-p1"><span>收件人：婉莹</span><span>13722212221</span></p>
+							<p class="confirm-order1-one-right-p2"><span>收货地址：</span><span>北京市海淀区中关村大街27号中关村大厦509室</span></p>
+						</div>
+					</div><!--fill-address-information-->
+					<p style="background-color: #EEEEEE;height: 2%;width: 100%;"></p>
+				<div class="confirm-order-main-second">
+					<ul class="confirm-order-ul">
+						<li class="confirm-order-li"><a href="###">配送方式  <span class="select-area-span">配送<i class="iconfont icon-dayuhao"></i></span></a></li>
+						<li class="confirm-order-li"><a href="#">配送日期<span class="select-area-span">2017-03-30<i class="iconfont icon-dayuhao"></i></span></a></li>
+						<li class="confirm-order-li"><a href="###">配送时间段<span class="select-area-span">09:00-10:00<i class="iconfont icon-dayuhao"></i></span></a></li>
+					</ul>
+				</div>
+		        <div class="confirm-order3-three">
+		        	<p class="confirm-order3-three-p">配送方式</p>
+		        	<ul class="confirm-order3-three-ul confirm-order-select-data-ul">
+		        		<li class="confirm-order3-three-li">4月1日  星期六</li>
+		        		<li class="confirm-order3-three-li">4月2日  星期日</li>
+		        		<li class="confirm-order3-three-li">4月3日  星期一</li>
+		        		<li class="confirm-order3-three-li">4月4日  星期二</li>
+		        		<li class="confirm-order3-three-li">4月5日  星期三</li>
+		        		<li class="confirm-order3-three-li">4月6日  星期四</li>
+		        	</ul>
+			        <p class="confirm-order3-three-p confirm-order3-three-cancel"><a href="confirm-order-one.html">取消</a></p>
+		        </div>
+				</div><!--confirm-order-main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+//		$(".confirm-order-time-ul>li").tap(function () {
+//			localStorage.setItem("lbyxTime",$(this).html());
+//			window.location.href = "confirm-order.html";
+//		})
+//	var universityId = localStorage.getItem("universityId");
+//	$.ajax({
+//			url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=UniversityInfo_get&operation=1&universityid="+universityId+"&GoodsType=2&QFtype=1&",
+//			type:"get",
+//			success:function(data){
+//				console.log(data);
+//			}
+//			});//ajax	
+//function tab(dayNum){
+//		var oDate = new Date();   //获取当前时间
+//		var dayArr = [oDate];     //定义一个数组存储所以时间
+//		for(var i=0;i<dayNum;i++){
+//			dayArr.push(new Date(oDate.getFullYear(),oDate.getMonth(),oDate.getDate() + i));  //把未来几天的时间放到数组里
+//		}
+//		return dayArr;   //返回一个数组。
+//	}
+//	console.log(tab(5));  //函数调用。
+//	});
+//	var  myData =  new Date();
+//	console.log(myData);
+//	var myYear = myData.getFullYear();
+//	var myMonth = myData.getMonth()+1;
+//	var myDay = myData.getDate();
+////	var myWeek = myData.get();
+//	var t=myData.toLocaleString();
+//	var confirmDataLi = $(".confirm-order-select-data-ul>li");
+//	console.log(confirmDataLi);
+//	console.log()
+//	function aaaa (myDay) {
+//		myDay = myDay+ i ;
+//		confirmDataLi.html(myYear+"-0"+myMonth+"-"+myDay);
+//	}
+//	for (var i = 0; i < confirmDataLi.length; i++) {
+//		var myDay = myData.getDate()+i;
+//		aaaa (myDay);
+//	}
+//	console.log()
+//	$(".confirm-order-time-ul>li").tap(function () {
+//			localStorage.setItem("lbyxTime",$(this).html());
+//			window.location.href = "confirm-order.html";
+//		})
+</script>

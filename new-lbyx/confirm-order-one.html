@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+		<style type="text/css">
+			.confirm-two-dayuhao{
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box confirm-order-box">
+				<div class="confirm-delivery-mask confirm-delivery-mask1">
+					<div class="confirm-delivery-mask-cell confirm-delivery-mask1-cell">
+						<div class="confirm-order3-three">
+				        	<p class="confirm-order3-three-p">配送方式</p>
+				        	<ul class="confirm-order3-three-ul">
+				        		<li class="confirm-order3-three-li confirm-order-four-li confirm-order-send-way confirm-order-send-way1">配送员配送</li>
+				        		<li class="confirm-order3-three-li confirm-order-four-li confirm-order-send-way confirm-order-send-way2">自提点自提</li>
+				        	</ul>
+				        	<p class="confirm-order3-three-p confirm-order3-three-cancel">取消</p>
+		        		</div>
+					</div>
+				</div>
+				<div class="confirm-delivery-mask confirm-delivery-mask2">
+					<div class=" confirm-delivery-mask-cell confirm-delivery-mask2-cell">
+						<div class="confirm-order3-three">
+			        		<p class="confirm-order3-three-p">配送方式</p>
+				        	<ul class="confirm-order3-three-ul confirm-order-select-data-ul">
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li1">2017-08-23</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li2">4月2日  星期日</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li3">4月3日  星期一</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li4">4月4日  星期二</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li5">4月5日  星期三</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li6">4月6日  星期四</li>
+				        	</ul>
+				        	<p class="confirm-order3-three-p confirm-order3-three-cancel">取消</p>
+		        		</div>
+					</div>
+				</div>
+				<div class="confirm-delivery-mask confirm-delivery-mask3">
+					<div class="confirm-delivery-mask-cell confirm-delivery-mask3-cell">
+						<div class="confirm-order3-three">
+				        	<p class="confirm-order3-three-p">配送方式</p>
+					        	<ul class="confirm-order3-three-ul last-border-none-ul confirm-order-time-ul">
+					        		<!--<li class="confirm-order3-three-li">09:00-10:00</li>
+					        		<li class="confirm-order3-three-li">10:00-11:00</li>
+					        		<li class="confirm-order3-three-li">11:00-12:00</li>
+					        		<li class="confirm-order3-three-li">13:00-14:00</li>
+					        		<li class="confirm-order3-three-li">14:00-15:00</li>
+					        		<li class="confirm-order3-three-li">15:00-16:00</li>
+					        		<li class="confirm-order3-three-li">16:00-17:00</li>
+					        		<li class="confirm-order3-three-li">17:00-18:00</li>
+					        		<li class="confirm-order3-three-li">18:00-19:00</li>
+					        		<li class="confirm-order3-three-li" style="border-bottom: 1px solid #ccc;">19:00-20:00</li>-->
+					        	</ul>
+				        	<p class="confirm-order3-three-p confirm-order3-three-cancel">取消</p>
+		      			</div>
+					</div>
+				</div>
+				<div class="top">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li-confirm-order"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">确认订单</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="confirm-order-main">
+					<div class="fill-address-information fill-address-info-button">
+						<p class="fill-address-info-p">填写地址信息</p>
+					</div><!--fill-address-information-->
+					<div class="fill-address-information confirm-order1-one">
+						<p class="confirm-order1-one-p"><i class="iconfont icon-dizhi"></i></p>
+						<div class="confirm-order1-one-right">
+							<p class="confirm-order1-one-right-p1">收件人：<span class="confirm-one-name">婉莹</span><span class="confirm-one-phone">13722212221</span></p>
+							<p class="confirm-order1-one-right-p2"><span class="get-goods-place-span">收货地址：</span><span class="confirm-one-place1"></span><span class="confirm-one-place2">北京市海淀区中关村大街27号中关村大厦509室</span></p>
+						</div>
+					</div><!--fill-address-information-->
+					<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
+				<div class="confirm-order-main-second">
+					<ul class="confirm-order-ul">
+						<li class="confirm-order-li confirm-order-li1">配送方式  <i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-way">配送员配送</span></li>
+						<li class="confirm-order-li confirm-order-li2">配送日期<i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-day">2017-07-26</span></li>
+						<li class="confirm-order-li confirm-order-li3">配送时间段<i class="iconfont icon-dayuhao confirm-two-dayuhao"></i><span class="select-area-span confirm-two-time">16:30-17:30</span></li>
+						<li class="confirm-order-li"> 备注：<textarea class="textarea-remarks" name="" rows="" cols="" style="height: 3rem;width: 100%;"></textarea></li>
+					</ul>
+				</div>
+				<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
+				<div class="confirm-order-main-three">
+					<!--<p class="confirm-order-nav"></p>-->
+							<ul class="confirm-order-three-ul">
+								<!--<li class="confirm-order-three-li">
+								<div class="pic-cell-border">
+									<img src="img/f-2.png" class="pic-cell-border-img"/>
+								</div>
+								<div class="goods-right-cell">
+									<p class="goods-right-cell-p">意大利进口 Balocco 百事可乐 脆皮苏 焦糖味 200g</p>
+									<p class="goods-right-cell-p">
+											<span class="shopping-car-cell-price"  >￥20.90</span>
+											<span class="shopping-car-change-price">×1</p>
+										</p>
+								</div>
+								</li>-->
+							</ul>
+				</div>
+				<p style="background-color: #EEEEEE;height: 1.6%;width: 100%;"></p>
+				<div class="confirm-order-main-four confirm-order1-main-four">
+					<ul class="confirm-order-ul">
+						<li class="confirm-order-li">商品金额  <span class="select-area-span">¥<span class="confirm-all-price">41.8</span></span></li>
+						<li class="confirm-order-li">运费<span class="select-area-span">+¥<span class="confirm-freight">0.00</span></span></li>
+						<li class="confirm-order-li confirm-order-border-li" style="border-bottom: 1px solid #ccc; overflow: hidden;"><span class="select-area-span">实付金额&nbsp;¥<span class="confirm-amount-paid">41.80</span></span></li>
+						<li class="confirm-order-li" style="height: 23%;"><span class="select-area-span go-to-buy"><p class="go-to-buy-a" style="padding-top: 0.2rem;">去支付</p></span></li>
+					</ul>
+				</div>
+				</div><!--confirm-order-main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+		var lbyxAddressName = localStorage.getItem("lbyxAddressName");
+		var	lbyxAddressPhone = localStorage.getItem("lbyxAddressPhone");
+		//localStorage.setItem("lbyxAddressName",$(".address-info-name").val());
+		var	lbyxAddressDetailPlace = localStorage.getItem("lbyxAddressDetailPlace");
+		var lbyxDistributionSelectArea = localStorage.getItem("lbyxDistributionSelectArea");
+		var lbyxSelfGetPoint = localStorage.getItem("lbyxSelfGetPoint");
+		//console.log(lbyxAddressName,lbyxAddressPhone,lbyxAddressDetailPlace);
+		var lbyxGiveWay = localStorage.getItem("lbyxGiveWay");
+		var lbyxGiveDay = localStorage.getItem("lbyxGiveDay");
+		var lbyxGiveTime = localStorage.getItem("lbyxGiveTime");
+		var universityId = localStorage.getItem("universityId");
+		var lbyxRSID = localStorage.getItem("lbyxRSID");
+		var lbyxZtRSID = localStorage.getItem("lbyxZtRSID");
+		//var lbyxRegionID = localStorage.getItem("lbyxRegionID"); 
+		console.log(lbyxRSID);
+		console.log(lbyxZtRSID);
+		//确认订单页点击返回，返回到购物车页面
+		$(".top-back-li-confirm-order").tap(function () {
+			window.location.href = "index.html";
+		});
+		//配送方式变，页面布局变
+		if (lbyxGiveWay=="配送员配送") {
+					$(".get-goods-place-span").html("收货地址：");
+					$(".confirm-one-place2").show();
+					$(".confirm-one-place1").html(lbyxDistributionSelectArea);
+		} else{
+					$(".get-goods-place-span").html("自提地址：");
+					$(".confirm-one-place2").hide();
+					$(".confirm-one-place1").html(lbyxSelfGetPoint);
+		}
+		//$(".confirm-two-way").html(lbyxGiveWay);
+		$(".confirm-two-day").html(lbyxGiveDay);
+		$(".confirm-two-time").html(lbyxGiveTime);
+		//console.log(lbyxAddressName);
+		//console.log(lbyxAddressPhone);
+		//console.log(lbyxAddressDetailPlace);
+		//填写地址信息的跳转方向
+		if (lbyxAddressName==""||lbyxAddressPhone=="") {//表示空，中间不要加空格
+			$(".fill-address-info-button").show();
+		//$(".confirm-order1-one").hide();
+		} else{
+			$(".fill-address-info-button").show();
+			$(".confirm-order1-one").show();
+			$(".confirm-one-name").html(lbyxAddressName);
+			$(".confirm-one-phone").html(lbyxAddressPhone);
+			$(".confirm-one-place2").html(lbyxAddressDetailPlace);
+		}
+		$(".fill-address-info-p").tap(function () {
+			
+			localStorage.setItem("lbyxSelfGetPoint","")
+			window.location.href = "address-information.html";
+		});
+		$(".confirm-two-way").text(lbyxGiveWay);
+		var lbyxCode = localStorage.getItem("lbyxCode");
+		//var universityId = localStorage.getItem("universityId");
+		var lbyxCartID = localStorage.getItem("lbyxCartID");
+		console.log(lbyxCode);
+		console.log(universityId);
+		//渲染的商品图片及信息列表
+		$.ajax({
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+			dataType:"json",
+//			headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+			success:function(data){
+					console.log(data);
+		            //渲染确认订单页的商品列表
+					function confirmOrderRender(obj){
+							var html ="					<li class=\"confirm-order-three-li\" Checked=\""+obj.Checked+"\">";
+							html += "		<div class=\"pic-cell-border\">";
+							html += "			<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"pic-cell-border-img\"/>";
+							html += "		</div>";
+							html += "		<div class=\"goods-right-cell\">";
+							html += "			<p class=\"goods-right-cell-p\">"+obj.GoodsName+"</p>";
+							html += "			<p class=\"goods-right-cell-p\">";
+							html += "					<span class=\"shopping-car-cell-price\">￥"+obj.ActualUnitPrice+"</span>";
+							html += "					<span class=\"shopping-car-change-price\">×"+obj.Num+"</p>";
+							html += "				</p>";
+							html += "		</div>";
+							html += "		</li>";
+						$(".confirm-order-three-ul").prepend(html);
+					}
+					if (data.ResultCode!=23&&data.ResultCode==0&&data.Result.list_SpecDiscount.length>0) {	/* []z */
+						for (var i = 0; i < data.Result.list_SpecDiscount[0].list_CartGoodsDetails.length; i++) {
+						confirmOrderRender(data.Result.list_SpecDiscount[0].list_CartGoodsDetails[i]);
+						}
+					}
+					//购物车中选中的商品显示没有选中的商品不显示
+					$(".confirm-order-three-li").each(function () {
+						if ($(this).attr("Checked")=="true") {
+							$(this).show();
+						} else{
+							$(this).hide();
+						}
+					});
+					//总价的显示
+					var allPrice = localStorage.getItem("allPrice");
+					$(".confirm-all-price").html(allPrice);
+				    allAmount ();
+					//判断要不要加运费
+//				    function allAmount () {
+//					   			var confirmOrderSendWay = $(".confirm-two-way").html();
+////						 		console.log(confirmOrderSendWay);
+//								$(".confirm-freight").html(data.Result.DeliveryPriceValue);
+//								$(".confirm-amount-paid").html(data.Result.subTotal);
+//				    }//allAmount ()
+					//获取配送的时间
+					$(".confirm-order-select-data-li1").html(data.Result.today.split("T")[0]);
+					$(".confirm-order-select-data-li2").html(data.Result.tomorrow.split("T")[0]);
+					var confirmOrderToday = data.Result.today.split("T")[0];
+					localStorage.setItem("confirmOrderToday",confirmOrderToday);
+					//配送的日期遮罩层，显示的今天之后5天的日期，封装方法
+					function setTime (n) {//date对象的传递/
+							//获取当前时间的年月日
+							var year= parseInt(confirmOrderToday.split("-")[0]);
+							var month=parseInt(confirmOrderToday.split("-")[1]);
+							var day=parseInt(confirmOrderToday.split("-")[2]);	
+							//day=parseInt("2");
+							//			console.log(year,month,day);
+							while (n){
+								//判断当前月有多少天
+								if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){//31天
+									//按31天
+									tool(31);
+									
+								}else if(month==2){
+									if(year%4==0&&(year%100!=0||year%400==0)){
+										tool(29);
+									}else{
+										tool(28);
+									}
+								}else{
+									//按30天
+									tool(30);
+								}
+								//13
+								if(month!=12){
+									year+=parseInt(month/12);
+									month=month%12;
+								}
+							}
+							
+							function tool (temp) {
+								if (day+n<=temp) {
+									day=day+n;
+									n=0;
+								} else{
+									month++;
+									n-=temp-day;//n=n-(temp-day);
+									day=0;	
+								}
+								
+							}
+							if((month==1||month==2||month==3||month==4||month==5||month==6||month==7||month==8||month==9)){
+								if(day==1||day==2||day==3||day==4||day==5||day==6||day==7||day==8||day==9){
+									return year+"-0"+month+"-0"+day+"";
+								}
+								return year+"-0"+month+"-"+day+"";
+							}
+						}
+					//封装一个函数，可以根据输入的数值n(天数)显示n天后的时间
+					$(".confirm-order-select-data-li3").html(setTime(2));
+					$(".confirm-order-select-data-li4").html(setTime(3));
+					$(".confirm-order-select-data-li5").html(setTime(4));
+					$(".confirm-order-select-data-li6").html(setTime(5));
+					//点击遮罩层的li，或者取消的特效
+					liTapEffect ();
+					function liTapEffect () {
+						 //点击取消，遮罩层消失
+						 $(".confirm-order3-three-cancel").tap(function () {
+						 	$(this).parents(".confirm-delivery-mask").hide();
+						 });
+						 //点击跳出选择遮罩层
+						 $(".confirm-order-li1").tap(function () {
+						 	$(".confirm-delivery-mask1").show();
+						 });
+						 $(".confirm-order-li2").tap(function () {
+						 	$(".confirm-delivery-mask2").show();
+						 });
+						 $(".confirm-order-li3").tap(function () {
+						 	$(".confirm-delivery-mask3").show();
+						 });
+						 //点击跳出遮罩层的选项，选中后，显示选中的内容	 ，选中的项存储到本地。
+						 $(".confirm-order3-three-li").tap(function () {
+							//	 	console.log($(this).html());
+							//	 	console.log($(this).parents(".confirm-delivery-mask").attr("class"));
+						 	if ($(this).parents(".confirm-delivery-mask").attr("class")=="confirm-delivery-mask confirm-delivery-mask1") {
+								//	 		alert("1");
+						 		localStorage.setItem("lbyxGiveWay",$(this).html());
+						 		$(".confirm-two-way").html($(this).html());
+						 	}else if($(this).parents(".confirm-delivery-mask").attr("class")=="confirm-delivery-mask confirm-delivery-mask2") {
+								//	 		alert("2");
+						 		localStorage.setItem("lbyxGiveDay",$(this).html());
+						 		$(".confirm-two-day").html($(this).html());
+						 	}else if($(this).parents(".confirm-delivery-mask").attr("class")=="confirm-delivery-mask confirm-delivery-mask3"){
+								//	 		alert("3");
+						 		localStorage.setItem("lbyxGiveTime",$(this).html());
+						 		$(".confirm-two-time").html($(this).html());
+						 	}
+							 	$(this).parents(".confirm-delivery-mask").hide();
+								//	 	localStorage.setItem("lbyxGiveWay",$(this).html());
+						 });
+					}//liTapEffect
+					$(".confirm-order-select-data-li").tap(function () {
+						window.location.reload();
+					});
+			 		//自提时，时间的获取
+					function selfGetTimeRender () {
+						 	//自提获取时间列表
+							$.ajax({
+									url: "http://api.x5u.com.cn:12804/XuQiu/ZiTigoods.aspx?action=TimePeriodlist_get&token="+lbyxCode+"&PickUpCenterID="+lbyxZtRSID+"&", 
+									type:"get",
+									dataType:"json",
+//									headers: {
+////										  'User-Agent': "LBYX 1.0",
+//										  'version':"html1.0",
+//										  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//										  'HTTP_LBYX_TIME':getNowFormatDate(),
+//									   },
+									success:function(data){
+										console.log(data);
+										function seltGetRender(obj){
+											var html = "<li class=\"confirm-order3-three-li confirm-order-self-get-li\">"+obj+"</li>";
+											$(".confirm-order-time-ul").append(html);
+										}
+										for (var i = 0; i < data.Result.length; i++) {
+											seltGetRender(data.Result[i]);
+										}
+										liTapEffect ();
+										//刷新页面，让加载的时间更新，可能自提时不需要，加上更保险
+										$(".confirm-order-self-get-li").tap(function () {
+											window.location.reload();
+										});
+										
+										
+									}
+							});//ajax
+					}//selfGetTimeRender
+					//配送时，时间的获取	    
+					function sendGoodTimeRender () {	
+								var lbyxQFtype = localStorage.getItem("lbyxQFtype");
+								$.ajax({
+									url: "http://api.x5u.com.cn:12804/School/CommonInterface.aspx?action=UniversityInfo_get&operation=1&universityid="+universityId+"&GoodsType=0&QFtype="+lbyxQFtype+"", 
+									type:"get",
+									dataType:"json",
+//									headers: {
+////										  'User-Agent': "LBYX 1.0",
+//										  'version':"html1.0",
+//										  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//										  'HTTP_LBYX_TIME':getNowFormatDate(),
+//									   },
+									success:function(data){
+										console.log(data);
+										function sendGoodRender(obj){
+											var html = "<li class=\"confirm-order3-three-li\">"+obj.DeliveryTime+"</li>";
+											$(".confirm-order-time-ul").append(html);
+										}
+										for (var i = 0; i < data.result.data.length; i++) {
+											sendGoodRender(data.result.data[i]);
+										}
+										liTapEffect ();
+										//刷新页面，让加载的时间更新
+										$(".confirm-order-select-data-li").tap(function () {
+											window.location.reload();
+										});
+									}
+								});//ajax
+			 			}//SendGoodTimeRender
+					//配送获取时间列表
+					$(".confirm-order-li3").tap(function () {
+								//console.log(confirmOrderToday);
+								//配送时获取时间的参数
+								var confirmOrderToday = localStorage.getItem("confirmOrderToday");
+								var lbyxGiveDay = localStorage.getItem("lbyxGiveDay");
+								if (confirmOrderToday == lbyxGiveDay) {
+									var QFtype = 1;
+									localStorage.setItem("lbyxQFtype",QFtype);
+									//console.log(QFtype);
+								} else{
+									var QFtype = 0;
+									localStorage.setItem("lbyxQFtype",QFtype);
+									//console.log(QFtype)
+								}	
+								//配送方式不同，加载的配送时间不同
+								var confirmOrderSendWay = $(".confirm-two-way").html();
+								// 	console.log(confirmOrderSendWay);
+								if (confirmOrderSendWay=="配送员配送") {
+									sendGoodTimeRender ();
+								}else if (confirmOrderSendWay=="自提点自提") {
+									selfGetTimeRender  ();
+								}
+					});
+			}//success
+		});
+//总价的显示
+		var allPrice = localStorage.getItem("allPrice");
+		$(".confirm-all-price").html(allPrice);
+	    allAmount ();
+//判断要不要加运费
+	    function allAmount () {
+		   	var confirmOrderSendWay = $(".confirm-two-way").html();
+//			 	console.log(confirmOrderSendWay);
+			if (allPrice>=28&&confirmOrderSendWay=="配送员配送") {
+					$(".confirm-freight").html(0.00);
+					$(".confirm-amount-paid").html(parseFloat(parseFloat(allPrice)).toFixed(2));
+			}else{
+				if (confirmOrderSendWay=="自提点自提") {
+					$(".confirm-freight").html(0.00);
+					$(".confirm-amount-paid").html(parseFloat(parseFloat(allPrice)).toFixed(2));
+				}else{
+					$(".confirm-freight").html(3.00);
+					$(".confirm-amount-paid").html(parseFloat((parseFloat(allPrice)+3)).toFixed(2));
+				}
+			}
+	    }//allAmount ()
+//点击配送方式选择，刷新页面，调用是否加运费方法
+		$(".confirm-order-send-way").tap(function () {
+			localStorage.setItem("lbyxDistributionSelectArea","");
+			localStorage.setItem("lbyxSelfGetPoint","");
+			window.location.reload();
+			$(".confirm-one-place1").html(" ");
+			allAmount ();
+		});
+//传递的参数，日期和时间
+	 	var deliveryTime  = $(".confirm-two-time").html();
+	 	var deliveryDateTime  = $(".confirm-two-day").html();
+//判断配送方式参数
+		if ($(".confirm-two-way").html()=="配送员配送") {
+	 		var PSorZT = 0;
+		} else if($(".confirm-two-way").html()=="自提点自提"){
+	 		var PSorZT = 1;
+		}
+//点击去支付，向后台传递参数	 	
+		$(".go-to-buy-a").tap(function () {
+			//判断配送方式参数
+			if ($(".confirm-two-way").html()=="配送员配送") {
+		 		sendGoodToBuy ();
+			} else{
+		 		selfGetToBuy ()
+			}
+			//自提
+			function selfGetToBuy () {
+					var confirmOrderRemark = $(".textarea-remarks").val();
+			 		$.ajax({
+						url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=OrderCreate&token="+lbyxCode+"&CartID="+lbyxCartID+"&RSID="+lbyxZtRSID+"&PSorZT="+PSorZT+"&DeliveryTime="+deliveryTime+"&DeliveryDateTime="+deliveryDateTime+"&UserName="+lbyxAddressName+"&UserPhone="+lbyxAddressPhone+"&VersionInfo=h51.0&Remark="+confirmOrderRemark+"&",
+						type:"get",
+						dataType:"json",
+//						headers: {
+////							  'User-Agent': "LBYX 1.0",
+//							  'version':"html1.0",
+//							  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//							  'HTTP_LBYX_TIME':getNowFormatDate(),
+//						   },
+						success:function(data){
+//							console.log(data);
+//							console.log(data.Result);
+							localStorage.setItem("OrderCode",data.Result);
+//							console.log(data.Result);
+							window.location.href = "choose-payment-methods.html"
+						}
+					});//ajax
+					//备注获取-参数
+//					console.log(lbyxCode);
+//					console.log(lbyxCartID);
+//					console.log(lbyxRSID);
+//					console.log(PSorZT);
+//					console.log(deliveryTime);
+//					console.log(deliveryDateTime);
+//					console.log(confirmOrderRemark);
+//					console.log(lbyxAddressName);
+//					console.log(lbyxAddressPhone);
+				}//selfGetToBuy
+			//配送
+			function sendGoodToBuy () {
+				 	//备注获取-参数
+				 	var confirmOrderRemark = $(".textarea-remarks").val();
+					console.log(lbyxCode);
+					console.log(lbyxCartID);
+					console.log(lbyxRSID);
+					console.log(PSorZT);
+					console.log(deliveryTime);
+					console.log(deliveryDateTime);
+					console.log(confirmOrderRemark);
+			 		$.ajax({
+						url: "http://api.x5u.com.cn:12804/Order/OrderInfo.aspx?action=OrderCreate&token="+lbyxCode+"&CartID="+lbyxCartID+"&RSID="+lbyxRSID+"&PSorZT="+PSorZT+"&DeliveryTime="+deliveryTime+"&DeliveryDateTime="+deliveryDateTime+"&Remark="+confirmOrderRemark+"&", 
+						type:"get",
+						dataType:"json",
+//						headers: {
+////							  'User-Agent': "LBYX 1.0",
+//							  'version':"html1.0",
+//							  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//							  'HTTP_LBYX_TIME':getNowFormatDate(),
+//						   },
+						success:function(data){
+//							console.log(data);
+//							console.log(data.Result);
+							localStorage.setItem("OrderCode",data.Result);
+//							console.log(data.Result);
+							window.location.href = "choose-payment-methods.html"
+						}
+					});//ajax
+				}//sendGoodToBuy
+			
+		});
+		//	 $(".confirm-order-li2 .confirm-order3-three-li").tap(function () {
+		//	 	
+		//	 	localStorage.setItem("lbyxTime",$(this).html());
+		//	 });
+		//	 $(".confirm-order-li3 .confirm-order3-three-li").tap(function () {
+		//	 	localStorage.setItem("lbyxGiveWay",$(this).html());
+		//	 });
+		//	 $(".confirm-order3-three-li").tap(function () {
+		//	 	$(this).parents(".confirm-delivery-mask").hide();
+		//	 });
+	});//end
+</script>

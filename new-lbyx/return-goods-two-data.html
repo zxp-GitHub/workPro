@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/zepto.fx.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fn.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="top add-info-top">
+					<!--<p class="add-info-top-p">地址信息</p>-->
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">选择区域</span></li>
+					</ul>	
+				</div>
+				<div class="add-info-main" style="background: #fff;">
+					<ul class="confirm-order3-three-ul confirm-order-select-data-ul">
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li1">2017-08-23</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li2">4月2日  星期日</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li3">4月3日  星期一</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li4">4月4日  星期二</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li5">4月5日  星期三</li>
+				        		<li class="confirm-order3-three-li confirm-order-select-data-li confirm-order-select-data-li6">4月6日  星期四</li>
+		        	</ul>					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+		var lbyxCode = localStorage.getItem("lbyxCode");
+		var lbyxZtRSID = localStorage.getItem("lbyxZtRSID");
+		var universityId = localStorage.getItem("universityId");
+		$(".top-back-li").tap(function () {
+			window.history.back();
+		});
+		$.ajax({
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+			dataType:"json",
+//			headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+			success:function(data){
+					console.log(data);
+		//配送的日期遮罩层，显示的今天之后5天的日期，封装方法
+					$(".confirm-order-select-data-li1").html(data.Result.today.split("T")[0]);
+					$(".confirm-order-select-data-li2").html(data.Result.tomorrow.split("T")[0]);
+					var confirmOrderToday = data.Result.today.split("T")[0];
+					localStorage.setItem("confirmOrderToday",confirmOrderToday);
+					//配送的日期遮罩层，显示的今天之后5天的日期，封装方法
+					function setTime (n) {//date对象的传递/
+							//获取当前时间的年月日
+							var year= parseInt(confirmOrderToday.split("-")[0]);
+							var month=parseInt(confirmOrderToday.split("-")[1]);
+							var day=parseInt(confirmOrderToday.split("-")[2]);	
+							//day=parseInt("2");
+							//			console.log(year,month,day);
+							while (n){
+								//判断当前月有多少天
+								if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){//31天
+									//按31天
+									tool(31);
+									
+								}else if(month==2){
+									if(year%4==0&&(year%100!=0||year%400==0)){
+										tool(29);
+									}else{
+										tool(28);
+									}
+								}else{
+									//按30天
+									tool(30);
+								}
+								//13
+								if(month!=12){
+									year+=parseInt(month/12);
+									month=month%12;
+								}
+							}
+							
+							function tool (temp) {
+								if (day+n<=temp) {
+									day=day+n;
+									n=0;
+								} else{
+									month++;
+									n-=temp-day;//n=n-(temp-day);
+									day=0;	
+								}
+								
+							}
+							if((month==1||month==2||month==3||month==4||month==5||month==6||month==7||month==8||month==9)){
+								if(day==1||day==2||day==3||day==4||day==5||day==6||day==7||day==8||day==9){
+									return year+"-0"+month+"-0"+day+"";
+								}
+								return year+"-0"+month+"-"+day+"";
+							}
+						}
+					//封装一个函数，可以根据输入的数值n(天数)显示n天后的时间
+					$(".confirm-order-select-data-li3").html(setTime(2));
+					$(".confirm-order-select-data-li4").html(setTime(3));
+					$(".confirm-order-select-data-li5").html(setTime(4));
+					$(".confirm-order-select-data-li6").html(setTime(5));
+					$(".confirm-order3-three-li").each(function () {
+						if($(this).html()==""){
+							$(this).hide();
+						}
+					});
+					
+		//自提时，时间的获取
+		}
+	});
+		 //点击跳出遮罩层的选项，选中后，显示选中的内容	 ，选中的项存储到本地。
+		 $(".confirm-order3-three-li").tap(function () {
+		 		localStorage.setItem("lbyxReturnTwoDay",$(this).html());
+		 		window.location.href = "return-mode.html";
+		 });
+	});
+
+</script>

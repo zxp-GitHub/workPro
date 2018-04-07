@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">退货</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="return-goods-main">
+					<div class="return-goods-sec return-goods-sec1">
+						<ul class="return-goods-option-ul">
+							<li class="return-goods-option-li return-goods-option-li1  return-goods-active">申请退货</li>
+							<li class="return-goods-option-li return-goods-option-li2">进度</li>
+						</ul>
+					</div>
+					<div class=" return-goods-sec return-goods-sec2"><!--下面的商品展示-->
+						<ul class="return-goods-list-ul"><!--下面最大的list-->
+							<li class="return-goods-list-li return-goods-list-li1"><!--点击申请退货显示的li-->
+								<!--<div class="return-goods-cell">--><!--一个大cell-->
+									<!--<p class="return-goods-cell-p1">
+										<span>订单号：</span>
+										<span class="return-warehouse-number">1001192</span> 
+										<span class="return-p1-order-finish">订单完成</span>
+									</p>
+									<p class="return-goods-cell-p2">
+										<span>下单时间:</span> 
+										<span>2017-10-20&nbsp;15:36:00</span>
+										<span class="return-p2-self-pick-up">自提</span>
+									</p>
+									<p class="return-goods-cell-p3">-->
+										<!--<ul class="return-goods-p3-ul">--><!--第三块的ul-->		
+											<!--<li class="return-goods-p3-li">
+												<div class="pic-cell-border">			
+													<img src="http://api.x5u.com.cn:12804/Content/images/new/6920907810066-1.jpg" class="pic-cell-border-img return-goods-border-img">		
+												</div>		
+												<div class="goods-right-cell">		
+													<p class="return-goods-cell-p">好丽友呀土豆（番茄酱味）12g</p>		
+													<p class="return-goods-cell-p">				
+														<span class="return-goods-p3-num">×1</span>					
+														<span class="return-goods-back-button">申请退货</span>
+													</p>			
+												</div>		
+											</li>
+										</ul>
+									</p>
+								</div><!--E 一个大cell-->
+								</li><!--list-li1-->
+							<li class="return-goods-list-li return-goods-list-li2">
+								<div class="return-goods-cell speed-of-cell"><!--一个大cell-->
+									
+							</li>
+						</ul><!--下面最大的list-->
+					</div>
+				</div><!--main-->
+				</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function () {
+		var	userId = localStorage.getItem("userId");
+		var lbyxCode = localStorage.getItem("lbyxCode");
+//		var universityId = localStorage.getItem("universityId");
+		console.log(userId)
+		console.log(lbyxCode);
+		$(".top-back-li").tap(function () {
+			window.history.back();
+		});
+		$('.return-goods-option-li').tap(function(){
+	        $(this).addClass('return-goods-active').siblings().removeClass('return-goods-active');
+	        $('.return-goods-list-li').hide().eq($(this).index()).show()
+	   });
+		$.ajax({
+					url: "http://api.x5u.com.cn:12804/ShoppingCart/ShoppingReturn.aspx?Token="+lbyxCode+"&action=GetUserGoodsList&dataindex=1&datasize=10&operation=1&userid="+userId+"",
+					type:"get",
+//					headers: {
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+					success:function(data){
+						console.log(data);
+//						if(data.result.status.msg=="此用户已存在"){
+//							alert(data.result.status.msg);
+//						}
+					var html="";
+					returnGoodsRenderBox ();
+					$(".return-goods-option-li1").tap(function () {
+						$(".return-goods-list-li1").html("");
+						html=""
+						returnGoodsRenderBox ()
+					});
+					$(".return-goods-option-li2").tap(function () {
+						$(".return-goods-list-li2").html("");
+						html=""
+						returnGoodsRenderBox2 ()
+					});
+					//点击申请退货显示box，点击进度显示box2
+					function returnGoodsRenderBox () {
+						function returnGoodsRender (obj) {
+							$(".return-goods-list-li1").html("");//为什么加这句话，经source测试，小cellRender里循环过的代码已经append在大循环里了
+							html +="<div class=\"return-goods-cell\" orderStatus = \""+obj.OrderStatus+"\" PSorZT = \""+obj.PSorZT+"\">";
+							html += "		<p class=\"return-goods-cell-p1\">";
+							html += "			<span>订单号：</span>";
+							html += "			<span class=\"return-warehouse-number\">"+obj.OrderID+"</span>"; 
+							html += "			<span class=\"return-p1-order-finish\">"+obj.OrderStatus+"</span>";
+							html += "		</p>";
+							html += "		<p class=\"return-goods-cell-p2\">";
+							html += "			<span>下单时间:</span> ";
+							html += "			<span>"+obj.CreateDate.split("T")[0]+"&nbsp;"+obj.CreateDate.split("T")[1]+"</span>";
+							html += "			<span class=\"return-p2-self-pick-up\"></span>";
+							html += "		</p>";
+							html += "		<p class=\"return-goods-cell-p3\">";
+							for (var j = 0; j < obj.GoodsList.length; j++) {
+								returnGoodsCellRender (obj.GoodsList[j]);
+							}
+							html += "		</p>";
+							html += "	</div>";
+							$(".return-goods-list-li1").append(html);
+						}
+						for (var i = 0; i < data.result.data.length; i++) {
+							returnGoodsRender(data.result.data[i]);
+						}
+						function returnGoodsCellRender (objs) {
+							html += "		<ul class=\"return-goods-p3-ul\">";
+							html += "			 <li class=\"return-goods-p3-li\">";
+							html += "					<div class=\"pic-cell-border\">";			
+							html += "						<img src=\"http://api.x5u.com.cn:12804"+objs.Img1+"\" class=\"pic-cell-border-img return-goods-border-img\">";		
+							html += "					</div>";		
+							html += "					<div class=\"goods-right-cell\">";
+							html += "						<p class=\"return-goods-cell-p\">"+objs.GoodsName+"</p>";		
+							html += "						<p class=\"return-goods-cell-p\">";
+							html += "							<span class=\"return-goods-p3-num\">×"+objs.Num+"</span>";			
+							html += "							<span class=\"return-goods-back-button\" lbyxReturnNums=\""+objs.Num+"\" lbyxReturnGoodsName=\""+objs.GoodsName+"\" lbyxReturnOGID=\""+objs.OGID+"\">申请退货</span>";
+							html += "						</p>";			
+							html += "					</div>";		
+							html += "			</li>";
+							html += "		</ul>";
+						}
+						//点击申请退款，跳转页面（测试）
+						$(".return-goods-back-button").tap(function () {
+							var lbyxReturnImg1 =  $(this).parents(".return-goods-p3-ul").find(".return-goods-border-img").attr("src");
+							var lbyxReturnNums = $(this).attr("lbyxReturnNums");
+							var lbyxReturnGoodsName = $(this).attr("lbyxReturnGoodsName");
+							var lbyxReturnOGID = $(this).attr("lbyxReturnOGID");
+							localStorage.setItem("lbyxReturnImg1",lbyxReturnImg1);
+							localStorage.setItem("lbyxReturnNums",lbyxReturnNums);
+							localStorage.setItem("lbyxReturnGoodsName",lbyxReturnGoodsName);
+							localStorage.setItem("lbyxReturnOGID",lbyxReturnOGID);
+//							console.log(lbyxReturnImg1);
+//							console.log(lbyxReturnNums);
+//							console.log(lbyxReturnGoodsName);
+//							console.log(lbyxReturnOGID);
+							window.location.href = "apply-for-return-one.html";
+						});
+						returnGoodsPubNum ();
+					}
+					function returnGoodsRenderBox2 () {
+							function returnGoodsRender2 (obj) {
+								$(".return-goods-list-li2").html("");//为什么加这句话，经source测试，小cellRender里循环过的代码已经append在大循环里了
+								html +="<div class=\"return-goods-cell\" orderStatus = \""+obj.OrderStatus+"\" PSorZT = \""+obj.PSorZT+"\">";
+								html += "		<p class=\"return-goods-cell-p1\">";
+								html += "			<span>订单号：</span>";
+								html += "			<span class=\"return-warehouse-number\">"+obj.OrderID+"</span>"; 
+								html += "			<span class=\"return-p1-order-finish\">"+obj.OrderStatus+"</span>";
+								html += "		</p>";
+								html += "		<p class=\"return-goods-cell-p2\">";
+								html += "			<span>下单时间:</span> ";
+								html += "			<span>"+obj.CreateDate.split("T")[0]+"&nbsp;"+obj.CreateDate.split("T")[1]+"</span>";
+								html += "			<span class=\"return-p2-self-pick-up\"></span>";
+								html += "		</p>";
+								html += "		<p class=\"return-goods-cell-p3\">";
+								for (var j = 0; j < obj.GoodsList.length; j++) {
+									returnGoodsCellRender2 (obj.GoodsList[j]);
+								}
+								html += "		</p>";
+								html += "	</div>";
+								$(".return-goods-list-li2").append(html);
+							}
+							for (var i = 0; i < data.result.data.length; i++) {
+								returnGoodsRender2(data.result.data[i]);
+							}
+							function returnGoodsCellRender2 (objs) {
+								html += "		<ul class=\"return-goods-p3-ul\">";
+								html += "			 <li class=\"return-goods-p3-li\">";
+								html += "					<div class=\"pic-cell-border\">";			
+								html += "						<img src=\"http://api.x5u.com.cn:12804"+objs.Img1+"\" class=\"pic-cell-border-img return-goods-border-img\">";		
+								html += "					</div>";		
+								html += "					<div class=\"goods-right-cell\">";
+								html += "						<p class=\"return-goods-cell-p\">"+objs.GoodsName+"</p>";		
+								html += "						<p class=\"return-goods-cell-p\">";
+								html += "							<span class=\"return-goods-p3-num\">×"+objs.Num+"</span>";			
+								html += "						</p>";			
+								html += "					</div>";		
+								html += "			</li>";
+								html += "		</ul>";
+//								console.log("11")
+							}
+							returnGoodsPubNum ();
+					}
+					function returnGoodsPubNum () {//暂时共用，因为进度的和申请退货的不同，需改进
+						$(".return-goods-cell").each(function () {
+							if ($(this).attr("orderStatus")==0) {
+								$(this).find(".return-p1-order-finish").html("待付款");
+							}else if($(this).attr("orderStatus")==12){
+								$(this).find(".return-p1-order-finish").html("待拣货");
+								$(this).find(".all-order-cell-p5").hide();
+							}else if($(this).attr("orderStatus")==5){
+								$(this).find(".return-p1-order-finish").html("订单完成");
+								$(this).find(".all-order-cell-p5").hide();
+							}else if($(this).attr("orderStatus")==1){
+								$(this).find(".return-p1-order-finish").html("待发货");
+								$(this).find(".all-order-cell-p5").hide();
+							}else{
+								$(this).find(".return-p1-order-finish").html("取消订单");
+								$(this).find(".all-order-cell-p5").hide();
+							}
+							
+							
+							if ($(this).attr("PSorZT")==0) {
+								$(this).find(".return-p2-self-pick-up").html("配送");
+							}else if($(this).attr("PSorZT")==1){
+								$(this).find(".return-p2-self-pick-up").html("自提");
+							}
+						});
+					}/* returnGoodsPubNum*/
+					},error:function(data){
+							alert("no");
+						}
+					});//ajax	
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+	});
+</script>

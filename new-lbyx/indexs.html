@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fx.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fn.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box first-box">
+				<div class="confirm-logout-login-mask">
+					<div class="logout-login-cell">
+						<p class="logout-login-p logout-login-p1">确定退出登录？</p>
+						<p class="logout-login-p logout-login-p2"><span class="logout-login-p2-span1">取消</span><span class="logout-login-p2-span2">退出登录</span></p>
+					</div>
+				</div>
+				<div class="my-exit-login-mask">
+					<div class="my-mask-div">
+						<p class="my-mask-div-p">确认退出登录？</p>
+						<ul class="my-mask-ul">
+							<li class="my-mask-li">取消</li>
+							<li class="my-mask-li">退出登录</li>
+						</ul>
+					</div>
+				</div>
+				<div class="top">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><a href="select-area.html"><i class="iconfont icon-dizhi"></i><span class="first-top-li-span first-top-change-span">北京市中关村商圈</span></a></li>
+						<li class="first-top-li"><a href="search-page.html"><i class="iconfont icon-fangdajing1"></i></a></li>
+					</ul>				</div><!--top-->
+				<div class="main">
+					<ul class="big-ul">
+						<li class="big-li">
+							<div class="guess-you-like-scroll">
+								<div class="guess-you-like-min-scroll">
+									<div class="index-big-banner">
+										<div class="swiper-container">
+										    <div class="swiper-wrapper index-swiper-wrapper">
+										        <!--<div class="swiper-slide"><img src="img/deng.png" class="swiper-slide-pics index-swiper-slide-pic1"/></div>
+										        <div class="swiper-slide"><img src="img/deng.png" class="swiper-slide-pics index-swiper-slide-pic2"/></div>
+										        <div class="swiper-slide"><img src="img/deng.png" class="swiper-slide-pics index-swiper-slide-pic3"/></div>
+										        <div class="swiper-slide"><img src="img/deng.png" class="swiper-slide-pics index-swiper-slide-pic4"/></div>-->
+											</div>
+											   <!-- 如果需要分页器 -->
+											    <div class="swiper-pagination"></div>
+											</div>
+									</div><!--index-big-banner-->
+									<ul class="home-main-ul">
+										<li class="home-main-li home-main-li1"><img src="img/deng1.png" class="home-main-li1-pic"/><p class="home-main-li-p1">水果</p></li>
+										<li class="home-main-li home-main-li2"><img src="img/deng1.png"  class="home-main-li2-pic"/><p class="home-main-li-p2">生鲜</p></li>
+										<li class="home-main-li home-main-li3"><img src="img/deng1.png"  class="home-main-li3-pic"/><p class="home-main-li-p3">蔬菜</p></li>
+										<li class="home-main-li home-main-li4"><i class="iconfont icon-fenlei1" class="home-main-li4-classify"></i><p class="home-main-li-p4">分类</p></li>
+									</ul>
+									<div class="flash-sale">
+										<div class="flash-sale-one">
+											<span class="flash-sale-one-span1">限时抢购</span><span class="flash-sale-one-span2">>><span>更多</span></span>
+										</div>
+										<div class="flash-sale-two">
+											<ul class="flash-sale-ul">
+												<!--<li class="flash-sale-li">
+													<p class="flash-sale-li-number-restriction">限购<span>1</span>件</p>
+													<img src="img/all-goods-right-pic.png" class="flash-sale-pic"/>
+													<p class="flash-sale-li-sale-price">¥30.9</p>
+													<p class="flash-sale-li-original-price">¥35</p>
+												</li>-->
+											</ul>
+										</div>
+									</div>
+									<div class="guess-you-like">
+									<p class="guess-you-like-p"><span class="guess-you-like-span">猜你喜欢</span></p>
+									<ul class="guess-you-like-scroll-ul">
+										<li class="guess-you-like-li">
+										</li>
+									</ul>
+								</div><!--guess-you-like-->
+								</div>
+						  	</div>
+						</li>
+						<li class="big-li">
+							<div class="cart-div">
+							<ul class="shopping-cart-ul">
+							</ul>
+							<div class="cart-all-choice">
+								<p class="all-choice-p"><i class="iconfont icon-duihao1 all-chioce-ok"></i>全选</p>
+								<p class="all-choice-p2">总价：¥<span class="all-choice-price">0</span><span class="cart-freight">（含运费3.00元）</span></p>
+								<p class="cart-to-pay">去结算</p>
+							</div>
+							</div>
+						</li>
+						<li class="big-li">
+							<div class="my-first">
+								<div class="my-first-a">
+									
+									<div class="my-first-head-portrait"><img src="img/all-goods-right-pic.png" class="my-first-pic"/></div>
+									<p class="my-first-p">18812345677</p>
+								</div>
+								<div class="my-first-b">
+									<pre>登录来宝  畅享购物</pre>
+									<p><a href="login.html">登录/注册</a></p>
+								</div>
+							</div>
+							<div class="my-second">
+								<ul class="my-second-ul">
+									<li class="my-second-li my-second-li1"><i class="iconfont icon-dingdan my-right-icon1 my-right-icon1-dingdan"></i><span>全部订单</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+									<li class="my-second-li my-second-li2"><i class="iconfont icon-daifukuan my-right-icon1"></i><span>待付款</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+									<li class="my-second-li my-second-li3"><i class="iconfont icon-truck my-right-icon1"></i><span>待收货</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+									<li class="my-second-li my-second-li-return-goods"><i class="iconfont icon-tuihuo my-right-icon1 my-right-icon1-tuihuo"></i><span>退货</span><i class="iconfont icon-dayuhao my-right-icon"></i></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="footer">
+					<ul class="footer-ul">
+						<li class="footer-li active">
+							<div class="footer-li-div">
+								<p class="iconfont icon-home1 footer-p-icon"></p><p class="footer-p-two">首页</p>
+							</div>
+						</li>
+						<li class="footer-li">
+							<div class="footer-li-div">
+							<p class="iconfont icon-gouwuche3 footer-p-icon"></p><p class="footer-p-two">购物车</p>
+						</div>
+						</li>
+						<li class="footer-li">
+							<div class="footer-li-div">
+							<p class="iconfont icon-wo footer-p-icon"></p><p class="footer-p-two">我的</p>
+						</div>
+						</li>
+					</ul>
+				</div>
+			</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+			//轮播图
+			var universityId = localStorage.getItem("universityId");
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?DataIndex=1&DataSize=20&UniversityID="+universityId+"&action=carouselinfo_get&operation=6",
+				dataType:"json",
+//				async : false,
+//				cache: true,
+   				timeout: 10000,
+				success:function(data){
+					console.log(data);
+					data[0];
+					function indexBannerRender (obj) {//Content，ImgUrl不能放到div里，可以放到img里，可能是因为Content是构成页面的元素<img src=
+						var html ="<div class=\"swiper-slide swiper-slide-banner\">";
+							html +="<img src=\"http://api.x5u.com.cn:12804"+obj.ImgUrl+"\" bannerTitle=\""+obj.Title+"\" bannerLinkUrl=\""+obj.LinkUrl+"\" class=\"swiper-slide-pics\"/>";
+							html +="</div>";
+							$(".index-swiper-wrapper").append(html);
+					}
+					for (var i = 0; i < data.result.data.length; i++) {
+						indexBannerRender(data.result.data[i]);
+					}
+					$(".swiper-slide-banner").tap(function () {
+						var thisIndex = $(this).index()-1;
+						console.log(thisIndex);
+							var bannerContent = data.result.data[thisIndex].Content;
+							var bannerLinkUrl = data.result.data[thisIndex].LinkUrl;
+							var bannerTitle = data.result.data[thisIndex].Title;
+							var bannerImg2Url = data.result.data[thisIndex].Img2Url;
+							var bannerSpecID = data.result.data[thisIndex].SpecID;
+							console.log(bannerContent);//这个是可以直接显示成页面的，会出错，title点击无效
+							console.log(bannerLinkUrl);
+							console.log(bannerTitle);
+							console.log(bannerImg2Url);
+							console.log(bannerSpecID);
+							localStorage.setItem("bannerContent",bannerContent);
+							localStorage.setItem("bannerLinkUrl",bannerLinkUrl);
+							localStorage.setItem("bannerTitle",bannerTitle);
+							localStorage.setItem("bannerImg2Url",bannerImg2Url);
+							localStorage.setItem("bannerSpecID",bannerSpecID);
+							if (bannerContent!=null) {
+								window.location.href = "banner-content.html";
+							} else if(bannerLinkUrl!=""){
+								window.location.href = bannerLinkUrl;
+							}else if(bannerImg2Url!=null){
+								window.location.href = "banner-page.html";
+							}else{
+								
+							}
+//						console.log(data.result.data[0].Title);
+					});
+					//S 轮播图
+					var mySwiper = new Swiper ('.swiper-container', {
+				    direction: 'horizontal',
+				    longSwipes : false,
+				    loop: true,
+				    touchMoveStopPropagation : false,
+					//  onlyExternal : false,
+				    autoplay : 2000,
+				    autoplayDisableOnInteraction : false,//禁止自动播放的作用
+				    // 如果需要分页器
+				    pagination: '.swiper-pagination',
+					});
+					//E 轮播结束
+				},        
+        error: function(XMLHttpRequest, textStatus, errorThrown) {            
+           alert("2")
+        } 
+			});//ajax				
+   			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/School/FirstPage.aspx?action=FirstSpecialSale_get&universityid="+universityId+"",
+				dataType:"json",
+				success:function(data){
+//					console.log(data);
+					function indexFlashSaleRender (obj) {
+						var html ="<li class=\"flash-sale-li\">";
+							html += "<p class=\"flash-sale-li-number-restriction\">限购<span>"+obj.limitNum+"</span>件</p>";
+							html += "<img src=\"http://api.x5u.com.cn:12804"+obj.img+"\" class=\"flash-sale-pic\"/>";
+							html += "<p class=\"flash-sale-li-sale-price\">¥"+obj.saleprice+"</p>";
+							html += "<p class=\"flash-sale-li-original-price\">¥"+obj.guideprice+"</p>";
+							html += "</li>";
+						$(".flash-sale-ul").append(html);
+					}
+					//判断是否存在秒杀商品，若是不存在给出提示并且相应秒杀模块隐藏，否则显示
+					if (data.ResultCode=="22") {
+//						alert("现在没有秒杀活动");
+						$(".flash-sale").hide();
+					}else{
+						for (var i = 0; i < data.Result.goods.length; i++) {
+							indexFlashSaleRender(data.Result.goods[i]);
+						} 
+					}
+					//设置UL的宽度
+					var lisLength = $(".flash-sale-li").length;
+//					console.log(lisLength);
+					$(".flash-sale-ul").css("width",7*lisLength+"rem");
+				}
+			});//ajax	
+			//点击秒杀跳转页面
+   			$(".flash-sale-one-span2").tap(function () {
+   				window.location.href = "flash-sale.html";
+   			});				
+   							
+   							
+   							
+});//end
+</script>

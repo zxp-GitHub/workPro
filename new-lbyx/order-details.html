@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="top">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span">订单详情</span></li>
+						
+					</ul>			
+				</div><!--top-->
+				<div class="order-details-main">
+					<div class="order-details-main-scroll" style="overflow: scroll;height: auto;">
+					<div class="order-details-main-first">
+						<ul class="order-details-main-first-ul">
+							<li>订单号：<span class="order-number-span"></span></li>
+							<li><pre>下单时间：<span class="order-time-span">2017-01-11  11:23:43</span></pre></li>
+							<li>配送方式：<span class="order-delivery-mode-span"></span></li>
+						</ul>
+					</div>
+					<div class="order-details-main-first">
+						<ul class="order-details-main-first-ul">
+							<li>收货人：<span class="order-name-span"></span></li>
+							<li>联系电话：<span class="order-phone-span"></span></li>
+							<li>收货地址：<span class="order-get-goods-place-span"></span></li>
+						</ul>
+					</div>
+					<div class="order-details-main-third">
+						<!--<ul class="east-three-store-ul order-details-east-three-store">
+							<li class="east-three-store-li east-three-store-li1">东方三店</li>
+						</ul>-->
+						<ul class="confirm-order-three-ul select-area3-three-ul order-details-ul">
+								<!--<li class="confirm-order-three-li select-area3-three-li my-order-li-bc">
+									<div class="pic-cell-border select-area3-pic-cell-border">
+										<img src="img/f-2.png" class="pic-cell-border-img select-area3-img"/>
+									</div>
+									<div class="goods-right-cell">
+										<p class="goods-right-cell-p">意大利进口 Balocco 百事可乐 脆皮苏 焦糖味 200g</p>
+										<p class="goods-right-cell-p">
+												<span class="shopping-car-cell-price"  >￥20.90</span>
+												<span class="shopping-car-change-price"><i class="">x1</i></p>
+											</p>
+									</div>
+								</li>-->
+							</ul>
+					</div><!--select-area3-main-three-->
+					<div class="my-order-last order-details-total">
+						<ul class="east-three-store-ul">
+							<li class="east-three-store-li east-three-store-li1">共计<span class="order-all-num-span"></span>件</li><li class="east-three-store-li east-three-store-li2">合计：¥<span class="order-all-price-span"></span>（含运费¥4.00）</li>
+						</ul>
+					</div>
+					
+					<div class="order-details-last">
+						<a href="###" class="order-to-pay-a">去付款</a>
+						<a href="###" class="confirm-get-goods">确认收货</a>
+					</div>
+				</div>
+				</div>
+				</div><!--order-details-main-->
+				</div><!--box-->
+			
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+  //一定要注意，必须要从home页跳转到商品详情页，banner才不会报错。
+ 		 //当用户登录成功后，获取status中的code，确定用户的token---在商品详情页加入购物车时
+  		var universityId = localStorage.getItem("universityId");
+  		var goodsId = localStorage.getItem("goodsId");
+  		var userId = localStorage.getItem("userId");
+  		var lbyxCode = localStorage.getItem("lbyxCode");
+  		var lbyxWarehouseNumber = localStorage.getItem("lbyxWarehouseNumber");
+  		var lbyxorderDetailNumber = localStorage.getItem("lbyxorderDetailNumber");
+  		if (lbyxorderDetailNumber=="lbyxorderDetailNumber1") {
+  			orderDetailAllOrder ();
+  		} else if (lbyxorderDetailNumber=="lbyxorderDetailNumber2"){
+  			orderDetailPendingPayment ();
+  		}else if (lbyxorderDetailNumber=="lbyxorderDetailNumber3"){
+  			orderDetailGoodsReceipt ();
+  		}
+		console.log(lbyxWarehouseNumber);
+  		function orderDetailAllOrder () {
+	  			$.ajax({//获取json数据必写哦！！！
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=2&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&",
+				dataType:"json",
+//				headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+				success:function(data){//consol一下是很重要的！！！！！！
+					console.log(data)
+					console.log(data.result.data[lbyxWarehouseNumber].PSorZT);
+					var datas = data.result.data[lbyxWarehouseNumber];
+					if (datas.PSorZT == 0) {
+						$(".order-delivery-mode-span").text("配送");
+					} else if (datas.PSorZT == 1){
+						$(".order-delivery-mode-span").text("自提");
+					}
+					$(".order-number-span").text(datas.OrderCode);
+					console.log(datas.CreateDate)
+					$(".order-time-span").text(datas.CreateDate.split("T")[0]+"  "+datas.CreateDate.split("T")[1])
+					$(".order-name-span").text(datas.UserName);
+					$(".order-phone-span").text(datas.UserPhone);
+					$(".order-get-goods-place-span").text(datas.UserAddress);
+					$(".order-all-num-span").text(datas.Ordergoods.length);
+					$(".order-all-price-span").text(datas.TotalAmt);
+					function orderDetailsRender(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+								var html = "<li class=\"confirm-order-three-li select-area3-three-li my-order-li-bc\">";
+									html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
+									html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.img+"\" class=\"pic-cell-border-img select-area3-img\"/>";
+									html += "	</div>";
+									html += "	<div class=\"goods-right-cell\">";
+									html += "		<p class=\"goods-right-cell-p\">"+obj.AnotherName+"</p>";
+									html += "		<p class=\"goods-right-cell-p\">";
+									html += "				<span class=\"shopping-car-cell-price\">￥"+obj.ActualSalePrice+"</span>";
+									html += "				<span class=\"shopping-car-change-price\"><i class=\"\">x"+obj.Num+"</i></p>";
+									html += "			</p>";
+									html += "	</div>";
+									html += "</li>";
+							$(".order-details-ul").append(html);
+				    };//addProduct
+					for (var i = 0; i < datas.Ordergoods.length; i++) {
+						orderDetailsRender(datas.Ordergoods[i]);
+					}
+				}//success
+			});//ajax
+  		}
+		function orderDetailPendingPayment () {
+				$(".order-to-pay-a").show();
+	  			$.ajax({//获取json数据必写哦！！！
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=121&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&OrderStatus=0",
+				dataType:"json",
+//				headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+				success:function(data){//consol一下是很重要的！！！！！！
+					console.log(data.result.data[lbyxWarehouseNumber]);
+					var datas = data.result.data[lbyxWarehouseNumber];
+					$(".order-number-span").text(datas.OrderCode);
+					console.log(datas.CreateDate)
+					$(".order-time-span").text(datas.CreateDate.split("T")[0]+"  "+datas.CreateDate.split("T")[1])
+					$(".order-delivery-mode-span").text(datas);
+					$(".order-name-span").text(datas.UserName);
+					$(".order-phone-span").text(datas.UserPhone);
+					$(".order-get-goods-place-span").text(datas.UserAddress);
+					$(".order-all-num-span").text(datas.list1[0].Ordergoods.length);
+					$(".order-all-price-span").text(datas.list1[0].TotalAmt);
+					function orderDetailsRender(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+								var html = "<li class=\"confirm-order-three-li select-area3-three-li my-order-li-bc\">";
+									html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
+									html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.img+"\" class=\"pic-cell-border-img select-area3-img\"/>";
+									html += "	</div>";
+									html += "	<div class=\"goods-right-cell\">";
+									html += "		<p class=\"goods-right-cell-p\">"+obj.AnotherName+"</p>";
+									html += "		<p class=\"goods-right-cell-p\">";
+									html += "				<span class=\"shopping-car-cell-price\">￥"+obj.ActualSalePrice+"</span>";
+									html += "				<span class=\"shopping-car-change-price\"><i class=\"\">x"+obj.Num+"</i></p>";
+									html += "			</p>";
+									html += "	</div>";
+									html += "</li>";
+							$(".order-details-ul").append(html);
+				    };//addProduct
+					for (var i = 0; i < datas.list1[0].Ordergoods.length; i++) {
+						orderDetailsRender(datas.list1[0].Ordergoods[i]);
+					}
+				}//success
+			});//ajax
+  		}
+		function orderDetailGoodsReceipt () {
+			$(".confirm-get-goods").show();
+	  			$.ajax({//获取json数据必写哦！！！
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCart.aspx?action=Orderlist_set&operation=2&Token="+lbyxCode+"&UserID="+userId+"&dataindex=1&datasize=10&OrderStatus=2",
+				dataType:"json",
+//				headers: {
+////					  'User-Agent': "LBYX 1.0",
+//					  'version':"html1.0",
+//					  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//					  'HTTP_LBYX_TIME':getNowFormatDate(),
+//				   },
+				success:function(data){//consol一下是很重要的！！！！！！
+					console.log(data.result.data[lbyxWarehouseNumber]);
+					var datas = data.result.data[lbyxWarehouseNumber];
+					$(".order-number-span").text(datas.OrderCode);
+					console.log(datas.CreateDate)
+					$(".order-time-span").text(datas.CreateDate.split("T")[0]+"  "+datas.CreateDate.split("T")[1])
+					$(".order-delivery-mode-span").text(datas);
+					$(".order-name-span").text(datas.UserName);
+					$(".order-phone-span").text(datas.UserPhone);
+					$(".order-get-goods-place-span").text(datas.UserAddress);
+					$(".order-all-num-span").text(datas.Ordergoods.length);
+					$(".order-all-price-span").text(datas.TotalAmt);
+					function orderDetailsRender(obj) { //通过不断地加载，但是点击之后ul又会清空来实现分页的效果
+								var html = "<li class=\"confirm-order-three-li select-area3-three-li my-order-li-bc\">";
+									html += "	<div class=\"pic-cell-border select-area3-pic-cell-border\">";
+									html += "		<img src=\"http://api.x5u.com.cn:12804"+obj.img+"\" class=\"pic-cell-border-img select-area3-img\"/>";
+									html += "	</div>";
+									html += "	<div class=\"goods-right-cell\">";
+									html += "		<p class=\"goods-right-cell-p\">"+obj.AnotherName+"</p>";
+									html += "		<p class=\"goods-right-cell-p\">";
+									html += "				<span class=\"shopping-car-cell-price\">￥"+obj.ActualSalePrice+"</span>";
+									html += "				<span class=\"shopping-car-change-price\"><i class=\"\">x"+obj.Num+"</i></p>";
+									html += "			</p>";
+									html += "	</div>";
+									html += "</li>";
+							$(".order-details-ul").append(html);
+				    };//addProduct
+					for (var i = 0; i < datas.Ordergoods.length; i++) {
+						orderDetailsRender(datas.Ordergoods[i]);
+					}
+				}//success
+			});//ajax
+  		}
+		});
+
+</script>

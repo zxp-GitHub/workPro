@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/><!--使用iconfont要引入css-->
+ 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.md5.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="js/main.js" type="text/javascript" charset="utf-8"></script>-->
+		<!--<script src="js/link.js" type="text/javascript" charset="utf-8"></script>-->
+		<title></title>
+	</head>
+	<body>
+<div class="container">
+			<div class="box">
+				<div class="top ">
+					<ul class="first-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li"><span class="first-top-li-span banner-page-pic-span">限时抢购</span></li>
+					</ul>			
+				</div><!--top-->
+				<div class="flash-sale-main">
+					<ul class="flash-sale-time-ul">
+						<!--<li class="flash-sale-time-li">
+							<p class="flash-sale-time-p1"></p>
+							<p class="flash-sale-time-p2"></p>
+						</li>-->
+					</ul>
+					<div class="flash-sale-count-down">
+						<span class="flash-sale-count-down-span1">限时限量抢，疯狂抢购</span>
+						<span class="flash-sale-count-down-cell">
+							<span class="flash-sale-count-down-span2">距结束</span>
+							<span class="flash-sale-count-down-span3">00时00分00秒</span>
+						</span>
+					</div>
+					<ul class="flash-sale-goods-ul">
+						<!--<li class="flash-sale-goods-li">
+							<div class="flash-sale-goods-li-pic-cell">
+								<p class="flash-sale-li-number-restriction">
+									限购<span>1</span>件
+								</p>
+								<img src="img/all-goods-right-pic.png" class="flash-sale-goods-li-pic">
+							</div>
+							<div class="flash-sale-goods-li-right">
+								<p class="flash-sale-goods-li-p">sajkasfnkasn</p>
+								<p class="flash-sale-goods-li-p">￥8</p>
+								<p class="flash-sale-goods-li-p flash-sale-goods-li-p3">库存：5 <i class="iconfont icon-gouwuche3 flash-sale-car-icon"></i></p>
+							</div>
+						</li>-->
+					</ul>
+					<p class="fixd-to-cart-icon">
+						<i class="iconfont icon-gouwuche3"></i>
+						<span class="fixd-to-cart-num"></span>
+					</p>
+				</div><!--main-->
+			</div><!--box-->
+		</div><!--containter-->
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function () {
+		var universityId = localStorage.getItem("universityId");
+		var lbyxCode = localStorage.getItem("lbyxCode");
+		var userId = localStorage.getItem("userId");
+		console.log(universityId);
+		//购物车数量显示
+		//点击该页面购物车灰色图标，跳转到购物车页面
+		$(".fixd-to-cart-icon").tap(function () {
+			if(lbyxCode==""||lbyxCode==null||userId==null||userId==""){
+				window.location.href = "login.html";
+			}else{
+				localStorage.setItem("indexPage",1);
+				window.location.href = "index.html";
+			}
+		})
+		cartAllNum();
+		//显示购物车的商品的总数量
+		function cartAllNum(){
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=Totalnumber_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+				dataType:"json",
+//				headers: {
+////				  'User-Agent': "LBYX 1.0",
+//				  'version':"html1.0",
+//				  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//				  'HTTP_LBYX_TIME':getNowFormatDate(),
+//			   },
+				success:function(data){
+					console.log(data.Result);
+					$(".fixd-to-cart-num").html(data.Result);
+				}
+			});
+		}
+		function secondDaoRenser(specID){
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/HomePage/SpecialSale.aspx?DataIndex=1&DataSize=10&SpecID="+specID+"&action=SpecialSale0_get",
+				dataType:"json",
+//				headers: {
+////				  'User-Agent': "LBYX 1.0",
+//				  'version':"html1.0",
+//				  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//				  'HTTP_LBYX_TIME':getNowFormatDate(),
+//			   },
+				success:function(data){
+//					console.log(data);
+					var XSQGtimespan = data.Result.XSQGtimespan;
+//					console.log(XSQGtimespan);
+					$(".flash-sale-count-down-span3").html(XSQGtimespan);
+				}
+			});
+		}
+		//时间列表
+		$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/CRM/SpecialSaleGoods.aspx?SpecialType=0&action=SpecialSale_listget&operation=5&universityid="+universityId+"",
+				dataType:"json",
+//				headers: {
+////				  'User-Agent': "LBYX 1.0",
+//				  'version':"html1.0",
+//				  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//				  'HTTP_LBYX_TIME':getNowFormatDate(),
+//			   },
+				success:function(data){
+					console.log(data);
+					//时间
+					function flashSaleTimeRender (objs) {
+						var html ="<li class=\"flash-sale-time-li\" flashSaleSGID=\""+objs.SGID+"\" flashSaleSpecID=\""+objs.SpecID+"\" flashSaleSpecialStatus=\""+objs.SpecialStatus+"\">";
+							html += "<p class=\"flash-sale-time-p1\">"+objs.StartTime.split("T")[1].split(":")[0]+":"+objs.StartTime.split("T")[1].split(":")[1]+"</p>";
+							html += "<p class=\"flash-sale-time-p2\">"+objs.SpecialStatus+"</p>";
+							html += "</li>";
+							html += "</li>";
+						$(".flash-sale-time-ul").append(html);
+					}
+					for (var i = 0; i < data.result.data.length; i++) {
+						flashSaleTimeRender(data.result.data[i]);
+					}
+					$(".flash-sale-time-li").each(function () {
+						if ($(this).find(".flash-sale-time-p2").html()=="抢购中") {
+							$(this).addClass('bc-gray').siblings().removeClass('bc-gray');
+							var flashSaleSpecID = $(this).attr("flashSaleSpecID");
+							var flashSaleSpecialStatus = $(this).attr("flashSaleSpecialStatus");
+							if (flashSaleSpecialStatus=="已结束") {
+//							alert("活动已结束");
+							$(".flash-sale-goods-ul").html("");
+							}else{
+								goodsListRenser (flashSaleSpecID);
+								//距结束的倒计时
+								$(document).ready(function () { 
+								setInterval(function() {
+									secondDaoRenser(flashSaleSpecID);
+								},1000); 
+								}); 
+							}
+						}
+					});
+//					goodsListRenser (11798);
+					//点击时间列表，颜色改变
+					$(".flash-sale-time-li").tap(function () {
+						$(this).addClass('bc-gray').siblings().removeClass('bc-gray');
+						var flashSaleSpecID = $(this).attr("flashSaleSpecID");
+						var flashSaleSpecialStatus = $(this).attr("flashSaleSpecialStatus");
+						
+						if (flashSaleSpecialStatus=="已结束") {
+							alert("活动已结束");
+							$(".flash-sale-goods-ul").html("");
+						}else{
+							$(".flash-sale-goods-ul").html("");
+							goodsListRenser (flashSaleSpecID);
+						}
+					});
+				}
+		});
+		$.ajax({
+			type:"get",
+			url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_get&token="+lbyxCode+"&UniversityId="+universityId+"",
+			dataType:"json",
+//			headers: {
+////				  'User-Agent': "LBYX 1.0",
+//				  'version':"html1.0",
+//				  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//				  'HTTP_LBYX_TIME':getNowFormatDate(),
+//			   },
+			success:function(data){
+				console.log(data);
+			}
+		});
+		//商品列表	
+		function goodsListRenser (specID) {
+			$.ajax({
+				type:"get",
+				url:"http://api.x5u.com.cn:12804/HomePage/SpecialSale.aspx?DataIndex=1&DataSize=100&SpecID="+specID+"&action=SpecialSale0_get",
+				dataType:"json",
+//				headers: {
+////				  'User-Agent': "LBYX 1.0",
+//				  'version':"html1.0",
+//				  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//				  'HTTP_LBYX_TIME':getNowFormatDate(),
+//			   },
+				success:function(data){
+					console.log(data);
+//					if (data.Result=="该活动已过期！") {
+//						alert("该活动已过期！");
+//					}
+					function flashSaleGoodsRender (obj) {
+						var html ="<li class=\"flash-sale-goods-li\" flashSaleLimitNum =\""+obj.LimitNum+"\" flashSaleSpecID=\""+obj.SpecID+"\" flashSaleGoodsID =\""+obj.GoodsID+"\"  flashRepertoryID =\""+obj.RepertoryID+"\">";
+							html += "<div class=\"flash-sale-goods-li-pic-cell\">";
+							html += "	<p class=\"flash-sale-li-number-restriction\">";
+							html += "	限购<span>"+obj.LimitNum+"</span>件";
+							html += "	</p>";
+							html += "	<img src=\"http://api.x5u.com.cn:12804"+obj.Img1+"\" class=\"flash-sale-goods-li-pic\">";
+							html += "</div>";
+							html += "<div class=\"flash-sale-goods-li-right\">";
+							html += "	<p class=\"flash-sale-goods-li-p\">"+obj.GoodsName+"</p>";
+							html += "	<p class=\"flash-sale-goods-li-p\">￥"+obj.ActualSaleUnitPrice+"</p>";
+							html += "	<p class=\"flash-sale-goods-li-p flash-sale-goods-li-p3\">库存："+obj.Num+" <i class=\"iconfont icon-gouwuche3 flash-sale-car-icon\" flashSaleSGID =\""+obj.SGID+"\"  ></i></p>";
+							html += "</div>";
+							html += "</li>";
+						$(".flash-sale-goods-ul").append(html);
+					}//flashSaleGoodsRender
+					for (var i = 0; i < data.Result.GoodsList.length; i++) {
+						flashSaleGoodsRender(data.Result.GoodsList[i]);
+					}
+					//点击商品li，跳转到详情页面
+					$(".flash-sale-goods-li").tap(function () {
+						localStorage.setItem("goodsId",$(this).attr("flashSaleGoodsID"));
+						localStorage.setItem("flashSaleSpecID",$(this).attr("flashSaleSpecID"));
+						localStorage.setItem("repertoryId",$(this).attr("flashRepertoryID"));
+//						var flashSaleSGID = $(this).attr("flashSaleSGID");
+//						console.log(flashSaleSGID);
+						window.location.href = "product-detail-sale.html";
+					});
+					//点击商品，加入购物车
+					$(".flash-sale-car-icon").tap(function () {
+//					window.location.href = "product-detail-sale.html";
+					});
+					//点击首页购物车图标加入购物车
+//					$(".flash-sale-goods-li").each(function () {
+							$(".flash-sale-car-icon").tap(function () {
+								event.stopPropagation();//子元素点击，父元素点击事件不会触发
+//								event.preventDefault();
+								if(lbyxCode==""||lbyxCode==null||userId==null||userId==""){
+									window.location.href = "login.html"
+								}else{
+									var repertoryId = $(this).parents(".flash-sale-goods-li").attr("flashRepertoryID");
+									var flashSaleSGID = $(this).attr("flashSaleSGID");
+//									console.log(flashSaleSGID);
+		//							console.log(repertoryId);
+									$.ajax({
+										type:"get",
+										url:"http://api.x5u.com.cn:12804/ShoppingCart/ShoppingCartNew.aspx?action=ShoppingCart_add&token="+lbyxCode+"&RepertoryId="+repertoryId+"&Num=1&UniversityId="+universityId+"&Checked=true&SGID="+flashSaleSGID+"",
+										dataType:"json",
+//										headers: {
+////										  'User-Agent': "LBYX 1.0",
+//										  'version':"html1.0",
+//										  'HTTP_LBYX_SID':"ocP2XkIj3sb6MKF4D6Lpcs9QLqRMK8dbo29vvtIFVjGpYygQ3U"+$.md5(getNowFormatDate()),
+//										  'HTTP_LBYX_TIME':getNowFormatDate(),
+//									   },
+										success:function(data){
+											console.log(data);
+											if(data.ResultCode=="23"){
+												alert(data.ErrMsg);
+											}else{
+												cartAllNum();
+												alert("加入购物车成功！");
+											}
+											//商品图片的渲染
+//											alert("加入购物车成功！");
+										}//success
+									});//ajax
+								}
+								
+							});
+//					});//each
+				}//success
+			});//ajax
+		}//goodsListRenser
+		//点击返回，跳转页面
+		$(".top-back-li").tap(function () {
+			window.history.back();
+		});
+	
+	});
+</script>

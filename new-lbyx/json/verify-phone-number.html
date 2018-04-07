@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script><!--要同时引入zepto,touch这两个插件tap时间才可用-->
+ 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script><!--注：移动端点击事件，jQuery不再适用-->
+ 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fx.js" type="text/javascript" charset="utf-8"></script>
+ 		<script src="js/zepto.fn.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/link.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="top add-info-top forget-pass-top">
+					<!--<p class="add-info-top-p">地址信息</p>-->
+					<ul class="first-top-ul forget-pass-top-ul">
+						<li class="first-top-li top-back-li"><i class="iconfont icon-xiaoyuhao"></i></li>
+						<li class="first-top-li forget-pass-top-li"><span class="first-top-li-span">验证手机号码</span></li>
+					</ul>	
+				</div>
+				<div class="add-info-main forget-pass-main">
+					<div class="verify-phone-num-first">
+						<img src="img/weixin.png" class="weixin-laibao-pic"/>
+						<div class="verify-phone-num-first-cell">
+							<ul class="verify-first-ul">
+								<li class="verify-first-li">手机号：</li>
+								<li class="verify-first-li verify-first-li2">
+									<input type="text" class="verify-first-li-input" value="" placeholder="请输入手机号"/>
+									<p class="verify-underline-p"></p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<p class="verify-phone-next-step">下一步</p>
+					<p class="phone-more-secure-p">验证手机号码，账户更安全！</p>
+				</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	Zepto(function() {
+		$(".verify-phone-next-step").tap(function () {
+			var lbyxForgetPhone = localStorage.getItem("lbyxForgetPhone");
+			var verifyPhone = $(".verify-first-li-input").val();
+			if(verifyPhone==""){
+				alert("亲，内容不可为空！");
+			}else{
+					$.ajax({
+						url: "http://api.x5u.com.cn:12804/Login/Login.aspx?action=CheckMobile&mobile="+verifyPhone+"&",
+						type:"get",
+						success:function(data){
+//							alert("ok！");
+							localStorage.setItem("lbyxverifyPhone",verifyPhone);
+							console.log(data);
+							console.log(data.Result.msg);	
+							localStorage.setItem("lbyxGoToBind",data.Result.msg);
+							window.location.href = "bind-phone-number.html";
+						}
+						});//ajax	
+				}
+			});
+		});
+</script>
+
+
+
+
+
+
+
+
+
+
+
