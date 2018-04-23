@@ -1,0 +1,29 @@
+1.<mt-header fixed  title="罗庄金海汇"><mt-tabbar v-model="selected" fixed>?，
+
+加上fixed,保持在顶部和底部
+2.mint-ui swipe不显示内容 求解Vue?你要在style里面设定swipe容器的宽高
+3.css - flex布局如何每行固定数量显示?未解决，用li float：left;解决的；
+4.快捷键-vue的页面，选好文本方式就行了，右下角。
+5.iconfont的引入index.js里
+若是放在node_module里import 'iconfont/iconfont.css'
+若是放在src里import '../iconfont/iconfont.css'或import 'iconfont/iconfont.css'
+6.隐藏滚动条？no
+7.tabbar一定在data的return里加上selected: 'tab1',？默认选中的是第一个页面，否则会报错
+8.vue框架比较？
+muse-ui:通过tab切换，自动更改背景颜色，与电商不太契合，好像制作类似qq的软件比较好
+iview:评分，偏向pc端，比较全。
+mint-ui:简单快速，契合。
+layui:小
+vue-carbon:小
+9.两端高度固定，不知道，中间高度自适应?mint-ui框架
+《解决》上下遮挡中间可滑动元素，上方搜索不固定问题
+
+ 确定上下高度
+ 中间设置margin/padding-top/bottom，这样就上下不遮挡了 
+
+怎么确定上下高度？
+(1)直接选中该元素，谷歌浏览器上会显示，换iPhone7，iPhone6，换一下若相同，则高度是固定的，(框架高度可能是用js写的) 
+(2)找里面的元素，高度-padding-margin相加，(大概就行，测试一下)，mint-ui里的单位是px。
+mint-ui的搜索会向上滑动？position：fixed；width：100%；
+
+
